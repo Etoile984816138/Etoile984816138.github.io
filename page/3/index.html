@@ -82,7 +82,7 @@
 		<nav class="header-nav">
 			<div class="social">
 				
-					<a class="github" target="_blank" href="#" title="github"><i class="icon-github"></i></a>
+					<a class="github" target="_blank" href="https://github.com/Etoile984816138" title="github"><i class="icon-github"></i></a>
 		        
 					<a class="weibo" target="_blank" href="#" title="weibo"><i class="icon-weibo"></i></a>
 		        
@@ -131,7 +131,7 @@
 			<nav class="header-nav">
 				<div class="social">
 					
-						<a class="github" target="_blank" href="#" title="github"><i class="icon-github"></i></a>
+						<a class="github" target="_blank" href="https://github.com/Etoile984816138" title="github"><i class="icon-github"></i></a>
 			        
 						<a class="weibo" target="_blank" href="#" title="weibo"><i class="icon-weibo"></i></a>
 			        
@@ -170,6 +170,128 @@
           </div>
           <div id="js-content" class="content-ll">
             
+  
+    <article id="post-《JavaScript高级程序设计》零碎笔记" class="article article-type-post  article-index" itemscope itemprop="blogPost">
+  <div class="article-inner">
+    
+      <header class="article-header">
+        
+  
+    <h1 itemprop="name">
+      <a class="article-title" href="/2016/04/26/《JavaScript高级程序设计》零碎笔记/">《JavaScript高级程序设计》零碎笔记</a>
+    </h1>
+  
+
+        
+        <a href="/2016/04/26/《JavaScript高级程序设计》零碎笔记/" class="archive-article-date">
+  	<time datetime="2016-04-26T14:19:42.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2016-04-26</time>
+</a>
+        
+      </header>
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <h3 id="for…in"><a href="#for…in" class="headerlink" title="for…in"></a>for…in</h3><p>看见过但没怎么注意过的一个东西，查了一下，最后得出的结论是这个…能不用就别用，坑有点多……语法大致就是字面意思，在某个数组或对象里面遍历，有两个很明显的坑，一是不按顺序，而是效率低。</p>
+<h3 id="label"><a href="#label" class="headerlink" title="label"></a>label</h3><p>这个也不常用，书上的解释是给一段语句加标签。我理解大概是可以精准定位，比如一段双循环代码，在最外面给这段代码加个标签 xxx: ,如果在最内层break，只是跳出当层的循环，外层的循环依然继续，但是如果break xxx,直接可以跳到最外层。它一般与break、continue联合使用，但是最好不要嵌套过多的循环。</p>
+<h3 id="传递参数"><a href="#传递参数" class="headerlink" title="传递参数"></a>传递参数</h3><figure class="highlight javascript"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div></pre></td><td class="code"><pre><div class="line"><span class="function"><span class="keyword">function</span> <span class="title">setName</span>(<span class="params">obj</span>)</span>&#123;</div><div class="line">    obj.name = <span class="string">"LLY"</span>;</div><div class="line">&#125;</div><div class="line"><span class="keyword">var</span> person = <span class="keyword">new</span> <span class="built_in">Object</span>();<span class="comment">//这个似乎用的不多，此处仅为说明</span></div><div class="line">setName(person);</div><div class="line">alert(person.name);<span class="comment">//LLY</span></div></pre></td></tr></table></figure>
+<p>先创建一个空对象，保存在变量person中，然后把它传入setName()，这样person就相当于setName中的obj，他们引用的是一个对象，但是这不代表这个对象是按引用传递的，它依然是按值传递。比如说下面这一段</p>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div></pre></td><td class="code"><pre><div class="line"><span class="function"><span class="keyword">function</span> <span class="title">setName</span>(<span class="params">obj</span>)</span>&#123;</div><div class="line">    obj.name = <span class="string">"LLY"</span>;</div><div class="line">    obj = <span class="keyword">new</span> <span class="built_in">Object</span>();</div><div class="line">    obj.name = <span class="string">"YL"</span>;</div><div class="line">&#125;</div><div class="line"><span class="keyword">var</span> person = <span class="keyword">new</span> <span class="built_in">Object</span>();</div><div class="line">setName(person);</div><div class="line">alert(person.name);<span class="comment">//LLY</span></div></pre></td></tr></table></figure>
+<p>这时候打印出来person.name的值依然是LLY，如果是按引用传递的话，局部作用域改变，全局应与其一致。其实……我觉得这种东西暂时没必要搞那么清楚，反正一调试什么都看得见。而且我觉得，当在函数内部重写obj的时候，这个变量的引用就是一个局部的对象了，用完就销毁了。</p>
+<h3 id="检测数据类型"><a href="#检测数据类型" class="headerlink" title="检测数据类型"></a>检测数据类型</h3><p>这个比较简单，但调试会很有用，先留着。</p>
+<h4 id="基本数据类型"><a href="#基本数据类型" class="headerlink" title="基本数据类型"></a>基本数据类型</h4><figure class="highlight javascript"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div></pre></td><td class="code"><pre><div class="line"><span class="keyword">var</span> a = <span class="string">"LLY"</span>;</div><div class="line"><span class="keyword">var</span> b =<span class="literal">true</span>;</div><div class="line"><span class="keyword">var</span> c;</div><div class="line"><span class="keyword">var</span> d = <span class="literal">null</span>;</div><div class="line"><span class="keyword">var</span> e = <span class="keyword">new</span> object();</div><div class="line"></div><div class="line">alert(<span class="keyword">typeof</span> a);<span class="comment">//string</span></div><div class="line">alert(<span class="keyword">typeof</span> b);<span class="comment">//boolean</span></div><div class="line">alert(<span class="keyword">typeof</span> c);<span class="comment">//undefined</span></div><div class="line">alert(<span class="keyword">typeof</span> d);<span class="comment">//object</span></div><div class="line">alert(<span class="keyword">typeof</span> e);<span class="comment">//object</span></div></pre></td></tr></table></figure>
+<h4 id="检测引用类型"><a href="#检测引用类型" class="headerlink" title="检测引用类型"></a>检测引用类型</h4><figure class="highlight javascript"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div></pre></td><td class="code"><pre><div class="line">alert(person <span class="keyword">instanceof</span> <span class="built_in">Object</span>);<span class="comment">//变量person是Object吗？</span></div><div class="line">alert(colors <span class="keyword">instanceof</span> <span class="built_in">Array</span>);<span class="comment">//变量colors是Array吗？</span></div></pre></td></tr></table></figure>
+<p>因为所有引用类型都是Object的实例，所以检测一个引用类型是不是Object的时候会始终返回true。</p>
+<h3 id="作用域"><a href="#作用域" class="headerlink" title="作用域"></a>作用域</h3><p>JavaScript是没有块级作用域的。就是说在if里var一个变量，这个变量会添加到当前的执行环境中，这是和Java还有C的不同之处。</p>
+<h3 id="创建对象"><a href="#创建对象" class="headerlink" title="创建对象"></a>创建对象</h3><p>三种方法</p>
+<h4 id="No-1"><a href="#No-1" class="headerlink" title="No.1"></a>No.1</h4><figure class="highlight javascript"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div></pre></td><td class="code"><pre><div class="line"><span class="keyword">var</span> person = <span class="keyword">new</span> <span class="built_in">Object</span>();</div><div class="line">person.name = ...</div><div class="line">person.age = ...</div></pre></td></tr></table></figure>
+<h4 id="No-2"><a href="#No-2" class="headerlink" title="No.2"></a>No.2</h4><figure class="highlight javascript"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line"><span class="keyword">var</span> person =&#123; &#125;;</div></pre></td></tr></table></figure>
+<p>…</p>
+<h4 id="No-3"><a href="#No-3" class="headerlink" title="No.3"></a>No.3</h4><figure class="highlight javascript"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div></pre></td><td class="code"><pre><div class="line"><span class="keyword">var</span> person =&#123;</div><div class="line">    name : ...;</div><div class="line">    age : ...</div><div class="line">&#125;</div></pre></td></tr></table></figure>
+<p>第二种其实就是把第三种里面的内容去掉，再重新定义属性。我感觉第三种字面量语法用得比较多吧，看起来逼格高一点,而且代码量比较少，不过最后一个属性最好不要加分号。</p>
+<h3 id="访问对象"><a href="#访问对象" class="headerlink" title="访问对象"></a>访问对象</h3><ul>
+<li>person.name</li>
+<li>person[“name”]</li>
+</ul>
+<p>第一种应该比较常见，第二种有个好处是可以通过变量访问，比如a=”name”，可以直接person[a];还有一个好处如果属性名为关键字保留字空格什么非法字符什么的，这时候不能用.,只能用方括号了，不过我想不通干嘛非要那么作用这些字符做属性名==</p>
+<h3 id="数组"><a href="#数组" class="headerlink" title="数组"></a>数组</h3><p>数组好像没什么好说的，唯一感慨的是在一个数组的末尾添加新项就一行代码取到.length就可以啊啊！不像C还要分配内存空间==（吐槽一下，数据结构折腾疯）。</p>
+<p>还有一个检测数组，除了之前的方法，也可以用Array.isArray()搞定。</p>
+<p>说到数据结构，真的来了。</p>
+<p>当然，学完C这种折腾人的东西，js这个明显太简单了。</p>
+<p>其实也就是对数组的一个操作方法，栈后进先出，队列先进先出也没什么好说的，列下语法好了。</p>
+<h4 id="栈"><a href="#栈" class="headerlink" title="栈"></a>栈</h4><p>var color = new Array();<br>var count = color.push(“red”,”green”);<br>var count = color.push(“black”);<br>item = color.pop();</p>
+<p>此时item获取的是后进的”black”，同时最后一项已经出栈，所以现在数组里仅剩两项。</p>
+<p>队列与之类似，但取数据是shift()，就是说先push进数据，但是shift()取数据时取的是最先进去的。</p>
+<p>另外还有一个反队列 unshift()和pop()，unshift在前端插入数据，pop()从末项移除。</p>
+<h4 id="重排序方法"><a href="#重排序方法" class="headerlink" title="重排序方法"></a>重排序方法</h4><p>reverse() //反转数组项顺序<br>sort() //测试字符串的结果升序排列</p>
+<p>sort()排序排的不是数值，而是字符串，所以一般是给它传入一个比较函数再进行排序</p>
+<p>其它操作方法……增删改查复制替换，还是挺全的，用的时候可以看看，不枚举了。</p>
+
+      
+
+      
+    </div>
+    <div class="article-info article-info-index">
+      
+      
+	<div class="article-tag tagcloud">
+		<i class="icon-price-tags icon"></i>
+		<ul class="article-tag-list">
+			 
+        		<li class="article-tag-list-item">
+        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color3">前端</a>
+        		</li>
+      		 
+        		<li class="article-tag-list-item">
+        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color3">js</a>
+        		</li>
+      		
+		</ul>
+	</div>
+
+      
+	<div class="article-category tagcloud">
+		<i class="icon-book icon"></i>
+		<ul class="article-tag-list">
+			 
+        		<li class="article-tag-list-item">
+        			<a href="/categories/学习笔记/" class="article-tag-list-link color5">学习笔记</a>
+        		</li>
+      		
+		</ul>
+	</div>
+
+
+      
+        <p class="article-more-link">
+          <a class="article-more-a" href="/2016/04/26/《JavaScript高级程序设计》零碎笔记/">展开全文 >></a>
+        </p>
+      
+
+      
+      <div class="clearfix"></div>
+    </div>
+  </div>
+</article>
+
+<aside class="wrap-side-operation">
+    <div class="mod-side-operation">
+        
+        <div class="jump-container" id="js-jump-container" style="display:none;">
+            <a href="javascript:void(0)" class="mod-side-operation__jump-to-top">
+                <i class="icon-font icon-back"></i>
+            </a>
+            <div id="js-jump-plan-container" class="jump-plan-container" style="top: -11px;">
+                <i class="icon-font icon-plane jump-plane"></i>
+            </div>
+        </div>
+        
+        
+    </div>
+</aside>
+
+
+
+
   
     <article id="post-wechat-h5-boilerplate-Windows下配置" class="article article-type-post  article-index" itemscope itemprop="blogPost">
   <div class="article-inner">
@@ -1343,6 +1465,14 @@ return o(i(t),arguments.length<2?void 0:u(arguments[1]))}})},function(t,n,r){var
              
               <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color2">jQuery</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color3">3D</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color5">Laya</a>
               </li>
              
               <li class="article-tag-list-item">

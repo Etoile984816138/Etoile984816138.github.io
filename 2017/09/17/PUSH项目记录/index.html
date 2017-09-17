@@ -6,19 +6,19 @@
   <meta name="renderer" content="webkit">
   <meta http-equiv="X-UA-Compatible" content="IE=edge" >
   <link rel="dns-prefetch" href="http://yoursite.com">
-  <title>函数柯里化 | 林落雨落林</title>
+  <title>PUSH项目记录 | 林落雨落林</title>
   <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
-  <meta name="description" content="什么是函数柯里化对任意一个函数进行处理，得到一个新函数，使它可以处理部分参数。其实这个概念比较难理解。但是开发中会有这样一个场景出现，你在调用同样的函数，并且传入的参数大部分都相同。这时候可以通过传入一部分的参数动态地创建一个新的函数，这个新的函数会存储那些重复的参数（所以你不需要再每次传入），然后再调用原始函数的时候把整个参数列表补全。 通用柯里化函数12345678910function sc">
-<meta name="keywords" content="前端,js">
+  <meta name="description" content="反正每天都写日报，每周日把心得部分整理一下 Day 1 2017.09.061.对页面对象的理解。昨天做的时候不大理解怎么把一个页面对象加到另一个里面去，写成构造函数，在入口文件实例化的时候不报错但是页面元素始终没有加载进去。今天写demo的过程中，发现需要把一个页面对象放到一个页面对象容器里面，然后把这个容器加载到其它容器中。 2.对对象池的理解。主要在页面优化方面，游戏中不断有元素被创建和被销">
+<meta name="keywords" content="js,3D,Laya">
 <meta property="og:type" content="article">
-<meta property="og:title" content="函数柯里化">
-<meta property="og:url" content="http://yoursite.com/2017/04/04/函数柯里化/index.html">
+<meta property="og:title" content="PUSH项目记录">
+<meta property="og:url" content="http://yoursite.com/2017/09/17/PUSH项目记录/index.html">
 <meta property="og:site_name" content="林落雨落林">
-<meta property="og:description" content="什么是函数柯里化对任意一个函数进行处理，得到一个新函数，使它可以处理部分参数。其实这个概念比较难理解。但是开发中会有这样一个场景出现，你在调用同样的函数，并且传入的参数大部分都相同。这时候可以通过传入一部分的参数动态地创建一个新的函数，这个新的函数会存储那些重复的参数（所以你不需要再每次传入），然后再调用原始函数的时候把整个参数列表补全。 通用柯里化函数12345678910function sc">
-<meta property="og:updated_time" content="2017-09-02T15:29:19.000Z">
+<meta property="og:description" content="反正每天都写日报，每周日把心得部分整理一下 Day 1 2017.09.061.对页面对象的理解。昨天做的时候不大理解怎么把一个页面对象加到另一个里面去，写成构造函数，在入口文件实例化的时候不报错但是页面元素始终没有加载进去。今天写demo的过程中，发现需要把一个页面对象放到一个页面对象容器里面，然后把这个容器加载到其它容器中。 2.对对象池的理解。主要在页面优化方面，游戏中不断有元素被创建和被销">
+<meta property="og:updated_time" content="2017-09-17T09:58:21.000Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="函数柯里化">
-<meta name="twitter:description" content="什么是函数柯里化对任意一个函数进行处理，得到一个新函数，使它可以处理部分参数。其实这个概念比较难理解。但是开发中会有这样一个场景出现，你在调用同样的函数，并且传入的参数大部分都相同。这时候可以通过传入一部分的参数动态地创建一个新的函数，这个新的函数会存储那些重复的参数（所以你不需要再每次传入），然后再调用原始函数的时候把整个参数列表补全。 通用柯里化函数12345678910function sc">
+<meta name="twitter:title" content="PUSH项目记录">
+<meta name="twitter:description" content="反正每天都写日报，每周日把心得部分整理一下 Day 1 2017.09.061.对页面对象的理解。昨天做的时候不大理解怎么把一个页面对象加到另一个里面去，写成构造函数，在入口文件实例化的时候不报错但是页面元素始终没有加载进去。今天写demo的过程中，发现需要把一个页面对象放到一个页面对象容器里面，然后把这个容器加载到其它容器中。 2.对对象池的理解。主要在页面优化方面，游戏中不断有元素被创建和被销">
   
   
     <link rel="icon" href="http://ovne6ee1z.bkt.clouddn.com/avatar.jpg">
@@ -174,36 +174,96 @@
             <canvas data-colors="#eaeaea" data-sectionHeight="100" data-contentId="js-content" id="myCanvas1" class="anm-canvas"></canvas>
           </div>
           <div id="js-content" class="content-ll">
-            <article id="post-函数柯里化" class="article article-type-post " itemscope itemprop="blogPost">
+            <article id="post-PUSH项目记录" class="article article-type-post " itemscope itemprop="blogPost">
   <div class="article-inner">
     
       <header class="article-header">
         
   
     <h1 class="article-title" itemprop="name">
-      函数柯里化
+      PUSH项目记录
     </h1>
   
 
         
-        <a href="/2017/04/04/函数柯里化/" class="archive-article-date">
-  	<time datetime="2017-04-04T15:26:52.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2017-04-04</time>
+        <a href="/2017/09/17/PUSH项目记录/" class="archive-article-date">
+  	<time datetime="2017-09-17T09:44:25.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2017-09-17</time>
 </a>
         
       </header>
     
     <div class="article-entry" itemprop="articleBody">
       
-        <h3 id="什么是函数柯里化"><a href="#什么是函数柯里化" class="headerlink" title="什么是函数柯里化"></a>什么是函数柯里化</h3><p>对任意一个函数进行处理，得到一个新函数，使它可以处理部分参数。其实这个概念比较难理解。但是开发中会有这样一个场景出现，你在调用同样的函数，并且传入的参数大部分都相同。这时候可以通过传入一部分的参数动态地创建一个新的函数，这个新的函数会存储那些重复的参数（所以你不需要再每次传入），然后再调用原始函数的时候把整个参数列表补全。</p>
-<h3 id="通用柯里化函数"><a href="#通用柯里化函数" class="headerlink" title="通用柯里化函数"></a>通用柯里化函数</h3><figure class="highlight javascript"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div></pre></td><td class="code"><pre><div class="line"><span class="function"><span class="keyword">function</span> <span class="title">schonfikelize</span>(<span class="params">fn</span>)</span>&#123;</div><div class="line">	<span class="keyword">var</span> slice = <span class="built_in">Array</span>.prototype.slice,</div><div class="line">	<span class="comment">// 从Array.prototype中借用slice()方法吧arguments转成数组</span></div><div class="line">	stored_args = slice.call(<span class="built_in">arguments</span>,<span class="number">1</span>);</div><div class="line">	<span class="keyword">return</span> <span class="function"><span class="keyword">function</span>(<span class="params"></span>)</span>&#123;</div><div class="line">		<span class="keyword">var</span> new_args = slice.call(<span class="built_in">arguments</span>,<span class="number">1</span>);</div><div class="line">		args = stored_args.concat(new_args);</div><div class="line">		<span class="keyword">return</span> fn.apply(<span class="literal">null</span>,args);</div><div class="line">	&#125;</div><div class="line">&#125;</div></pre></td></tr></table></figure>
-<h3 id="解决问题"><a href="#解决问题" class="headerlink" title="解决问题"></a>解决问题</h3><ul>
-<li><p>分步求解函数问题（如不定参累加）</p>
-</li>
-<li><p>抽出函数的公共部分，将剩余部分通过参数传入</p>
-</li>
-</ul>
-<h3 id="参考资料"><a href="#参考资料" class="headerlink" title="参考资料"></a>参考资料</h3><p><a href="http://web.jobbole.com/90637/" target="_blank" rel="external">http://web.jobbole.com/90637/</a></p>
-<p><a href="https://segmentfault.com/a/1190000008193605" target="_blank" rel="external">https://segmentfault.com/a/1190000008193605</a></p>
+        <p>反正每天都写日报，每周日把心得部分整理一下</p>
+<h3 id="Day-1-2017-09-06"><a href="#Day-1-2017-09-06" class="headerlink" title="Day 1 2017.09.06"></a>Day 1 2017.09.06</h3><p>1.对页面对象的理解。昨天做的时候不大理解怎么把一个页面对象加到另一个里面去，写成构造函数，在入口文件实例化的时候不报错但是页面元素始终没有加载进去。今天写demo的过程中，发现需要把一个页面对象放到一个页面对象容器里面，然后把这个容器加载到其它容器中。</p>
+<p>2.对对象池的理解。主要在页面优化方面，游戏中不断有元素被创建和被销毁，如果每次创建时都实例化性能方面可能不是很好，可以把这些对象放到对象池中，开始不是很理解页面中销毁这个元素后为什么还能放进对象池中，其实销毁只是在页面中把这个节点移除了，实例化的对象还是在的，此举是为了节约实例化对象的成本，达到对对象的重用。但是需要保证每次从对象池中取实例的时候对象池不为空，下午也因为这个报错调试了好久。</p>
+<p>3.对调试工具的理解。Index中引入debugtool文件一直报错，后来发现需要把它放在所有引入的类库之下。但是可能是不熟悉吧，写demo的过程中有时候一个简单的错误要调试好久才能找出原因，导致今天浪费了不少时间。</p>
+<p>4.发现Laya的官方文档有些东西说得不是很清楚，很多API要看源码才知道是怎么一回事，不过还好，源码目前来看还是比较容易理解的。</p>
+<h3 id="Day-2"><a href="#Day-2" class="headerlink" title="Day 2"></a>Day 2</h3><p>1.完整地做完了一个Laya 2D 的DEMO，体验了一下整体的开发流程，总结一下：</p>
+<pre><code>首先，编写游戏的场景或背景
+
+第二，基本UI元件的设置、导出、加载
+
+第三，明确这个游戏有哪些类（具有相似的行为和属性的对象），进行构造
+
+第四，主循环逻辑编写或对象注册事件逻辑编写
+
+第五，第四步中用到的方法编写
+
+第六，屏幕适配
+
+觉得其实比较难的一点是逻辑的拆分，还有注册类上方法和属性的设计，整理清楚了其实实现还好
+</code></pre><p>2.因为要做登录页，预想了一些可能出现的难题或需要掌握的技术</p>
+<pre><code>第一，表单元素美化。解决：IDE UI编辑界面中可以更改表单元素背景。
+
+第二，表单值的获取。解决：IDE中可以给元素设置相应的变量获取
+
+第三，创建3D场景及角色模型。解决：已实现简单的3D场景加载、鼠标移动场景及角色模型的生成、动画播放
+
+第四，移动端屏幕适配。解决：Laya有自己的屏幕适配方案，但是完全适配不同机型我简单试了下完全靠它的API应该做不到，这个明天有时间可以研究一下。
+</code></pre><p>3.看Laya 3D文档及练习demo的过程中重点理解了下场景、摄像机、光源、3D模型的概念，场景的坐标系主要是整个画布相对于人眼的坐标，z轴表示远近；摄像机的坐标系决定呈现画布的哪一部分，以及以什么角度呈现；光源主要是打光和阴影的角度；3D模型的坐标系是相对于画布的方位和角度，可以设置缩放大小、位置以及旋转角度等，3D模型的动画可以通过加载贴图动画文件，进行播放</p>
+<h3 id="Day-3-2017-09-08"><a href="#Day-3-2017-09-08" class="headerlink" title="Day 3 2017.09.08"></a>Day 3 2017.09.08</h3><p>1.对表单元素以及场景切换的理解。可以在UI编辑页面中放置表单元素、进行美化并导出，至于怎么进行九宫格编辑这个不是很理解还需要再研究一下。场景切换主要是把前一个页面的实例销毁掉，可以放进对象池，再new一个新的页面的实例。</p>
+<p>2.微信授权登录。</p>
+<p>3.屏幕适配问题。这个可能还是得具体问题具体解决，今天逛了下开发者社区，首先引擎本身的适配可能是会有bug的，但是也有一些解决方案可以找得到。目前我想到的方法是设置整个舞台的scaleMode，其中元素相对于舞台进行缩放，这个具体遇到了问题再看吧。</p>
+<p>4.资源预加载和异步加载问题。今天开会提到了所以也顺便写了个demo看了下，首先直接异步加载资源和预加载都是可以的，</p>
+<h4 id="预加载流程："><a href="#预加载流程：" class="headerlink" title="预加载流程："></a>预加载流程：</h4><p>1）预加载loading页所需图片资源</p>
+<p>2）加载完成后回调，显示进度条、并预加载游戏资源</p>
+<p>3）这时候可以根据加载文件的个数获取到加载进度，每次进度改变时可调用相应的回调函数更新进度条</p>
+<p>4）加载完成后销毁loading页，进入游戏资源页。</p>
+<p>如果要分步加载资源的话可以把加载的文件数组写成变量传入loading页，不过这样每次加载资源的时候都会出现loading页体验也不大好，可以尝试看看可不可以在前面的场景预加载后面场景的资源</p>
+<p>5.3D角色鼠标的了解。因为3D角色的事件比较复杂，所以没有CLICK事件等，但是引擎提供了碰撞器和射线检测等方式进行鼠标判断，今天刚刚把这块的文档看了一下，之后可以尝试写个demo加深理解。</p>
+<p>6.问题：</p>
+<p>1）今天做loading页的时候遇到一个很奇怪的问题，资源导出后就是不出现在bin目录下（或者说bin目录下导出的资源不全，比如一个loading条的组件有三张图片，但是bin目录下的ProgressBar里只有其中一张图片），检查过了不是图片大小问题，后来直接在assets里找到对应的资源复制进去了，不知道是什么问题，也不是所有组件都出现这个情况，目前只碰到一例。</p>
+<p>2）UI编辑界面组件skin的编辑问题，这个没怎么看明白，目前是直接用的自身的skin，改天再看几遍文档。</p>
+<h3 id="Day-4-2017-09-11"><a href="#Day-4-2017-09-11" class="headerlink" title="Day 4 2017.09.11"></a>Day 4 2017.09.11</h3><p>1.碰撞器和射线检测的学习。需要在角色上添加碰撞器，然后添加射线,写个帧循环捕获命中的角色。可以捕获命中的第一个角色，也可以捕获所有，调用不同的API，还可以设置角色的层级。</p>
+<p>2.向量计算的学习。Laya提供了不少API可以进行向量的一些计算，比如向量和向量积等等，一开始遇到不知道什么，查了下API，觉得用得好的话，在一些场景下还是很巧妙的。</p>
+<p>3.设计模式。目前我的结构是loading一个类，背景一个类，3D场景一个类，角色一个类。具体角色自身的贴纸、模型和行为放在自身的属性和方法中。外部的操作，比如射线检测、碰撞器这种，放在3D场景中，因为射线要在场景中创建。然后在3D场景的类中根据需要传参实例化不同的角色类。我在想要不要单独抽出一个控制类，用于屏幕交互控制角色的行为，这样场景类中只管创建场景，会清晰一点。</p>
+<p>4.明天要解决的bug：</p>
+<p>1）鼠标选取位置不一定准确 –可能原因：帧循环时间过长或其它未知原因</p>
+<p>2）连续点击相同坐标的时候角色会变大，明明设置了固定尺寸-可能原因：出现了迭代计算</p>
+<p>3）3D角色移动时出现报错-可能原因：对API出现了理解上的错误</p>
+<h3 id="Day-5-2017-09-12"><a href="#Day-5-2017-09-12" class="headerlink" title="Day 5 2017.09.12"></a>Day 5 2017.09.12</h3><p>1.昨天有个bug-“连续点击相同坐标的时候角色会变大，明明设置了固定尺寸”，这个今天研究了一下，不是迭代计算了，是离摄像机近了，连续点击的时候相当于在之前的物体上再放置物体，离摄像机更近，近大远小，所以变大了。</p>
+<p>还有个bug是3D角色移动时出现报错-这个查看了下API也修复了，另外需要在帧循环（或_update）的方法里加上position和rotation更新的代码，不然也无法实现移动。</p>
+<p>2.3D数学基础的学习。看示例demo的过程中会看到很多坐标变换，还有一些检测物体碰撞，以及向量变换的API操作，跟着做能做出来，但是不是特别懂，理解起来也需要花好大的力气，所以趁现在不是特别忙决定看一点3D数学的知识，今天主要看了世界坐标系和物体坐标系之间的变换、摄像机及其它坐标系的原理，还有向量的计算。</p>
+<h3 id="Day-6-2017-09-13"><a href="#Day-6-2017-09-13" class="headerlink" title="Day 6 2017.09.13"></a>Day 6 2017.09.13</h3><p>1.屏幕适配问题解决。将舞台大小设置成设计稿（1920*1080）的宽高，其中元素设置其在设计稿中的尺寸、位置即可，测试PC端和移动端均正常，不过有个问题，图片资源过大（有的其实不是很大，就是宽度比较大）会不打包。但是如果把图片等比缩小的话在PC端会模糊，如果只在微信端打开的话可以考虑把图片统一压缩一下，不然再另外想想办法。</p>
+<p>2.位图字体的加载。今天花了不少时间在这个上，laya文档里介绍的那个制作位图字体的工具没有mac版，然后我找了另外的工具制作位图字体，发现加载不出来，逛了社区也说是格式不识别，一定要用它说的那个工具…觉得有点麻烦，因为它实际是把预定的字设置好字体、样式切成雪碧图的，这样引入之后图片的颜色、描边之类的所有属性都改不了，只能改文字内容，还必须是设置过的文字。但是直接引入ttf的话考虑到比较大，加载速度会慢。之前做移动端自定义字体的时候有用过FontSpider之类的工具进行压缩，按理来说这个也可以的，还没有尝试，之后再权衡一下要不要使用位图字体吧。</p>
+<p>还有一个问题是字体的加载，本来是想把字体的加载专门写在一个类里的，这样可以先预加载完字体文件，这样之后实例化字体的时候就不用再加载了。但是有个问题是实例化一个字体对象必须要在字体文件加载完成之后的回调里进行，这样好像挺难把这个类专门抽离出来的。但是后来尝试了下在两个类中分别加载字体文件，主类中分别实例化，发现请求也只请求了一次。</p>
+<p>3.预加载的实现。目前是先加载背景图，然后预加载Loading页所有静态资源，然后执行loading的帧循环方法，加载其它需要加载的资源。加载背景图的时候由于图片过大会出现短暂黑屏，这个后期优化可以考虑使用一张模糊的占位图，然后等背景图加载完了替换。</p>
+<h3 id="Day-7-2017-09-14"><a href="#Day-7-2017-09-14" class="headerlink" title="Day 7 2017.09.14"></a>Day 7 2017.09.14</h3><p>屏幕适配问题解决。昨天解决的方法有点问题，由于微信横屏的时候标题栏也会变，导致实际尺寸不固定，所以元素拉伸的会比较厉害。但是Laya的适配方法，要么背景和物体一起拉伸，要么都不拉伸，但是这样屏幕上会空出一块。今天解决了一天这个问题，一开始想算出一个拉伸的比率，然后把物体还原，但是这样比较麻烦，而且很难还原设计稿。后来想了一个办法，不管场景是3D还是2D的，背景图始终是2D的，所以：</p>
+<pre><code>1.设置舞台按设计稿比例布局，多出来的地方留白，设置舞台水平垂直居中
+
+2.设置舞台背景透明
+
+3.index.html里添加一个div，设置其背景为背景图，同时设置媒体查询（横/竖屏），使其完全适应页面，这边也设置了好久，目前手机上和chrome模拟器里测的正常，应该还要真机测下的，不保证不会出现问题，不过这个问题不大，应该比较容易能找出解决方案的
+
+4.js设置div的宽高为设备宽高，场景变化时也js更换一下背景图即可
+</code></pre><p>但愿这个问题真的解决了…</p>
+<h3 id="Day-8-2017-09-15"><a href="#Day-8-2017-09-15" class="headerlink" title="Day 8 2017.09.15"></a>Day 8 2017.09.15</h3><p>写大厅页面的时候有个输入房间号，但是Laya的input组件没有提供聚焦的API，就是一个输入完成自动聚焦到下一个输入框，如果用原生的输入框直接加进去又不好解决适配问题。后来看了下微信的面对面建群，想出的办法是：</p>
+<p>1.创建一个input节点，css把它隐藏掉</p>
+<p>2.UI界面上创建label组件</p>
+<p>3.监听输入框的input事件，每次输入时（需要判断是输入还是删除），改变label的text及样式</p>
+<p>这样及可以唤起键盘，又可以实现UI了。</p>
+<p>其实微信面对面建群的解决方案是键盘都是模拟的，这样直接监听屏幕上虚拟键盘每个键的点击事件即可。</p>
 
       
 
@@ -238,11 +298,15 @@
 		<ul class="article-tag-list">
 			 
         		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color3">前端</a>
+        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color3">js</a>
         		</li>
       		 
         		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color3">js</a>
+        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color3">3D</a>
+        		</li>
+      		 
+        		<li class="article-tag-list-item">
+        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color5">Laya</a>
         		</li>
       		
 		</ul>
@@ -254,7 +318,7 @@
 		<ul class="article-tag-list">
 			 
         		<li class="article-tag-list-item">
-        			<a href="/categories/学习笔记/" class="article-tag-list-link color5">学习笔记</a>
+        			<a href="/categories/项目整理/" class="article-tag-list-link color5">项目整理</a>
         		</li>
       		
 		</ul>
@@ -309,7 +373,7 @@
     <a class="close js-modal-close" href="javascript:;"><i class="icon icon-close"></i></a>
     <p>扫一扫，分享到微信</p>
     <div class="wx-qrcode">
-      <img src="http://s.jiathis.com/qrcode.php?url=http://yoursite.com/2017/04/04/函数柯里化/" alt="微信分享二维码">
+      <img src="http://s.jiathis.com/qrcode.php?url=http://yoursite.com/2017/09/17/PUSH项目记录/" alt="微信分享二维码">
     </div>
 </div>
 
@@ -323,18 +387,9 @@
   
 <nav id="article-nav">
   
-    <a href="/2017/04/04/命名空间模式/" id="article-nav-newer" class="article-nav-link-wrap">
-      <i class="icon-circle-left"></i>
-      <div class="article-nav-title">
-        
-          命名空间模式
-        
-      </div>
-    </a>
   
-  
-    <a href="/2017/03/23/HTML5新增标签/" id="article-nav-older" class="article-nav-link-wrap">
-      <div class="article-nav-title">HTML5新增标签</div>
+    <a href="/2017/09/04/专开一篇文，记录助教过程中碰见的有趣的问题/" id="article-nav-older" class="article-nav-link-wrap">
+      <div class="article-nav-title">专开一篇文，记录助教过程中碰见的有趣的问题</div>
       <i class="icon-circle-right"></i>
     </a>
   
