@@ -15,7 +15,7 @@
 <meta property="og:url" content="http://yoursite.com/2017/09/17/PUSH项目记录/index.html">
 <meta property="og:site_name" content="林落雨落林">
 <meta property="og:description" content="反正每天都写日报，每周日把心得部分整理一下 Day 1 2017.09.061.对页面对象的理解。昨天做的时候不大理解怎么把一个页面对象加到另一个里面去，写成构造函数，在入口文件实例化的时候不报错但是页面元素始终没有加载进去。今天写demo的过程中，发现需要把一个页面对象放到一个页面对象容器里面，然后把这个容器加载到其它容器中。 2.对对象池的理解。主要在页面优化方面，游戏中不断有元素被创建和被销">
-<meta property="og:updated_time" content="2017-09-17T10:13:19.000Z">
+<meta property="og:updated_time" content="2017-09-24T15:15:19.000Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="PUSH项目记录">
 <meta name="twitter:description" content="反正每天都写日报，每周日把心得部分整理一下 Day 1 2017.09.061.对页面对象的理解。昨天做的时候不大理解怎么把一个页面对象加到另一个里面去，写成构造函数，在入口文件实例化的时候不报错但是页面元素始终没有加载进去。今天写demo的过程中，发现需要把一个页面对象放到一个页面对象容器里面，然后把这个容器加载到其它容器中。 2.对对象池的理解。主要在页面优化方面，游戏中不断有元素被创建和被销">
@@ -265,6 +265,22 @@
 <p>3.监听输入框的input事件，每次输入时（需要判断是输入还是删除），改变label的text及样式</p>
 <p>这样及可以唤起键盘，又可以实现UI了。</p>
 <p>其实微信面对面建群的解决方案是键盘都是模拟的，这样直接监听屏幕上虚拟键盘每个键的点击事件即可。</p>
+<h3 id="Day-9-2017-09-19"><a href="#Day-9-2017-09-19" class="headerlink" title="Day 9 2017.09.19"></a>Day 9 2017.09.19</h3><h5 id="输入房间号问题的解决。"><a href="#输入房间号问题的解决。" class="headerlink" title="输入房间号问题的解决。"></a>输入房间号问题的解决。</h5><p>前几天想了个思路但今天做的时候还是碰上不少困难的。</p>
+<p>1.“创建一个input节点，CSS把它隐藏掉，打开模态框时触发它的focus事件唤起键盘”—前几步都可以，但是focus事件始终触发不了（确定是触发不了，不仅是唤不起键盘） 。看了下源码有可能是对这个事件屏蔽了，但是我怕修改了源码对其它地方有影响，所以决定换一种方法。</p>
+<p>2.“UI界面上创建label组件”—-发现label组件是不可以自定义背景的，只好还是用input，本来想给input都设置disable，但是这样背景会变灰。解决方法是在input上加一个大的input，type设置为number，透明度设置为0，fontsize设置为0，使其保证不可见，但占位，这样原先的input就点击不到又可以设置背景了</p>
+<p>3.“监听输入框的input事件”—-input事件也监听不到，改成keydown，由于和需求方确认过只输入数字，判断了一下48-57的keycode，然后变更界面显示的skin和相应的值，再捕获一下删除键的keycode，实现了号码的输入删除，同时高度还原设计稿和交互稿。</p>
+<h5 id="loading及滚动字幕动画编写。"><a href="#loading及滚动字幕动画编写。" class="headerlink" title="loading及滚动字幕动画编写。"></a>loading及滚动字幕动画编写。</h5><p>Loading用了时间轴动画，想到这个组件可能会被复用，单独出了个ani文件。时间轴动画的创建还是蛮简单的，图形化操作基本和flash动画差不多。滚动字幕本来也想用时间轴动画的，发现文字加到时间轴里不能设置关键帧，只好设计为帧循环然后变更x轴坐标，也是独立出组件。</p>
+<h3 id="Day-10-2017-09-20"><a href="#Day-10-2017-09-20" class="headerlink" title="Day 10 2017.09.20"></a>Day 10 2017.09.20</h3><p>对遮罩的理解。做玩家头像的时候遇到圆形和圆角矩形的裁剪，但是laya里面不能设置图片border-radius，哪怕新增DOM节点加进去，这个属性也不生效。后来发现可以绘制一个矢量图形，加到图片的mask属性下。圆角矩形图片我的实现是绘制一个圆，圆的直径略大于图片的宽度，这样遮罩裁剪出来就是圆角矩形了，但是微信获取的头像应该不一定正好是正方形，长方形相交就不是圆角矩形了，这个后面应该还要改，不过直接绘制一个圆角矩形也是可以的，这个后面根据确定的UI再改吧，知道方法后改起来也不是很困难。</p>
+<h3 id="Day-11-2017-09-21"><a href="#Day-11-2017-09-21" class="headerlink" title="Day 11 2017.09.21"></a>Day 11 2017.09.21</h3><p>1.纯色按钮边缘渐变问题的解决。打开九宫格编辑界面，设置其上下左右padding各为1。</p>
+<p>2.3D背景透明问题的解决。之前设置的背景透明的方法仅适用于2D canvas，3D失效，今天仔细研究了下API，改变了下参数，解决了此问题。不过很奇怪是PC端chrome打开时背景不显示</p>
+<p>3.多类型资源预加载问题。之前同时加载多类型资源时会报错，今天也解决了一下这个问题，设置了正确的资源类型。</p>
+<p>4.字体加载问题。已正确加载到ttf字体资源并且实现预加载，解决了特殊字体乱码问题，不过最好还是和UI协商一下减少特殊字体的使用。另外我前几天看到过一个压缩字体的方法，可以定期更新字体库，减小字体体积，但是python写的，没怎么看懂，后面有需要可以研究一下，因为其中很多特殊字体的文字都是要动态改变的，直接做成位图字体灵活性不够，而之前压缩字体的方式也对canvas中的文字失效，所以暂时先引了ttf资源。</p>
+<p>5.玩家进入退出房间逻辑优化，因为这个判断比较复杂，需要判断是否为房主，房间内是否还剩H5用户，新建了一个对象数组，存各玩家id及是否为H5用户信息，然后用findIndex通过id查找元素，（findIndex移动端支持度不高，所以参考MDN文档重写了下这个方法）。</p>
+<p>6.自动匹配倒计时逻辑优化。这个主要用帧循环做了个倒计时，难度倒没什么，但是涉及到数值的转换还有计时器的清空，挺容易出错的，也调试了一段时间。</p>
+<h3 id="Day-12-2017-09-22"><a href="#Day-12-2017-09-22" class="headerlink" title="Day 12 2017.09.22"></a>Day 12 2017.09.22</h3><p>1.图片遮罩问题。图片定位中心设置错误，导致图形化界面和实际界面显示不一致。</p>
+<p>2.解决软键盘弹出再收起时页面不会自动回到原来位置问题。开始觉得奇怪，觉得因为不会是引擎自身问题，因为如果是的话论坛应该会找到相应讨论，那么从自身代码找原因，把设置背景图的方法注释掉以后一切都正常了，那么应该是背景图box的问题，竖向弹出键盘的时候可以恢复，排查css的媒体查询横竖向设置定位的区别，发现自己一个用了absolute，一个用了fixed，都改成fixed就正常了。</p>
+<p>3.移除场景失败问题。是字体引入的问题，预加载引入字体时，移除场景失败，看了下源码，发现，type为FONT时表示的字体是位图字体，不是ttf，所以可能解析文件失败引发错误。这个解决是把字体当成资源引入，而非直接使用load方法。和GUI及编辑商量了一下，可变性比较大的字体直接用系统默认字体了，减小加载，其它比较固定的使用切图+位图字体的方式。</p>
+<p>4.背景图错乱问题。设置背景图容器的宽高有误。</p>
 
       
 
@@ -396,7 +412,7 @@
                 </span>
                 <span class="tooltip-content">
                     <div class="toc-article">
-                    <ol class="toc"><li class="toc-item toc-level-3"><a class="toc-link" href="#Day-1-2017-09-06"><span class="toc-number">1.</span> <span class="toc-text">Day 1 2017.09.06</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#Day-2"><span class="toc-number">2.</span> <span class="toc-text">Day 2</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#Day-3-2017-09-08"><span class="toc-number">3.</span> <span class="toc-text">Day 3 2017.09.08</span></a><ol class="toc-child"><li class="toc-item toc-level-4"><a class="toc-link" href="#预加载流程："><span class="toc-number">3.1.</span> <span class="toc-text">预加载流程：</span></a></li></ol></li><li class="toc-item toc-level-3"><a class="toc-link" href="#Day-4-2017-09-11"><span class="toc-number">4.</span> <span class="toc-text">Day 4 2017.09.11</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#Day-5-2017-09-12"><span class="toc-number">5.</span> <span class="toc-text">Day 5 2017.09.12</span></a><ol class="toc-child"><li class="toc-item toc-level-4"><a class="toc-link" href="#3D数学学习资料"><span class="toc-number">5.1.</span> <span class="toc-text">3D数学学习资料</span></a></li></ol></li><li class="toc-item toc-level-3"><a class="toc-link" href="#Day-6-2017-09-13"><span class="toc-number">6.</span> <span class="toc-text">Day 6 2017.09.13</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#Day-7-2017-09-14"><span class="toc-number">7.</span> <span class="toc-text">Day 7 2017.09.14</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#Day-8-2017-09-15"><span class="toc-number">8.</span> <span class="toc-text">Day 8 2017.09.15</span></a></li></ol>
+                    <ol class="toc"><li class="toc-item toc-level-3"><a class="toc-link" href="#Day-1-2017-09-06"><span class="toc-number">1.</span> <span class="toc-text">Day 1 2017.09.06</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#Day-2"><span class="toc-number">2.</span> <span class="toc-text">Day 2</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#Day-3-2017-09-08"><span class="toc-number">3.</span> <span class="toc-text">Day 3 2017.09.08</span></a><ol class="toc-child"><li class="toc-item toc-level-4"><a class="toc-link" href="#预加载流程："><span class="toc-number">3.1.</span> <span class="toc-text">预加载流程：</span></a></li></ol></li><li class="toc-item toc-level-3"><a class="toc-link" href="#Day-4-2017-09-11"><span class="toc-number">4.</span> <span class="toc-text">Day 4 2017.09.11</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#Day-5-2017-09-12"><span class="toc-number">5.</span> <span class="toc-text">Day 5 2017.09.12</span></a><ol class="toc-child"><li class="toc-item toc-level-4"><a class="toc-link" href="#3D数学学习资料"><span class="toc-number">5.1.</span> <span class="toc-text">3D数学学习资料</span></a></li></ol></li><li class="toc-item toc-level-3"><a class="toc-link" href="#Day-6-2017-09-13"><span class="toc-number">6.</span> <span class="toc-text">Day 6 2017.09.13</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#Day-7-2017-09-14"><span class="toc-number">7.</span> <span class="toc-text">Day 7 2017.09.14</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#Day-8-2017-09-15"><span class="toc-number">8.</span> <span class="toc-text">Day 8 2017.09.15</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#Day-9-2017-09-19"><span class="toc-number">9.</span> <span class="toc-text">Day 9 2017.09.19</span></a><ol class="toc-child"><li class="toc-item toc-level-5"><a class="toc-link" href="#输入房间号问题的解决。"><span class="toc-number">9.0.1.</span> <span class="toc-text">输入房间号问题的解决。</span></a></li><li class="toc-item toc-level-5"><a class="toc-link" href="#loading及滚动字幕动画编写。"><span class="toc-number">9.0.2.</span> <span class="toc-text">loading及滚动字幕动画编写。</span></a></li></ol></li></ol></li><li class="toc-item toc-level-3"><a class="toc-link" href="#Day-10-2017-09-20"><span class="toc-number">10.</span> <span class="toc-text">Day 10 2017.09.20</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#Day-11-2017-09-21"><span class="toc-number">11.</span> <span class="toc-text">Day 11 2017.09.21</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#Day-12-2017-09-22"><span class="toc-number">12.</span> <span class="toc-text">Day 12 2017.09.22</span></a></li></ol>
                     </div>
                 </span>
             </div>
@@ -518,10 +534,6 @@ return o(i(t),arguments.length<2?void 0:u(arguments[1]))}})},function(t,n,r){var
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color1">HTML5</a>
-              </li>
-             
-              <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color3">js</a>
               </li>
              
@@ -530,11 +542,7 @@ return o(i(t),arguments.length<2?void 0:u(arguments[1]))}})},function(t,n,r){var
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color1">linux</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color5">node</a>
+                <a href="javascript:void(0)" class="js-tag color1">HTML5</a>
               </li>
              
               <li class="article-tag-list-item">
@@ -546,11 +554,19 @@ return o(i(t),arguments.length<2?void 0:u(arguments[1]))}})},function(t,n,r){var
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color5">java</a>
+                <a href="javascript:void(0)" class="js-tag color1">linux</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color5">node</a>
               </li>
              
               <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color1">mysql</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color5">java</a>
               </li>
              
               <li class="article-tag-list-item">
