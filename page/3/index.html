@@ -22,7 +22,7 @@
   <style type="text/css">
   
     #container.show {
-      background: linear-gradient(200deg,#a0cfe4,#e8c37e);
+      background: linear-gradient(to right, #4ca1af, #c4e0e5);
     }
   </style>
   
@@ -36,7 +36,7 @@
     <canvas id="anm-canvas" class="anm-canvas"></canvas>
     <div class="left-col" q-class="show:isShow">
       
-<div class="overlay" style="background: #4d4d4d"></div>
+<div class="overlay" style="background: linear-gradient(to right, #4ca1af, #c4e0e5)"></div>
 <div class="intrude-less">
 	<header id="header" class="inner">
 		<a href="/" class="profilepic">
@@ -84,7 +84,7 @@
 				
 					<a class="github" target="_blank" href="https://github.com/Etoile984816138" title="github"><i class="icon-github"></i></a>
 		        
-					<a class="weibo" target="_blank" href="#" title="weibo"><i class="icon-weibo"></i></a>
+					<a class="weibo" target="_blank" href="http://www.weibo.com/llyll984816138/home?wvr=5" title="weibo"><i class="icon-weibo"></i></a>
 		        
 					<a class="rss" target="_blank" href="#" title="rss"><i class="icon-rss"></i></a>
 		        
@@ -99,7 +99,7 @@
     <div class="mid-col" q-class="show:isShow,hide:isShow|isFalse">
       
 <nav id="mobile-nav">
-  	<div class="overlay js-overlay" style="background: #4d4d4d"></div>
+  	<div class="overlay js-overlay" style="background: linear-gradient(to right, #4ca1af, #c4e0e5)"></div>
 	<div class="btnctn js-mobile-btnctn">
   		<div class="slider-trigger list" q-on="click: openSlider(e)"><i class="icon icon-sort"></i></div>
 	</div>
@@ -133,7 +133,7 @@
 					
 						<a class="github" target="_blank" href="https://github.com/Etoile984816138" title="github"><i class="icon-github"></i></a>
 			        
-						<a class="weibo" target="_blank" href="#" title="weibo"><i class="icon-weibo"></i></a>
+						<a class="weibo" target="_blank" href="http://www.weibo.com/llyll984816138/home?wvr=5" title="weibo"><i class="icon-weibo"></i></a>
 			        
 						<a class="rss" target="_blank" href="#" title="rss"><i class="icon-rss"></i></a>
 			        
@@ -192,40 +192,8 @@
     <div class="article-entry" itemprop="articleBody">
       
         <h3 id="for…in"><a href="#for…in" class="headerlink" title="for…in"></a>for…in</h3><p>看见过但没怎么注意过的一个东西，查了一下，最后得出的结论是这个…能不用就别用，坑有点多……语法大致就是字面意思，在某个数组或对象里面遍历，有两个很明显的坑，一是不按顺序，而是效率低。</p>
-<h3 id="label"><a href="#label" class="headerlink" title="label"></a>label</h3><p>这个也不常用，书上的解释是给一段语句加标签。我理解大概是可以精准定位，比如一段双循环代码，在最外面给这段代码加个标签 xxx: ,如果在最内层break，只是跳出当层的循环，外层的循环依然继续，但是如果break xxx,直接可以跳到最外层。它一般与break、continue联合使用，但是最好不要嵌套过多的循环。</p>
-<h3 id="传递参数"><a href="#传递参数" class="headerlink" title="传递参数"></a>传递参数</h3><figure class="highlight javascript"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div></pre></td><td class="code"><pre><div class="line"><span class="function"><span class="keyword">function</span> <span class="title">setName</span>(<span class="params">obj</span>)</span>&#123;</div><div class="line">    obj.name = <span class="string">"LLY"</span>;</div><div class="line">&#125;</div><div class="line"><span class="keyword">var</span> person = <span class="keyword">new</span> <span class="built_in">Object</span>();<span class="comment">//这个似乎用的不多，此处仅为说明</span></div><div class="line">setName(person);</div><div class="line">alert(person.name);<span class="comment">//LLY</span></div></pre></td></tr></table></figure>
-<p>先创建一个空对象，保存在变量person中，然后把它传入setName()，这样person就相当于setName中的obj，他们引用的是一个对象，但是这不代表这个对象是按引用传递的，它依然是按值传递。比如说下面这一段</p>
-<figure class="highlight javascript"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div></pre></td><td class="code"><pre><div class="line"><span class="function"><span class="keyword">function</span> <span class="title">setName</span>(<span class="params">obj</span>)</span>&#123;</div><div class="line">    obj.name = <span class="string">"LLY"</span>;</div><div class="line">    obj = <span class="keyword">new</span> <span class="built_in">Object</span>();</div><div class="line">    obj.name = <span class="string">"YL"</span>;</div><div class="line">&#125;</div><div class="line"><span class="keyword">var</span> person = <span class="keyword">new</span> <span class="built_in">Object</span>();</div><div class="line">setName(person);</div><div class="line">alert(person.name);<span class="comment">//LLY</span></div></pre></td></tr></table></figure>
-<p>这时候打印出来person.name的值依然是LLY，如果是按引用传递的话，局部作用域改变，全局应与其一致。其实……我觉得这种东西暂时没必要搞那么清楚，反正一调试什么都看得见。而且我觉得，当在函数内部重写obj的时候，这个变量的引用就是一个局部的对象了，用完就销毁了。</p>
-<h3 id="检测数据类型"><a href="#检测数据类型" class="headerlink" title="检测数据类型"></a>检测数据类型</h3><p>这个比较简单，但调试会很有用，先留着。</p>
-<h4 id="基本数据类型"><a href="#基本数据类型" class="headerlink" title="基本数据类型"></a>基本数据类型</h4><figure class="highlight javascript"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div></pre></td><td class="code"><pre><div class="line"><span class="keyword">var</span> a = <span class="string">"LLY"</span>;</div><div class="line"><span class="keyword">var</span> b =<span class="literal">true</span>;</div><div class="line"><span class="keyword">var</span> c;</div><div class="line"><span class="keyword">var</span> d = <span class="literal">null</span>;</div><div class="line"><span class="keyword">var</span> e = <span class="keyword">new</span> object();</div><div class="line"></div><div class="line">alert(<span class="keyword">typeof</span> a);<span class="comment">//string</span></div><div class="line">alert(<span class="keyword">typeof</span> b);<span class="comment">//boolean</span></div><div class="line">alert(<span class="keyword">typeof</span> c);<span class="comment">//undefined</span></div><div class="line">alert(<span class="keyword">typeof</span> d);<span class="comment">//object</span></div><div class="line">alert(<span class="keyword">typeof</span> e);<span class="comment">//object</span></div></pre></td></tr></table></figure>
-<h4 id="检测引用类型"><a href="#检测引用类型" class="headerlink" title="检测引用类型"></a>检测引用类型</h4><figure class="highlight javascript"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div></pre></td><td class="code"><pre><div class="line">alert(person <span class="keyword">instanceof</span> <span class="built_in">Object</span>);<span class="comment">//变量person是Object吗？</span></div><div class="line">alert(colors <span class="keyword">instanceof</span> <span class="built_in">Array</span>);<span class="comment">//变量colors是Array吗？</span></div></pre></td></tr></table></figure>
-<p>因为所有引用类型都是Object的实例，所以检测一个引用类型是不是Object的时候会始终返回true。</p>
-<h3 id="作用域"><a href="#作用域" class="headerlink" title="作用域"></a>作用域</h3><p>JavaScript是没有块级作用域的。就是说在if里var一个变量，这个变量会添加到当前的执行环境中，这是和Java还有C的不同之处。</p>
-<h3 id="创建对象"><a href="#创建对象" class="headerlink" title="创建对象"></a>创建对象</h3><p>三种方法</p>
-<h4 id="No-1"><a href="#No-1" class="headerlink" title="No.1"></a>No.1</h4><figure class="highlight javascript"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div></pre></td><td class="code"><pre><div class="line"><span class="keyword">var</span> person = <span class="keyword">new</span> <span class="built_in">Object</span>();</div><div class="line">person.name = ...</div><div class="line">person.age = ...</div></pre></td></tr></table></figure>
-<h4 id="No-2"><a href="#No-2" class="headerlink" title="No.2"></a>No.2</h4><figure class="highlight javascript"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line"><span class="keyword">var</span> person =&#123; &#125;;</div></pre></td></tr></table></figure>
-<p>…</p>
-<h4 id="No-3"><a href="#No-3" class="headerlink" title="No.3"></a>No.3</h4><figure class="highlight javascript"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div></pre></td><td class="code"><pre><div class="line"><span class="keyword">var</span> person =&#123;</div><div class="line">    name : ...;</div><div class="line">    age : ...</div><div class="line">&#125;</div></pre></td></tr></table></figure>
-<p>第二种其实就是把第三种里面的内容去掉，再重新定义属性。我感觉第三种字面量语法用得比较多吧，看起来逼格高一点,而且代码量比较少，不过最后一个属性最好不要加分号。</p>
-<h3 id="访问对象"><a href="#访问对象" class="headerlink" title="访问对象"></a>访问对象</h3><ul>
-<li>person.name</li>
-<li>person[“name”]</li>
-</ul>
-<p>第一种应该比较常见，第二种有个好处是可以通过变量访问，比如a=”name”，可以直接person[a];还有一个好处如果属性名为关键字保留字空格什么非法字符什么的，这时候不能用.,只能用方括号了，不过我想不通干嘛非要那么作用这些字符做属性名==</p>
-<h3 id="数组"><a href="#数组" class="headerlink" title="数组"></a>数组</h3><p>数组好像没什么好说的，唯一感慨的是在一个数组的末尾添加新项就一行代码取到.length就可以啊啊！不像C还要分配内存空间==（吐槽一下，数据结构折腾疯）。</p>
-<p>还有一个检测数组，除了之前的方法，也可以用Array.isArray()搞定。</p>
-<p>说到数据结构，真的来了。</p>
-<p>当然，学完C这种折腾人的东西，js这个明显太简单了。</p>
-<p>其实也就是对数组的一个操作方法，栈后进先出，队列先进先出也没什么好说的，列下语法好了。</p>
-<h4 id="栈"><a href="#栈" class="headerlink" title="栈"></a>栈</h4><p>var color = new Array();<br>var count = color.push(“red”,”green”);<br>var count = color.push(“black”);<br>item = color.pop();</p>
-<p>此时item获取的是后进的”black”，同时最后一项已经出栈，所以现在数组里仅剩两项。</p>
-<p>队列与之类似，但取数据是shift()，就是说先push进数据，但是shift()取数据时取的是最先进去的。</p>
-<p>另外还有一个反队列 unshift()和pop()，unshift在前端插入数据，pop()从末项移除。</p>
-<h4 id="重排序方法"><a href="#重排序方法" class="headerlink" title="重排序方法"></a>重排序方法</h4><p>reverse() //反转数组项顺序<br>sort() //测试字符串的结果升序排列</p>
-<p>sort()排序排的不是数值，而是字符串，所以一般是给它传入一个比较函数再进行排序</p>
-<p>其它操作方法……增删改查复制替换，还是挺全的，用的时候可以看看，不枚举了。</p>
-
+<h3 id="label"><a href="#label" class="headerlink" title="label"></a>label</h3><p>这个也不常用，书上的解释是给一段语句加标签。我理解大概是可以精准定位，比如一段双循环代码，在最外面给这段代码加个标签 xxx: ,如果在最内层break，只是跳出当层的循环，外层的循环依然继续，但是如果break xxx,直接可以跳到最外层。它一般与break、continue联合使用，但是最好不要嵌套过多的循环。<br>
+        
       
 
       
@@ -315,14 +283,7 @@
       
         <h3 id="步骤一"><a href="#步骤一" class="headerlink" title="步骤一"></a>步骤一</h3><p>安装npm</p>
 <h3 id="步骤二"><a href="#步骤二" class="headerlink" title="步骤二"></a>步骤二</h3><p>升级npm至3.10+<br><figure class="highlight shell"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">npm update -g</div></pre></td></tr></table></figure></p>
-<h3 id="步骤三：安装配置node-gyp"><a href="#步骤三：安装配置node-gyp" class="headerlink" title="步骤三：安装配置node-gyp"></a>步骤三：安装配置node-gyp</h3><p>文档：<a href="https://github.com/nodejs/node-gyp#installation" target="_blank" rel="external">https://github.com/nodejs/node-gyp#installation</a><br><figure class="highlight shell"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div></pre></td><td class="code"><pre><div class="line">npm install -g node-gyp</div><div class="line">npm install --global --production windows-build-tools</div></pre></td></tr></table></figure></p>
-<p>注：管理员模式下运行</p>
-<h3 id="步骤四：安装项目依赖"><a href="#步骤四：安装项目依赖" class="headerlink" title="步骤四：安装项目依赖"></a>步骤四：安装项目依赖</h3><figure class="highlight shell"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div></pre></td><td class="code"><pre><div class="line">cd wechat-h5-boilerplate-master </div><div class="line">npm install（或使用淘宝源 npm install --registry=https://registry.npm.taobao.org -d ）</div></pre></td></tr></table></figure>
-<p><em>注：找个网好点的地方</em> </p>
-<h3 id="步骤五：安装gulp"><a href="#步骤五：安装gulp" class="headerlink" title="步骤五：安装gulp"></a>步骤五：安装gulp</h3><figure class="highlight shell"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">npm install gulp -g</div></pre></td></tr></table></figure>
-<h3 id="步骤六：按文档运行项目"><a href="#步骤六：按文档运行项目" class="headerlink" title="步骤六：按文档运行项目"></a>步骤六：按文档运行项目</h3><p>注：若安装失败，将wechat-h5-boilerplate文件夹删除后重新npm install </p>
-<h3 id="参考文档："><a href="#参考文档：" class="headerlink" title="参考文档："></a>参考文档：</h3><p>wechat-h5-boilerplate项目地址：<a href="https://github.com/panteng/wechat-h5-boilerplate" target="_blank" rel="external">https://github.com/panteng/wechat-h5-boilerplate</a><br>node-gyp地址：<a href="https://github.com/nodejs/node-gyp#installation" target="_blank" rel="external">https://github.com/nodejs/node-gyp#installation</a></p>
-
+        
       
 
       
@@ -407,13 +368,7 @@
     <div class="article-entry" itemprop="articleBody">
       
         <figure class="highlight javascript"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div></pre></td><td class="code"><pre><div class="line"><span class="comment">// Recurse if we're merging plain objects or arrays</span></div><div class="line"><span class="keyword">if</span> ( deep &amp;&amp; copy &amp;&amp; ( jQuery.isPlainObject( copy ) ||</div><div class="line">	( copyIsArray = jQuery.isArray( copy ) ) ) ) &#123;</div><div class="line"></div><div class="line">	<span class="keyword">if</span> ( copyIsArray ) &#123;</div><div class="line">		copyIsArray = <span class="literal">false</span>;</div><div class="line">		clone = src &amp;&amp; jQuery.isArray( src ) ? src : [];</div><div class="line"></div><div class="line">	&#125; <span class="keyword">else</span> &#123;</div><div class="line">		clone = src &amp;&amp; jQuery.isPlainObject( src ) ? src : &#123;&#125;;</div><div class="line">	&#125;</div><div class="line"></div><div class="line">	<span class="comment">// Never move original objects, clone them</span></div><div class="line">	target[ name ] = jQuery.extend( deep, clone, copy );</div><div class="line"></div><div class="line"><span class="comment">// Don't bring in undefined values</span></div><div class="line">&#125; <span class="keyword">else</span> <span class="keyword">if</span> ( copy !== <span class="literal">undefined</span> ) &#123;</div><div class="line">	target[ name ] = copy;</div><div class="line">&#125;</div></pre></td></tr></table></figure>
-<p>重点代码<br><figure class="highlight javascript"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">clone = src &amp;&amp; jQuery.isPlainObject( src ) ? src : &#123;&#125;;</div></pre></td></tr></table></figure></p>
-<p>src为原有的目标下参数，有的话判断是不是对象，两个条件都满足时传目标自带的参数而不需重新创建对象</p>
-<p>eg.<br><figure class="highlight javascript"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div></pre></td><td class="code"><pre><div class="line"><span class="keyword">var</span> a = &#123;<span class="attr">name</span>:&#123;<span class="attr">job</span>:<span class="string">'it'</span>&#125;&#125;</div><div class="line"><span class="keyword">var</span> b = &#123;<span class="attr">name</span>:&#123;<span class="attr">age</span>:<span class="number">30</span>&#125;&#125;</div><div class="line"></div><div class="line">$.extend(<span class="literal">true</span>,a,b) <span class="comment">//a继承b</span></div><div class="line"></div><div class="line"><span class="built_in">console</span>.log(a) <span class="comment">//&#123;name:&#123;job:'it',age:30&#125;&#125;</span></div></pre></td></tr></table></figure></p>
-<p>继承但不影响之前元素</p>
-<p>如果去掉src&amp;&amp;jQuery.isPlainObject(src)?src:，同名时会直接覆盖。</p>
-<p>这叫拷贝继承，继承还有类式继承、原型继承等。</p>
-
+        
       
 
       
@@ -505,10 +460,8 @@
     
     <div class="article-entry" itemprop="articleBody">
       
-        <p>遇到一个问题，需要循环回调一个函数，回调的时候需要访问到for循环的变量i，但是这就相当于在闭包的内层函数中引用父层函数的变量，这个变量会始终为for循环的最终值，找到的方法是</p>
-<figure class="highlight javascript"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div></pre></td><td class="code"><pre><div class="line"><span class="keyword">for</span>(<span class="keyword">var</span> i = <span class="number">0</span> , len = lists.length ; i &lt; len ; i++)&#123;</div><div class="line">    (<span class="function"><span class="keyword">function</span>(<span class="params">index</span>)</span>&#123;</div><div class="line">        lists[ index ].onmouseover = <span class="function"><span class="keyword">function</span>(<span class="params"></span>)</span>&#123;</div><div class="line">            alert(index);    </div><div class="line">        &#125;;                    </div><div class="line">    &#125;)(i);</div><div class="line">&#125;</div></pre></td></tr></table></figure>
-<p>参考链接：<a href="http://www.cnblogs.com/rainman/archive/2009/05/04/1448899.html" target="_blank" rel="external">http://www.cnblogs.com/rainman/archive/2009/05/04/1448899.html</a></p>
-
+        <p>遇到一个问题，需要循环回调一个函数，回调的时候需要访问到for循环的变量i，但是这就相当于在闭包的内层函数中引用父层函数的变量，这个变量会始终为for循环的最终值，找到的方法是<br>
+        
       
 
       
@@ -598,24 +551,8 @@
       
         <p>写数据结构的大作业，做管理系统的时候，一个学弟提出来我们做人机交互怎么样。</p>
 <p>人机交互啊……交互啊……互啊……</p>
-<p>如果说一般代码是砖，C语言这种东西就是烧砖的那种土（砖是土烧的？？？我读书少猜的。当然，此处不要跟我提汇编。）砖可以一块一块码起来，当然，你拿土堆房子形状可以更为随意，但是前提是你得堆起来，稍不留神留个坑，盖好的全塌了。</p>
-<p>C就是这样，API完全暴露在外面不封装，所以明明一个很简单的东西，你需要花费大量的代码去实现它，并且大多数代码甚至与程序本身都无关，只是为了填它自己的坑。所以无论别人如何夸它，我都无法喜欢上它，我不需要写太随心所欲的代码呀，封装好的足够用了。就算我以后会写C++、C#甚至OC，也不想写C，虽然我承认它很强大，学好C语言也很重要。</p>
-<p>好了吐槽完毕，实现人机交互。</p>
-<p>之前想了三种方案：</p>
-<h3 id="直接用win-application"><a href="#直接用win-application" class="headerlink" title="直接用win application"></a>直接用win application</h3><p>想法很美好，直接在VC++6.0里建win application工程Hello World class，呸，Hello World程序（一边写c一边写java和jsp一边写js的纠结……嗯，你试着想一下一边学法语一边学英语一边学日语的混乱）。依我所想应该是有个地方打印出Hello World，然后直接在那个地方加代码就好了。合情合理有木有，可是我就是找了半个多小时，愣是没找着Hello World，开始代码搜索没找着时我还怀疑我装的盗版VC++来着……直到我看遍代码，依然没有……当然，不排除我眼瞎，有兴趣可以扒着找找。</p>
-<h3 id="MFC"><a href="#MFC" class="headerlink" title="MFC"></a>MFC</h3><p>这是个很神奇的东西，但是我要会写这个早就去写游戏了……最重要的是，没有找到纯C的资料，一个C语言的大作业拿C++写算作弊吗？我是无所谓，毕竟带了一群学霸学弟（在一个个个都是学霸的班级里压力也是很大的……）。</p>
-<p>果断放弃，此路显然不通。</p>
-<h3 id="Messagebox"><a href="#Messagebox" class="headerlink" title="Messagebox"></a>Messagebox</h3><p>这玩意倒是不难的，但是找了好久都不知道它可不可以加自定义函数功能的按钮（还是只有YES/NO）,理论上来说应该是可以的，我猜的，别当真。<br>嵌入HTML<br>其实最早的时候就有这个想法。直接嵌入HTML，简单多了。<br>之前好像在哪看见过HTML里还是JS里嵌入C（虽然理论上我觉得是行不通的，毕竟C是需要编译的，但我发誓我真的看到过），当时匆匆一瞥就过去了，以为永远不会写C的，没啥用。终于，报应来了。<br>无意间找到一行代码：</p>
-<figure class="highlight c++"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div></pre></td><td class="code"><pre><div class="line"><span class="keyword">const</span> TCHAR HtmlStrings[] = &#123;<span class="string">"&lt;FONT COLOR=#GREEN&gt;Hello World&lt;/FONT&gt;&lt;P&gt;&lt;A HREF=\"app:2\"&gt;click me&lt;/A&gt;\0\</span></div><div class="line"><span class="string">This is page 2.&lt;P&gt;You can:&lt;P&gt;&lt;A HREF=\"app:1\"&gt;Go back to previous page.&lt;/A&gt;&lt;BR&gt;&lt;A HREF=\"app:3\"&gt;Go to next page.&lt;/A&gt;\0\</span></div><div class="line"><span class="string">&lt;FONT COLOR=RED&gt;This is page 3.&lt;/FONT&gt;&lt;P&gt;You can:&lt;P&gt;&lt;A HREF=\"app:2\"&gt;Go back to previous page.&lt;/A&gt;&lt;BR&gt;&lt;A HREF=\"app:1\"&gt;Go to first page.&lt;/A&gt;\0\</span></div><div class="line"><span class="string">\0"</span>&#125;;</div></pre></td></tr></table></figure>
-<p>它真的是一行我没骗人，谁让C不让换行。</p>
-<p>当时想const……看起来有点熟悉啊。</p>
-<p>C++关键字，也可以是C关键字！</p>
-<p>再一查，果然！</p>
-<p>也是凑巧，找到了这个文件注释完整的源码，虽然都是英文，但看还是得看（大不了看不懂百度翻译嘛）。然后大概知道了它怎么用，惊喜的是，它的按钮是拿C绘制的，这个对后面加函数什么的方便多了，毕竟我也不大清楚这里引入的HTML能否像调用JS一样调用C。</p>
-<p>到这里，此文该完结了。源码什么的，等我整个项目写完再把自己写好的丢上来吧。</p>
-<p>其实更大的目的是，我知道这几种方式都可以实现C的图形界面人机交互，但我目前还做不到，只能找一种我能够理解的方式去做，以后会不会研究我不知道，但或许有用呢？</p>
-<p>毕竟，这次也只是一次普通的大作业而已，期末作业还不知道是什么鬼……</p>
-
+<p>如果说一般代码是砖，C语言这种东西就是烧砖的那种土（砖是土烧的？？？我读书少猜的。当然，此处不要跟我提汇编。）砖可以一块一块码起来，当然，你拿土堆房子形状可以更为随意，但是前提是你得堆起来，稍不留神留个坑，盖好的全塌了。<br>
+        
       
 
       
@@ -704,68 +641,7 @@
 <li>保留一位小数：Math.round(10*表达式/10.0)</li>
 <li>保留两位小数：Math.round(100*表达式/100.0)</li>
 </ul>
-<h3 id="字符型变量用单引号，字符串用双引号"><a href="#字符型变量用单引号，字符串用双引号" class="headerlink" title="字符型变量用单引号，字符串用双引号"></a>字符型变量用单引号，字符串用双引号</h3><h3 id="强制转换"><a href="#强制转换" class="headerlink" title="强制转换"></a>强制转换</h3><p>Java默认浮点型由double表示，强制转换为float类型时，数据后应加f/F,表示为单精度</p>
-<h3 id="作用域"><a href="#作用域" class="headerlink" title="作用域"></a>作用域</h3><p>同一作用域下，变量不能重复定义。</p>
-<p>Java中语句的顺序对作用域有影响。</p>
-<p>如：</p>
-<figure class="highlight java"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div></pre></td><td class="code"><pre><div class="line"></div><div class="line"><span class="function"><span class="keyword">public</span> <span class="keyword">static</span> <span class="keyword">void</span> <span class="title">main</span><span class="params">(String[] args)</span></span>&#123;</div><div class="line">string name=<span class="string">"林落雨落林"</span></div><div class="line">    &#123;string name=“林落雨落林”</div><div class="line">    &#125;</div><div class="line">&#125;</div></pre></td></tr></table></figure>
-<p>第一个string name的作用域为该行语句至最外层大括号结束，这个程序会报错，因为第一个string name的作用域与地下的有交叉。</p>
-<p>再如：</p>
-<figure class="highlight java"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div></pre></td><td class="code"><pre><div class="line"><span class="function"><span class="keyword">public</span> <span class="keyword">static</span> <span class="keyword">void</span> <span class="title">main</span><span class="params">(String[] args)</span></span>&#123;</div><div class="line">&#123;string name=“林落雨落林”</div><div class="line">    &#125;</div><div class="line">string name=<span class="string">"林落雨落林"</span></div><div class="line">    </div><div class="line">&#125;</div></pre></td></tr></table></figure>
-<p>第二个string name的作用域为该行语句至最外层大括号结束，这个程序不会报错，因为第一个string name的作用域仅为内层大括号内。</p>
-<table>
-<thead>
-<tr>
-<th style="text-align:center">基本数据类型</th>
-<th style="text-align:center">包装类</th>
-</tr>
-</thead>
-<tbody>
-<tr>
-<td style="text-align:center">byte</td>
-<td style="text-align:center">Byte</td>
-</tr>
-<tr>
-<td style="text-align:center">boolean</td>
-<td style="text-align:center">Boolean</td>
-</tr>
-<tr>
-<td style="text-align:center">short</td>
-<td style="text-align:center">Short</td>
-</tr>
-<tr>
-<td style="text-align:center">char</td>
-<td style="text-align:center">Character</td>
-</tr>
-<tr>
-<td style="text-align:center">int</td>
-<td style="text-align:center">Integer</td>
-</tr>
-<tr>
-<td style="text-align:center">long</td>
-<td style="text-align:center">Long</td>
-</tr>
-<tr>
-<td style="text-align:center">float</td>
-<td style="text-align:center">Float</td>
-</tr>
-<tr>
-<td style="text-align:center">double</td>
-<td style="text-align:center">Double</td>
-</tr>
-</tbody>
-</table>
-<h3 id="args数组获取数据"><a href="#args数组获取数据" class="headerlink" title="args数组获取数据"></a>args数组获取数据</h3><figure class="highlight java"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div></pre></td><td class="code"><pre><div class="line"><span class="function"><span class="keyword">public</span> <span class="keyword">static</span> <span class="keyword">void</span> <span class="title">main</span><span class="params">(String[] args)</span> </span>&#123;</div><div class="line"><span class="keyword">int</span> a=Integer.parseInt(args[<span class="number">0</span>]);</div><div class="line"><span class="keyword">int</span> b=Integer.parseInt(args[<span class="number">1</span>]);</div><div class="line">System.out.println(a+<span class="string">"+"</span>+b+<span class="string">"="</span>+(a+b));</div><div class="line"></div><div class="line">&#125;</div></pre></td></tr></table></figure>
-<p>其实是一个输入然后得出结果的过程，重要的是操作。<br>Run旁边的小三角-Runconfiguration-New launch configuration-Arguments-Program argument中输入，空格隔开。</p>
-<p>Intcger.parscInt() 是把字符串型转换为整型数字</p>
-<h3 id="Scanner类"><a href="#Scanner类" class="headerlink" title="Scanner类"></a>Scanner类</h3><p>就三步</p>
-<ol>
-<li>创建Scanner对象<br>Scanner scanner=new Scanner(System.in);</li>
-<li>向控制台输入提示文本<br>System.out.println(“XXXX”);</li>
-<li>接受控制台的输入<br>String name=scanner.next();<br>scanner有一大堆API函数，整理了几个比较常用的：<br>next() 接收字符串,以空格结束<br>nextLine（） 接收字符串，以回车结束<br>nextInt（） 接收int类型数据<br>nextDouble（） 接收double类型数据<br>nextBoolean（） 接收布尔类型数据</li>
-</ol>
-<p>输入char类型数据：<br>scanner类没有直接提供输入char类型的方法，所以可以变通一下：<br>先通过next（）接受一个字符串，再通过charAt（int index）获取字符串中的第index个字符，即：<br>next（）.charAt(0)</p>
-
+        
       
 
       
@@ -851,113 +727,7 @@
       
         <h2 id="css-flexbox可伸缩盒模型"><a href="#css-flexbox可伸缩盒模型" class="headerlink" title="css flexbox可伸缩盒模型"></a>css flexbox可伸缩盒模型</h2><p>感觉有点像bootstrap的分栏，可实现元素的同行分布。</p>
 <h3 id="常用语法"><a href="#常用语法" class="headerlink" title="常用语法"></a>常用语法</h3><figure class="highlight css"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div></pre></td><td class="code"><pre><div class="line">.父级&#123;</div><div class="line">    <span class="attribute">display</span>: flex/inline-flex;</div><div class="line">&#125;</div><div class="line"></div><div class="line">.子元素&#123;</div><div class="line">    <span class="attribute">flex</span>:<span class="number">1</span>;</div><div class="line">&#125;</div></pre></td></tr></table></figure>
-<h3 id="其它属性"><a href="#其它属性" class="headerlink" title="其它属性"></a>其它属性</h3><figure class="highlight"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">flex-direction：row|row-reserve|column|column-reserve【设置父级】</div></pre></td></tr></table></figure>
-<p>row:横向从左到右排列<br>row-reserve：反向 从右到左 第一个排在box最右边<br>column：纵向排列 从上到下<br>column-reserve：反向 从下到上 第一个排在box最下部</p>
-<figure class="highlight"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">flex-wrap：no-wrap|wrap|wrap-reserve【设置父级】</div></pre></td></tr></table></figure>
-<p>no-wrap：子元素溢出时不换行<br>wrap：子元素溢出时换行<br>wrap-reserve：反转wrap排列</p>
-<figure class="highlight"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">flex-fow：&lt;'flex-direction'&gt; &lt;'flex-wrap'&gt;【设置父级】</div></pre></td></tr></table></figure>
-<p>可以理解为同时设置以上属性？<br><figure class="highlight"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">justify-content：flex-start|flex-end|center|space-between|space-around【设置父级】</div></pre></td></tr></table></figure></p>
-<p>直接画个图吧</p>
-<table>
-<thead>
-<tr>
-<th style="text-align:center">属性</th>
-<th style="text-align:center"></th>
-<th style="text-align:center"></th>
-<th style="text-align:center"></th>
-<th style="text-align:center"></th>
-<th style="text-align:center"></th>
-<th style="text-align:center"></th>
-</tr>
-</thead>
-<tbody>
-<tr>
-<td style="text-align:center">flex-start</td>
-<td style="text-align:center">A</td>
-<td style="text-align:center">B</td>
-<td style="text-align:center"></td>
-<td style="text-align:center"></td>
-<td style="text-align:center"></td>
-<td style="text-align:center"></td>
-</tr>
-<tr>
-<td style="text-align:center">flex-end</td>
-<td style="text-align:center"></td>
-<td style="text-align:center"></td>
-<td style="text-align:center"></td>
-<td style="text-align:center"></td>
-<td style="text-align:center">A</td>
-<td style="text-align:center">B</td>
-</tr>
-<tr>
-<td style="text-align:center">center</td>
-<td style="text-align:center"></td>
-<td style="text-align:center"></td>
-<td style="text-align:center">A</td>
-<td style="text-align:center">B</td>
-<td style="text-align:center"></td>
-<td style="text-align:center"></td>
-</tr>
-<tr>
-<td style="text-align:center">space-between</td>
-<td style="text-align:center">A</td>
-<td style="text-align:center"></td>
-<td style="text-align:center"></td>
-<td style="text-align:center"></td>
-<td style="text-align:center"></td>
-<td style="text-align:center">B</td>
-</tr>
-<tr>
-<td style="text-align:center">space-around</td>
-<td style="text-align:center"></td>
-<td style="text-align:center">A</td>
-<td style="text-align:center"></td>
-<td style="text-align:center">B</td>
-<td style="text-align:center"></td>
-<td style="text-align:center"></td>
-</tr>
-</tbody>
-</table>
-<figure class="highlight"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">align-items：flex-start|flex-end|center|baseline|stretch【设置父级】</div></pre></td></tr></table></figure>
-<p>这个属性主要用于同行元素的纵轴对齐排列，前三个分别是顶端对齐、底端对齐、居中对齐，第四个基准线对齐吧，word里这个概念我都没理解，第五个容器会在纵轴方向上努力扩张直达边界。</p>
-<figure class="highlight"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">align-content：flex-start|flex-end|center|space-between|space-around|stretch【设置父级】</div></pre></td></tr></table></figure>
-<p>参考justify-content和align-items，不过是以一行的元素为单位进行定位。</p>
-<figure class="highlight css"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line"><span class="selector-tag">order</span>：<span class="selector-attr">[整数，可以为负数]</span>【设置子元素】</div></pre></td></tr></table></figure>
-<p>整数值最小的排在最前面</p>
-<figure class="highlight css"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line"><span class="selector-tag">flex-grow</span>：<span class="selector-attr">[数值，不允许为负数]</span>【设置子元素】</div></pre></td></tr></table></figure>
-<p>分两种情况来说吧：</p>
-<p>第一，子元素未设置宽高。原则上是不分配额外空间的，因为flex-grow默认为0，设置了flew-grow的元素按数值比例分配父级容器空间。</p>
-<p>第二，子元素设置宽高。首先，所有子元素按所设置的宽高固定，若父级容器还有剩余空间，设置flew-grow的元素继续按比例扩展（但我总感觉不成比例，只是数值大的稍微大一点）。</p>
-<figure class="highlight css"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line"><span class="selector-tag">flex-shrink</span>：<span class="selector-attr">[数值，不允许为负数]</span>【设置子元素】</div></pre></td></tr></table></figure>
-<p>这个有点有趣的。假如父级容器设置300px，六个子元素都为100px，设置flex-shrink分别为1,1,3,2,2,1（当然，flex-shrink默认值为1）。回到刚才，我们会发现超出100*6-300=300px，好了，现在按比率收缩，则六个子元素分别收缩30px，30px，90px，60px，60px，30px。子元素实际尺寸为270px，270px，210px，240px，240px，270px。<br><figure class="highlight"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">flex-basis：px|%【设置子元素】</div></pre></td></tr></table></figure></p>
-<p>给某一元素设置特定的值。</p>
-<figure class="highlight"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">align-self：auto|flex-start|flex-end|center|baseline|stretch【设置子元素】</div></pre></td></tr></table></figure>
-<p><em>center可以配合实现水平垂直居中！</em><br>其它的就是子元素的定位，可参考align-items。<br>（center可以用于实现水平垂直居中）</p>
-<p>参考资料：<a href="http://caibaojian.com/flexbox-guide.html" target="_blank" rel="external">http://caibaojian.com/flexbox-guide.html</a></p>
-<h2 id="calc"><a href="#calc" class="headerlink" title="calc"></a>calc</h2><p>calc是calculate的缩写，意为计算，它支持加减乘除运算。</p>
-<p>语法：<br><figure class="highlight css"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line"><span class="selector-class">.class</span> &#123;<span class="attribute">width</span>: <span class="built_in">calc</span>(expression);&#125;</div></pre></td></tr></table></figure></p>
-<p>如：<br><figure class="highlight css"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line"><span class="selector-tag">width</span><span class="selector-pseudo">:calc(100</span>%<span class="selector-tag">-50px-2rem</span>);</div></pre></td></tr></table></figure></p>
-<p>但是，它不可与box-sizing:border-box;同时使用，否则会造成冲突。</p>
-<h2 id="水平垂直居中"><a href="#水平垂直居中" class="headerlink" title="水平垂直居中"></a>水平垂直居中</h2><p>说到水平垂直居中，虽然flex-box可以实现，但用transform：translate；比较多，因为感觉灵活性大一点。<br><figure class="highlight css"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div></pre></td><td class="code"><pre><div class="line"> <span class="selector-class">.center</span>&#123;</div><div class="line">    <span class="attribute">width</span>:<span class="number">50%</span>;</div><div class="line">    <span class="attribute">position</span>: absolute;</div><div class="line">    <span class="attribute">top</span>: <span class="number">50%</span>;</div><div class="line">    <span class="attribute">left</span>: <span class="number">50%</span>;</div><div class="line">    <span class="attribute">-moz-transform</span>: <span class="built_in">translate</span>(-50%, -50%);</div><div class="line">    <span class="attribute">-ms-transform</span>: <span class="built_in">translate</span>(-50%, -50%);</div><div class="line">    <span class="attribute">-webkit-transform</span>: <span class="built_in">translate</span>(-50%, -50%);</div><div class="line">    <span class="attribute">transform</span>: <span class="built_in">translate</span>(-50%, -50%);</div><div class="line">&#125;</div></pre></td></tr></table></figure></p>
-<p>不过有一种情况：一个宽高百分比的容器内有一个宽高固定像素的元素，使元素居中。后来想出来一种超级简单的方法：在元素外再包一层div进行设置居中。当时被自己机智哭，现在想想好像也没什么。</p>
-<h2 id="移动端自适应"><a href="#移动端自适应" class="headerlink" title="移动端自适应"></a>移动端自适应</h2><h3 id="flex布局"><a href="#flex布局" class="headerlink" title="flex布局"></a>flex布局</h3><p>如上。不过需要考虑兼容性问题</p>
-<h3 id="rem布局"><a href="#rem布局" class="headerlink" title="rem布局"></a>rem布局</h3><figure class="highlight javascript"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div></pre></td><td class="code"><pre><div class="line">(<span class="function"><span class="keyword">function</span> (<span class="params">doc, win</span>) </span>&#123;</div><div class="line">    <span class="keyword">var</span> docEl = doc.documentElement,</div><div class="line">        resizeEvt = <span class="string">'orientationchange'</span> <span class="keyword">in</span> <span class="built_in">window</span> ? <span class="string">'orientationchange'</span> : <span class="string">'resize'</span>,</div><div class="line">        recalc = <span class="function"><span class="keyword">function</span> (<span class="params"></span>) </span>&#123;</div><div class="line">            <span class="keyword">var</span> clientWidth = docEl.clientWidth;</div><div class="line">            <span class="keyword">if</span> (!clientWidth) <span class="keyword">return</span>;</div><div class="line">            <span class="keyword">if</span>(clientWidth&gt;=<span class="number">640</span>)&#123;</div><div class="line">                docEl.style.fontSize = <span class="string">'100px'</span>;</div><div class="line">            &#125;<span class="keyword">else</span>&#123;</div><div class="line">                docEl.style.fontSize = <span class="number">100</span> * (clientWidth / <span class="number">640</span>) + <span class="string">'px'</span>;</div><div class="line">            &#125;</div><div class="line">        &#125;;</div><div class="line"></div><div class="line">    <span class="keyword">if</span> (!doc.addEventListener) <span class="keyword">return</span>;</div><div class="line">    win.addEventListener(resizeEvt, recalc, <span class="literal">false</span>);</div><div class="line">    doc.addEventListener(<span class="string">'DOMContentLoaded'</span>, recalc, <span class="literal">false</span>);</div><div class="line">&#125;)(<span class="built_in">document</span>, <span class="built_in">window</span>);</div></pre></td></tr></table></figure>
-<p>然后css中设置rem（=px/100）即可。<br>原理不大难理解，懒得重新打一份了。<br>参考：<a href="http://caibaojian.com/rem-responsive.html" target="_blank" rel="external">http://caibaojian.com/rem-responsive.html</a><br>另外这个作者还分享了一些技巧可供参考：</p>
-<ul>
-<li>导航用flex，其余用rem。</li>
-<li>页面中模块间距为0.2rem。</li>
-<li>字体常用大小为0.2rem 0.24rem 0.28rem 0.32rem</li>
-<li><p>效果图宽度定为640px，最外层div设置：</p>
-<figure class="highlight css"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div></pre></td><td class="code"><pre><div class="line"><span class="selector-tag">position</span>: <span class="selector-tag">relative</span>;</div><div class="line"><span class="selector-tag">width</span>: 100%;</div><div class="line"><span class="selector-tag">max-width</span>: 640<span class="selector-tag">px</span>;</div><div class="line"><span class="selector-tag">min-width</span><span class="selector-pseudo">:320px</span>;</div><div class="line"><span class="selector-tag">margin</span><span class="selector-pseudo">:0</span> <span class="selector-tag">auto</span>;</div></pre></td></tr></table></figure>
-</li>
-<li><p>元素水平居中固定到页面底部(在之前div下)</p>
-<figure class="highlight css"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div></pre></td><td class="code"><pre><div class="line"><span class="selector-tag">position</span><span class="selector-pseudo">:fixed</span>;</div><div class="line"><span class="selector-tag">bottom</span><span class="selector-pseudo">:0</span>;</div><div class="line"><span class="selector-tag">z-index</span><span class="selector-pseudo">:100</span>;</div><div class="line"><span class="selector-tag">width</span><span class="selector-pseudo">:100</span>%;</div><div class="line"><span class="selector-tag">max-width</span>: 640<span class="selector-tag">px</span>;</div><div class="line"><span class="selector-tag">min-width</span><span class="selector-pseudo">:320px</span>;</div></pre></td></tr></table></figure>
-</li>
-</ul>
-<h3 id="flexible-js"><a href="#flexible-js" class="headerlink" title="flexible.js"></a>flexible.js</h3><p>参考：<a href="http://caibaojian.com/flexible-js.html?wb" target="_blank" rel="external">http://caibaojian.com/flexible-js.html?wb</a></p>
-<p>1rem=75px<br>自己瞧，懒得再打字了手已废。</p>
-<p>暂时就那么多了，日后想起来或者再遇见再补充。</p>
-
+        
       
 
       
@@ -1046,21 +816,8 @@
     <div class="article-entry" itemprop="articleBody">
       
         <p>今天有个学弟问我问题<br>对 这个学弟一看就是一个很有前途的好学弟<br>毕竟他每次问我的问题我都不会</p>
-<p>学姐也只比你早入坑半年而已<br>当然 他显然不知道<br><img src="http://7xo6kd.com1.z0.glb.clouddn.com/upload-ueditor-image-20160227-1456583473396060654.gif" width="50" height="50"></p>
-<p>作为一个无时无刻不装逼的学姐<br>当然不能说<br>我 不 会<br>所以他每次的问题我都<br>解 决 了<br><img src="http://7xo6kd.com1.z0.glb.clouddn.com/upload-ueditor-image-20160227-1456583616244027368.jpeg" width="100" height="100"></p>
-<p>言归正传<br>他的代码是这样的<br><figure class="highlight javascript"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div><div class="line">21</div></pre></td><td class="code"><pre><div class="line">$(<span class="function"><span class="keyword">function</span>(<span class="params"></span>) </span>&#123;</div><div class="line">    <span class="keyword">var</span> box = $(<span class="string">".box"</span>);</div><div class="line">    <span class="keyword">var</span> height = box.outerHeight();</div><div class="line">    <span class="keyword">var</span> top = <span class="number">0</span>;</div><div class="line">    <span class="keyword">var</span> i = <span class="number">0</span>;</div><div class="line">    <span class="keyword">for</span> (; i &lt; <span class="number">6</span>; i++) &#123;</div><div class="line">        top = top + height;</div><div class="line">        box.css(<span class="string">'top'</span>, top + <span class="string">'px'</span>);</div><div class="line">    &#125;</div><div class="line">    $<span class="built_in">window</span> = $(<span class="built_in">window</span>);</div><div class="line">    $<span class="built_in">window</span>.on(<span class="string">'load'</span>, <span class="function"><span class="keyword">function</span>(<span class="params"></span>) </span>&#123;</div><div class="line">        <span class="keyword">for</span> (<span class="keyword">var</span> w = <span class="number">0</span>; w &lt; <span class="number">6</span>; w++) &#123;</div><div class="line">            <span class="keyword">var</span> dis = height / <span class="number">2</span> + box.eq(w).offset().top;</div><div class="line">            <span class="keyword">if</span> (dis &lt; screen.height) &#123;</div><div class="line">                box.eq(w).fadeOut();</div><div class="line">            &#125;</div><div class="line"></div><div class="line">        &#125;</div><div class="line"></div><div class="line">    &#125;);</div><div class="line">&#125;);</div></pre></td></tr></table></figure></p>
-<p>报错是offset().top取不到值</p>
-<p>我给的解决方法是把offset().top换成offsetTop。</p>
-<p>我猜可能的原因有两种（有点虚……这个用的真心不熟）<br>第一，offset().top是获取box的唯一相关坐标，所以大概不能循环。<br>第二，引用博客<br><a href="http://www.cnblogs.com/jshen/archive/2012/11/29/2794292.html" target="_blank" rel="external">http://www.cnblogs.com/jshen/archive/2012/11/29/2794292.html</a></p>
-<p>我们知道 offsetTop 可以获得 HTML 元素距离上方或外层元素的位置，style.top 也是可以的，二者的区别是：</p>
-<ul>
-<li>offsetTop 返回的是数字，而 style.top 返回的是字符串，除了数字外还带有单位：px。(这里的style.top是读的css样式中的top:20px;这种形式的值,所以是带有”px”的)</li>
-<li>offsetTop 只读，而 style.top 可读写。(style.top赋值切记加上”px”,测试过发现IE下用数值是可以的,但其它主流chrome,opera,ff,safari都不能识别,所以必须加”px”)</li>
-<li>如果没有给 HTML 元素指定过 top 样式，则 style.top 返回的是空字符串。<br>offsetLeft 与 style.left、offsetWidth 与 style.width、offsetHeight 与 style.height 也都是类似区别。<br>好了，然后让学弟试一下，不报错了。<h3 id="but"><a href="#but" class="headerlink" title="but"></a>but</h3>console.log()打印出来是NAN<br>现学现用补了一下数据类型<br>对！就是它了！<br>outHeight（）获取的是整数<br>offsetTop也是数值<br>而screen.height是像素单位<br>用$(window).height()就好了嘛</li>
-</ul>
-<p>学弟又问了，这个window是哪一块撒？<br>就是浏览器窗口当前可视区域嘛~<br>可视区域……视区域是指屏幕大小吗？<br>当然……我还真不大清楚<br>百度一下<br>唔~就是一个网页，除掉工具栏，除掉滚动条<br>对！这一块就是可视区域</p>
-<p>好了，装逼到此结束<br>刚到学校一直在整理东西加逛吃逛吃<br>只把svg和canvas文档简单过了一遍<br>（感觉可以放一下日后有空再找个项目练一下）<br>主要是懒……<br>良心有愧 记录一下<br>拖延症得改<br>嗯 后天就改<br>明天再逛吃一天<br>（还减不减肥了==！）</p>
-
+<p>学姐也只比你早入坑半年而已<br>当然 他显然不知道<br><img src="http://7xo6kd.com1.z0.glb.clouddn.com/upload-ueditor-image-20160227-1456583473396060654.gif" width="50" height="50"><br>
+        
       
 
       
@@ -1151,31 +908,7 @@
         <p>先马上代码片段</p>
 <figure class="highlight javascript"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div></pre></td><td class="code"><pre><div class="line"><span class="function"><span class="keyword">function</span> <span class="title">rangeTest</span>(<span class="params"></span>)</span>&#123;</div><div class="line">	<span class="keyword">var</span> html;</div><div class="line">	<span class="keyword">var</span> showRangeDiv = <span class="built_in">document</span>.getElementById(<span class="string">"showRange"</span>);</div><div class="line">	<span class="keyword">var</span> selection=<span class="built_in">document</span>.getSelection();</div><div class="line">	<span class="keyword">if</span> (selection.rangeCount&gt;<span class="number">0</span>) &#123;</div><div class="line">		html=<span class="string">"您选取了"</span>+selection.rangeCount+<span class="string">"内容"</span></div><div class="line">		<span class="keyword">for</span> (<span class="keyword">var</span> i = <span class="number">0</span>; i&lt;selection.rangeCount;i++) &#123;</div><div class="line">			<span class="keyword">var</span> range = selection.getRangeAt(i)</div><div class="line">			html+=<span class="string">"第"</span>+(i+<span class="number">1</span>)+<span class="string">"段内容为："</span>+range+<span class="string">"&lt;/br&gt;"</span>;</div><div class="line">			showRangeDiv.innerHTML=html;</div><div class="line">		&#125;;</div><div class="line">	&#125;;</div><div class="line">&#125;</div></pre></td></tr></table></figure>
 <figure class="highlight html"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div></pre></td><td class="code"><pre><div class="line"><span class="tag">&lt;<span class="name">input</span> <span class="attr">type</span>=<span class="string">"button"</span> <span class="attr">value</span>=<span class="string">"click"</span> <span class="attr">onclick</span>=<span class="string">"rangeTest()"</span>&gt;</span></div><div class="line"><span class="tag">&lt;<span class="name">div</span> <span class="attr">id</span>=<span class="string">"showRange"</span>&gt;</span><span class="tag">&lt;/<span class="name">div</span>&gt;</span></div></pre></td></tr></table></figure>
-<h3 id="功能"><a href="#功能" class="headerlink" title="功能"></a>功能</h3><p>输出选中内容</p>
-<h3 id="分析"><a href="#分析" class="headerlink" title="分析"></a>分析</h3><p>1.”showRangeDiv”获取”showRange”id。</p>
-<p>2.getSelection()方法。突然想到电子阅读时的颜色自动高亮标记，就是选中一块内容，然后那一块变色，感觉可以用这个试试，等我捋完。</p>
-<p>3.判断所选内容是否为空。selection.rangeCount是一个所选内容片段的计数，因为有些浏览器可以同时选中好几段内容。</p>
-<p>4.同样，下面的for循环也是按顺序依次输出每段选取的内容，selection.getRangeAt(i)为内容。</p>
-<p>5.innerHTML：之前一直忽视的一个东西，百度了一段容易理解的解释。<br>innerHTML在JS是双向功能：获取对象的内容 或 向对象插入内容。<br>如：</p>
-<figure class="highlight html"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line"><span class="tag">&lt;<span class="name">div</span> <span class="attr">id</span>=<span class="string">"aa"</span>&gt;</span>这是内容<span class="tag">&lt;/<span class="name">div</span>&gt;</span></div></pre></td></tr></table></figure>
-<p> ，我们可以通过 document.getElementById(‘aa’).innerHTML 来获取id为aa的对象的内嵌内容；</p>
-<p>也可以对某对象插入内容，如<br>document.getElementById(‘abc’).innerHTML=’这是被插入的内容’; 这样就能向id为abc的对象插入内容。</p>
-<p>OK，就是那么简单，很基本的一个东西。对了，前面那个想法百度了一下，真的有人这样写。不过不是特别理想的效果，贴上源码来分析一下。<br>来源：<a href="http://ask.csdn.net/questions/166543" target="_blank" rel="external">http://ask.csdn.net/questions/166543</a></p>
-<figure class="highlight html"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div><div class="line">21</div><div class="line">22</div><div class="line">23</div><div class="line">24</div><div class="line">25</div><div class="line">26</div><div class="line">27</div><div class="line">28</div><div class="line">29</div><div class="line">30</div><div class="line">31</div><div class="line">32</div><div class="line">33</div><div class="line">34</div><div class="line">35</div><div class="line">36</div><div class="line">37</div><div class="line">38</div></pre></td><td class="code"><pre><div class="line"><span class="meta">&lt;!DOCTYPE html&gt;</span></div><div class="line"><span class="tag">&lt;<span class="name">html</span>&gt;</span></div><div class="line"></div><div class="line"><span class="tag">&lt;<span class="name">head</span>&gt;</span></div><div class="line">    <span class="tag">&lt;<span class="name">meta</span> <span class="attr">charset</span>=<span class="string">"UTF-8"</span>&gt;</span></div><div class="line">    <span class="tag">&lt;<span class="name">script</span> <span class="attr">type</span>=<span class="string">"text/javascript"</span> <span class="attr">src</span>=<span class="string">"jquery.min.js"</span>&gt;</span><span class="undefined"></span><span class="tag">&lt;/<span class="name">script</span>&gt;</span></div><div class="line">    <span class="tag">&lt;<span class="name">title</span>&gt;</span>article元素<span class="tag">&lt;/<span class="name">title</span>&gt;</span></div><div class="line"><span class="tag">&lt;/<span class="name">head</span>&gt;</span></div><div class="line"></div><div class="line"><span class="tag">&lt;<span class="name">body</span>&gt;</span></div><div class="line">    <span class="tag">&lt;<span class="name">div</span> <span class="attr">id</span>=<span class="string">"content"</span> <span class="attr">style</span>=<span class="string">"background: grey"</span>&gt;</span></div><div class="line">        乔布斯掌权时代的iPhone以精湛的做工受到广泛的关注，也受到了大量的果粉追捧。iPhone4S的黄金尺寸设计，再到iPhone5s的巅峰状态，但是iPhone6的横空出世似乎打破了苹果公司在工艺方面的追求。虽然iPhone6及其iPhone6 Plus的销量比前几代产品都要高 （原因受安卓大屏冲击的影响，果粉对大屏手机的欲望愈加的浓烈），但是收到广泛吐槽也是最多的。大白条，尤其是突出的摄像头，乔布斯知道估计都能从坟里跳出来！ 不喜欢的iPhone6的果粉可以等等了，iPhone7马上就要来临了，这是国外设计师设计出的一部iPhone7的概念图，这部iPhone7不仅做工精湛， 而且消除了打白条和涉嫌头突出问题，更重要的是采用了iPhone4的双面玻璃设计，边角做出了圆润设计，不仅时尚，而且商务气息十足， 适合追求时尚的年轻人和商务人士使用，受用人群更广泛了。</div><div class="line">    <span class="tag">&lt;/<span class="name">div</span>&gt;</span></div><div class="line"><span class="tag">&lt;/<span class="name">body</span>&gt;</span></div><div class="line"><span class="tag">&lt;<span class="name">script</span> <span class="attr">type</span>=<span class="string">"text/javascript"</span>&gt;</span><span class="undefined"></span></div><div class="line"><span class="javascript">$(<span class="function"><span class="keyword">function</span>(<span class="params"></span>) </span>&#123;</span></div><div class="line"><span class="javascript">    $(<span class="string">"#content"</span>).mouseup(<span class="function"><span class="keyword">function</span>(<span class="params">e</span>) </span>&#123;</span></div><div class="line"><span class="javascript">        <span class="keyword">if</span> (<span class="built_in">window</span>.getSelection) &#123;</span></div><div class="line"><span class="javascript">            <span class="keyword">var</span> textObj = <span class="built_in">document</span>.getElementById(<span class="string">"content"</span>);</span></div><div class="line"><span class="javascript">            <span class="keyword">var</span> selectedText = <span class="built_in">window</span>.getSelection().toString();</span></div><div class="line"><span class="undefined">            alert(selectedText);</span></div><div class="line"><span class="xml">            selectedText = "<span class="tag">&lt;<span class="name">span</span> <span class="attr">style</span>=<span class="string">'background:red'</span>&gt;</span>" + selectedText + "<span class="tag">&lt;/<span class="name">span</span>&gt;</span>";</span></div><div class="line"><span class="undefined"></span></div><div class="line"><span class="javascript">            <span class="keyword">var</span> start = <span class="built_in">window</span>.getSelection().anchorOffset;</span></div><div class="line"><span class="javascript">            <span class="keyword">var</span> end = <span class="built_in">window</span>.getSelection().focusOffset;</span></div><div class="line"><span class="undefined"></span></div><div class="line"><span class="javascript">            <span class="keyword">var</span> tempStr1 = textObj.innerHTML.substring(<span class="number">0</span>, start);</span></div><div class="line"><span class="javascript">            <span class="keyword">var</span> tempStr2 = textObj.innerHTML.substring(end);</span></div><div class="line"><span class="undefined"></span></div><div class="line"><span class="javascript">            <span class="built_in">document</span>.getElementById(<span class="string">"content"</span>).innerHTML = tempStr1 + selectedText + tempStr2;</span></div><div class="line"><span class="undefined"></span></div><div class="line"><span class="undefined">        &#125;</span></div><div class="line"><span class="undefined"></span></div><div class="line"><span class="undefined"></span></div><div class="line"><span class="undefined">    &#125;);</span></div><div class="line"><span class="undefined"></span></div><div class="line"><span class="undefined">&#125;);</span></div><div class="line"><span class="undefined"></span><span class="tag">&lt;/<span class="name">script</span>&gt;</span></div></pre></td></tr></table></figure>
-<p>为了方便，把style=”background: grey”去掉（实在看不惯灰色的背景黑色的字……对，我就是矫情），去掉弹出框，文字换成123456789。</p>
-<p>刚开始一直从题主的问题描述中下手，无果，索性用最笨的方法，一个个记录找规律：</p>
-<p>首先，选取1，很正常，表示为 123456789<br>接着选取2， 表示为 2123456789<br>刷新，选取顺序为 1 3，表示为 3123456789<br>刷新，选取顺序为 1 4，表示为<br>4span style=”background:red;”&gt;123456789</p>
-<p>好像发现了什么，继续~</p>
-<p>刷新，选取顺序为 1 5，表示为</p>
-<p><5pan style="background:red;">123456789</5pan></p>
-<p>多做几次试验，发现第二次选取果然与第一次有关。<br>设第一次选取的值的位置为x，第二次选取的值的位置为y。记div中第一个数的位置为0<br>y<x时，选取区域正常； y="">x时，当y-x=1,2,3,4……y对应的数所在的位置分别为-2，-1，依次替换<br><figure class="highlight html"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line"><span class="tag">&lt;<span class="name">span</span> <span class="attr">style</span>=<span class="string">"background:red;"</span>&gt;</span></div></pre></td></tr></table></figure></x时，选取区域正常；></p>
-<p>并且第一次选取的数背景色消失。至于为什么会出现这种情况我表示很神奇……很神奇。<br>再来看一下最后三行代码<br><figure class="highlight javascript"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div></pre></td><td class="code"><pre><div class="line"><span class="keyword">var</span> tempStr1 = textObj.innerHTML.substring(<span class="number">0</span>,start); </div><div class="line"><span class="keyword">var</span> tempStr2 = textObj.innerHTML.substring(end); </div><div class="line"></div><div class="line"><span class="built_in">document</span>.getElementById(<span class="string">"content"</span>).innerHTML = tempStr1 + selectedText + tempStr2 ;</div></pre></td></tr></table></figure></p>
-<p>以selectedText为界来看，来个推测，当y-x&lt;=2时，tempStr1=0,tempStr2=x-y+2个空格+textObj</p>
-<p>太太太混乱了，好像很难通过更改表达式使它正常，似乎最简单的方法确实是跳出span，从div开始。html中给文字加了一个id为test的span，然后尝试用test作为起点终点，神奇的是，加了以后函数仅执行一次，想通过循环来实现函数的再次执行，试了几次依然未果，好伐，这个问题先放一边。</p>
-<p>不过这个过程倒是发现了一些有趣的东西，比如rangy.js,有时间可以看看它的源码。<br>文档：<a href="https://code.google.com/p/rangy/" target="_blank" rel="external">https://code.google.com/p/rangy/</a><br>demo：<a href="https://code.google.com/p/rangy/" target="_blank" rel="external">https://code.google.com/p/rangy/</a></p>
-<h3 id="2017-09-02更新"><a href="#2017-09-02更新" class="headerlink" title="2017.09.02更新"></a>2017.09.02更新</h3><p>前几天做了个公司的面试题挺有意思的，分享一下：<br><img src="http://ovne6ee1z.bkt.clouddn.com/Java%20Scrip%E7%BC%96%E7%A8%8B%E9%A2%98%EF%BC%88%E9%99%84%E4%BB%B62%EF%BC%89.png" alt=""></p>
-<p>我的回答：<br><figure class="highlight html"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div><div class="line">21</div><div class="line">22</div><div class="line">23</div><div class="line">24</div><div class="line">25</div><div class="line">26</div><div class="line">27</div><div class="line">28</div><div class="line">29</div><div class="line">30</div><div class="line">31</div><div class="line">32</div><div class="line">33</div><div class="line">34</div><div class="line">35</div><div class="line">36</div><div class="line">37</div><div class="line">38</div><div class="line">39</div><div class="line">40</div><div class="line">41</div><div class="line">42</div><div class="line">43</div><div class="line">44</div><div class="line">45</div><div class="line">46</div><div class="line">47</div><div class="line">48</div><div class="line">49</div><div class="line">50</div><div class="line">51</div><div class="line">52</div><div class="line">53</div><div class="line">54</div><div class="line">55</div><div class="line">56</div><div class="line">57</div><div class="line">58</div><div class="line">59</div><div class="line">60</div><div class="line">61</div><div class="line">62</div><div class="line">63</div><div class="line">64</div><div class="line">65</div><div class="line">66</div><div class="line">67</div><div class="line">68</div><div class="line">69</div></pre></td><td class="code"><pre><div class="line"><span class="meta">&lt;!DOCTYPE html&gt;</span></div><div class="line"><span class="tag">&lt;<span class="name">html</span> <span class="attr">lang</span>=<span class="string">"en"</span>&gt;</span></div><div class="line"><span class="tag">&lt;<span class="name">head</span>&gt;</span></div><div class="line">    <span class="tag">&lt;<span class="name">meta</span> <span class="attr">charset</span>=<span class="string">"UTF-8"</span>&gt;</span></div><div class="line">    <span class="tag">&lt;<span class="name">meta</span> <span class="attr">name</span>=<span class="string">"viewport"</span> <span class="attr">content</span>=<span class="string">"width=device-width, initial-scale=1.0"</span>&gt;</span></div><div class="line">    <span class="tag">&lt;<span class="name">meta</span> <span class="attr">http-equiv</span>=<span class="string">"X-UA-Compatible"</span> <span class="attr">content</span>=<span class="string">"ie=edge"</span>&gt;</span></div><div class="line">    <span class="tag">&lt;<span class="name">title</span>&gt;</span>Test<span class="tag">&lt;/<span class="name">title</span>&gt;</span></div><div class="line">    <span class="tag">&lt;<span class="name">style</span>&gt;</span><span class="undefined"></span></div><div class="line"><span class="undefined">        #demo &#123;</span></div><div class="line"><span class="undefined">            margin-bottom: 100px;</span></div><div class="line"><span class="undefined">        &#125;</span></div><div class="line"><span class="undefined">        #demo span:nth-child(1)&#123;</span></div><div class="line"><span class="undefined">            background-color: rgb(200, 200, 200)</span></div><div class="line"><span class="undefined">        &#125;</span></div><div class="line"><span class="undefined">        #demo span:nth-child(2)&#123;</span></div><div class="line"><span class="undefined">            background-color: rgb(200, 255, 200)</span></div><div class="line"><span class="undefined">        &#125;</span></div><div class="line"><span class="undefined">        .select1&#123;</span></div><div class="line"><span class="undefined">            background: rgb(200, 200, 200);</span></div><div class="line"><span class="undefined">        &#125;</span></div><div class="line"><span class="undefined">        .select2&#123;</span></div><div class="line"><span class="undefined">            background: rgb(200, 255, 200);</span></div><div class="line"><span class="undefined">        &#125;</span></div><div class="line"><span class="undefined">    </span><span class="tag">&lt;/<span class="name">style</span>&gt;</span></div><div class="line"><span class="tag">&lt;/<span class="name">head</span>&gt;</span></div><div class="line"><span class="tag">&lt;<span class="name">body</span>&gt;</span></div><div class="line">    <span class="tag">&lt;<span class="name">div</span> <span class="attr">style</span>=<span class="string">"color: #aaa"</span>&gt;</span></div><div class="line">        <span class="tag">&lt;<span class="name">p</span>&gt;</span>使用原生 JavaScript 实现鼠标划取下面段落中任意长度的文字实现高亮该段文字。<span class="tag">&lt;/<span class="name">p</span>&gt;</span></div><div class="line">        <span class="tag">&lt;<span class="name">p</span>&gt;</span>要求：支持划取多个区域、区域之间允许包含关系<span class="tag">&lt;/<span class="name">p</span>&gt;</span></div><div class="line">    <span class="tag">&lt;/<span class="name">div</span>&gt;</span></div><div class="line">    <span class="tag">&lt;<span class="name">hr</span> /&gt;</span></div><div class="line">    <span class="tag">&lt;<span class="name">p</span>&gt;</span>示例（仅演示）：<span class="tag">&lt;/<span class="name">p</span>&gt;</span></div><div class="line">    <span class="tag">&lt;<span class="name">p</span> <span class="attr">id</span>=<span class="string">"demo"</span>&gt;</span>火光熄灭之后，山林归于漆黑寂静。<span class="tag">&lt;<span class="name">span</span>&gt;</span>岳绮罗<span class="tag">&lt;/<span class="name">span</span>&gt;</span>坐在一棵老树下，无声的翕动了嘴唇：“张显宗。”她以手托腮，不带感情的发出声音：<span class="tag">&lt;<span class="name">span</span>&gt;</span>“张显宗，我<span class="tag">&lt;<span class="name">span</span>&gt;</span>牙疼<span class="tag">&lt;/<span class="name">span</span>&gt;</span>。”<span class="tag">&lt;/<span class="name">span</span>&gt;</span>向后靠向老树树干，她继续自言自语：“这辈子没活好，很糟糕。”<span class="tag">&lt;/<span class="name">p</span>&gt;</span></div><div class="line"></div><div class="line">    <span class="tag">&lt;<span class="name">p</span>&gt;</span>你的实现：<span class="tag">&lt;/<span class="name">p</span>&gt;</span></div><div class="line">    <span class="tag">&lt;<span class="name">p</span> <span class="attr">id</span>=<span class="string">"target"</span>&gt;</span>火光熄灭之后，山林归于漆黑寂静。岳绮罗坐在一棵老树下，无声的翕动了嘴唇：“张显宗。”她以手托腮，不带感情的发出声音：“张显宗，我牙疼。”向后靠向老树树干，她继续自言自语：“这辈子没活好，很糟糕。”<span class="tag">&lt;/<span class="name">p</span>&gt;</span></div><div class="line"></div><div class="line">    <span class="tag">&lt;<span class="name">script</span>&gt;</span><span class="undefined"></span></div><div class="line"><span class="javascript">        <span class="comment">// code here</span></span></div><div class="line"><span class="javascript">    <span class="keyword">var</span> textObj = <span class="built_in">document</span>.getElementById(<span class="string">"target"</span>);</span></div><div class="line"><span class="javascript">    textObj.onmouseup = <span class="function"><span class="keyword">function</span>(<span class="params"></span>)</span>&#123;</span></div><div class="line"><span class="undefined">        surroundSelection()</span></div><div class="line"><span class="undefined">    &#125;</span></div><div class="line"><span class="undefined">    </span></div><div class="line"><span class="javascript">    <span class="function"><span class="keyword">function</span> <span class="title">surroundSelection</span>(<span class="params"></span>) </span>&#123;</span></div><div class="line"><span class="javascript">        <span class="keyword">var</span> element = <span class="built_in">document</span>.createElement(<span class="string">'span'</span>);</span></div><div class="line"><span class="javascript">        <span class="keyword">if</span> (<span class="built_in">window</span>.getSelection) &#123;</span></div><div class="line"><span class="javascript">            <span class="keyword">var</span> sel = <span class="built_in">window</span>.getSelection();</span></div><div class="line"><span class="javascript">            <span class="keyword">if</span> (sel.rangeCount) &#123;</span></div><div class="line"><span class="javascript">                <span class="keyword">var</span> range = sel.getRangeAt(<span class="number">0</span>).cloneRange();</span></div><div class="line"><span class="javascript">                setTimeout(<span class="function"><span class="keyword">function</span>(<span class="params"></span>) </span>&#123;</span></div><div class="line"><span class="javascript">                    <span class="keyword">if</span>(sel.anchorNode.className == <span class="string">'select1'</span>)&#123;</span></div><div class="line"><span class="javascript">                        element.className = <span class="string">'select2'</span></span></div><div class="line"><span class="javascript">                    &#125;<span class="keyword">else</span>&#123;</span></div><div class="line"><span class="javascript">                        element.className = <span class="string">'select1'</span></span></div><div class="line"><span class="undefined">                    &#125;</span></div><div class="line"><span class="undefined"></span></div><div class="line"><span class="undefined">                &#125;, 0)</span></div><div class="line"><span class="undefined">                range.surroundContents(element);</span></div><div class="line"><span class="undefined">                sel.removeAllRanges();</span></div><div class="line"><span class="undefined">                sel.addRange(range);</span></div><div class="line"><span class="undefined">            &#125;</span></div><div class="line"><span class="undefined">        &#125;</span></div><div class="line"><span class="undefined">    &#125;</span></div><div class="line"><span class="undefined"></span></div><div class="line"><span class="undefined"></span></div><div class="line"><span class="undefined">    </span><span class="tag">&lt;/<span class="name">script</span>&gt;</span></div><div class="line"><span class="tag">&lt;/<span class="name">body</span>&gt;</span></div><div class="line"><span class="tag">&lt;/<span class="name">html</span>&gt;</span></div></pre></td></tr></table></figure></p>
-
+        
       
 
       
@@ -1264,22 +997,8 @@
     <div class="article-entry" itemprop="articleBody">
       
         <p>注：以下命令执行时若报错无该文件夹，则自行创建</p>
-<h3 id="下载解压"><a href="#下载解压" class="headerlink" title="下载解压"></a>下载解压</h3><p>这个下载地址是在阿里云php安装脚本中找到的，通过这个地址下载的话，因为是走的阿里云的局域网环境，下载速度应该会相对更快一点。看下图红框显示的速度，我的服务器带宽只有1M哦，这个速度是阿里云内部局域网的速度，总之是非常快了。</p>
-<h4 id="下载"><a href="#下载" class="headerlink" title="下载"></a>下载</h4><figure class="highlight shell"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">wget http://oss.aliyuncs.com/aliyunecs/onekey/mysql/mysql-5.5.35-linux2.6-x86_64.tar.gz</div></pre></td></tr></table></figure>
-<h4 id="解压"><a href="#解压" class="headerlink" title="解压"></a>解压</h4><figure class="highlight shell"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div></pre></td><td class="code"><pre><div class="line">tar zxvf mysql-5.5.35-linux2.6-x86_64.tar.gz  -C /alidata/server/</div><div class="line">改名（方便操作）</div><div class="line"></div><div class="line">cd /alidata/server</div><div class="line">mv mysql-5.5.35-linux2.6-x86_64.tar.gz mysql![](image/screenshot_1474811281351.png)</div></pre></td></tr></table></figure>
-<h3 id="启动"><a href="#启动" class="headerlink" title="启动"></a>启动</h3><figure class="highlight shell"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div></pre></td><td class="code"><pre><div class="line">groupadd mysql</div><div class="line">useradd -g mysql -s /sbin/nologin mysql</div><div class="line">/alidata/server/mysql/scripts/mysql_install_db --datadir=/alidata/server/mysql/data/ --basedir=/alidata/server/mysql --user=mysql![](image/screenshot_1474811314094.png)</div></pre></td></tr></table></figure>
-<p>出现OK则成功</p>
-<p>然后继续按顺序执行以下命令<br><figure class="highlight shell"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div></pre></td><td class="code"><pre><div class="line">chown -R mysql:mysql /alidata/server/mysql/</div><div class="line">chown -R mysql:mysql /alidata/server/mysql/data/</div><div class="line">chown -R mysql:mysql /alidata/log/mysql</div><div class="line">\cp -f /alidata/server/mysql/support-files/mysql.server /etc/init.d/mysql</div><div class="line">sed -i 's#^basedir=$#basedir=/alidata/server/mysql#' /etc/init.d/mysql</div><div class="line">sed -i 's#^datadir=$#datadir=/alidata/server/mysql/data#' /etc/init.d/mysql</div><div class="line">\cp -f /alidata/server/mysql/support-files/my-huge.cnf /etc/my.cnf</div><div class="line">sed -i 's#skip-locking#skip-external-locking\nlog-error=/alidata/log/mysql/error.log#' /etc/my.cnf</div><div class="line">chmod 755 /etc/init.d/mysql</div></pre></td></tr></table></figure></p>
-<p>注：这里需要看自己服务器的配置了，一般是</p>
-<p>my-small.cnf是为了小型数据库而设计的。不应该把这个模型用于含有一些常用项目的数据库。<br>my-medium.cnf是为中等规模的数据库而设计的。如果你正在企业中使用RHEL,可能会比这个操作系统的最小RAM需求(256MB)明显多得多的物理内存。由此可见，如果有那么多RAM内存可以使用，自然可以在同一台机器上运行其它服务。<br>my-large.cnf是为专用于一个SQL数据库的计算机而设计的。由于它可以为该数据库使用多达512MB的内存，所以在这种类型的系统上将需要至少1GB的RAM,以便它能够同时处理操作系统与数据库应用程序。<br>my-huge.cnf是为企业中的数据库而设计的。这样的数据库要求专用服务器和1GB或1GB以上的RAM。<br>这些选择高度依赖于内存的数量、计算机的运算速度、数据库的细节大小、访问数据库的用户数量以及在数据库中装入并访问数据的用户数量。随着数据库和用户的不断增加，数据库的性能可能会发生变化。<br>my-innodb-heavy-4G为大型应用配置的。这样的数据库要求内存在4Gb。<br>接着启动mysql</p>
-<figure class="highlight shell"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">service mysql start</div></pre></td></tr></table></figure>
-<p>mysql启动后，可以查看下端口，确认mysql已经正常启动</p>
-<figure class="highlight shell"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">netstat -tnl|grep 3306</div></pre></td></tr></table></figure>
-<h3 id="设置链接（相当于快捷方式）"><a href="#设置链接（相当于快捷方式）" class="headerlink" title="设置链接（相当于快捷方式）"></a>设置链接（相当于快捷方式）</h3><figure class="highlight shell"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div></pre></td><td class="code"><pre><div class="line">ln -s /alidata/server/mysql/bin/mysql /usr/bin</div><div class="line">ln -s /alidata/server/mysql/bin/mysqladmin /usr/bin</div></pre></td></tr></table></figure>
-<p>以后就可以直接输入mysql -uroot -root 就可以连接上了。</p>
-<h3 id="设置密码"><a href="#设置密码" class="headerlink" title="设置密码"></a>设置密码</h3><figure class="highlight shell"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">/alidata/server/mysql/bin/mysqladmin -u root password 'root'</div></pre></td></tr></table></figure>
-<h3 id="root登录mysql"><a href="#root登录mysql" class="headerlink" title="root登录mysql"></a>root登录mysql</h3><figure class="highlight shell"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div></pre></td><td class="code"><pre><div class="line">mysql -uroot -proot</div><div class="line">GRANT ALL PRIVILEGES ON *.* TO root IDENTIFIED BY "root"</div></pre></td></tr></table></figure>
-<h3 id="设置mysql开机自启动"><a href="#设置mysql开机自启动" class="headerlink" title="设置mysql开机自启动"></a>设置mysql开机自启动</h3>
+<h3 id="下载解压"><a href="#下载解压" class="headerlink" title="下载解压"></a>下载解压</h3><p>这个下载地址是在阿里云php安装脚本中找到的，通过这个地址下载的话，因为是走的阿里云的局域网环境，下载速度应该会相对更快一点。看下图红框显示的速度，我的服务器带宽只有1M哦，这个速度是阿里云内部局域网的速度，总之是非常快了。<br>
+        
       
 
       
@@ -1444,11 +1163,15 @@ return o(i(t),arguments.length<2?void 0:u(arguments[1]))}})},function(t,n,r){var
           <ul class="article-tag-list" q-show="showTags">
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color2">C</a>
+                <a href="javascript:void(0)" class="js-tag color3">前端</a>
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color3">前端</a>
+                <a href="javascript:void(0)" class="js-tag color5">html</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color2">C</a>
               </li>
              
               <li class="article-tag-list-item">
@@ -1461,10 +1184,6 @@ return o(i(t),arguments.length<2?void 0:u(arguments[1]))}})},function(t,n,r){var
              
               <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color2">jQuery</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color5">java</a>
               </li>
              
               <li class="article-tag-list-item">
@@ -1484,15 +1203,15 @@ return o(i(t),arguments.length<2?void 0:u(arguments[1]))}})},function(t,n,r){var
               </li>
              
               <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color5">java</a>
+              </li>
+             
+              <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color1">mysql</a>
               </li>
              
               <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color5">js模式</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color5">html</a>
               </li>
              
               <li class="article-tag-list-item">

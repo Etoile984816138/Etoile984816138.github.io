@@ -22,7 +22,7 @@
   <style type="text/css">
   
     #container.show {
-      background: linear-gradient(200deg,#a0cfe4,#e8c37e);
+      background: linear-gradient(to right, #4ca1af, #c4e0e5);
     }
   </style>
   
@@ -36,7 +36,7 @@
     <canvas id="anm-canvas" class="anm-canvas"></canvas>
     <div class="left-col" q-class="show:isShow">
       
-<div class="overlay" style="background: #4d4d4d"></div>
+<div class="overlay" style="background: linear-gradient(to right, #4ca1af, #c4e0e5)"></div>
 <div class="intrude-less">
 	<header id="header" class="inner">
 		<a href="/" class="profilepic">
@@ -84,7 +84,7 @@
 				
 					<a class="github" target="_blank" href="https://github.com/Etoile984816138" title="github"><i class="icon-github"></i></a>
 		        
-					<a class="weibo" target="_blank" href="#" title="weibo"><i class="icon-weibo"></i></a>
+					<a class="weibo" target="_blank" href="http://www.weibo.com/llyll984816138/home?wvr=5" title="weibo"><i class="icon-weibo"></i></a>
 		        
 					<a class="rss" target="_blank" href="#" title="rss"><i class="icon-rss"></i></a>
 		        
@@ -99,7 +99,7 @@
     <div class="mid-col" q-class="show:isShow,hide:isShow|isFalse">
       
 <nav id="mobile-nav">
-  	<div class="overlay js-overlay" style="background: #4d4d4d"></div>
+  	<div class="overlay js-overlay" style="background: linear-gradient(to right, #4ca1af, #c4e0e5)"></div>
 	<div class="btnctn js-mobile-btnctn">
   		<div class="slider-trigger list" q-on="click: openSlider(e)"><i class="icon icon-sort"></i></div>
 	</div>
@@ -133,7 +133,7 @@
 					
 						<a class="github" target="_blank" href="https://github.com/Etoile984816138" title="github"><i class="icon-github"></i></a>
 			        
-						<a class="weibo" target="_blank" href="#" title="weibo"><i class="icon-weibo"></i></a>
+						<a class="weibo" target="_blank" href="http://www.weibo.com/llyll984816138/home?wvr=5" title="weibo"><i class="icon-weibo"></i></a>
 			        
 						<a class="rss" target="_blank" href="#" title="rss"><i class="icon-rss"></i></a>
 			        
@@ -192,10 +192,8 @@
     <div class="article-entry" itemprop="articleBody">
       
         <p>随着程序复杂度的提高，代码会分置在不同的文件中以特定顺序来加载，这样一来，就不能保证你的代码一定是第一个申明命名空间或者改变量下属性的，所以最好检查下是否存在。【单例模式】<br><figure class="highlight javascript"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line"><span class="keyword">var</span> MYAPP = MYAPP || &#123;&#125;;</div></pre></td></tr></table></figure></p>
-<p>但是每次都做同样的检查会有重复的代码，所以需要一个重用的namespace()函数来专门处理这些检查工作，然后创建命名空间。</p>
-<figure class="highlight javascript"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div></pre></td><td class="code"><pre><div class="line">   <span class="keyword">var</span> MYAPP = MYAPP || &#123;&#125;;</div><div class="line">MYAPP.namespace = <span class="function"><span class="keyword">function</span> (<span class="params">ns_string</span>)</span>&#123;</div><div class="line">	<span class="keyword">var</span> parts = ns_string.split(<span class="string">'.'</span>),</div><div class="line">		parent = MYAPP,</div><div class="line">		i;</div><div class="line"></div><div class="line">	<span class="keyword">if</span>(parts[<span class="number">0</span>] === <span class="string">"MYAPP"</span>)&#123;</div><div class="line">		parts = parts.slice(<span class="number">1</span>);</div><div class="line">	&#125;</div><div class="line"></div><div class="line">	<span class="keyword">for</span>(i = <span class="number">0</span>;i&lt;parts.length;i++)&#123;</div><div class="line">		<span class="keyword">if</span>(<span class="keyword">typeof</span> parent[parts[i]] === <span class="string">"undefined"</span>)&#123;</div><div class="line">			parent[parts[i]] = &#123;&#125;;</div><div class="line">		&#125;</div><div class="line">		parent = parent[parts[i]]</div><div class="line">	&#125;</div><div class="line">	<span class="keyword">return</span> parent;</div><div class="line">&#125;</div></pre></td></tr></table></figure>
-<p>调用<br><figure class="highlight javascript"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">MYAPP.namespace(modules1.modules2);</div></pre></td></tr></table></figure></p>
-
+<p>但是每次都做同样的检查会有重复的代码，所以需要一个重用的namespace()函数来专门处理这些检查工作，然后创建命名空间。<br>
+        
       
 
       
@@ -287,17 +285,8 @@
     
     <div class="article-entry" itemprop="articleBody">
       
-        <h3 id="什么是函数柯里化"><a href="#什么是函数柯里化" class="headerlink" title="什么是函数柯里化"></a>什么是函数柯里化</h3><p>对任意一个函数进行处理，得到一个新函数，使它可以处理部分参数。其实这个概念比较难理解。但是开发中会有这样一个场景出现，你在调用同样的函数，并且传入的参数大部分都相同。这时候可以通过传入一部分的参数动态地创建一个新的函数，这个新的函数会存储那些重复的参数（所以你不需要再每次传入），然后再调用原始函数的时候把整个参数列表补全。</p>
-<h3 id="通用柯里化函数"><a href="#通用柯里化函数" class="headerlink" title="通用柯里化函数"></a>通用柯里化函数</h3><figure class="highlight javascript"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div></pre></td><td class="code"><pre><div class="line"><span class="function"><span class="keyword">function</span> <span class="title">schonfikelize</span>(<span class="params">fn</span>)</span>&#123;</div><div class="line">	<span class="keyword">var</span> slice = <span class="built_in">Array</span>.prototype.slice,</div><div class="line">	<span class="comment">// 从Array.prototype中借用slice()方法吧arguments转成数组</span></div><div class="line">	stored_args = slice.call(<span class="built_in">arguments</span>,<span class="number">1</span>);</div><div class="line">	<span class="keyword">return</span> <span class="function"><span class="keyword">function</span>(<span class="params"></span>)</span>&#123;</div><div class="line">		<span class="keyword">var</span> new_args = slice.call(<span class="built_in">arguments</span>,<span class="number">1</span>);</div><div class="line">		args = stored_args.concat(new_args);</div><div class="line">		<span class="keyword">return</span> fn.apply(<span class="literal">null</span>,args);</div><div class="line">	&#125;</div><div class="line">&#125;</div></pre></td></tr></table></figure>
-<h3 id="解决问题"><a href="#解决问题" class="headerlink" title="解决问题"></a>解决问题</h3><ul>
-<li><p>分步求解函数问题（如不定参累加）</p>
-</li>
-<li><p>抽出函数的公共部分，将剩余部分通过参数传入</p>
-</li>
-</ul>
-<h3 id="参考资料"><a href="#参考资料" class="headerlink" title="参考资料"></a>参考资料</h3><p><a href="http://web.jobbole.com/90637/" target="_blank" rel="external">http://web.jobbole.com/90637/</a></p>
-<p><a href="https://segmentfault.com/a/1190000008193605" target="_blank" rel="external">https://segmentfault.com/a/1190000008193605</a></p>
-
+        <h3 id="什么是函数柯里化"><a href="#什么是函数柯里化" class="headerlink" title="什么是函数柯里化"></a>什么是函数柯里化</h3><p>对任意一个函数进行处理，得到一个新函数，使它可以处理部分参数。其实这个概念比较难理解。但是开发中会有这样一个场景出现，你在调用同样的函数，并且传入的参数大部分都相同。这时候可以通过传入一部分的参数动态地创建一个新的函数，这个新的函数会存储那些重复的参数（所以你不需要再每次传入），然后再调用原始函数的时候把整个参数列表补全。<br>
+        
       
 
       
@@ -391,57 +380,7 @@
 <li><p>aside:标签定义 article 以外的内容。a</p>
 </li>
 <li><p>audio:h5新增音频标签。没有高宽属性。</p>
-</li>
-<li><p>canvas:h5新增画布标签。</p>
-</li>
-<li><p>command: 定义命令按钮(未测试)</p>
-</li>
-<li><p>datalist：标签定义选项列表。</p>
-</li>
-<li><p>datalist 及其选项不会被想显示出来，它仅仅是合法的输入值列表。</p>
-</li>
-<li><p>details：标签用于描述文档或文档某个部分的细节。</p>
-</li>
-<li><p>figure：标签用于对元素进行组合。</p>
-</li>
-<li><p>figcaption：定义 figure 元素的标题。</p>
-</li>
-<li><p>footer：定义 section 或 document 的页脚。</p>
-</li>
-<li><p>header：定义 section 或 document 的页眉。</p>
-</li>
-<li><p>hgroup：用于对网页或区段（section）的标题进行组合。</p>
-</li>
-<li><p>keygen:标签规定用于表单的密钥对生成器字段</p>
-</li>
-<li><p>mark：标签定义带有记号的文本。</p>
-</li>
-<li><p>meter：通过min=”0” max=”20”的方式定义度量衡。仅用于已知最大和最小值的度量。</p>
-</li>
-<li><p>nav：定义document或section或article的导航。</p>
-</li>
-<li><p>output：定义不同的输出类型，比如脚本。</p>
-</li>
-<li><p>progress：定义任何类型的任务的进度。</p>
-</li>
-<li><p>rp:定义若浏览器不支持 ruby 元素显示的内容</p>
-</li>
-<li><p>rt：定义 ruby 注释的解释</p>
-</li>
-<li><p>ruby：定义 ruby 注释</p>
-</li>
-<li><p>section：标签定义文档中的节、区段。比如章节、页眉、页脚或文档中的其他部分。</p>
-</li>
-<li><p>source:audio和video的属性之一。为audio和video定义媒介源。</p>
-</li>
-<li><p>summary:为details定义标题。</p>
-</li>
-<li><p>time:定义日期或时间。</p>
-</li>
-<li><p>video：h5新增视频标签。具有高宽属性。</p>
-</li>
-</ul>
-
+        
       
 
       
@@ -536,9 +475,7 @@
 <li>跨过中点</li>
 <li>完全在中点右边</li>
 </ul>
-<h3 id="代码"><a href="#代码" class="headerlink" title="代码"></a>代码</h3><figure class="highlight javascript"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div><div class="line">21</div><div class="line">22</div><div class="line">23</div><div class="line">24</div><div class="line">25</div><div class="line">26</div><div class="line">27</div><div class="line">28</div><div class="line">29</div><div class="line">30</div><div class="line">31</div><div class="line">32</div><div class="line">33</div><div class="line">34</div><div class="line">35</div><div class="line">36</div><div class="line">37</div><div class="line">38</div><div class="line">39</div><div class="line">40</div><div class="line">41</div><div class="line">42</div><div class="line">43</div><div class="line">44</div><div class="line">45</div><div class="line">46</div><div class="line">47</div><div class="line">48</div><div class="line">49</div><div class="line">50</div><div class="line">51</div><div class="line">52</div><div class="line">53</div><div class="line">54</div><div class="line">55</div><div class="line">56</div><div class="line">57</div></pre></td><td class="code"><pre><div class="line"><span class="keyword">var</span> INT_MIN = <span class="number">0</span>;</div><div class="line"><span class="comment">/**</span></div><div class="line"><span class="comment"> * [cross_middle 跨中点时计算最大和]</span></div><div class="line"><span class="comment"> * @Author   etoile</span></div><div class="line"><span class="comment"> * @DateTime 2017-03-12T18:21:03+0800</span></div><div class="line"><span class="comment"> * @param    &#123;[type]&#125;                 arr [传入数组]</span></div><div class="line"><span class="comment"> * @param    &#123;[type]&#125;                 l   [左下标]</span></div><div class="line"><span class="comment"> * @param    &#123;[type]&#125;                 m   [中间值]</span></div><div class="line"><span class="comment"> * @param    &#123;[type]&#125;                 r   [右下标]</span></div><div class="line"><span class="comment"> * @return   &#123;[type]&#125;                     [description]</span></div><div class="line"><span class="comment"> */</span></div><div class="line"><span class="function"><span class="keyword">function</span> <span class="title">cross_middle</span>(<span class="params">arr,l,m,r</span>)</span>&#123;</div><div class="line">    <span class="keyword">var</span> i,</div><div class="line">        sum=<span class="number">0</span>,</div><div class="line">        l_max=INT_MIN,</div><div class="line">        r_max=INT_MIN;</div><div class="line">    <span class="keyword">for</span>(i=m;i&gt;=l;i--)&#123;</div><div class="line">        sum+=arr[i];</div><div class="line">        <span class="keyword">if</span>(sum &gt; l_max) l_max=sum;</div><div class="line">    &#125;</div><div class="line">    sum=<span class="number">0</span>;</div><div class="line">    <span class="keyword">for</span>(i=m+<span class="number">1</span>;i&lt;=r;i++)&#123;</div><div class="line">        sum+=arr[i];</div><div class="line">        <span class="keyword">if</span>(sum&gt;r_max) r_max=sum;</div><div class="line">    &#125;</div><div class="line">    <span class="keyword">return</span> (l_max+r_max);</div><div class="line">&#125;</div><div class="line"></div><div class="line"><span class="comment">/**</span></div><div class="line"><span class="comment"> * [maxsubset 递归运算，求出最大值]</span></div><div class="line"><span class="comment"> * @Author   etoile</span></div><div class="line"><span class="comment"> * @DateTime 2017-03-12T18:22:47+0800</span></div><div class="line"><span class="comment"> * @param    &#123;[type]&#125;                 arr [传入数组]</span></div><div class="line"><span class="comment"> * @param    &#123;[type]&#125;                 l   [左下标]</span></div><div class="line"><span class="comment"> * @param    &#123;[type]&#125;                 r   [右下标]</span></div><div class="line"><span class="comment"> * @return   &#123;[type]&#125;                     [description]</span></div><div class="line"><span class="comment"> */</span></div><div class="line"><span class="function"><span class="keyword">function</span> <span class="title">maxsubset</span>(<span class="params">arr,l,r</span>)</span>&#123;</div><div class="line">    <span class="comment">// 测试基本情况，即数组中仅有一个元素</span></div><div class="line">    <span class="keyword">if</span>(l == r) <span class="keyword">return</span> arr[l];</div><div class="line">    <span class="comment">// 保护</span></div><div class="line">    <span class="keyword">if</span>(l&gt;r)&#123;</div><div class="line">        <span class="keyword">return</span> <span class="number">0</span>;</div><div class="line">    &#125;</div><div class="line">    <span class="comment">// 划分子数组，计算中点下标mid</span></div><div class="line">    <span class="keyword">var</span> m= <span class="built_in">parseInt</span>((l+r)/<span class="number">2</span>),</div><div class="line">        l_max=INT_MIN,</div><div class="line">        r_max=INT_MIN,</div><div class="line">        c_max=INT_MIN;</div><div class="line">    <span class="comment">// 子数组中至少包含两个元素，递归求解左右子数组中的最大子数组</span></div><div class="line">    l_max=maxsubset(arr,l,m);</div><div class="line">    r_max=maxsubset(arr,m+<span class="number">1</span>,r);</div><div class="line">    c_max=cross_middle(arr,l,m,r);</div><div class="line">    <span class="keyword">if</span>(l_max &gt;= r_max&amp;&amp;l_max &gt;= c_max) <span class="keyword">return</span> l_max;</div><div class="line">    <span class="keyword">else</span> <span class="keyword">if</span>(r_max &gt;= l_max&amp;&amp;r_max &gt;= c_max) <span class="keyword">return</span> r_max;</div><div class="line">    <span class="keyword">else</span> <span class="keyword">return</span> c_max;</div><div class="line">&#125;</div></pre></td></tr></table></figure>
-<h3 id="注意"><a href="#注意" class="headerlink" title="注意"></a>注意</h3><p>这个代码是在之前看到的一个C代码上改的，JS中遇到除法一定要格外当心，记得转类型。</p>
-
+        
       
 
       
@@ -631,9 +568,7 @@
     <div class="article-entry" itemprop="articleBody">
       
         <h3 id="伪代码"><a href="#伪代码" class="headerlink" title="伪代码"></a>伪代码</h3><figure class="highlight c"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div></pre></td><td class="code"><pre><div class="line"><span class="keyword">for</span> j = <span class="number">2</span> to A.length</div><div class="line">key = A[j]</div><div class="line">i = j - <span class="number">1</span></div><div class="line"><span class="keyword">while</span> i&gt;<span class="number">0</span> <span class="keyword">and</span> A[i] &gt; key</div><div class="line">A[i+<span class="number">1</span>] = A[i]</div><div class="line">i = i - <span class="number">1</span></div><div class="line">A[i+<span class="number">1</span>] = key</div></pre></td></tr></table></figure>
-<h3 id="JS基本实现"><a href="#JS基本实现" class="headerlink" title="JS基本实现"></a>JS基本实现</h3><figure class="highlight javascript"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div></pre></td><td class="code"><pre><div class="line"><span class="keyword">var</span> testArr = [<span class="number">0</span>,<span class="number">3</span>,<span class="number">3</span>,<span class="number">8</span>,<span class="number">2</span>,<span class="number">9</span>,<span class="number">1</span>,<span class="number">7</span>,<span class="number">1</span>,<span class="number">34</span>,<span class="number">12</span>]</div><div class="line"><span class="keyword">for</span>(<span class="keyword">var</span> i=<span class="number">1</span>;i&lt;testArr.length;i++)&#123;</div><div class="line">	<span class="keyword">var</span> key = testArr[i]</div><div class="line">	j = i <span class="number">-1</span></div><div class="line">	<span class="keyword">while</span>(j&gt;=<span class="number">0</span> &amp;&amp; testArr[j] &gt; key)&#123;</div><div class="line">		testArr[j+<span class="number">1</span>] = testArr[j]</div><div class="line">		j = j - <span class="number">1</span></div><div class="line">		testArr[j+<span class="number">1</span>] = key</div><div class="line">	&#125;</div><div class="line">&#125;</div><div class="line"><span class="built_in">console</span>.log(testArr)</div></pre></td></tr></table></figure>
-<h3 id="代码解释"><a href="#代码解释" class="headerlink" title="代码解释"></a>代码解释</h3><p>从第二个元素开始，依次与之前元素相比较，若前面元素较大，则交换位置</p>
-<h3 id="封装"><a href="#封装" class="headerlink" title="封装"></a>封装</h3><figure class="highlight javascript"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div><div class="line">21</div><div class="line">22</div></pre></td><td class="code"><pre><div class="line"><span class="comment">/**</span></div><div class="line"><span class="comment"> * [insertSort 插入排序]</span></div><div class="line"><span class="comment"> * @Author   etoile</span></div><div class="line"><span class="comment"> * @DateTime 2017-03-12T11:09:27+0800</span></div><div class="line"><span class="comment"> * @param    &#123;[type]&#125;                 arr [排序元素]</span></div><div class="line"><span class="comment"> * @param    &#123;[type]&#125;                 dir [排序方向 正数：从小到大 负数：从大到小]</span></div><div class="line"><span class="comment"> * @return   &#123;[type]&#125;                     [description]</span></div><div class="line"><span class="comment"> */</span></div><div class="line"><span class="function"><span class="keyword">function</span> <span class="title">insertSort</span>(<span class="params">arr, dir</span>) </span>&#123;</div><div class="line">    <span class="keyword">for</span> (<span class="keyword">var</span> i = <span class="number">1</span>; i &lt; arr.length; i++) &#123;</div><div class="line">        <span class="keyword">var</span> key = arr[i]</div><div class="line">        <span class="keyword">var</span> j = i - <span class="number">1</span></div><div class="line">        <span class="keyword">while</span> (j &gt;= <span class="number">0</span> &amp;&amp; (arr[j] - key)*dir &gt; <span class="number">0</span>) &#123;</div><div class="line">            arr[j + <span class="number">1</span>] = arr[j]</div><div class="line">            j = j - <span class="number">1</span></div><div class="line">            arr[j + <span class="number">1</span>] = key</div><div class="line">        &#125;</div><div class="line"></div><div class="line"></div><div class="line">    &#125;</div><div class="line">    <span class="keyword">return</span> arr;</div><div class="line">&#125;</div></pre></td></tr></table></figure>
+        
       
 
       
@@ -726,21 +661,8 @@
     <div class="article-entry" itemprop="articleBody">
       
         <p>思维导图+截图</p>
-<h3 id="maven"><a href="#maven" class="headerlink" title="maven"></a>maven</h3><p><img src="http://ovne6ee1z.bkt.clouddn.com/Maven.png" alt=""></p>
-<h3 id="maven插件"><a href="#maven插件" class="headerlink" title="maven插件"></a>maven插件</h3><p><img src="http://ovne6ee1z.bkt.clouddn.com/%E5%B1%8F%E5%B9%95%E5%BF%AB%E7%85%A7%202016-11-18%2019.42.42.png" alt=""></p>
-<h3 id="super-POM"><a href="#super-POM" class="headerlink" title="super POM"></a>super POM</h3><p><img src="http://ovne6ee1z.bkt.clouddn.com/%E5%B1%8F%E5%B9%95%E5%BF%AB%E7%85%A7%202016-11-18%2018.25.21.png" alt=""></p>
-<h3 id="插件目标绑定构建生命周期"><a href="#插件目标绑定构建生命周期" class="headerlink" title="插件目标绑定构建生命周期"></a>插件目标绑定构建生命周期</h3><p><img src="http://ovne6ee1z.bkt.clouddn.com/%E5%B1%8F%E5%B9%95%E5%BF%AB%E7%85%A7%202016-12-23%2016.11.50.png" alt=""></p>
-<h3 id="servlet"><a href="#servlet" class="headerlink" title="servlet"></a>servlet</h3><p><img src="http://ovne6ee1z.bkt.clouddn.com/servlet.png" alt=""></p>
-<h3 id="ServletMapping-匹配规则"><a href="#ServletMapping-匹配规则" class="headerlink" title="ServletMapping 匹配规则"></a>ServletMapping 匹配规则</h3><p><img src="http://ovne6ee1z.bkt.clouddn.com/%E5%B1%8F%E5%B9%95%E5%BF%AB%E7%85%A7%202016-11-19%2020.00.38.png" alt=""><br><img src="http://ovne6ee1z.bkt.clouddn.com/%E5%B1%8F%E5%B9%95%E5%BF%AB%E7%85%A7%202016-12-23%2016.11.50.png" alt=""></p>
-<h3 id="监听器启动顺序"><a href="#监听器启动顺序" class="headerlink" title="监听器启动顺序"></a>监听器启动顺序</h3><p><img src="http://ovne6ee1z.bkt.clouddn.com/%E5%B1%8F%E5%B9%95%E5%BF%AB%E7%85%A7%202016-12-03%2020.33.58.png" alt=""></p>
-<h3 id="监听器分类"><a href="#监听器分类" class="headerlink" title="监听器分类"></a>监听器分类</h3><p><img src="http://ovne6ee1z.bkt.clouddn.com/%E5%B1%8F%E5%B9%95%E5%BF%AB%E7%85%A7%202016-12-03%2020.32.05.png" alt=""></p>
-<h3 id="ServletConfig"><a href="#ServletConfig" class="headerlink" title="ServletConfig"></a>ServletConfig</h3><p><img src="http://ovne6ee1z.bkt.clouddn.com/%E5%B1%8F%E5%B9%95%E5%BF%AB%E7%85%A7%202016-11-19%2018.20.50.png" alt=""></p>
-<h3 id="Bean作用域"><a href="#Bean作用域" class="headerlink" title="Bean作用域"></a>Bean作用域</h3><p><img src="http://ovne6ee1z.bkt.clouddn.com/%E5%B1%8F%E5%B9%95%E5%BF%AB%E7%85%A7%202016-12-23%2020.46.07.png" alt=""><br><img src="http://ovne6ee1z.bkt.clouddn.com/%E5%B1%8F%E5%B9%95%E5%BF%AB%E7%85%A7%202016-12-23%2020.46.23.png" alt=""><br><img src="http://ovne6ee1z.bkt.clouddn.com/%E5%B1%8F%E5%B9%95%E5%BF%AB%E7%85%A7%202016-12-23%2021.27.06.png" alt=""><br><img src="http://ovne6ee1z.bkt.clouddn.com/%E5%B1%8F%E5%B9%95%E5%BF%AB%E7%85%A7%202016-12-23%2016.14.24.png" alt=""></p>
-<h3 id="Bean生命周期回调"><a href="#Bean生命周期回调" class="headerlink" title="Bean生命周期回调"></a>Bean生命周期回调</h3><p><img src="http://ovne6ee1z.bkt.clouddn.com/%E5%B1%8F%E5%B9%95%E5%BF%AB%E7%85%A7%202016-12-23%2021.31.17.png" alt=""><br><img src="http://ovne6ee1z.bkt.clouddn.com/%E5%B1%8F%E5%B9%95%E5%BF%AB%E7%85%A7%202016-12-23%2021.31.57.png" alt=""></p>
-<h3 id="get-amp-post"><a href="#get-amp-post" class="headerlink" title="get &amp; post"></a>get &amp; post</h3><p><img src="http://ovne6ee1z.bkt.clouddn.com/%E5%B1%8F%E5%B9%95%E5%BF%AB%E7%85%A7%202016-11-19%2017.51.58.png" alt=""></p>
-<h3 id="继承"><a href="#继承" class="headerlink" title="继承"></a>继承</h3><p><img src="http://ovne6ee1z.bkt.clouddn.com/%E5%B1%8F%E5%B9%95%E5%BF%AB%E7%85%A7%202016-11-18%2018.20.22.png" alt=""></p>
-<h3 id="连接池常用配置选项"><a href="#连接池常用配置选项" class="headerlink" title="连接池常用配置选项"></a>连接池常用配置选项</h3><p><img src="http://ovne6ee1z.bkt.clouddn.com/%E5%B1%8F%E5%B9%95%E5%BF%AB%E7%85%A7%202016-12-18%2013.48.18.png" alt=""></p>
-
+<h3 id="maven"><a href="#maven" class="headerlink" title="maven"></a>maven</h3><p><img src="http://ovne6ee1z.bkt.clouddn.com/Maven.png" alt=""><br>
+        
       
 
       
@@ -824,8 +746,8 @@
     
     <div class="article-entry" itemprop="articleBody">
       
-        <p><img src="http://ovne6ee1z.bkt.clouddn.com/%E5%B1%8F%E5%B9%95%E5%BF%AB%E7%85%A7%202016-12-20%2020.46.00.png" alt=""><br><img src="http://ovne6ee1z.bkt.clouddn.com/%E5%B1%8F%E5%B9%95%E5%BF%AB%E7%85%A7%202016-12-20%2020.44.00.png" alt=""><br><img src="http://ovne6ee1z.bkt.clouddn.com/%E5%B1%8F%E5%B9%95%E5%BF%AB%E7%85%A7%202016-12-20%2020.55.30.png" alt=""><br><img src="http://ovne6ee1z.bkt.clouddn.com/%E5%B1%8F%E5%B9%95%E5%BF%AB%E7%85%A7%202016-12-20%2020.48.09.png" alt=""><br><img src="http://ovne6ee1z.bkt.clouddn.com/%E5%B1%8F%E5%B9%95%E5%BF%AB%E7%85%A7%202016-12-20%2021.00.03.png" alt=""><br><img src="http://ovne6ee1z.bkt.clouddn.com/%E5%B1%8F%E5%B9%95%E5%BF%AB%E7%85%A7%202016-12-20%2020.53.12.png" alt=""><br><img src="http://ovne6ee1z.bkt.clouddn.com/%E5%B1%8F%E5%B9%95%E5%BF%AB%E7%85%A7%202016-12-20%2020.57.04.png" alt=""><br><img src="http://ovne6ee1z.bkt.clouddn.com/%E5%B1%8F%E5%B9%95%E5%BF%AB%E7%85%A7%202016-12-20%2020.58.41.png" alt=""><br><img src="http://ovne6ee1z.bkt.clouddn.com/%E5%B1%8F%E5%B9%95%E5%BF%AB%E7%85%A7%202016-12-20%2021.03.42.png" alt=""><br><img src="http://ovne6ee1z.bkt.clouddn.com/%E5%B1%8F%E5%B9%95%E5%BF%AB%E7%85%A7%202016-12-20%2021.01.25.png" alt=""><br><img src="http://ovne6ee1z.bkt.clouddn.com/%E5%B1%8F%E5%B9%95%E5%BF%AB%E7%85%A7%202016-12-20%2021.04.24.png" alt=""><br><img src="http://ovne6ee1z.bkt.clouddn.com/%E5%B1%8F%E5%B9%95%E5%BF%AB%E7%85%A7%202016-12-20%2021.09.30.png" alt=""><br><img src="http://ovne6ee1z.bkt.clouddn.com/%E5%B1%8F%E5%B9%95%E5%BF%AB%E7%85%A7%202016-12-20%2021.11.07.png" alt=""><br><img src="http://ovne6ee1z.bkt.clouddn.com/%E5%B1%8F%E5%B9%95%E5%BF%AB%E7%85%A7%202016-12-20%2021.11.35.png" alt=""></p>
-
+        <p><img src="http://ovne6ee1z.bkt.clouddn.com/%E5%B1%8F%E5%B9%95%E5%BF%AB%E7%85%A7%202016-12-20%2020.46.00.png" alt=""><br>
+        
       
 
       
@@ -919,26 +841,8 @@
       
         <p>过去那么久了~主要当时学习过程中画的一些知识导图，整理一下。</p>
 <h2 id="开发工具"><a href="#开发工具" class="headerlink" title="开发工具"></a>开发工具</h2><h3 id="sublime常用插件"><a href="#sublime常用插件" class="headerlink" title="sublime常用插件"></a>sublime常用插件</h3><p><img src="http://ovne6ee1z.bkt.clouddn.com/%E5%B1%8F%E5%B9%95%E5%BF%AB%E7%85%A7%202016-11-08%2018.41.32.png" alt=""></p>
-<p><img src="http://ovne6ee1z.bkt.clouddn.com/sublime%E5%B8%B8%E7%94%A8%E6%8F%92%E4%BB%B6.png" alt=""></p>
-<h3 id="sublime常用快捷键"><a href="#sublime常用快捷键" class="headerlink" title="sublime常用快捷键"></a>sublime常用快捷键</h3><p><img src="http://ovne6ee1z.bkt.clouddn.com/sublime%E5%B8%B8%E7%94%A8%E5%BF%AB%E6%8D%B7%E9%94%AE.png" alt=""></p>
-<h3 id="IE测试工具"><a href="#IE测试工具" class="headerlink" title="IE测试工具"></a>IE测试工具</h3><p><img src="http://ovne6ee1z.bkt.clouddn.com/IE%E6%B5%8B%E8%AF%95%E5%B7%A5%E5%85%B7.png" alt=""></p>
-<h2 id="CSS"><a href="#CSS" class="headerlink" title="CSS"></a>CSS</h2><h3 id="Float"><a href="#Float" class="headerlink" title="Float"></a>Float</h3><p><img src="http://ovne6ee1z.bkt.clouddn.com/float.png" alt=""></p>
-<h3 id="position"><a href="#position" class="headerlink" title="position"></a>position</h3><p><img src="http://ovne6ee1z.bkt.clouddn.com/position.png" alt=""></p>
-<h3 id="display"><a href="#display" class="headerlink" title="display"></a>display</h3><p><img src="http://ovne6ee1z.bkt.clouddn.com/display.png" alt=""></p>
-<h2 id="JavaScript"><a href="#JavaScript" class="headerlink" title="JavaScript"></a>JavaScript</h2><h3 id="数据类型"><a href="#数据类型" class="headerlink" title="数据类型"></a>数据类型</h3><p><img src="http://ovne6ee1z.bkt.clouddn.com/%E5%8E%9F%E5%A7%8B%E7%B1%BB%E5%9E%8B&amp;%E5%AF%B9%E8%B1%A1%E7%B1%BB%E5%9E%8B.png" alt=""></p>
-<h3 id="类型转换"><a href="#类型转换" class="headerlink" title="类型转换"></a>类型转换</h3><p><img src="http://ovne6ee1z.bkt.clouddn.com/%E7%B1%BB%E5%9E%8B%E8%BD%AC%E6%8D%A2.png" alt=""></p>
-<h3 id="隐式转换"><a href="#隐式转换" class="headerlink" title="隐式转换"></a>隐式转换</h3><p><img src="http://ovne6ee1z.bkt.clouddn.com/%E9%9A%90%E5%BC%8F%E8%BD%AC%E6%8D%A2%E7%BB%93%E6%9E%9C.png" alt=""></p>
-<h3 id="复制对象"><a href="#复制对象" class="headerlink" title="复制对象"></a>复制对象</h3><p><img src="http://ovne6ee1z.bkt.clouddn.com/%E5%A4%8D%E5%88%B6%E5%AF%B9%E8%B1%A1.png" alt=""></p>
-<h3 id="正则表达式"><a href="#正则表达式" class="headerlink" title="正则表达式"></a>正则表达式</h3><p><img src="http://ovne6ee1z.bkt.clouddn.com/%E6%AD%A3%E5%88%99%E8%A1%A8%E8%BE%BE%E5%BC%8F.png" alt=""></p>
-<h3 id="正则表达式－贪婪模式／惰性模式"><a href="#正则表达式－贪婪模式／惰性模式" class="headerlink" title="正则表达式－贪婪模式／惰性模式"></a>正则表达式－贪婪模式／惰性模式</h3><p><img src="http://ovne6ee1z.bkt.clouddn.com/%E6%AD%A3%E5%88%99%E8%A1%A8%E8%BE%BE%E5%BC%8F%EF%BC%8D%E8%B4%AA%E5%A9%AA%E6%A8%A1%E5%BC%8F%EF%BC%8F%E6%83%B0%E6%80%A7%E6%A8%A1%E5%BC%8F.png" alt=""></p>
-<h3 id="函数"><a href="#函数" class="headerlink" title="函数"></a>函数</h3><p><img src="http://ovne6ee1z.bkt.clouddn.com/%E5%87%BD%E6%95%B0.png" alt=""></p>
-<h3 id="闭包"><a href="#闭包" class="headerlink" title="闭包"></a>闭包</h3><p><img src="http://ovne6ee1z.bkt.clouddn.com/%E9%97%AD%E5%8C%85.png" alt=""></p>
-<h3 id="封装"><a href="#封装" class="headerlink" title="封装"></a>封装</h3><p><img src="http://ovne6ee1z.bkt.clouddn.com/%E5%B1%8F%E5%B9%95%E5%BF%AB%E7%85%A7%202016-11-10%2021.09.29.png" alt=""></p>
-<h3 id="原型"><a href="#原型" class="headerlink" title="原型"></a>原型</h3><p><img src="http://ovne6ee1z.bkt.clouddn.com/%E5%8E%9F%E5%9E%8B.png" alt=""></p>
-<h3 id="DOM事件"><a href="#DOM事件" class="headerlink" title="DOM事件"></a>DOM事件</h3><p><img src="http://ovne6ee1z.bkt.clouddn.com/DOM%E4%BA%8B%E4%BB%B6.png" alt=""></p>
-<h3 id="Cookie工作流程"><a href="#Cookie工作流程" class="headerlink" title="Cookie工作流程"></a>Cookie工作流程</h3><p><img src="http://ovne6ee1z.bkt.clouddn.com/%E5%B1%8F%E5%B9%95%E5%BF%AB%E7%85%A7%202016-11-23%2023.28.27.png" alt=""></p>
-<h3 id="打开一个网页的过程"><a href="#打开一个网页的过程" class="headerlink" title="打开一个网页的过程"></a>打开一个网页的过程</h3><p><img src="http://ovne6ee1z.bkt.clouddn.com/%E5%B1%8F%E5%B9%95%E5%BF%AB%E7%85%A7%202016-11-13%2010.01.54.png" alt=""></p>
-
+<p><img src="http://ovne6ee1z.bkt.clouddn.com/sublime%E5%B8%B8%E7%94%A8%E6%8F%92%E4%BB%B6.png" alt=""><br>
+        
       
 
       
@@ -1024,114 +928,8 @@
       
         <p>[TOC]</p>
 <h3 id="jade"><a href="#jade" class="headerlink" title="jade"></a>jade</h3><hr>
-<h4 id="文档"><a href="#文档" class="headerlink" title="文档"></a><strong>文档</strong></h4><p><a href="http://www.nodeclass.com/api/jade.html" target="_blank" rel="external">http://www.nodeclass.com/api/jade.html</a><br><br><br><a href="https://segmentfault.com/a/1190000000357534" target="_blank" rel="external">https://segmentfault.com/a/1190000000357534</a></p>
-<h4 id="模板继承"><a href="#模板继承" class="headerlink" title="模板继承"></a><strong>模板继承</strong></h4><p><strong>关键语法：extends block append prepend</strong><br><br>Jade 支持通过 block 和 extends 关键字来实现模板继承。即在一个文件中定义页面结构模板，可在另一文件中继承该结构，也可通过append，prepend进行前后追加。<br><br></p>
-<h4 id="Mixins"><a href="#Mixins" class="headerlink" title="Mixins"></a><strong>Mixins</strong></h4><p><strong>关键语法：mixin +(define)</strong><br><br>在一个文件中可定义多个被页面重复使用的代码块，然后通过调用使用，当有页面元素有变动时，可实现全部页面的修改。<br><strong>具体语法：</strong><br><br>无变量<br><em>basic.jade</em><br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div></pre></td><td class="code"><pre><div class="line">mixin link</div><div class="line">  ...</div><div class="line">mixin head</div><div class="line">  ...</div><div class="line">mixin sidebar</div><div class="line">  ...</div><div class="line">mixin mask</div><div class="line">  ...</div><div class="line">mixin paging</div><div class="line">  ...</div></pre></td></tr></table></figure></p>
-<p><em>backPC.jade</em><br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div></pre></td><td class="code"><pre><div class="line">include ./basic.jade</div><div class="line">body.page-body</div><div class="line">    include ./basic.jade</div><div class="line">    +head</div><div class="line">    div.main-content</div><div class="line">      +sidebar</div><div class="line">      div.content.col-lg-10(style=&quot;width:81.5%!important;&quot;)</div><div class="line">        table.table.table-bordered.table-striped(style=&quot;width:100%!important&quot;)</div><div class="line">          thead</div><div class="line">            tr</div><div class="line">              th 序号</div><div class="line">              th 状态</div><div class="line">              th 来信人</div><div class="line">              th 手机号</div><div class="line">              th 时间</div><div class="line">              th 问题简介</div><div class="line">              th 身份</div><div class="line">          tbody.dataBody</div><div class="line">        +paging</div></pre></td></tr></table></figure></p>
-<p>有变量（暂无使用，但重构时可能会用到）<br><em>basic.jade</em><br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div></pre></td><td class="code"><pre><div class="line">mixin pets(pets)</div><div class="line">  ul.pets</div><div class="line">    - each pet in pets</div><div class="line">      li= pet</div></pre></td></tr></table></figure></p>
-<p><em>index.jade</em><br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div></pre></td><td class="code"><pre><div class="line">include ./basic.jade</div><div class="line">...</div><div class="line">+pets(mouse)</div></pre></td></tr></table></figure></p>
-<p><br></p>
-<h4 id="变量引用"><a href="#变量引用" class="headerlink" title="变量引用"></a><strong>变量引用</strong></h4><p><strong>关键语法：#{}</strong><br><br>略<br><br></p>
-<h3 id="点击穿透问题"><a href="#点击穿透问题" class="headerlink" title="点击穿透问题"></a>点击穿透问题</h3><hr>
-<p><strong>问题描述</strong>：给某元素绑定touch事件时，会同时触发该元素之下的元素的一些事件。<br><br><strong>解决方案：</strong>在事件内添加代码<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">e.preventDefault();</div></pre></td></tr></table></figure></p>
-<p>该方法将通知Web浏览器不要执行与事件关联的默认动作（如果存在这样的动作）。<br><br></p>
-<h3 id="iphone点击延迟问题"><a href="#iphone点击延迟问题" class="headerlink" title="iphone点击延迟问题"></a>iphone点击延迟问题</h3><hr>
-<p><strong>问题描述：</strong>由于iphone手机需要一定时间判断是否使用手势，所以上触发点击事件时会有大约300ms的延迟。<br><br><br><strong>解决方案：</strong><br></p>
-<pre><code>1. zepto中加入[touch模块](https://github.com/madrobby/zepto/blob/master/src/touch.js#files)&lt;br&gt;
-2.将click改成touchstart
-&lt;br&gt;
-</code></pre><h3 id="多选框全选／取消全选问题"><a href="#多选框全选／取消全选问题" class="headerlink" title="多选框全选／取消全选问题"></a>多选框全选／取消全选问题</h3><hr>
-<p>问题描述：全选事件只能触发一次<br>解决方案：将attr换成prop<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div></pre></td><td class="code"><pre><div class="line">// 功能：全选</div><div class="line">$(document).on(&apos;click&apos;,&apos;.check-btn&apos;,function()&#123;</div><div class="line">    // console.log($(&apos;input[id^=&quot;cbtest&quot;]&apos;).attr())</div><div class="line">    $(&apos;input[id^=&quot;cbtest&quot;]&apos;).prop(&apos;checked&apos;,true)</div><div class="line">&#125;);</div><div class="line"></div><div class="line">// 功能：全不选</div><div class="line">$(document).on(&apos;click&apos;,&apos;.cancel-check&apos;,function()&#123;</div><div class="line">    // console.log($(&apos;input[id^=&quot;cbtest&quot;]&apos;).attr())</div><div class="line">    $(&apos;input[id^=&quot;cbtest&quot;]&apos;).prop(&apos;checked&apos;,false)</div><div class="line">&#125;);</div></pre></td></tr></table></figure></p>
-<p><em>attr与prop区别：属性可自定义时使用attr，反之使用prop。</em><br><br><br></p>
-<h3 id="上拉刷新问题"><a href="#上拉刷新问题" class="headerlink" title="上拉刷新问题"></a>上拉刷新问题</h3><hr>
-<p><strong>问题描述：</strong>文档上拉时触发事件<br><strong>解决方案：</strong><br><br>1.引入dropload.js<br>2.js中引入代码<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div><div class="line">21</div><div class="line">22</div><div class="line">23</div><div class="line">24</div><div class="line">25</div><div class="line">26</div><div class="line">27</div></pre></td><td class="code"><pre><div class="line">$(&apos;body&apos;).dropload(&#123;</div><div class="line">        scrollArea : window,</div><div class="line">        domUp : &#123;</div><div class="line">                domClass   : &apos;dropload-up&apos;,</div><div class="line">                domRefresh : &apos;&lt;div class=&quot;dropload-refresh&quot;&gt;↓下拉刷新-订单状态&lt;/div&gt;&apos;,</div><div class="line">                domUpdate  : &apos;&lt;div class=&quot;dropload-update&quot;&gt;↑释放更新-订单状态&lt;/div&gt;&apos;,</div><div class="line">                domLoad    : &apos;&lt;div class=&quot;dropload-load&quot;&gt;&lt;span class=&quot;loading&quot;&gt;&lt;/span&gt;加载中-订单状态...&lt;/div&gt;&apos;</div><div class="line">            &#125;,</div><div class="line">        domDown : &#123;</div><div class="line">                domClass   : &apos;dropload-down&apos;,</div><div class="line">                domRefresh : &apos;&lt;div class=&quot;dropload-refresh&quot;&gt;&lt;/div&gt;&apos;,</div><div class="line">                domLoad    : &apos;&lt;div class=&quot;dropload-load&quot;&gt;&lt;span class=&quot;loading&quot;&gt;&lt;/span&gt;&lt;/div&gt;&apos;,</div><div class="line">                domNoData  : &apos;&lt;div class=&quot;dropload-noData&quot;&gt;&lt;/div&gt;&apos;</div><div class="line">            &#125;,</div><div class="line">        loadUpFn : function(me)&#123;</div><div class="line">              curPage = 1;</div><div class="line">              tasksQuery();</div><div class="line">              me.resetload();</div><div class="line"></div><div class="line">        &#125;,</div><div class="line">        loadDownFn : function(me)&#123;</div><div class="line">            me.resetload();</div><div class="line">            $(&apos;.dropload-down&apos;).hide();//隐藏下拉，保留上拉</div><div class="line">        &#125;,</div><div class="line">        threshold : 50,</div><div class="line">        distance:20</div><div class="line">    &#125;);</div></pre></td></tr></table></figure></p>
-<h3 id="聊天框自动变化问题"><a href="#聊天框自动变化问题" class="headerlink" title="聊天框自动变化问题"></a>聊天框自动变化问题</h3><hr>
-<p><strong>预期效果</strong>：文本增加时，textarea的高度也随之增加，增加到一定值内滚动显示；聊天内容发出后内容清空，文本框还原大小。<br><br><br><strong>解决方案：</strong></p>
-<p>html：<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">&lt;textarea id=&quot;textarea&quot;&gt;&lt;/textarea&gt;</div></pre></td></tr></table></figure></p>
-<p>js：<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div><div class="line">21</div><div class="line">22</div><div class="line">23</div><div class="line">24</div><div class="line">25</div><div class="line">26</div><div class="line">27</div><div class="line">28</div></pre></td><td class="code"><pre><div class="line">var addHandler = window.addEventListener?</div><div class="line">function(elem,event,handler)&#123;elem.addEventListener(event,handler);&#125;:</div><div class="line">function(elem,event,handler)&#123;elem.attachEvent(&quot;on&quot;+event,handler);&#125;;</div><div class="line"></div><div class="line">var dd = function(id)&#123;return document.getElementById(id);&#125;</div><div class="line"></div><div class="line">function autoTextArea(elemid)&#123;</div><div class="line">    //新建一个textarea用户计算高度</div><div class="line">    if(!dd(&quot;_textareacopy&quot;))&#123;</div><div class="line">        var t = document.createElement(&quot;textarea&quot;);</div><div class="line">        t.id=&quot;_textareacopy&quot;;</div><div class="line">        t.style.position=&quot;absolute&quot;;</div><div class="line">        t.style.left=&quot;-9999px&quot;;</div><div class="line">        document.body.appendChild(t);</div><div class="line">    &#125;</div><div class="line">    function change()&#123;</div><div class="line">        dd(&quot;_textareacopy&quot;).value= dd(elemid).value;</div><div class="line">        dd(elemid).style.height= dd(&quot;_textareacopy&quot;).scrollHeight+dd(&quot;_textareacopy&quot;).style.height+&quot;px&quot;;</div><div class="line">    &#125;</div><div class="line">    addHandler(dd(&quot;textarea&quot;),&quot;propertychange&quot;,change);//for IE</div><div class="line">    addHandler(dd(&quot;textarea&quot;),&quot;input&quot;,change);// for !IE</div><div class="line">    dd(elemid).style.overflow=&quot;hidden&quot;;//一处隐藏，必须的。</div><div class="line">    dd(elemid).style.resize=&quot;none&quot;;//去掉textarea能拖拽放大/缩小高度/宽度功能</div><div class="line">&#125;</div><div class="line"></div><div class="line">addHandler(window,&quot;load&quot;,function()&#123;</div><div class="line">    autoTextArea(&quot;textarea&quot;);</div><div class="line">&#125;);</div></pre></td></tr></table></figure></p>
-<p><br></p>
-<h3 id="自动定位至聊天窗口底部"><a href="#自动定位至聊天窗口底部" class="headerlink" title="自动定位至聊天窗口底部"></a>自动定位至聊天窗口底部</h3><hr>
-<p><strong>预期效果：</strong>打开聊天窗口或发送消息后，自动定位至最后一条消息，即聊天窗口底部。<br><br><br>解决方案：<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">$(&apos;.chat-cell&apos;).scrollTop($(&apos;.chat-cell&apos;)[0].scrollHeight);</div></pre></td></tr></table></figure></p>
-<p><br></p>
-<h3 id="点击查看大图问题"><a href="#点击查看大图问题" class="headerlink" title="点击查看大图问题"></a>点击查看大图问题</h3><hr>
-<p>预期效果：</p>
-<ol>
-<li>当图片高度小于设备高度时垂直居中显示图片，背景黑色；</li>
-<li>当图片高度大于设备高度时滚动显示。</li>
-</ol>
-<p>解决方案：<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div><div class="line">21</div><div class="line">22</div><div class="line">23</div><div class="line">24</div><div class="line">25</div><div class="line">26</div><div class="line">27</div><div class="line">28</div><div class="line">29</div></pre></td><td class="code"><pre><div class="line">    let imgUrl = $(this).attr(&apos;src&apos;);</div><div class="line">    $(&apos;.full-img&apos;).attr(&apos;src&apos;,imgUrl);</div><div class="line">    $(&apos;.rDialog-mask3&apos;).show();</div><div class="line">    $(&apos;.full-img&apos;).show();</div><div class="line">    // alert($(&apos;.full-img&apos;).height());</div><div class="line">     // alert(window.innerHeight);</div><div class="line">    if($(&apos;.full-img&apos;).height()&gt;window.innerHeight)&#123;</div><div class="line">        $(&apos;.full-img&apos;).css(&apos;position&apos;,&apos;static&apos;);</div><div class="line">        $(&apos;.full-img&apos;).css(&apos;overflow&apos;,&apos;scroll&apos;);</div><div class="line">        $(&apos;.full-img&apos;).css(&apos;top&apos;,&apos;0&apos;);</div><div class="line">        // alert(&apos;over&apos;)</div><div class="line">    &#125;else&#123;</div><div class="line">        $(&apos;.full-img&apos;).css(&apos;position&apos;,&apos;fixed&apos;);</div><div class="line">        $(&apos;.full-img&apos;).css(&apos;overflow&apos;,&apos;hidden&apos;);</div><div class="line">        var x=$(&apos;.full-img&apos;).offset();</div><div class="line">        // alert(x.height);</div><div class="line">        var top = (window.innerHeight - x.height)/2;</div><div class="line">        // alert(top);</div><div class="line">        $(&apos;.full-img&apos;).css(&apos;top&apos;,top + &apos;px&apos;);</div><div class="line">        // alert($(&apos;.full-img&apos;).height());</div><div class="line">        // alert(window.innerHeight);</div><div class="line">    &#125;</div><div class="line">&#125;);</div><div class="line">&lt;!--退出全屏--&gt;</div><div class="line">$(document).on(&apos;touchstart&apos;,&apos;.full-img-div,.full-img,.rDialog-mask3&apos;,function()&#123;</div><div class="line">    $(&apos;.rDialog-mask3&apos;).hide();</div><div class="line">    $(&apos;.full-img&apos;).hide();</div><div class="line"></div><div class="line">&#125;);</div></pre></td></tr></table></figure></p>
-<p><br></p>
-<h3 id="提示框规范"><a href="#提示框规范" class="headerlink" title="提示框规范"></a>提示框规范</h3><hr>
-<p><strong>预期效果：</strong></p>
-<ol>
-<li>当弹出框时间未定义时默认1000ms；</li>
-<li>当弹出框时间有定义时使用定义时间。</li>
-</ol>
-<p><strong>解决方案</strong><br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div></pre></td><td class="code"><pre><div class="line">function setAlert(str,timeAlert)&#123;</div><div class="line">    if(typeof(timeAlert) == &apos;undefined&apos;)&#123;</div><div class="line">        timeAlert = 1000;</div><div class="line">    &#125;</div><div class="line">    $(&apos;.alert-modal&apos;).html(str);</div><div class="line">    $(&apos;.alert-modal&apos;).fadeIn();</div><div class="line">    setTimeout(function()&#123;</div><div class="line">         $(&apos;.alert-modal&apos;).fadeOut();</div><div class="line">    &#125;,timeAlert);</div><div class="line">&#125;</div></pre></td></tr></table></figure></p>
-<p><br></p>
-<h3 id="验证特殊字符输入"><a href="#验证特殊字符输入" class="headerlink" title="验证特殊字符输入"></a>验证特殊字符输入</h3><hr>
-<p><strong>预期效果：</strong>当输入特殊字符时提示；</p>
-<p><strong>解决方案：</strong><br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div></pre></td><td class="code"><pre><div class="line">function stripscript(s) &#123;</div><div class="line">    var pattern = new RegExp(&quot;[特殊字符]&quot;)</div><div class="line">        var rs = &quot;&quot;;</div><div class="line">    for (var i = 0; i &lt; s.length; i++) &#123;</div><div class="line">        rs = rs + s.substr(i, 1).replace(pattern, &apos;&apos;);</div><div class="line">    &#125;</div><div class="line">    return rs;</div><div class="line">&#125;</div></pre></td></tr></table></figure></p>
-<p><br></p>
-<h3 id="数据搜索"><a href="#数据搜索" class="headerlink" title="数据搜索"></a>数据搜索</h3><hr>
-<p><strong>预期效果：</strong></p>
-<ol>
-<li>输入时进行检索；</li>
-<li>支持模糊查找；</li>
-<li>搜索速度尽量快。</li>
-</ol>
-<p><strong>解决方案：</strong><br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div><div class="line">21</div><div class="line">22</div><div class="line">23</div><div class="line">24</div><div class="line">25</div><div class="line">26</div><div class="line">27</div><div class="line">28</div><div class="line">29</div><div class="line">30</div><div class="line">31</div><div class="line">32</div><div class="line">33</div><div class="line">34</div><div class="line">35</div><div class="line">36</div><div class="line">37</div><div class="line">38</div><div class="line">39</div><div class="line">40</div><div class="line">41</div><div class="line">42</div><div class="line">43</div><div class="line">44</div><div class="line">45</div><div class="line">46</div></pre></td><td class="code"><pre><div class="line">// 功能：搜索</div><div class="line"></div><div class="line">var createLi = function(index)&#123;</div><div class="line">    $(&apos;.schoolUlSelect&apos;).append(&apos;&lt;li class=&quot;querySchool&quot;&gt;&apos;+schoolSearch[index].school+&apos;&lt;/li&gt;&apos;)</div><div class="line">&#125;</div><div class="line"></div><div class="line">  var removeLi = function(index)&#123;</div><div class="line">    $(&apos;.schoolUlSelect&apos;).eq(i).remove();</div><div class="line">  &#125;</div><div class="line"></div><div class="line">  var emptyLi = function()&#123;</div><div class="line">    $(&apos;.schoolUlSelect&apos;).empty();</div><div class="line">  &#125;</div><div class="line">  </div><div class="line">  var preVal = $(&apos;.search-input&apos;)[0].value;</div><div class="line">  $(&apos;.search-input&apos;)[0].oninput = function()&#123;</div><div class="line">    var nextVal = $(&apos;.search-input&apos;)[0].value;</div><div class="line">    if(preVal.length == 0)&#123;//判断是否为首次输入</div><div class="line">      emptyLi();</div><div class="line">      if(schoolSearch.length == 0)&#123;</div><div class="line">        $.post(&apos;/school/getSchool&apos;, function (data) &#123;</div><div class="line">          schoolSearch = data;</div><div class="line">          $.each(schoolSearch,function(i,item)&#123;</div><div class="line">            if(item.school.indexOf(nextVal) &gt; -1)&#123;</div><div class="line">              createLi(i);</div><div class="line">            &#125;</div><div class="line">          &#125;);</div><div class="line">        &#125;);</div><div class="line">      &#125;else&#123;</div><div class="line">        $.each(schoolSearch,function(i,item)&#123;</div><div class="line">          if(item.school.indexOf(nextVal) &gt; -1)&#123;</div><div class="line">            createLi(i);</div><div class="line">          &#125;</div><div class="line">        &#125;);</div><div class="line">      &#125;</div><div class="line">    &#125;else&#123;</div><div class="line">      if(nextVal.length &gt; preVal.length)&#123; //键盘继续输入</div><div class="line">        $.each($(&apos;.querySchool&apos;),function(i,item)&#123;</div><div class="line">          if(item.html().indexOf(nextVal) == -1)&#123;</div><div class="line">            $(&apos;.querySchool&apos;).eq(i).remove();</div><div class="line">          &#125;</div><div class="line">        &#125;);  </div><div class="line">      &#125;</div><div class="line">    &#125;</div><div class="line">    </div><div class="line">  &#125;</div></pre></td></tr></table></figure></p>
-<table>
-<thead>
-<tr>
-<th>类名</th>
-<th>释义</th>
-</tr>
-</thead>
-<tbody>
-<tr>
-<td>schoolUlSelect</td>
-<td>搜索结果面板</td>
-</tr>
-<tr>
-<td>querySchool</td>
-<td>每条数据</td>
-</tr>
-<tr>
-<td>search-input</td>
-<td>输入框</td>
-</tr>
-</tbody>
-</table>
-<p><br></p>
-<h3 id="原生JS轮播图"><a href="#原生JS轮播图" class="headerlink" title="原生JS轮播图"></a>原生JS轮播图</h3><hr>
-<p><strong>预期效果：</strong>使用原生JS进行图片轮播</p>
-<p><strong>解决方案：</strong><br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div><div class="line">21</div><div class="line">22</div><div class="line">23</div><div class="line">24</div><div class="line">25</div><div class="line">26</div><div class="line">27</div><div class="line">28</div><div class="line">29</div><div class="line">30</div><div class="line">31</div><div class="line">32</div><div class="line">33</div><div class="line">34</div><div class="line">35</div><div class="line">36</div><div class="line">37</div><div class="line">38</div><div class="line">39</div><div class="line">40</div><div class="line">41</div><div class="line">42</div><div class="line">43</div><div class="line">44</div><div class="line">45</div><div class="line">46</div><div class="line">47</div><div class="line">48</div><div class="line">49</div></pre></td><td class="code"><pre><div class="line"></div><div class="line">// 轮播</div><div class="line">var box=document.getElementById(&apos;box&apos;);</div><div class="line">var uls=document.getElementsByTagName(&apos;ul&apos;);</div><div class="line">var imgs=uls[0].getElementsByTagName(&apos;li&apos;);</div><div class="line">var btn=uls[1].getElementsByTagName(&apos;li&apos;);</div><div class="line">var i=0; //中间量，统一声明；</div><div class="line">var index = 0;</div><div class="line">var play=null;</div><div class="line">// console.log(box,uls,imgs,btn);//获取正确</div><div class="line"></div><div class="line">//图片切换, 淡入淡出效果我是用（transition: opacity 0.8s linear）做的,不纠结、简单 在css里面</div><div class="line">function show(a)&#123;        //方法定义的是当传入一个下标时，按钮和图片做出对的反应</div><div class="line">  for(i=0;i&lt;btn.length;i++ )&#123;</div><div class="line">    btn[i].className=&apos;&apos;;    //很容易看懂吧？每个按钮都先设置成看不见，然后把当前按钮设置成可见。</div><div class="line">    btn[a].className=&apos;current&apos;;</div><div class="line">  &#125;</div><div class="line">  for(i=0;i&lt;imgs.length;i++)&#123; //把图片的效果设置和按钮相同</div><div class="line">    imgs[i].style.opacity=0;</div><div class="line">    imgs[a].style.opacity=1;</div><div class="line">  &#125;</div><div class="line">&#125;</div><div class="line">//切换按钮功能，响应对应图片</div><div class="line">for(i=0;i&lt;btn.length;i++)&#123;</div><div class="line">  btn[i].index=i;  //不知道你有没有发现，循环里的方法去调用循环里的变量体i，会出现调到的不是i的变动值的问题。所以我先在循环外保存住</div><div class="line">  btn[i].onmouseover=function()&#123;</div><div class="line">    show(this.index);</div><div class="line">    clearInterval(play); //这就是最后那句话追加的功能</div><div class="line">  &#125;</div><div class="line">&#125;</div><div class="line"></div><div class="line">//自动轮播方法</div><div class="line">function autoPlay()&#123;</div><div class="line">    play=setInterval(function()&#123; //这个paly是为了保存定时器的，变量必须在全局声明 不然其他方法调不到 或者你可以调用auto.play 也许可以但是没时间试了</div><div class="line">    index++;</div><div class="line">    index&gt;=imgs.length&amp;&amp;(index=0);//可能有优先级问题，所以用了括号，没时间测试了。</div><div class="line">    show(index);</div><div class="line">  &#125;,4500)</div><div class="line">&#125;</div><div class="line">autoPlay();//马上调用，我试过用window.onload调用这个方法，但是调用之后影响到了其他方法，使用autoPlay所以只能这样调用了</div><div class="line"></div><div class="line">//div的鼠标移入移出事件</div><div class="line">box.onmouseover=function()&#123;</div><div class="line">  clearInterval(play);</div><div class="line">&#125;;</div><div class="line">box.onmouseout=function()&#123;</div><div class="line">  autoPlay();</div><div class="line">&#125;;</div><div class="line">//按钮下标也要加上相同的鼠标事件，不然图片停止了，定时器没停，会突然闪到很大的数字上。 貌似我可以直接追加到之前定义事件中。</div></pre></td></tr></table></figure></p>
-<p><br></p>
-<h3 id="滚动至特定位置固定"><a href="#滚动至特定位置固定" class="headerlink" title="滚动至特定位置固定"></a>滚动至特定位置固定</h3><hr>
-<p>预期效果：菜单栏滚动至页面上方时固定住，向下滚动时自动释放。<br>解决方案：</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div><div class="line">21</div><div class="line">22</div><div class="line">23</div><div class="line">24</div><div class="line">25</div><div class="line">26</div></pre></td><td class="code"><pre><div class="line">// 滚动监听</div><div class="line">$(document).on(&apos;scroll&apos;,function()&#123;</div><div class="line">  if($(&apos;body&apos;).scrollTop() &gt;= $(&apos;.list&apos;).height())&#123;</div><div class="line">    $(&apos;.tab&apos;).css(&#123;</div><div class="line">      &apos;position&apos;:&apos;fixed&apos;,</div><div class="line">      &apos;top&apos;:&apos;0&apos;,</div><div class="line">      &apos;width&apos;:&apos;100%&apos;,</div><div class="line">      &apos;z-index&apos;:3</div><div class="line">    &#125;);</div><div class="line">    $(&apos;.task-list,.money-list&apos;).css(&#123;</div><div class="line">      &apos;position&apos;:&apos;fixed&apos;,</div><div class="line">      &apos;top&apos;:$(&apos;.tab&apos;).height()</div><div class="line">    &#125;);</div><div class="line"></div><div class="line">  &#125;else&#123;</div><div class="line">    $(&apos;.tab&apos;).css(&#123;</div><div class="line">      &apos;position&apos;:&apos;static&apos;,</div><div class="line">      &apos;width&apos;:&apos;100%&apos;</div><div class="line">    &#125;);</div><div class="line">    $(&apos;.task-list,.money-list&apos;).css(&#123;</div><div class="line">      &apos;position&apos;:&apos;absolute&apos;,</div><div class="line">      &apos;top&apos;:&apos;auto&apos;</div><div class="line">    &#125;);</div><div class="line"></div><div class="line">  &#125;</div><div class="line">&#125;);</div></pre></td></tr></table></figure>
-<p><br><br>|  类名  |  释义  |<br>| – | – |<br>|  list  |  菜单栏上方元素  |<br>|  tab  |  菜单栏  |<br>|  task-list  |  二级菜单栏  |<br>|  money-list  |  二级菜单栏  |<br><br><br><br></p>
-<h3 id="iphone无法触发点击事件问题"><a href="#iphone无法触发点击事件问题" class="headerlink" title="iphone无法触发点击事件问题"></a>iphone无法触发点击事件问题</h3><hr>
-<p><strong>问题描述：</strong>JS绑定点击事件时，iphone无法触发</p>
-<p><strong>解决方案：</strong><br>给绑定的元素添加css属性<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">cursor:pointer;</div></pre></td></tr></table></figure></p>
-<h3 id="点击出现蓝框问题"><a href="#点击出现蓝框问题" class="headerlink" title="点击出现蓝框问题"></a>点击出现蓝框问题</h3><hr>
-<p><strong>问题描述：</strong>点击元素时出现蓝框<br><br><br><strong>解决方案：</strong><br>给绑定元素添加css属性<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div></pre></td><td class="code"><pre><div class="line">outline:none;</div><div class="line">-webkit-tap-highlight-color: rgba(255, 255, 255, 0);</div></pre></td></tr></table></figure></p>
-<p><br></p>
-<h3 id="隐藏滚动条"><a href="#隐藏滚动条" class="headerlink" title="隐藏滚动条"></a>隐藏滚动条</h3><hr>
-<p><strong>预期效果：</strong>内容超出时滚动，滚动条隐藏<br><br><br><strong>解决方案</strong><br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div></pre></td><td class="code"><pre><div class="line">element::-webkit-scrollbar&#123;  </div><div class="line">    width: 5px;  </div><div class="line">    height: 5px;  </div><div class="line">    background-color: #fff;  </div><div class="line">&#125;  </div><div class="line">  </div><div class="line">/*定义滚动条轨道 内阴影+圆角*/  </div><div class="line">element::-webkit-scrollbar-track&#123;  </div><div class="line">    // -webkit-box-shadow: inset 0 0 6px rgba(0,0,0,0.3);  </div><div class="line">    border-radius: 10px;  </div><div class="line">    background-color: #fff;  </div><div class="line">&#125;  </div><div class="line">  </div><div class="line">/*定义滑块 内阴影+圆角*/  </div><div class="line">element::-webkit-scrollbar-thumb&#123;  </div><div class="line">    border-radius: 10px;  </div><div class="line">    -webkit-box-shadow: inset 0 0 6px rgba(0,0,0,.3);  </div><div class="line">    background-color: #fff;  </div><div class="line">&#125;</div></pre></td></tr></table></figure></p>
-<p><br></p>
-<h3 id="头像"><a href="#头像" class="headerlink" title="头像"></a>头像</h3><hr>
-<p>问题描述：使头像正常显示完全，不水平或竖直压缩<br>解决方案：<br>jade<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div></pre></td><td class="code"><pre><div class="line">div.head-picture-t</div><div class="line">	div.head-picture-div(style=&quot;background-image: url(&apos;#&#123;msgRecord[i].fromUserHeadimgurl&#125;&apos;)&quot;)</div></pre></td></tr></table></figure></p>
-<p>css<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div></pre></td><td class="code"><pre><div class="line">.head-picture-t&#123;</div><div class="line">	width: 1.2rem;</div><div class="line">    height: 1.2rem;</div><div class="line">    overflow: hidden;</div><div class="line">&#125;</div><div class="line">.head-picture-div&#123;</div><div class="line">	width: 100%;</div><div class="line">    height: 100%;</div><div class="line">    background-position: center;</div><div class="line">    background-size: auto 1.2rem;</div><div class="line">    background-repeat: no-repeat;</div><div class="line">    border-radius:0.2rem; </div><div class="line">    margin: auto;</div><div class="line">	// background-image: url(&apos;1.jpg&apos;);</div><div class="line">&#125;</div></pre></td></tr></table></figure></p>
-<p><br></p>
-<h3 id="快捷键设置"><a href="#快捷键设置" class="headerlink" title="快捷键设置"></a>快捷键设置</h3><hr>
-<p><strong>预期效果：</strong>使用键盘快捷键触发事件<br><strong>解决方案</strong></p>
-<p>下载依赖<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">$ npm install hotkeys-js</div></pre></td></tr></table></figure></p>
-<p>引入文件<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">import hotkeys from &apos;hotkeys-js&apos;;</div></pre></td></tr></table></figure></p>
-<p>引用<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div></pre></td><td class="code"><pre><div class="line">hotkeys(&apos;enter&apos;,function(event,handler)&#123;</div><div class="line">    event.preventDefault();</div><div class="line">    event.stopPropagation();</div><div class="line">	//触发函数</div><div class="line"></div><div class="line">&#125;);</div></pre></td></tr></table></figure></p>
-<p>详情见<a href="https://segmentfault.com/a/1190000002789768#articleHeader7" target="_blank" rel="external">文档</a></p>
-
+<h4 id="文档"><a href="#文档" class="headerlink" title="文档"></a><strong>文档</strong></h4><p><a href="http://www.nodeclass.com/api/jade.html" target="_blank" rel="external">http://www.nodeclass.com/api/jade.html</a><br><br><br><a href="https://segmentfault.com/a/1190000000357534" target="_blank" rel="external">https://segmentfault.com/a/1190000000357534</a><br>
+        
       
 
       
@@ -1216,11 +1014,8 @@
     <div class="article-entry" itemprop="articleBody">
       
         <h3 id="安装nodejs"><a href="#安装nodejs" class="headerlink" title="安装nodejs"></a>安装nodejs</h3><p><a href="http://www.jianshu.com/p/783906f10d58" target="_blank" rel="external">http://www.jianshu.com/p/783906f10d58</a></p>
-<h3 id="安装redis"><a href="#安装redis" class="headerlink" title="安装redis"></a>安装redis</h3><p>参考文档</p>
-<p><a href="http://www.redis.net.cn/tutorial/3503.html" target="_blank" rel="external">http://www.redis.net.cn/tutorial/3503.html</a><br><a href="http://www.cnblogs.com/haoxinyue/p/3620648.html" target="_blank" rel="external">http://www.cnblogs.com/haoxinyue/p/3620648.html</a></p>
-<h3 id="安装mongodb"><a href="#安装mongodb" class="headerlink" title="安装mongodb"></a>安装mongodb</h3><p><a href="https://docs.mongodb.com/v3.0/tutorial/install-mongodb-on-red-hat/" target="_blank" rel="external">https://docs.mongodb.com/v3.0/tutorial/install-mongodb-on-red-hat/</a></p>
-<h3 id="安装nginx"><a href="#安装nginx" class="headerlink" title="安装nginx"></a>安装nginx</h3><p><a href="https://www.digitalocean.com/community/tutorials/how-to-install-nginx-on-centos-7" target="_blank" rel="external">https://www.digitalocean.com/community/tutorials/how-to-install-nginx-on-centos-7</a></p>
-
+<h3 id="安装redis"><a href="#安装redis" class="headerlink" title="安装redis"></a>安装redis</h3><p>参考文档<br>
+        
       
 
       
@@ -1385,11 +1180,15 @@ return o(i(t),arguments.length<2?void 0:u(arguments[1]))}})},function(t,n,r){var
           <ul class="article-tag-list" q-show="showTags">
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color2">C</a>
+                <a href="javascript:void(0)" class="js-tag color3">前端</a>
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color3">前端</a>
+                <a href="javascript:void(0)" class="js-tag color5">html</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color2">C</a>
               </li>
              
               <li class="article-tag-list-item">
@@ -1402,10 +1201,6 @@ return o(i(t),arguments.length<2?void 0:u(arguments[1]))}})},function(t,n,r){var
              
               <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color2">jQuery</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color5">java</a>
               </li>
              
               <li class="article-tag-list-item">
@@ -1425,15 +1220,15 @@ return o(i(t),arguments.length<2?void 0:u(arguments[1]))}})},function(t,n,r){var
               </li>
              
               <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color5">java</a>
+              </li>
+             
+              <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color1">mysql</a>
               </li>
              
               <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color5">js模式</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color5">html</a>
               </li>
              
               <li class="article-tag-list-item">

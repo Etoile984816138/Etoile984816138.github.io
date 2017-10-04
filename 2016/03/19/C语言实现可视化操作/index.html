@@ -8,17 +8,17 @@
   <link rel="dns-prefetch" href="http://yoursite.com">
   <title>C语言实现可视化操作 | 林落雨落林</title>
   <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
-  <meta name="description" content="写数据结构的大作业，做管理系统的时候，一个学弟提出来我们做人机交互怎么样。 人机交互啊……交互啊……互啊…… 如果说一般代码是砖，C语言这种东西就是烧砖的那种土（砖是土烧的？？？我读书少猜的。当然，此处不要跟我提汇编。）砖可以一块一块码起来，当然，你拿土堆房子形状可以更为随意，但是前提是你得堆起来，稍不留神留个坑，盖好的全塌了。 C就是这样，API完全暴露在外面不封装，所以明明一个很简单的东西，你">
+  <meta name="description" content="写数据结构的大作业，做管理系统的时候，一个学弟提出来我们做人机交互怎么样。 人机交互啊……交互啊……互啊…… 如果说一般代码是砖，C语言这种东西就是烧砖的那种土（砖是土烧的？？？我读书少猜的。当然，此处不要跟我提汇编。）砖可以一块一块码起来，当然，你拿土堆房子形状可以更为随意，但是前提是你得堆起来，稍不留神留个坑，盖好的全塌了。">
 <meta name="keywords" content="C">
 <meta property="og:type" content="article">
 <meta property="og:title" content="C语言实现可视化操作">
 <meta property="og:url" content="http://yoursite.com/2016/03/19/C语言实现可视化操作/index.html">
 <meta property="og:site_name" content="林落雨落林">
-<meta property="og:description" content="写数据结构的大作业，做管理系统的时候，一个学弟提出来我们做人机交互怎么样。 人机交互啊……交互啊……互啊…… 如果说一般代码是砖，C语言这种东西就是烧砖的那种土（砖是土烧的？？？我读书少猜的。当然，此处不要跟我提汇编。）砖可以一块一块码起来，当然，你拿土堆房子形状可以更为随意，但是前提是你得堆起来，稍不留神留个坑，盖好的全塌了。 C就是这样，API完全暴露在外面不封装，所以明明一个很简单的东西，你">
-<meta property="og:updated_time" content="2017-09-03T15:10:29.000Z">
+<meta property="og:description" content="写数据结构的大作业，做管理系统的时候，一个学弟提出来我们做人机交互怎么样。 人机交互啊……交互啊……互啊…… 如果说一般代码是砖，C语言这种东西就是烧砖的那种土（砖是土烧的？？？我读书少猜的。当然，此处不要跟我提汇编。）砖可以一块一块码起来，当然，你拿土堆房子形状可以更为随意，但是前提是你得堆起来，稍不留神留个坑，盖好的全塌了。">
+<meta property="og:updated_time" content="2017-10-04T13:52:26.000Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="C语言实现可视化操作">
-<meta name="twitter:description" content="写数据结构的大作业，做管理系统的时候，一个学弟提出来我们做人机交互怎么样。 人机交互啊……交互啊……互啊…… 如果说一般代码是砖，C语言这种东西就是烧砖的那种土（砖是土烧的？？？我读书少猜的。当然，此处不要跟我提汇编。）砖可以一块一块码起来，当然，你拿土堆房子形状可以更为随意，但是前提是你得堆起来，稍不留神留个坑，盖好的全塌了。 C就是这样，API完全暴露在外面不封装，所以明明一个很简单的东西，你">
+<meta name="twitter:description" content="写数据结构的大作业，做管理系统的时候，一个学弟提出来我们做人机交互怎么样。 人机交互啊……交互啊……互啊…… 如果说一般代码是砖，C语言这种东西就是烧砖的那种土（砖是土烧的？？？我读书少猜的。当然，此处不要跟我提汇编。）砖可以一块一块码起来，当然，你拿土堆房子形状可以更为随意，但是前提是你得堆起来，稍不留神留个坑，盖好的全塌了。">
   
   
     <link rel="icon" href="http://ovne6ee1z.bkt.clouddn.com/avatar.jpg">
@@ -27,7 +27,7 @@
   <style type="text/css">
   
     #container.show {
-      background: linear-gradient(200deg,#a0cfe4,#e8c37e);
+      background: linear-gradient(to right, #4ca1af, #c4e0e5);
     }
   </style>
   
@@ -41,7 +41,7 @@
     <canvas id="anm-canvas" class="anm-canvas"></canvas>
     <div class="left-col" q-class="show:isShow">
       
-<div class="overlay" style="background: #4d4d4d"></div>
+<div class="overlay" style="background: linear-gradient(to right, #4ca1af, #c4e0e5)"></div>
 <div class="intrude-less">
 	<header id="header" class="inner">
 		<a href="/" class="profilepic">
@@ -89,7 +89,7 @@
 				
 					<a class="github" target="_blank" href="https://github.com/Etoile984816138" title="github"><i class="icon-github"></i></a>
 		        
-					<a class="weibo" target="_blank" href="#" title="weibo"><i class="icon-weibo"></i></a>
+					<a class="weibo" target="_blank" href="http://www.weibo.com/llyll984816138/home?wvr=5" title="weibo"><i class="icon-weibo"></i></a>
 		        
 					<a class="rss" target="_blank" href="#" title="rss"><i class="icon-rss"></i></a>
 		        
@@ -104,7 +104,7 @@
     <div class="mid-col" q-class="show:isShow,hide:isShow|isFalse">
       
 <nav id="mobile-nav">
-  	<div class="overlay js-overlay" style="background: #4d4d4d"></div>
+  	<div class="overlay js-overlay" style="background: linear-gradient(to right, #4ca1af, #c4e0e5)"></div>
 	<div class="btnctn js-mobile-btnctn">
   		<div class="slider-trigger list" q-on="click: openSlider(e)"><i class="icon icon-sort"></i></div>
 	</div>
@@ -138,7 +138,7 @@
 					
 						<a class="github" target="_blank" href="https://github.com/Etoile984816138" title="github"><i class="icon-github"></i></a>
 			        
-						<a class="weibo" target="_blank" href="#" title="weibo"><i class="icon-weibo"></i></a>
+						<a class="weibo" target="_blank" href="http://www.weibo.com/llyll984816138/home?wvr=5" title="weibo"><i class="icon-weibo"></i></a>
 			        
 						<a class="rss" target="_blank" href="#" title="rss"><i class="icon-rss"></i></a>
 			        
@@ -196,8 +196,7 @@
       
         <p>写数据结构的大作业，做管理系统的时候，一个学弟提出来我们做人机交互怎么样。</p>
 <p>人机交互啊……交互啊……互啊……</p>
-<p>如果说一般代码是砖，C语言这种东西就是烧砖的那种土（砖是土烧的？？？我读书少猜的。当然，此处不要跟我提汇编。）砖可以一块一块码起来，当然，你拿土堆房子形状可以更为随意，但是前提是你得堆起来，稍不留神留个坑，盖好的全塌了。</p>
-<p>C就是这样，API完全暴露在外面不封装，所以明明一个很简单的东西，你需要花费大量的代码去实现它，并且大多数代码甚至与程序本身都无关，只是为了填它自己的坑。所以无论别人如何夸它，我都无法喜欢上它，我不需要写太随心所欲的代码呀，封装好的足够用了。就算我以后会写C++、C#甚至OC，也不想写C，虽然我承认它很强大，学好C语言也很重要。</p>
+<p>如果说一般代码是砖，C语言这种东西就是烧砖的那种土（砖是土烧的？？？我读书少猜的。当然，此处不要跟我提汇编。）砖可以一块一块码起来，当然，你拿土堆房子形状可以更为随意，但是前提是你得堆起来，稍不留神留个坑，盖好的全塌了。<br><a id="more"></a><br>C就是这样，API完全暴露在外面不封装，所以明明一个很简单的东西，你需要花费大量的代码去实现它，并且大多数代码甚至与程序本身都无关，只是为了填它自己的坑。所以无论别人如何夸它，我都无法喜欢上它，我不需要写太随心所欲的代码呀，封装好的足够用了。就算我以后会写C++、C#甚至OC，也不想写C，虽然我承认它很强大，学好C语言也很重要。</p>
 <p>好了吐槽完毕，实现人机交互。</p>
 <p>之前想了三种方案：</p>
 <h3 id="直接用win-application"><a href="#直接用win-application" class="headerlink" title="直接用win application"></a>直接用win application</h3><p>想法很美好，直接在VC++6.0里建win application工程Hello World class，呸，Hello World程序（一边写c一边写java和jsp一边写js的纠结……嗯，你试着想一下一边学法语一边学英语一边学日语的混乱）。依我所想应该是有个地方打印出Hello World，然后直接在那个地方加代码就好了。合情合理有木有，可是我就是找了半个多小时，愣是没找着Hello World，开始代码搜索没找着时我还怀疑我装的盗版VC++来着……直到我看遍代码，依然没有……当然，不排除我眼瞎，有兴趣可以扒着找找。</p>
@@ -455,11 +454,15 @@ return o(i(t),arguments.length<2?void 0:u(arguments[1]))}})},function(t,n,r){var
           <ul class="article-tag-list" q-show="showTags">
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color2">C</a>
+                <a href="javascript:void(0)" class="js-tag color3">前端</a>
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color3">前端</a>
+                <a href="javascript:void(0)" class="js-tag color5">html</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color2">C</a>
               </li>
              
               <li class="article-tag-list-item">
@@ -472,10 +475,6 @@ return o(i(t),arguments.length<2?void 0:u(arguments[1]))}})},function(t,n,r){var
              
               <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color2">jQuery</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color5">java</a>
               </li>
              
               <li class="article-tag-list-item">
@@ -495,15 +494,15 @@ return o(i(t),arguments.length<2?void 0:u(arguments[1]))}})},function(t,n,r){var
               </li>
              
               <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color5">java</a>
+              </li>
+             
+              <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color1">mysql</a>
               </li>
              
               <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color5">js模式</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color5">html</a>
               </li>
              
               <li class="article-tag-list-item">

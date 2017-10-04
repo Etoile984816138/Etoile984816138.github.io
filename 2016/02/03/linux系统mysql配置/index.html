@@ -8,17 +8,17 @@
   <link rel="dns-prefetch" href="http://yoursite.com">
   <title>linux系统mysql配置 | 林落雨落林</title>
   <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
-  <meta name="description" content="注：以下命令执行时若报错无该文件夹，则自行创建 下载解压这个下载地址是在阿里云php安装脚本中找到的，通过这个地址下载的话，因为是走的阿里云的局域网环境，下载速度应该会相对更快一点。看下图红框显示的速度，我的服务器带宽只有1M哦，这个速度是阿里云内部局域网的速度，总之是非常快了。 下载1wget http://oss.aliyuncs.com/aliyunecs/onekey/mysql/mysq">
+  <meta name="description" content="注：以下命令执行时若报错无该文件夹，则自行创建 下载解压这个下载地址是在阿里云php安装脚本中找到的，通过这个地址下载的话，因为是走的阿里云的局域网环境，下载速度应该会相对更快一点。看下图红框显示的速度，我的服务器带宽只有1M哦，这个速度是阿里云内部局域网的速度，总之是非常快了。">
 <meta name="keywords" content="linux,mysql">
 <meta property="og:type" content="article">
 <meta property="og:title" content="linux系统mysql配置">
 <meta property="og:url" content="http://yoursite.com/2016/02/03/linux系统mysql配置/index.html">
 <meta property="og:site_name" content="林落雨落林">
-<meta property="og:description" content="注：以下命令执行时若报错无该文件夹，则自行创建 下载解压这个下载地址是在阿里云php安装脚本中找到的，通过这个地址下载的话，因为是走的阿里云的局域网环境，下载速度应该会相对更快一点。看下图红框显示的速度，我的服务器带宽只有1M哦，这个速度是阿里云内部局域网的速度，总之是非常快了。 下载1wget http://oss.aliyuncs.com/aliyunecs/onekey/mysql/mysq">
-<meta property="og:updated_time" content="2017-09-03T15:28:07.000Z">
+<meta property="og:description" content="注：以下命令执行时若报错无该文件夹，则自行创建 下载解压这个下载地址是在阿里云php安装脚本中找到的，通过这个地址下载的话，因为是走的阿里云的局域网环境，下载速度应该会相对更快一点。看下图红框显示的速度，我的服务器带宽只有1M哦，这个速度是阿里云内部局域网的速度，总之是非常快了。">
+<meta property="og:updated_time" content="2017-10-04T13:52:51.000Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="linux系统mysql配置">
-<meta name="twitter:description" content="注：以下命令执行时若报错无该文件夹，则自行创建 下载解压这个下载地址是在阿里云php安装脚本中找到的，通过这个地址下载的话，因为是走的阿里云的局域网环境，下载速度应该会相对更快一点。看下图红框显示的速度，我的服务器带宽只有1M哦，这个速度是阿里云内部局域网的速度，总之是非常快了。 下载1wget http://oss.aliyuncs.com/aliyunecs/onekey/mysql/mysq">
+<meta name="twitter:description" content="注：以下命令执行时若报错无该文件夹，则自行创建 下载解压这个下载地址是在阿里云php安装脚本中找到的，通过这个地址下载的话，因为是走的阿里云的局域网环境，下载速度应该会相对更快一点。看下图红框显示的速度，我的服务器带宽只有1M哦，这个速度是阿里云内部局域网的速度，总之是非常快了。">
   
   
     <link rel="icon" href="http://ovne6ee1z.bkt.clouddn.com/avatar.jpg">
@@ -27,7 +27,7 @@
   <style type="text/css">
   
     #container.show {
-      background: linear-gradient(200deg,#a0cfe4,#e8c37e);
+      background: linear-gradient(to right, #4ca1af, #c4e0e5);
     }
   </style>
   
@@ -41,7 +41,7 @@
     <canvas id="anm-canvas" class="anm-canvas"></canvas>
     <div class="left-col" q-class="show:isShow">
       
-<div class="overlay" style="background: #4d4d4d"></div>
+<div class="overlay" style="background: linear-gradient(to right, #4ca1af, #c4e0e5)"></div>
 <div class="intrude-less">
 	<header id="header" class="inner">
 		<a href="/" class="profilepic">
@@ -89,7 +89,7 @@
 				
 					<a class="github" target="_blank" href="https://github.com/Etoile984816138" title="github"><i class="icon-github"></i></a>
 		        
-					<a class="weibo" target="_blank" href="#" title="weibo"><i class="icon-weibo"></i></a>
+					<a class="weibo" target="_blank" href="http://www.weibo.com/llyll984816138/home?wvr=5" title="weibo"><i class="icon-weibo"></i></a>
 		        
 					<a class="rss" target="_blank" href="#" title="rss"><i class="icon-rss"></i></a>
 		        
@@ -104,7 +104,7 @@
     <div class="mid-col" q-class="show:isShow,hide:isShow|isFalse">
       
 <nav id="mobile-nav">
-  	<div class="overlay js-overlay" style="background: #4d4d4d"></div>
+  	<div class="overlay js-overlay" style="background: linear-gradient(to right, #4ca1af, #c4e0e5)"></div>
 	<div class="btnctn js-mobile-btnctn">
   		<div class="slider-trigger list" q-on="click: openSlider(e)"><i class="icon icon-sort"></i></div>
 	</div>
@@ -138,7 +138,7 @@
 					
 						<a class="github" target="_blank" href="https://github.com/Etoile984816138" title="github"><i class="icon-github"></i></a>
 			        
-						<a class="weibo" target="_blank" href="#" title="weibo"><i class="icon-weibo"></i></a>
+						<a class="weibo" target="_blank" href="http://www.weibo.com/llyll984816138/home?wvr=5" title="weibo"><i class="icon-weibo"></i></a>
 			        
 						<a class="rss" target="_blank" href="#" title="rss"><i class="icon-rss"></i></a>
 			        
@@ -195,7 +195,7 @@
     <div class="article-entry" itemprop="articleBody">
       
         <p>注：以下命令执行时若报错无该文件夹，则自行创建</p>
-<h3 id="下载解压"><a href="#下载解压" class="headerlink" title="下载解压"></a>下载解压</h3><p>这个下载地址是在阿里云php安装脚本中找到的，通过这个地址下载的话，因为是走的阿里云的局域网环境，下载速度应该会相对更快一点。看下图红框显示的速度，我的服务器带宽只有1M哦，这个速度是阿里云内部局域网的速度，总之是非常快了。</p>
+<h3 id="下载解压"><a href="#下载解压" class="headerlink" title="下载解压"></a>下载解压</h3><p>这个下载地址是在阿里云php安装脚本中找到的，通过这个地址下载的话，因为是走的阿里云的局域网环境，下载速度应该会相对更快一点。看下图红框显示的速度，我的服务器带宽只有1M哦，这个速度是阿里云内部局域网的速度，总之是非常快了。<br><a id="more"></a></p>
 <h4 id="下载"><a href="#下载" class="headerlink" title="下载"></a>下载</h4><figure class="highlight shell"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">wget http://oss.aliyuncs.com/aliyunecs/onekey/mysql/mysql-5.5.35-linux2.6-x86_64.tar.gz</div></pre></td></tr></table></figure>
 <h4 id="解压"><a href="#解压" class="headerlink" title="解压"></a>解压</h4><figure class="highlight shell"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div></pre></td><td class="code"><pre><div class="line">tar zxvf mysql-5.5.35-linux2.6-x86_64.tar.gz  -C /alidata/server/</div><div class="line">改名（方便操作）</div><div class="line"></div><div class="line">cd /alidata/server</div><div class="line">mv mysql-5.5.35-linux2.6-x86_64.tar.gz mysql![](image/screenshot_1474811281351.png)</div></pre></td></tr></table></figure>
 <h3 id="启动"><a href="#启动" class="headerlink" title="启动"></a>启动</h3><figure class="highlight shell"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div></pre></td><td class="code"><pre><div class="line">groupadd mysql</div><div class="line">useradd -g mysql -s /sbin/nologin mysql</div><div class="line">/alidata/server/mysql/scripts/mysql_install_db --datadir=/alidata/server/mysql/data/ --basedir=/alidata/server/mysql --user=mysql![](image/screenshot_1474811314094.png)</div></pre></td></tr></table></figure>
@@ -451,11 +451,15 @@ return o(i(t),arguments.length<2?void 0:u(arguments[1]))}})},function(t,n,r){var
           <ul class="article-tag-list" q-show="showTags">
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color2">C</a>
+                <a href="javascript:void(0)" class="js-tag color3">前端</a>
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color3">前端</a>
+                <a href="javascript:void(0)" class="js-tag color5">html</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color2">C</a>
               </li>
              
               <li class="article-tag-list-item">
@@ -468,10 +472,6 @@ return o(i(t),arguments.length<2?void 0:u(arguments[1]))}})},function(t,n,r){var
              
               <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color2">jQuery</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color5">java</a>
               </li>
              
               <li class="article-tag-list-item">
@@ -491,15 +491,15 @@ return o(i(t),arguments.length<2?void 0:u(arguments[1]))}})},function(t,n,r){var
               </li>
              
               <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color5">java</a>
+              </li>
+             
+              <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color1">mysql</a>
               </li>
              
               <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color5">js模式</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color5">html</a>
               </li>
              
               <li class="article-tag-list-item">

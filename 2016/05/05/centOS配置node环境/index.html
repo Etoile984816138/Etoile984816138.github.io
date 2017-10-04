@@ -8,17 +8,17 @@
   <link rel="dns-prefetch" href="http://yoursite.com">
   <title>centOS配置node环境 | 林落雨落林</title>
   <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
-  <meta name="description" content="安装nodejshttp://www.jianshu.com/p/783906f10d58 安装redis参考文档 http://www.redis.net.cn/tutorial/3503.htmlhttp://www.cnblogs.com/haoxinyue/p/3620648.html 安装mongodbhttps://docs.mongodb.com/v3.0/tutorial/inst">
+  <meta name="description" content="安装nodejshttp://www.jianshu.com/p/783906f10d58 安装redis参考文档">
 <meta name="keywords" content="linux,node">
 <meta property="og:type" content="article">
 <meta property="og:title" content="centOS配置node环境">
 <meta property="og:url" content="http://yoursite.com/2016/05/05/centOS配置node环境/index.html">
 <meta property="og:site_name" content="林落雨落林">
-<meta property="og:description" content="安装nodejshttp://www.jianshu.com/p/783906f10d58 安装redis参考文档 http://www.redis.net.cn/tutorial/3503.htmlhttp://www.cnblogs.com/haoxinyue/p/3620648.html 安装mongodbhttps://docs.mongodb.com/v3.0/tutorial/inst">
-<meta property="og:updated_time" content="2017-09-03T15:30:03.000Z">
+<meta property="og:description" content="安装nodejshttp://www.jianshu.com/p/783906f10d58 安装redis参考文档">
+<meta property="og:updated_time" content="2017-10-04T13:52:33.000Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="centOS配置node环境">
-<meta name="twitter:description" content="安装nodejshttp://www.jianshu.com/p/783906f10d58 安装redis参考文档 http://www.redis.net.cn/tutorial/3503.htmlhttp://www.cnblogs.com/haoxinyue/p/3620648.html 安装mongodbhttps://docs.mongodb.com/v3.0/tutorial/inst">
+<meta name="twitter:description" content="安装nodejshttp://www.jianshu.com/p/783906f10d58 安装redis参考文档">
   
   
     <link rel="icon" href="http://ovne6ee1z.bkt.clouddn.com/avatar.jpg">
@@ -27,7 +27,7 @@
   <style type="text/css">
   
     #container.show {
-      background: linear-gradient(200deg,#a0cfe4,#e8c37e);
+      background: linear-gradient(to right, #4ca1af, #c4e0e5);
     }
   </style>
   
@@ -41,7 +41,7 @@
     <canvas id="anm-canvas" class="anm-canvas"></canvas>
     <div class="left-col" q-class="show:isShow">
       
-<div class="overlay" style="background: #4d4d4d"></div>
+<div class="overlay" style="background: linear-gradient(to right, #4ca1af, #c4e0e5)"></div>
 <div class="intrude-less">
 	<header id="header" class="inner">
 		<a href="/" class="profilepic">
@@ -89,7 +89,7 @@
 				
 					<a class="github" target="_blank" href="https://github.com/Etoile984816138" title="github"><i class="icon-github"></i></a>
 		        
-					<a class="weibo" target="_blank" href="#" title="weibo"><i class="icon-weibo"></i></a>
+					<a class="weibo" target="_blank" href="http://www.weibo.com/llyll984816138/home?wvr=5" title="weibo"><i class="icon-weibo"></i></a>
 		        
 					<a class="rss" target="_blank" href="#" title="rss"><i class="icon-rss"></i></a>
 		        
@@ -104,7 +104,7 @@
     <div class="mid-col" q-class="show:isShow,hide:isShow|isFalse">
       
 <nav id="mobile-nav">
-  	<div class="overlay js-overlay" style="background: #4d4d4d"></div>
+  	<div class="overlay js-overlay" style="background: linear-gradient(to right, #4ca1af, #c4e0e5)"></div>
 	<div class="btnctn js-mobile-btnctn">
   		<div class="slider-trigger list" q-on="click: openSlider(e)"><i class="icon icon-sort"></i></div>
 	</div>
@@ -138,7 +138,7 @@
 					
 						<a class="github" target="_blank" href="https://github.com/Etoile984816138" title="github"><i class="icon-github"></i></a>
 			        
-						<a class="weibo" target="_blank" href="#" title="weibo"><i class="icon-weibo"></i></a>
+						<a class="weibo" target="_blank" href="http://www.weibo.com/llyll984816138/home?wvr=5" title="weibo"><i class="icon-weibo"></i></a>
 			        
 						<a class="rss" target="_blank" href="#" title="rss"><i class="icon-rss"></i></a>
 			        
@@ -195,8 +195,7 @@
     <div class="article-entry" itemprop="articleBody">
       
         <h3 id="安装nodejs"><a href="#安装nodejs" class="headerlink" title="安装nodejs"></a>安装nodejs</h3><p><a href="http://www.jianshu.com/p/783906f10d58" target="_blank" rel="external">http://www.jianshu.com/p/783906f10d58</a></p>
-<h3 id="安装redis"><a href="#安装redis" class="headerlink" title="安装redis"></a>安装redis</h3><p>参考文档</p>
-<p><a href="http://www.redis.net.cn/tutorial/3503.html" target="_blank" rel="external">http://www.redis.net.cn/tutorial/3503.html</a><br><a href="http://www.cnblogs.com/haoxinyue/p/3620648.html" target="_blank" rel="external">http://www.cnblogs.com/haoxinyue/p/3620648.html</a></p>
+<h3 id="安装redis"><a href="#安装redis" class="headerlink" title="安装redis"></a>安装redis</h3><p>参考文档<br><a id="more"></a><br><a href="http://www.redis.net.cn/tutorial/3503.html" target="_blank" rel="external">http://www.redis.net.cn/tutorial/3503.html</a><br><a href="http://www.cnblogs.com/haoxinyue/p/3620648.html" target="_blank" rel="external">http://www.cnblogs.com/haoxinyue/p/3620648.html</a></p>
 <h3 id="安装mongodb"><a href="#安装mongodb" class="headerlink" title="安装mongodb"></a>安装mongodb</h3><p><a href="https://docs.mongodb.com/v3.0/tutorial/install-mongodb-on-red-hat/" target="_blank" rel="external">https://docs.mongodb.com/v3.0/tutorial/install-mongodb-on-red-hat/</a></p>
 <h3 id="安装nginx"><a href="#安装nginx" class="headerlink" title="安装nginx"></a>安装nginx</h3><p><a href="https://www.digitalocean.com/community/tutorials/how-to-install-nginx-on-centos-7" target="_blank" rel="external">https://www.digitalocean.com/community/tutorials/how-to-install-nginx-on-centos-7</a></p>
 
@@ -445,11 +444,15 @@ return o(i(t),arguments.length<2?void 0:u(arguments[1]))}})},function(t,n,r){var
           <ul class="article-tag-list" q-show="showTags">
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color2">C</a>
+                <a href="javascript:void(0)" class="js-tag color3">前端</a>
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color3">前端</a>
+                <a href="javascript:void(0)" class="js-tag color5">html</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color2">C</a>
               </li>
              
               <li class="article-tag-list-item">
@@ -462,10 +465,6 @@ return o(i(t),arguments.length<2?void 0:u(arguments[1]))}})},function(t,n,r){var
              
               <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color2">jQuery</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color5">java</a>
               </li>
              
               <li class="article-tag-list-item">
@@ -485,15 +484,15 @@ return o(i(t),arguments.length<2?void 0:u(arguments[1]))}})},function(t,n,r){var
               </li>
              
               <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color5">java</a>
+              </li>
+             
+              <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color1">mysql</a>
               </li>
              
               <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color5">js模式</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color5">html</a>
               </li>
              
               <li class="article-tag-list-item">

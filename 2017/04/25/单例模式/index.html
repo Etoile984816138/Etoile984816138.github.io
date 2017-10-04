@@ -15,7 +15,7 @@
 <meta property="og:url" content="http://yoursite.com/2017/04/25/单例模式/index.html">
 <meta property="og:site_name" content="林落雨落林">
 <meta property="og:description" content="静态属性中的实例12345678910111213141516171819function Universe()&amp;#123;    // 判断是否有现有的实例（是否缓存过实例）    if(typeof Universe.instance === &quot;object&quot;)&amp;#123;        return Universe.instance;    &amp;#125;    this.start_tim">
-<meta property="og:updated_time" content="2017-09-02T15:58:54.000Z">
+<meta property="og:updated_time" content="2017-10-04T13:51:02.000Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="单例模式">
 <meta name="twitter:description" content="静态属性中的实例12345678910111213141516171819function Universe()&amp;#123;    // 判断是否有现有的实例（是否缓存过实例）    if(typeof Universe.instance === &quot;object&quot;)&amp;#123;        return Universe.instance;    &amp;#125;    this.start_tim">
@@ -27,7 +27,7 @@
   <style type="text/css">
   
     #container.show {
-      background: linear-gradient(200deg,#a0cfe4,#e8c37e);
+      background: linear-gradient(to right, #4ca1af, #c4e0e5);
     }
   </style>
   
@@ -41,7 +41,7 @@
     <canvas id="anm-canvas" class="anm-canvas"></canvas>
     <div class="left-col" q-class="show:isShow">
       
-<div class="overlay" style="background: #4d4d4d"></div>
+<div class="overlay" style="background: linear-gradient(to right, #4ca1af, #c4e0e5)"></div>
 <div class="intrude-less">
 	<header id="header" class="inner">
 		<a href="/" class="profilepic">
@@ -89,7 +89,7 @@
 				
 					<a class="github" target="_blank" href="https://github.com/Etoile984816138" title="github"><i class="icon-github"></i></a>
 		        
-					<a class="weibo" target="_blank" href="#" title="weibo"><i class="icon-weibo"></i></a>
+					<a class="weibo" target="_blank" href="http://www.weibo.com/llyll984816138/home?wvr=5" title="weibo"><i class="icon-weibo"></i></a>
 		        
 					<a class="rss" target="_blank" href="#" title="rss"><i class="icon-rss"></i></a>
 		        
@@ -104,7 +104,7 @@
     <div class="mid-col" q-class="show:isShow,hide:isShow|isFalse">
       
 <nav id="mobile-nav">
-  	<div class="overlay js-overlay" style="background: #4d4d4d"></div>
+  	<div class="overlay js-overlay" style="background: linear-gradient(to right, #4ca1af, #c4e0e5)"></div>
 	<div class="btnctn js-mobile-btnctn">
   		<div class="slider-trigger list" q-on="click: openSlider(e)"><i class="icon icon-sort"></i></div>
 	</div>
@@ -138,7 +138,7 @@
 					
 						<a class="github" target="_blank" href="https://github.com/Etoile984816138" title="github"><i class="icon-github"></i></a>
 			        
-						<a class="weibo" target="_blank" href="#" title="weibo"><i class="icon-weibo"></i></a>
+						<a class="weibo" target="_blank" href="http://www.weibo.com/llyll984816138/home?wvr=5" title="weibo"><i class="icon-weibo"></i></a>
 			        
 						<a class="rss" target="_blank" href="#" title="rss"><i class="icon-rss"></i></a>
 			        
@@ -195,7 +195,7 @@
     <div class="article-entry" itemprop="articleBody">
       
         <h3 id="静态属性中的实例"><a href="#静态属性中的实例" class="headerlink" title="静态属性中的实例"></a>静态属性中的实例</h3><figure class="highlight javascript"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div></pre></td><td class="code"><pre><div class="line"><span class="function"><span class="keyword">function</span> <span class="title">Universe</span>(<span class="params"></span>)</span>&#123;</div><div class="line">    <span class="comment">// 判断是否有现有的实例（是否缓存过实例）</span></div><div class="line">    <span class="keyword">if</span>(<span class="keyword">typeof</span> Universe.instance === <span class="string">"object"</span>)&#123;</div><div class="line">        <span class="keyword">return</span> Universe.instance;</div><div class="line">    &#125;</div><div class="line"></div><div class="line">    <span class="keyword">this</span>.start_time = <span class="number">0</span>;</div><div class="line">    <span class="keyword">this</span>.bang = <span class="string">'Big'</span>;</div><div class="line"></div><div class="line">    <span class="comment">// 缓存实例</span></div><div class="line">    Universe.instance = <span class="keyword">this</span>;</div><div class="line"></div><div class="line">    <span class="comment">// 隐式返回</span></div><div class="line">    <span class="comment">// return this;</span></div><div class="line">&#125;</div><div class="line"></div><div class="line"><span class="keyword">var</span> uni = <span class="keyword">new</span> Universe();</div><div class="line"><span class="keyword">var</span> uni2 = <span class="keyword">new</span> Universe();</div><div class="line">alert(uni === uni2);</div></pre></td></tr></table></figure>
-<p>缺点是instance属性是公开的，可能会被修改</p>
+<p>缺点是instance属性是公开的，可能会被修改<br><a id="more"></a></p>
 <h3 id="闭包中的实例"><a href="#闭包中的实例" class="headerlink" title="闭包中的实例"></a>闭包中的实例</h3><figure class="highlight javascript"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div><div class="line">21</div><div class="line">22</div><div class="line">23</div><div class="line">24</div><div class="line">25</div></pre></td><td class="code"><pre><div class="line"><span class="function"><span class="keyword">function</span> <span class="title">Universe</span>(<span class="params"></span>)</span>&#123;</div><div class="line">    <span class="comment">//  缓存实例</span></div><div class="line">    <span class="keyword">var</span> instance = <span class="keyword">this</span>;</div><div class="line"></div><div class="line">    <span class="comment">// 重写构造函数</span></div><div class="line">    Universe = <span class="function"><span class="keyword">function</span>(<span class="params"></span>)</span>&#123;</div><div class="line">        <span class="keyword">return</span> instance;</div><div class="line">    &#125;</div><div class="line"></div><div class="line">    <span class="comment">// 修正操作:防止重写构造函数丢失所有在初始定义和重定义时刻添加的属性</span></div><div class="line">    </div><div class="line">    <span class="comment">// 保留原型属性</span></div><div class="line">    Universe.prototype = <span class="keyword">this</span>;</div><div class="line"></div><div class="line">    <span class="comment">// 实例</span></div><div class="line">    instance = <span class="keyword">new</span> Universe();</div><div class="line"></div><div class="line">    <span class="comment">// 重置构造函数指针</span></div><div class="line">    instance.constructor = Universe;</div><div class="line"></div><div class="line">    <span class="keyword">this</span>.start_time = <span class="number">0</span>;</div><div class="line">    <span class="keyword">this</span>.bang = <span class="string">"Big"</span>;</div><div class="line"></div><div class="line">    <span class="keyword">return</span> instance;</div><div class="line">&#125;</div></pre></td></tr></table></figure>
 <p>还有一种修正方式是把构造函数和实例包装在即时函数中。在第一次调用构造函数时会创建一个对象，并且使私有instance指向该对象，第二次调用时仅会返回该对象。</p>
 <figure class="highlight javascript"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div></pre></td><td class="code"><pre><div class="line"><span class="keyword">var</span> Universe;</div><div class="line">(<span class="function"><span class="keyword">function</span>(<span class="params"></span>)</span>&#123;</div><div class="line">    <span class="keyword">var</span> instance;</div><div class="line">    Universe = <span class="function"><span class="keyword">function</span> <span class="title">Universe</span>(<span class="params"></span>)</span>&#123;</div><div class="line">        <span class="keyword">if</span>(instance)&#123;</div><div class="line">            <span class="keyword">return</span> instance;</div><div class="line">        &#125;</div><div class="line"></div><div class="line">        instance = <span class="keyword">this</span>;</div><div class="line"></div><div class="line">        <span class="keyword">this</span>.start_time = <span class="number">0</span>;</div><div class="line">        <span class="keyword">this</span>.bang = <span class="string">"Big"</span>;</div><div class="line">    &#125;</div><div class="line">&#125;())</div></pre></td></tr></table></figure>
@@ -448,11 +448,15 @@ return o(i(t),arguments.length<2?void 0:u(arguments[1]))}})},function(t,n,r){var
           <ul class="article-tag-list" q-show="showTags">
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color2">C</a>
+                <a href="javascript:void(0)" class="js-tag color3">前端</a>
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color3">前端</a>
+                <a href="javascript:void(0)" class="js-tag color5">html</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color2">C</a>
               </li>
              
               <li class="article-tag-list-item">
@@ -465,10 +469,6 @@ return o(i(t),arguments.length<2?void 0:u(arguments[1]))}})},function(t,n,r){var
              
               <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color2">jQuery</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color5">java</a>
               </li>
              
               <li class="article-tag-list-item">
@@ -488,15 +488,15 @@ return o(i(t),arguments.length<2?void 0:u(arguments[1]))}})},function(t,n,r){var
               </li>
              
               <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color5">java</a>
+              </li>
+             
+              <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color1">mysql</a>
               </li>
              
               <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color5">js模式</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color5">html</a>
               </li>
              
               <li class="article-tag-list-item">

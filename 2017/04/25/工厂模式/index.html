@@ -15,7 +15,7 @@
 <meta property="og:url" content="http://yoursite.com/2017/04/25/工厂模式/index.html">
 <meta property="og:site_name" content="林落雨落林">
 <meta property="og:description" content="1234567891011121314151617181920212223242526272829303132333435363738394041424344// 父构造函数function CarMaker()&amp;#123;&amp;#125;// 父构造函数的原型方法CarMaker.prototype.drive = function()&amp;#123;	return this.doors;&amp;#125;/">
-<meta property="og:updated_time" content="2017-09-02T16:00:31.000Z">
+<meta property="og:updated_time" content="2017-10-04T13:51:33.000Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="工厂模式">
 <meta name="twitter:description" content="1234567891011121314151617181920212223242526272829303132333435363738394041424344// 父构造函数function CarMaker()&amp;#123;&amp;#125;// 父构造函数的原型方法CarMaker.prototype.drive = function()&amp;#123;	return this.doors;&amp;#125;/">
@@ -27,7 +27,7 @@
   <style type="text/css">
   
     #container.show {
-      background: linear-gradient(200deg,#a0cfe4,#e8c37e);
+      background: linear-gradient(to right, #4ca1af, #c4e0e5);
     }
   </style>
   
@@ -41,7 +41,7 @@
     <canvas id="anm-canvas" class="anm-canvas"></canvas>
     <div class="left-col" q-class="show:isShow">
       
-<div class="overlay" style="background: #4d4d4d"></div>
+<div class="overlay" style="background: linear-gradient(to right, #4ca1af, #c4e0e5)"></div>
 <div class="intrude-less">
 	<header id="header" class="inner">
 		<a href="/" class="profilepic">
@@ -89,7 +89,7 @@
 				
 					<a class="github" target="_blank" href="https://github.com/Etoile984816138" title="github"><i class="icon-github"></i></a>
 		        
-					<a class="weibo" target="_blank" href="#" title="weibo"><i class="icon-weibo"></i></a>
+					<a class="weibo" target="_blank" href="http://www.weibo.com/llyll984816138/home?wvr=5" title="weibo"><i class="icon-weibo"></i></a>
 		        
 					<a class="rss" target="_blank" href="#" title="rss"><i class="icon-rss"></i></a>
 		        
@@ -104,7 +104,7 @@
     <div class="mid-col" q-class="show:isShow,hide:isShow|isFalse">
       
 <nav id="mobile-nav">
-  	<div class="overlay js-overlay" style="background: #4d4d4d"></div>
+  	<div class="overlay js-overlay" style="background: linear-gradient(to right, #4ca1af, #c4e0e5)"></div>
 	<div class="btnctn js-mobile-btnctn">
   		<div class="slider-trigger list" q-on="click: openSlider(e)"><i class="icon icon-sort"></i></div>
 	</div>
@@ -138,7 +138,7 @@
 					
 						<a class="github" target="_blank" href="https://github.com/Etoile984816138" title="github"><i class="icon-github"></i></a>
 			        
-						<a class="weibo" target="_blank" href="#" title="weibo"><i class="icon-weibo"></i></a>
+						<a class="weibo" target="_blank" href="http://www.weibo.com/llyll984816138/home?wvr=5" title="weibo"><i class="icon-weibo"></i></a>
 			        
 						<a class="rss" target="_blank" href="#" title="rss"><i class="icon-rss"></i></a>
 			        
@@ -195,6 +195,7 @@
     <div class="article-entry" itemprop="articleBody">
       
         <figure class="highlight javascript"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div><div class="line">21</div><div class="line">22</div><div class="line">23</div><div class="line">24</div><div class="line">25</div><div class="line">26</div><div class="line">27</div><div class="line">28</div><div class="line">29</div><div class="line">30</div><div class="line">31</div><div class="line">32</div><div class="line">33</div><div class="line">34</div><div class="line">35</div><div class="line">36</div><div class="line">37</div><div class="line">38</div><div class="line">39</div><div class="line">40</div><div class="line">41</div><div class="line">42</div><div class="line">43</div><div class="line">44</div></pre></td><td class="code"><pre><div class="line"><span class="comment">// 父构造函数</span></div><div class="line"><span class="function"><span class="keyword">function</span> <span class="title">CarMaker</span>(<span class="params"></span>)</span>&#123;&#125;</div><div class="line"></div><div class="line"><span class="comment">// 父构造函数的原型方法</span></div><div class="line">CarMaker.prototype.drive = <span class="function"><span class="keyword">function</span>(<span class="params"></span>)</span>&#123;</div><div class="line">	<span class="keyword">return</span> <span class="keyword">this</span>.doors;</div><div class="line">&#125;</div><div class="line"></div><div class="line"></div><div class="line"><span class="comment">// 静态工厂方法</span></div><div class="line"><span class="comment">/**</span></div><div class="line"><span class="comment"> * @param  type 具体的汽车制造商</span></div><div class="line"><span class="comment"> */</span></div><div class="line">CarMaker.factory = <span class="function"><span class="keyword">function</span>(<span class="params">type</span>)</span>&#123;</div><div class="line">	<span class="keyword">var</span> constr = type,</div><div class="line">		newcar;</div><div class="line"></div><div class="line">	<span class="comment">// 如果构造函数不存在则发生错误</span></div><div class="line">	<span class="keyword">if</span>(<span class="keyword">typeof</span> CarMaker[constr] !== <span class="string">"function"</span>)&#123;</div><div class="line">		<span class="keyword">throw</span>&#123;</div><div class="line">			name:<span class="string">"Error"</span>,</div><div class="line">			message:constr</div><div class="line">		&#125;</div><div class="line">	&#125;</div><div class="line"></div><div class="line">	<span class="comment">// 原型继承父类，但仅继承一次</span></div><div class="line">	<span class="keyword">if</span>(<span class="keyword">typeof</span> CarMaker[constr].prototype.drive != <span class="string">"function"</span>)&#123;</div><div class="line">		CarMaker[constr].prototype = <span class="keyword">new</span> CarMaker();</div><div class="line">	&#125;</div><div class="line"></div><div class="line">	<span class="comment">// 创建一个新实例</span></div><div class="line">	newcar = <span class="keyword">new</span> CarMaker[constr]();</div><div class="line"></div><div class="line">	<span class="keyword">return</span> newcar;</div><div class="line">&#125;</div><div class="line"></div><div class="line"><span class="comment">// 定义特定的汽车制造商</span></div><div class="line">CarMaker.Compact = <span class="function"><span class="keyword">function</span>(<span class="params"></span>)</span>&#123;</div><div class="line">	<span class="keyword">this</span>.doors = <span class="number">4</span>;</div><div class="line">&#125;</div><div class="line"></div><div class="line">CarMaker.SUV = <span class="function"><span class="keyword">function</span>(<span class="params"></span>)</span>&#123;</div><div class="line">	<span class="keyword">this</span>.doors = <span class="number">24</span>;</div><div class="line">&#125;</div></pre></td></tr></table></figure>
+<a id="more"></a>
       
 
       
@@ -444,11 +445,15 @@ return o(i(t),arguments.length<2?void 0:u(arguments[1]))}})},function(t,n,r){var
           <ul class="article-tag-list" q-show="showTags">
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color2">C</a>
+                <a href="javascript:void(0)" class="js-tag color3">前端</a>
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color3">前端</a>
+                <a href="javascript:void(0)" class="js-tag color5">html</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color2">C</a>
               </li>
              
               <li class="article-tag-list-item">
@@ -461,10 +466,6 @@ return o(i(t),arguments.length<2?void 0:u(arguments[1]))}})},function(t,n,r){var
              
               <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color2">jQuery</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color5">java</a>
               </li>
              
               <li class="article-tag-list-item">
@@ -484,15 +485,15 @@ return o(i(t),arguments.length<2?void 0:u(arguments[1]))}})},function(t,n,r){var
               </li>
              
               <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color5">java</a>
+              </li>
+             
+              <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color1">mysql</a>
               </li>
              
               <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color5">js模式</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color5">html</a>
               </li>
              
               <li class="article-tag-list-item">

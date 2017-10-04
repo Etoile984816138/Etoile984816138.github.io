@@ -8,17 +8,17 @@
   <link rel="dns-prefetch" href="http://yoursite.com">
   <title>命名空间模式 | 林落雨落林</title>
   <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
-  <meta name="description" content="随着程序复杂度的提高，代码会分置在不同的文件中以特定顺序来加载，这样一来，就不能保证你的代码一定是第一个申明命名空间或者改变量下属性的，所以最好检查下是否存在。【单例模式】1var MYAPP = MYAPP || &amp;#123;&amp;#125;; 但是每次都做同样的检查会有重复的代码，所以需要一个重用的namespace()函数来专门处理这些检查工作，然后创建命名空间。 123456789101112">
+  <meta name="description" content="随着程序复杂度的提高，代码会分置在不同的文件中以特定顺序来加载，这样一来，就不能保证你的代码一定是第一个申明命名空间或者改变量下属性的，所以最好检查下是否存在。【单例模式】1var MYAPP = MYAPP || &amp;#123;&amp;#125;; 但是每次都做同样的检查会有重复的代码，所以需要一个重用的namespace()函数来专门处理这些检查工作，然后创建命名空间。">
 <meta name="keywords" content="前端,js,js模式">
 <meta property="og:type" content="article">
 <meta property="og:title" content="命名空间模式">
 <meta property="og:url" content="http://yoursite.com/2017/04/04/命名空间模式/index.html">
 <meta property="og:site_name" content="林落雨落林">
-<meta property="og:description" content="随着程序复杂度的提高，代码会分置在不同的文件中以特定顺序来加载，这样一来，就不能保证你的代码一定是第一个申明命名空间或者改变量下属性的，所以最好检查下是否存在。【单例模式】1var MYAPP = MYAPP || &amp;#123;&amp;#125;; 但是每次都做同样的检查会有重复的代码，所以需要一个重用的namespace()函数来专门处理这些检查工作，然后创建命名空间。 123456789101112">
-<meta property="og:updated_time" content="2017-09-02T15:48:30.000Z">
+<meta property="og:description" content="随着程序复杂度的提高，代码会分置在不同的文件中以特定顺序来加载，这样一来，就不能保证你的代码一定是第一个申明命名空间或者改变量下属性的，所以最好检查下是否存在。【单例模式】1var MYAPP = MYAPP || &amp;#123;&amp;#125;; 但是每次都做同样的检查会有重复的代码，所以需要一个重用的namespace()函数来专门处理这些检查工作，然后创建命名空间。">
+<meta property="og:updated_time" content="2017-10-04T13:51:24.000Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="命名空间模式">
-<meta name="twitter:description" content="随着程序复杂度的提高，代码会分置在不同的文件中以特定顺序来加载，这样一来，就不能保证你的代码一定是第一个申明命名空间或者改变量下属性的，所以最好检查下是否存在。【单例模式】1var MYAPP = MYAPP || &amp;#123;&amp;#125;; 但是每次都做同样的检查会有重复的代码，所以需要一个重用的namespace()函数来专门处理这些检查工作，然后创建命名空间。 123456789101112">
+<meta name="twitter:description" content="随着程序复杂度的提高，代码会分置在不同的文件中以特定顺序来加载，这样一来，就不能保证你的代码一定是第一个申明命名空间或者改变量下属性的，所以最好检查下是否存在。【单例模式】1var MYAPP = MYAPP || &amp;#123;&amp;#125;; 但是每次都做同样的检查会有重复的代码，所以需要一个重用的namespace()函数来专门处理这些检查工作，然后创建命名空间。">
   
   
     <link rel="icon" href="http://ovne6ee1z.bkt.clouddn.com/avatar.jpg">
@@ -27,7 +27,7 @@
   <style type="text/css">
   
     #container.show {
-      background: linear-gradient(200deg,#a0cfe4,#e8c37e);
+      background: linear-gradient(to right, #4ca1af, #c4e0e5);
     }
   </style>
   
@@ -41,7 +41,7 @@
     <canvas id="anm-canvas" class="anm-canvas"></canvas>
     <div class="left-col" q-class="show:isShow">
       
-<div class="overlay" style="background: #4d4d4d"></div>
+<div class="overlay" style="background: linear-gradient(to right, #4ca1af, #c4e0e5)"></div>
 <div class="intrude-less">
 	<header id="header" class="inner">
 		<a href="/" class="profilepic">
@@ -89,7 +89,7 @@
 				
 					<a class="github" target="_blank" href="https://github.com/Etoile984816138" title="github"><i class="icon-github"></i></a>
 		        
-					<a class="weibo" target="_blank" href="#" title="weibo"><i class="icon-weibo"></i></a>
+					<a class="weibo" target="_blank" href="http://www.weibo.com/llyll984816138/home?wvr=5" title="weibo"><i class="icon-weibo"></i></a>
 		        
 					<a class="rss" target="_blank" href="#" title="rss"><i class="icon-rss"></i></a>
 		        
@@ -104,7 +104,7 @@
     <div class="mid-col" q-class="show:isShow,hide:isShow|isFalse">
       
 <nav id="mobile-nav">
-  	<div class="overlay js-overlay" style="background: #4d4d4d"></div>
+  	<div class="overlay js-overlay" style="background: linear-gradient(to right, #4ca1af, #c4e0e5)"></div>
 	<div class="btnctn js-mobile-btnctn">
   		<div class="slider-trigger list" q-on="click: openSlider(e)"><i class="icon icon-sort"></i></div>
 	</div>
@@ -138,7 +138,7 @@
 					
 						<a class="github" target="_blank" href="https://github.com/Etoile984816138" title="github"><i class="icon-github"></i></a>
 			        
-						<a class="weibo" target="_blank" href="#" title="weibo"><i class="icon-weibo"></i></a>
+						<a class="weibo" target="_blank" href="http://www.weibo.com/llyll984816138/home?wvr=5" title="weibo"><i class="icon-weibo"></i></a>
 			        
 						<a class="rss" target="_blank" href="#" title="rss"><i class="icon-rss"></i></a>
 			        
@@ -195,8 +195,7 @@
     <div class="article-entry" itemprop="articleBody">
       
         <p>随着程序复杂度的提高，代码会分置在不同的文件中以特定顺序来加载，这样一来，就不能保证你的代码一定是第一个申明命名空间或者改变量下属性的，所以最好检查下是否存在。【单例模式】<br><figure class="highlight javascript"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line"><span class="keyword">var</span> MYAPP = MYAPP || &#123;&#125;;</div></pre></td></tr></table></figure></p>
-<p>但是每次都做同样的检查会有重复的代码，所以需要一个重用的namespace()函数来专门处理这些检查工作，然后创建命名空间。</p>
-<figure class="highlight javascript"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div></pre></td><td class="code"><pre><div class="line">   <span class="keyword">var</span> MYAPP = MYAPP || &#123;&#125;;</div><div class="line">MYAPP.namespace = <span class="function"><span class="keyword">function</span> (<span class="params">ns_string</span>)</span>&#123;</div><div class="line">	<span class="keyword">var</span> parts = ns_string.split(<span class="string">'.'</span>),</div><div class="line">		parent = MYAPP,</div><div class="line">		i;</div><div class="line"></div><div class="line">	<span class="keyword">if</span>(parts[<span class="number">0</span>] === <span class="string">"MYAPP"</span>)&#123;</div><div class="line">		parts = parts.slice(<span class="number">1</span>);</div><div class="line">	&#125;</div><div class="line"></div><div class="line">	<span class="keyword">for</span>(i = <span class="number">0</span>;i&lt;parts.length;i++)&#123;</div><div class="line">		<span class="keyword">if</span>(<span class="keyword">typeof</span> parent[parts[i]] === <span class="string">"undefined"</span>)&#123;</div><div class="line">			parent[parts[i]] = &#123;&#125;;</div><div class="line">		&#125;</div><div class="line">		parent = parent[parts[i]]</div><div class="line">	&#125;</div><div class="line">	<span class="keyword">return</span> parent;</div><div class="line">&#125;</div></pre></td></tr></table></figure>
+<p>但是每次都做同样的检查会有重复的代码，所以需要一个重用的namespace()函数来专门处理这些检查工作，然后创建命名空间。<br><a id="more"></a><br><figure class="highlight javascript"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div></pre></td><td class="code"><pre><div class="line">   <span class="keyword">var</span> MYAPP = MYAPP || &#123;&#125;;</div><div class="line">MYAPP.namespace = <span class="function"><span class="keyword">function</span> (<span class="params">ns_string</span>)</span>&#123;</div><div class="line">	<span class="keyword">var</span> parts = ns_string.split(<span class="string">'.'</span>),</div><div class="line">		parent = MYAPP,</div><div class="line">		i;</div><div class="line"></div><div class="line">	<span class="keyword">if</span>(parts[<span class="number">0</span>] === <span class="string">"MYAPP"</span>)&#123;</div><div class="line">		parts = parts.slice(<span class="number">1</span>);</div><div class="line">	&#125;</div><div class="line"></div><div class="line">	<span class="keyword">for</span>(i = <span class="number">0</span>;i&lt;parts.length;i++)&#123;</div><div class="line">		<span class="keyword">if</span>(<span class="keyword">typeof</span> parent[parts[i]] === <span class="string">"undefined"</span>)&#123;</div><div class="line">			parent[parts[i]] = &#123;&#125;;</div><div class="line">		&#125;</div><div class="line">		parent = parent[parts[i]]</div><div class="line">	&#125;</div><div class="line">	<span class="keyword">return</span> parent;</div><div class="line">&#125;</div></pre></td></tr></table></figure></p>
 <p>调用<br><figure class="highlight javascript"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">MYAPP.namespace(modules1.modules2);</div></pre></td></tr></table></figure></p>
 
       
@@ -448,11 +447,15 @@ return o(i(t),arguments.length<2?void 0:u(arguments[1]))}})},function(t,n,r){var
           <ul class="article-tag-list" q-show="showTags">
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color2">C</a>
+                <a href="javascript:void(0)" class="js-tag color3">前端</a>
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color3">前端</a>
+                <a href="javascript:void(0)" class="js-tag color5">html</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color2">C</a>
               </li>
              
               <li class="article-tag-list-item">
@@ -465,10 +468,6 @@ return o(i(t),arguments.length<2?void 0:u(arguments[1]))}})},function(t,n,r){var
              
               <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color2">jQuery</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color5">java</a>
               </li>
              
               <li class="article-tag-list-item">
@@ -488,15 +487,15 @@ return o(i(t),arguments.length<2?void 0:u(arguments[1]))}})},function(t,n,r){var
               </li>
              
               <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color5">java</a>
+              </li>
+             
+              <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color1">mysql</a>
               </li>
              
               <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color5">js模式</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color5">html</a>
               </li>
              
               <li class="article-tag-list-item">

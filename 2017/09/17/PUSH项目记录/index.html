@@ -8,17 +8,17 @@
   <link rel="dns-prefetch" href="http://yoursite.com">
   <title>PUSH项目记录 | 林落雨落林</title>
   <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
-  <meta name="description" content="反正每天都写日报，每周日把心得部分整理一下 Day 1 2017.09.061.对页面对象的理解。昨天做的时候不大理解怎么把一个页面对象加到另一个里面去，写成构造函数，在入口文件实例化的时候不报错但是页面元素始终没有加载进去。今天写demo的过程中，发现需要把一个页面对象放到一个页面对象容器里面，然后把这个容器加载到其它容器中。 2.对对象池的理解。主要在页面优化方面，游戏中不断有元素被创建和被销">
+  <meta name="description" content="反正每天都写日报，每周日把心得部分整理一下 Day 1 2017.09.061.对页面对象的理解。昨天做的时候不大理解怎么把一个页面对象加到另一个里面去，写成构造函数，在入口文件实例化的时候不报错但是页面元素始终没有加载进去。今天写demo的过程中，发现需要把一个页面对象放到一个页面对象容器里面，然后把这个容器加载到其它容器中。">
 <meta name="keywords" content="js,3D,Laya">
 <meta property="og:type" content="article">
 <meta property="og:title" content="PUSH项目记录">
 <meta property="og:url" content="http://yoursite.com/2017/09/17/PUSH项目记录/index.html">
 <meta property="og:site_name" content="林落雨落林">
-<meta property="og:description" content="反正每天都写日报，每周日把心得部分整理一下 Day 1 2017.09.061.对页面对象的理解。昨天做的时候不大理解怎么把一个页面对象加到另一个里面去，写成构造函数，在入口文件实例化的时候不报错但是页面元素始终没有加载进去。今天写demo的过程中，发现需要把一个页面对象放到一个页面对象容器里面，然后把这个容器加载到其它容器中。 2.对对象池的理解。主要在页面优化方面，游戏中不断有元素被创建和被销">
-<meta property="og:updated_time" content="2017-09-24T15:15:19.000Z">
+<meta property="og:description" content="反正每天都写日报，每周日把心得部分整理一下 Day 1 2017.09.061.对页面对象的理解。昨天做的时候不大理解怎么把一个页面对象加到另一个里面去，写成构造函数，在入口文件实例化的时候不报错但是页面元素始终没有加载进去。今天写demo的过程中，发现需要把一个页面对象放到一个页面对象容器里面，然后把这个容器加载到其它容器中。">
+<meta property="og:updated_time" content="2017-10-04T13:50:18.000Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="PUSH项目记录">
-<meta name="twitter:description" content="反正每天都写日报，每周日把心得部分整理一下 Day 1 2017.09.061.对页面对象的理解。昨天做的时候不大理解怎么把一个页面对象加到另一个里面去，写成构造函数，在入口文件实例化的时候不报错但是页面元素始终没有加载进去。今天写demo的过程中，发现需要把一个页面对象放到一个页面对象容器里面，然后把这个容器加载到其它容器中。 2.对对象池的理解。主要在页面优化方面，游戏中不断有元素被创建和被销">
+<meta name="twitter:description" content="反正每天都写日报，每周日把心得部分整理一下 Day 1 2017.09.061.对页面对象的理解。昨天做的时候不大理解怎么把一个页面对象加到另一个里面去，写成构造函数，在入口文件实例化的时候不报错但是页面元素始终没有加载进去。今天写demo的过程中，发现需要把一个页面对象放到一个页面对象容器里面，然后把这个容器加载到其它容器中。">
   
   
     <link rel="icon" href="http://ovne6ee1z.bkt.clouddn.com/avatar.jpg">
@@ -27,7 +27,7 @@
   <style type="text/css">
   
     #container.show {
-      background: linear-gradient(200deg,#a0cfe4,#e8c37e);
+      background: linear-gradient(to right, #4ca1af, #c4e0e5);
     }
   </style>
   
@@ -41,7 +41,7 @@
     <canvas id="anm-canvas" class="anm-canvas"></canvas>
     <div class="left-col" q-class="show:isShow">
       
-<div class="overlay" style="background: #4d4d4d"></div>
+<div class="overlay" style="background: linear-gradient(to right, #4ca1af, #c4e0e5)"></div>
 <div class="intrude-less">
 	<header id="header" class="inner">
 		<a href="/" class="profilepic">
@@ -89,7 +89,7 @@
 				
 					<a class="github" target="_blank" href="https://github.com/Etoile984816138" title="github"><i class="icon-github"></i></a>
 		        
-					<a class="weibo" target="_blank" href="#" title="weibo"><i class="icon-weibo"></i></a>
+					<a class="weibo" target="_blank" href="http://www.weibo.com/llyll984816138/home?wvr=5" title="weibo"><i class="icon-weibo"></i></a>
 		        
 					<a class="rss" target="_blank" href="#" title="rss"><i class="icon-rss"></i></a>
 		        
@@ -104,7 +104,7 @@
     <div class="mid-col" q-class="show:isShow,hide:isShow|isFalse">
       
 <nav id="mobile-nav">
-  	<div class="overlay js-overlay" style="background: #4d4d4d"></div>
+  	<div class="overlay js-overlay" style="background: linear-gradient(to right, #4ca1af, #c4e0e5)"></div>
 	<div class="btnctn js-mobile-btnctn">
   		<div class="slider-trigger list" q-on="click: openSlider(e)"><i class="icon icon-sort"></i></div>
 	</div>
@@ -138,7 +138,7 @@
 					
 						<a class="github" target="_blank" href="https://github.com/Etoile984816138" title="github"><i class="icon-github"></i></a>
 			        
-						<a class="weibo" target="_blank" href="#" title="weibo"><i class="icon-weibo"></i></a>
+						<a class="weibo" target="_blank" href="http://www.weibo.com/llyll984816138/home?wvr=5" title="weibo"><i class="icon-weibo"></i></a>
 			        
 						<a class="rss" target="_blank" href="#" title="rss"><i class="icon-rss"></i></a>
 			        
@@ -195,8 +195,7 @@
     <div class="article-entry" itemprop="articleBody">
       
         <p>反正每天都写日报，每周日把心得部分整理一下</p>
-<h3 id="Day-1-2017-09-06"><a href="#Day-1-2017-09-06" class="headerlink" title="Day 1 2017.09.06"></a>Day 1 2017.09.06</h3><p>1.对页面对象的理解。昨天做的时候不大理解怎么把一个页面对象加到另一个里面去，写成构造函数，在入口文件实例化的时候不报错但是页面元素始终没有加载进去。今天写demo的过程中，发现需要把一个页面对象放到一个页面对象容器里面，然后把这个容器加载到其它容器中。</p>
-<p>2.对对象池的理解。主要在页面优化方面，游戏中不断有元素被创建和被销毁，如果每次创建时都实例化性能方面可能不是很好，可以把这些对象放到对象池中，开始不是很理解页面中销毁这个元素后为什么还能放进对象池中，其实销毁只是在页面中把这个节点移除了，实例化的对象还是在的，此举是为了节约实例化对象的成本，达到对对象的重用。但是需要保证每次从对象池中取实例的时候对象池不为空，下午也因为这个报错调试了好久。</p>
+<h3 id="Day-1-2017-09-06"><a href="#Day-1-2017-09-06" class="headerlink" title="Day 1 2017.09.06"></a>Day 1 2017.09.06</h3><p>1.对页面对象的理解。昨天做的时候不大理解怎么把一个页面对象加到另一个里面去，写成构造函数，在入口文件实例化的时候不报错但是页面元素始终没有加载进去。今天写demo的过程中，发现需要把一个页面对象放到一个页面对象容器里面，然后把这个容器加载到其它容器中。<br><a id="more"></a><br>2.对对象池的理解。主要在页面优化方面，游戏中不断有元素被创建和被销毁，如果每次创建时都实例化性能方面可能不是很好，可以把这些对象放到对象池中，开始不是很理解页面中销毁这个元素后为什么还能放进对象池中，其实销毁只是在页面中把这个节点移除了，实例化的对象还是在的，此举是为了节约实例化对象的成本，达到对对象的重用。但是需要保证每次从对象池中取实例的时候对象池不为空，下午也因为这个报错调试了好久。</p>
 <p>3.对调试工具的理解。Index中引入debugtool文件一直报错，后来发现需要把它放在所有引入的类库之下。但是可能是不熟悉吧，写demo的过程中有时候一个简单的错误要调试好久才能找出原因，导致今天浪费了不少时间。</p>
 <p>4.发现Laya的官方文档有些东西说得不是很清楚，很多API要看源码才知道是怎么一回事，不过还好，源码目前来看还是比较容易理解的。</p>
 <h3 id="Day-2"><a href="#Day-2" class="headerlink" title="Day 2"></a>Day 2</h3><p>1.完整地做完了一个Laya 2D 的DEMO，体验了一下整体的开发流程，总结一下：</p>
@@ -522,11 +521,15 @@ return o(i(t),arguments.length<2?void 0:u(arguments[1]))}})},function(t,n,r){var
           <ul class="article-tag-list" q-show="showTags">
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color2">C</a>
+                <a href="javascript:void(0)" class="js-tag color3">前端</a>
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color3">前端</a>
+                <a href="javascript:void(0)" class="js-tag color5">html</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color2">C</a>
               </li>
              
               <li class="article-tag-list-item">
@@ -539,10 +542,6 @@ return o(i(t),arguments.length<2?void 0:u(arguments[1]))}})},function(t,n,r){var
              
               <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color2">jQuery</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color5">java</a>
               </li>
              
               <li class="article-tag-list-item">
@@ -562,15 +561,15 @@ return o(i(t),arguments.length<2?void 0:u(arguments[1]))}})},function(t,n,r){var
               </li>
              
               <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color5">java</a>
+              </li>
+             
+              <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color1">mysql</a>
               </li>
              
               <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color5">js模式</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color5">html</a>
               </li>
              
               <li class="article-tag-list-item">

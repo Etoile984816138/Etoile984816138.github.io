@@ -15,7 +15,7 @@
 <meta property="og:url" content="http://yoursite.com/2016/04/26/《JavaScript高级程序设计》零碎笔记/index.html">
 <meta property="og:site_name" content="林落雨落林">
 <meta property="og:description" content="for…in看见过但没怎么注意过的一个东西，查了一下，最后得出的结论是这个…能不用就别用，坑有点多……语法大致就是字面意思，在某个数组或对象里面遍历，有两个很明显的坑，一是不按顺序，而是效率低。 label这个也不常用，书上的解释是给一段语句加标签。我理解大概是可以精准定位，比如一段双循环代码，在最外面给这段代码加个标签 xxx: ,如果在最内层break，只是跳出当层的循环，外层的循环依然继续，">
-<meta property="og:updated_time" content="2017-09-03T15:07:27.000Z">
+<meta property="og:updated_time" content="2017-10-04T13:49:52.000Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="《JavaScript高级程序设计》零碎笔记">
 <meta name="twitter:description" content="for…in看见过但没怎么注意过的一个东西，查了一下，最后得出的结论是这个…能不用就别用，坑有点多……语法大致就是字面意思，在某个数组或对象里面遍历，有两个很明显的坑，一是不按顺序，而是效率低。 label这个也不常用，书上的解释是给一段语句加标签。我理解大概是可以精准定位，比如一段双循环代码，在最外面给这段代码加个标签 xxx: ,如果在最内层break，只是跳出当层的循环，外层的循环依然继续，">
@@ -27,7 +27,7 @@
   <style type="text/css">
   
     #container.show {
-      background: linear-gradient(200deg,#a0cfe4,#e8c37e);
+      background: linear-gradient(to right, #4ca1af, #c4e0e5);
     }
   </style>
   
@@ -41,7 +41,7 @@
     <canvas id="anm-canvas" class="anm-canvas"></canvas>
     <div class="left-col" q-class="show:isShow">
       
-<div class="overlay" style="background: #4d4d4d"></div>
+<div class="overlay" style="background: linear-gradient(to right, #4ca1af, #c4e0e5)"></div>
 <div class="intrude-less">
 	<header id="header" class="inner">
 		<a href="/" class="profilepic">
@@ -89,7 +89,7 @@
 				
 					<a class="github" target="_blank" href="https://github.com/Etoile984816138" title="github"><i class="icon-github"></i></a>
 		        
-					<a class="weibo" target="_blank" href="#" title="weibo"><i class="icon-weibo"></i></a>
+					<a class="weibo" target="_blank" href="http://www.weibo.com/llyll984816138/home?wvr=5" title="weibo"><i class="icon-weibo"></i></a>
 		        
 					<a class="rss" target="_blank" href="#" title="rss"><i class="icon-rss"></i></a>
 		        
@@ -104,7 +104,7 @@
     <div class="mid-col" q-class="show:isShow,hide:isShow|isFalse">
       
 <nav id="mobile-nav">
-  	<div class="overlay js-overlay" style="background: #4d4d4d"></div>
+  	<div class="overlay js-overlay" style="background: linear-gradient(to right, #4ca1af, #c4e0e5)"></div>
 	<div class="btnctn js-mobile-btnctn">
   		<div class="slider-trigger list" q-on="click: openSlider(e)"><i class="icon icon-sort"></i></div>
 	</div>
@@ -138,7 +138,7 @@
 					
 						<a class="github" target="_blank" href="https://github.com/Etoile984816138" title="github"><i class="icon-github"></i></a>
 			        
-						<a class="weibo" target="_blank" href="#" title="weibo"><i class="icon-weibo"></i></a>
+						<a class="weibo" target="_blank" href="http://www.weibo.com/llyll984816138/home?wvr=5" title="weibo"><i class="icon-weibo"></i></a>
 			        
 						<a class="rss" target="_blank" href="#" title="rss"><i class="icon-rss"></i></a>
 			        
@@ -195,7 +195,7 @@
     <div class="article-entry" itemprop="articleBody">
       
         <h3 id="for…in"><a href="#for…in" class="headerlink" title="for…in"></a>for…in</h3><p>看见过但没怎么注意过的一个东西，查了一下，最后得出的结论是这个…能不用就别用，坑有点多……语法大致就是字面意思，在某个数组或对象里面遍历，有两个很明显的坑，一是不按顺序，而是效率低。</p>
-<h3 id="label"><a href="#label" class="headerlink" title="label"></a>label</h3><p>这个也不常用，书上的解释是给一段语句加标签。我理解大概是可以精准定位，比如一段双循环代码，在最外面给这段代码加个标签 xxx: ,如果在最内层break，只是跳出当层的循环，外层的循环依然继续，但是如果break xxx,直接可以跳到最外层。它一般与break、continue联合使用，但是最好不要嵌套过多的循环。</p>
+<h3 id="label"><a href="#label" class="headerlink" title="label"></a>label</h3><p>这个也不常用，书上的解释是给一段语句加标签。我理解大概是可以精准定位，比如一段双循环代码，在最外面给这段代码加个标签 xxx: ,如果在最内层break，只是跳出当层的循环，外层的循环依然继续，但是如果break xxx,直接可以跳到最外层。它一般与break、continue联合使用，但是最好不要嵌套过多的循环。<br><a id="more"></a></p>
 <h3 id="传递参数"><a href="#传递参数" class="headerlink" title="传递参数"></a>传递参数</h3><figure class="highlight javascript"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div></pre></td><td class="code"><pre><div class="line"><span class="function"><span class="keyword">function</span> <span class="title">setName</span>(<span class="params">obj</span>)</span>&#123;</div><div class="line">    obj.name = <span class="string">"LLY"</span>;</div><div class="line">&#125;</div><div class="line"><span class="keyword">var</span> person = <span class="keyword">new</span> <span class="built_in">Object</span>();<span class="comment">//这个似乎用的不多，此处仅为说明</span></div><div class="line">setName(person);</div><div class="line">alert(person.name);<span class="comment">//LLY</span></div></pre></td></tr></table></figure>
 <p>先创建一个空对象，保存在变量person中，然后把它传入setName()，这样person就相当于setName中的obj，他们引用的是一个对象，但是这不代表这个对象是按引用传递的，它依然是按值传递。比如说下面这一段</p>
 <figure class="highlight javascript"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div></pre></td><td class="code"><pre><div class="line"><span class="function"><span class="keyword">function</span> <span class="title">setName</span>(<span class="params">obj</span>)</span>&#123;</div><div class="line">    obj.name = <span class="string">"LLY"</span>;</div><div class="line">    obj = <span class="keyword">new</span> <span class="built_in">Object</span>();</div><div class="line">    obj.name = <span class="string">"YL"</span>;</div><div class="line">&#125;</div><div class="line"><span class="keyword">var</span> person = <span class="keyword">new</span> <span class="built_in">Object</span>();</div><div class="line">setName(person);</div><div class="line">alert(person.name);<span class="comment">//LLY</span></div></pre></td></tr></table></figure>
@@ -474,11 +474,15 @@ return o(i(t),arguments.length<2?void 0:u(arguments[1]))}})},function(t,n,r){var
           <ul class="article-tag-list" q-show="showTags">
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color2">C</a>
+                <a href="javascript:void(0)" class="js-tag color3">前端</a>
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color3">前端</a>
+                <a href="javascript:void(0)" class="js-tag color5">html</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color2">C</a>
               </li>
              
               <li class="article-tag-list-item">
@@ -491,10 +495,6 @@ return o(i(t),arguments.length<2?void 0:u(arguments[1]))}})},function(t,n,r){var
              
               <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color2">jQuery</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color5">java</a>
               </li>
              
               <li class="article-tag-list-item">
@@ -514,15 +514,15 @@ return o(i(t),arguments.length<2?void 0:u(arguments[1]))}})},function(t,n,r){var
               </li>
              
               <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color5">java</a>
+              </li>
+             
+              <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color1">mysql</a>
               </li>
              
               <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color5">js模式</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color5">html</a>
               </li>
              
               <li class="article-tag-list-item">

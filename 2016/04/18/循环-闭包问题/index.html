@@ -8,17 +8,17 @@
   <link rel="dns-prefetch" href="http://yoursite.com">
   <title>循环&amp;闭包问题 | 林落雨落林</title>
   <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
-  <meta name="description" content="遇到一个问题，需要循环回调一个函数，回调的时候需要访问到for循环的变量i，但是这就相当于在闭包的内层函数中引用父层函数的变量，这个变量会始终为for循环的最终值，找到的方法是 1234567for(var i = 0 , len = lists.length ; i &amp;lt; len ; i++)&amp;#123;    (function(index)&amp;#123;        lists[ ind">
+  <meta name="description" content="遇到一个问题，需要循环回调一个函数，回调的时候需要访问到for循环的变量i，但是这就相当于在闭包的内层函数中引用父层函数的变量，这个变量会始终为for循环的最终值，找到的方法是">
 <meta name="keywords" content="前端,js">
 <meta property="og:type" content="article">
 <meta property="og:title" content="循环&amp;闭包问题">
 <meta property="og:url" content="http://yoursite.com/2016/04/18/循环-闭包问题/index.html">
 <meta property="og:site_name" content="林落雨落林">
-<meta property="og:description" content="遇到一个问题，需要循环回调一个函数，回调的时候需要访问到for循环的变量i，但是这就相当于在闭包的内层函数中引用父层函数的变量，这个变量会始终为for循环的最终值，找到的方法是 1234567for(var i = 0 , len = lists.length ; i &amp;lt; len ; i++)&amp;#123;    (function(index)&amp;#123;        lists[ ind">
-<meta property="og:updated_time" content="2017-09-02T15:51:17.000Z">
+<meta property="og:description" content="遇到一个问题，需要循环回调一个函数，回调的时候需要访问到for循环的变量i，但是这就相当于在闭包的内层函数中引用父层函数的变量，这个变量会始终为for循环的最终值，找到的方法是">
+<meta property="og:updated_time" content="2017-10-04T13:51:39.000Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="循环&amp;闭包问题">
-<meta name="twitter:description" content="遇到一个问题，需要循环回调一个函数，回调的时候需要访问到for循环的变量i，但是这就相当于在闭包的内层函数中引用父层函数的变量，这个变量会始终为for循环的最终值，找到的方法是 1234567for(var i = 0 , len = lists.length ; i &amp;lt; len ; i++)&amp;#123;    (function(index)&amp;#123;        lists[ ind">
+<meta name="twitter:description" content="遇到一个问题，需要循环回调一个函数，回调的时候需要访问到for循环的变量i，但是这就相当于在闭包的内层函数中引用父层函数的变量，这个变量会始终为for循环的最终值，找到的方法是">
   
   
     <link rel="icon" href="http://ovne6ee1z.bkt.clouddn.com/avatar.jpg">
@@ -27,7 +27,7 @@
   <style type="text/css">
   
     #container.show {
-      background: linear-gradient(200deg,#a0cfe4,#e8c37e);
+      background: linear-gradient(to right, #4ca1af, #c4e0e5);
     }
   </style>
   
@@ -41,7 +41,7 @@
     <canvas id="anm-canvas" class="anm-canvas"></canvas>
     <div class="left-col" q-class="show:isShow">
       
-<div class="overlay" style="background: #4d4d4d"></div>
+<div class="overlay" style="background: linear-gradient(to right, #4ca1af, #c4e0e5)"></div>
 <div class="intrude-less">
 	<header id="header" class="inner">
 		<a href="/" class="profilepic">
@@ -89,7 +89,7 @@
 				
 					<a class="github" target="_blank" href="https://github.com/Etoile984816138" title="github"><i class="icon-github"></i></a>
 		        
-					<a class="weibo" target="_blank" href="#" title="weibo"><i class="icon-weibo"></i></a>
+					<a class="weibo" target="_blank" href="http://www.weibo.com/llyll984816138/home?wvr=5" title="weibo"><i class="icon-weibo"></i></a>
 		        
 					<a class="rss" target="_blank" href="#" title="rss"><i class="icon-rss"></i></a>
 		        
@@ -104,7 +104,7 @@
     <div class="mid-col" q-class="show:isShow,hide:isShow|isFalse">
       
 <nav id="mobile-nav">
-  	<div class="overlay js-overlay" style="background: #4d4d4d"></div>
+  	<div class="overlay js-overlay" style="background: linear-gradient(to right, #4ca1af, #c4e0e5)"></div>
 	<div class="btnctn js-mobile-btnctn">
   		<div class="slider-trigger list" q-on="click: openSlider(e)"><i class="icon icon-sort"></i></div>
 	</div>
@@ -138,7 +138,7 @@
 					
 						<a class="github" target="_blank" href="https://github.com/Etoile984816138" title="github"><i class="icon-github"></i></a>
 			        
-						<a class="weibo" target="_blank" href="#" title="weibo"><i class="icon-weibo"></i></a>
+						<a class="weibo" target="_blank" href="http://www.weibo.com/llyll984816138/home?wvr=5" title="weibo"><i class="icon-weibo"></i></a>
 			        
 						<a class="rss" target="_blank" href="#" title="rss"><i class="icon-rss"></i></a>
 			        
@@ -194,8 +194,7 @@
     
     <div class="article-entry" itemprop="articleBody">
       
-        <p>遇到一个问题，需要循环回调一个函数，回调的时候需要访问到for循环的变量i，但是这就相当于在闭包的内层函数中引用父层函数的变量，这个变量会始终为for循环的最终值，找到的方法是</p>
-<figure class="highlight javascript"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div></pre></td><td class="code"><pre><div class="line"><span class="keyword">for</span>(<span class="keyword">var</span> i = <span class="number">0</span> , len = lists.length ; i &lt; len ; i++)&#123;</div><div class="line">    (<span class="function"><span class="keyword">function</span>(<span class="params">index</span>)</span>&#123;</div><div class="line">        lists[ index ].onmouseover = <span class="function"><span class="keyword">function</span>(<span class="params"></span>)</span>&#123;</div><div class="line">            alert(index);    </div><div class="line">        &#125;;                    </div><div class="line">    &#125;)(i);</div><div class="line">&#125;</div></pre></td></tr></table></figure>
+        <p>遇到一个问题，需要循环回调一个函数，回调的时候需要访问到for循环的变量i，但是这就相当于在闭包的内层函数中引用父层函数的变量，这个变量会始终为for循环的最终值，找到的方法是<br><a id="more"></a><br><figure class="highlight javascript"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div></pre></td><td class="code"><pre><div class="line"><span class="keyword">for</span>(<span class="keyword">var</span> i = <span class="number">0</span> , len = lists.length ; i &lt; len ; i++)&#123;</div><div class="line">    (<span class="function"><span class="keyword">function</span>(<span class="params">index</span>)</span>&#123;</div><div class="line">        lists[ index ].onmouseover = <span class="function"><span class="keyword">function</span>(<span class="params"></span>)</span>&#123;</div><div class="line">            alert(index);    </div><div class="line">        &#125;;                    </div><div class="line">    &#125;)(i);</div><div class="line">&#125;</div></pre></td></tr></table></figure></p>
 <p>参考链接：<a href="http://www.cnblogs.com/rainman/archive/2009/05/04/1448899.html" target="_blank" rel="external">http://www.cnblogs.com/rainman/archive/2009/05/04/1448899.html</a></p>
 
       
@@ -443,11 +442,15 @@ return o(i(t),arguments.length<2?void 0:u(arguments[1]))}})},function(t,n,r){var
           <ul class="article-tag-list" q-show="showTags">
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color2">C</a>
+                <a href="javascript:void(0)" class="js-tag color3">前端</a>
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color3">前端</a>
+                <a href="javascript:void(0)" class="js-tag color5">html</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color2">C</a>
               </li>
              
               <li class="article-tag-list-item">
@@ -460,10 +463,6 @@ return o(i(t),arguments.length<2?void 0:u(arguments[1]))}})},function(t,n,r){var
              
               <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color2">jQuery</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color5">java</a>
               </li>
              
               <li class="article-tag-list-item">
@@ -483,15 +482,15 @@ return o(i(t),arguments.length<2?void 0:u(arguments[1]))}})},function(t,n,r){var
               </li>
              
               <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color5">java</a>
+              </li>
+             
+              <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color1">mysql</a>
               </li>
              
               <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color5">js模式</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color5">html</a>
               </li>
              
               <li class="article-tag-list-item">

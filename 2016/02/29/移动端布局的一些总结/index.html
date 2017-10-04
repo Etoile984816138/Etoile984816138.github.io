@@ -8,17 +8,17 @@
   <link rel="dns-prefetch" href="http://yoursite.com">
   <title>移动端布局的一些总结 | 林落雨落林</title>
   <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
-  <meta name="description" content="css flexbox可伸缩盒模型感觉有点像bootstrap的分栏，可实现元素的同行分布。 常用语法1234567.父级&amp;#123;    display: flex/inline-flex;&amp;#125;.子元素&amp;#123;    flex:1;&amp;#125; 其它属性1flex-direction：row|row-reserve|column|column-reserve【设置父级】 row:横">
+  <meta name="description" content="css flexbox可伸缩盒模型感觉有点像bootstrap的分栏，可实现元素的同行分布。 常用语法1234567.父级&amp;#123;    display: flex/inline-flex;&amp;#125;.子元素&amp;#123;    flex:1;&amp;#125;">
 <meta name="keywords" content="前端,布局">
 <meta property="og:type" content="article">
 <meta property="og:title" content="移动端布局的一些总结">
 <meta property="og:url" content="http://yoursite.com/2016/02/29/移动端布局的一些总结/index.html">
 <meta property="og:site_name" content="林落雨落林">
-<meta property="og:description" content="css flexbox可伸缩盒模型感觉有点像bootstrap的分栏，可实现元素的同行分布。 常用语法1234567.父级&amp;#123;    display: flex/inline-flex;&amp;#125;.子元素&amp;#123;    flex:1;&amp;#125; 其它属性1flex-direction：row|row-reserve|column|column-reserve【设置父级】 row:横">
-<meta property="og:updated_time" content="2017-09-03T15:18:15.000Z">
+<meta property="og:description" content="css flexbox可伸缩盒模型感觉有点像bootstrap的分栏，可实现元素的同行分布。 常用语法1234567.父级&amp;#123;    display: flex/inline-flex;&amp;#125;.子元素&amp;#123;    flex:1;&amp;#125;">
+<meta property="og:updated_time" content="2017-10-04T13:52:02.000Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="移动端布局的一些总结">
-<meta name="twitter:description" content="css flexbox可伸缩盒模型感觉有点像bootstrap的分栏，可实现元素的同行分布。 常用语法1234567.父级&amp;#123;    display: flex/inline-flex;&amp;#125;.子元素&amp;#123;    flex:1;&amp;#125; 其它属性1flex-direction：row|row-reserve|column|column-reserve【设置父级】 row:横">
+<meta name="twitter:description" content="css flexbox可伸缩盒模型感觉有点像bootstrap的分栏，可实现元素的同行分布。 常用语法1234567.父级&amp;#123;    display: flex/inline-flex;&amp;#125;.子元素&amp;#123;    flex:1;&amp;#125;">
   
   
     <link rel="icon" href="http://ovne6ee1z.bkt.clouddn.com/avatar.jpg">
@@ -27,7 +27,7 @@
   <style type="text/css">
   
     #container.show {
-      background: linear-gradient(200deg,#a0cfe4,#e8c37e);
+      background: linear-gradient(to right, #4ca1af, #c4e0e5);
     }
   </style>
   
@@ -41,7 +41,7 @@
     <canvas id="anm-canvas" class="anm-canvas"></canvas>
     <div class="left-col" q-class="show:isShow">
       
-<div class="overlay" style="background: #4d4d4d"></div>
+<div class="overlay" style="background: linear-gradient(to right, #4ca1af, #c4e0e5)"></div>
 <div class="intrude-less">
 	<header id="header" class="inner">
 		<a href="/" class="profilepic">
@@ -89,7 +89,7 @@
 				
 					<a class="github" target="_blank" href="https://github.com/Etoile984816138" title="github"><i class="icon-github"></i></a>
 		        
-					<a class="weibo" target="_blank" href="#" title="weibo"><i class="icon-weibo"></i></a>
+					<a class="weibo" target="_blank" href="http://www.weibo.com/llyll984816138/home?wvr=5" title="weibo"><i class="icon-weibo"></i></a>
 		        
 					<a class="rss" target="_blank" href="#" title="rss"><i class="icon-rss"></i></a>
 		        
@@ -104,7 +104,7 @@
     <div class="mid-col" q-class="show:isShow,hide:isShow|isFalse">
       
 <nav id="mobile-nav">
-  	<div class="overlay js-overlay" style="background: #4d4d4d"></div>
+  	<div class="overlay js-overlay" style="background: linear-gradient(to right, #4ca1af, #c4e0e5)"></div>
 	<div class="btnctn js-mobile-btnctn">
   		<div class="slider-trigger list" q-on="click: openSlider(e)"><i class="icon icon-sort"></i></div>
 	</div>
@@ -138,7 +138,7 @@
 					
 						<a class="github" target="_blank" href="https://github.com/Etoile984816138" title="github"><i class="icon-github"></i></a>
 			        
-						<a class="weibo" target="_blank" href="#" title="weibo"><i class="icon-weibo"></i></a>
+						<a class="weibo" target="_blank" href="http://www.weibo.com/llyll984816138/home?wvr=5" title="weibo"><i class="icon-weibo"></i></a>
 			        
 						<a class="rss" target="_blank" href="#" title="rss"><i class="icon-rss"></i></a>
 			        
@@ -196,6 +196,7 @@
       
         <h2 id="css-flexbox可伸缩盒模型"><a href="#css-flexbox可伸缩盒模型" class="headerlink" title="css flexbox可伸缩盒模型"></a>css flexbox可伸缩盒模型</h2><p>感觉有点像bootstrap的分栏，可实现元素的同行分布。</p>
 <h3 id="常用语法"><a href="#常用语法" class="headerlink" title="常用语法"></a>常用语法</h3><figure class="highlight css"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div></pre></td><td class="code"><pre><div class="line">.父级&#123;</div><div class="line">    <span class="attribute">display</span>: flex/inline-flex;</div><div class="line">&#125;</div><div class="line"></div><div class="line">.子元素&#123;</div><div class="line">    <span class="attribute">flex</span>:<span class="number">1</span>;</div><div class="line">&#125;</div></pre></td></tr></table></figure>
+<a id="more"></a>
 <h3 id="其它属性"><a href="#其它属性" class="headerlink" title="其它属性"></a>其它属性</h3><figure class="highlight"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">flex-direction：row|row-reserve|column|column-reserve【设置父级】</div></pre></td></tr></table></figure>
 <p>row:横向从左到右排列<br>row-reserve：反向 从右到左 第一个排在box最右边<br>column：纵向排列 从上到下<br>column-reserve：反向 从下到上 第一个排在box最下部</p>
 <figure class="highlight"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">flex-wrap：no-wrap|wrap|wrap-reserve【设置父级】</div></pre></td></tr></table></figure>
@@ -548,11 +549,15 @@ return o(i(t),arguments.length<2?void 0:u(arguments[1]))}})},function(t,n,r){var
           <ul class="article-tag-list" q-show="showTags">
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color2">C</a>
+                <a href="javascript:void(0)" class="js-tag color3">前端</a>
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color3">前端</a>
+                <a href="javascript:void(0)" class="js-tag color5">html</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color2">C</a>
               </li>
              
               <li class="article-tag-list-item">
@@ -565,10 +570,6 @@ return o(i(t),arguments.length<2?void 0:u(arguments[1]))}})},function(t,n,r){var
              
               <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color2">jQuery</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color5">java</a>
               </li>
              
               <li class="article-tag-list-item">
@@ -588,15 +589,15 @@ return o(i(t),arguments.length<2?void 0:u(arguments[1]))}})},function(t,n,r){var
               </li>
              
               <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color5">java</a>
+              </li>
+             
+              <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color1">mysql</a>
               </li>
              
               <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color5">js模式</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color5">html</a>
               </li>
              
               <li class="article-tag-list-item">

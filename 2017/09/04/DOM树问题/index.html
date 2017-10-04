@@ -8,19 +8,19 @@
   <link rel="dns-prefetch" href="http://yoursite.com">
   <title>DOM树问题 | 林落雨落林</title>
   <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
-  <meta name="description" content="前几天面试遇到一个比较有趣的问题，分享一下~ 1&amp;lt;div id=&quot;div&quot;&amp;gt;this is div&amp;lt;/div&amp;gt; 这个DOM树应该怎么画？ 看上去很简单，第一反应面试官告诉的答案是 回来简单测了一下（chrome）123456www.attributes// NamedNodeMap &amp;#123;0: id, length: 1&amp;#125;www.attributes[0]">
+  <meta name="description" content="前几天面试遇到一个比较有趣的问题，分享一下~ 1&amp;lt;div id=&quot;div&quot;&amp;gt;this is div&amp;lt;/div&amp;gt; 这个DOM树应该怎么画？">
 <meta name="keywords" content="前端,html">
 <meta property="og:type" content="article">
 <meta property="og:title" content="DOM树问题">
 <meta property="og:url" content="http://yoursite.com/2017/09/04/DOM树问题/index.html">
 <meta property="og:site_name" content="林落雨落林">
-<meta property="og:description" content="前几天面试遇到一个比较有趣的问题，分享一下~ 1&amp;lt;div id=&quot;div&quot;&amp;gt;this is div&amp;lt;/div&amp;gt; 这个DOM树应该怎么画？ 看上去很简单，第一反应面试官告诉的答案是 回来简单测了一下（chrome）123456www.attributes// NamedNodeMap &amp;#123;0: id, length: 1&amp;#125;www.attributes[0]">
+<meta property="og:description" content="前几天面试遇到一个比较有趣的问题，分享一下~ 1&amp;lt;div id=&quot;div&quot;&amp;gt;this is div&amp;lt;/div&amp;gt; 这个DOM树应该怎么画？">
 <meta property="og:image" content="http://ovne6ee1z.bkt.clouddn.com/%E5%B1%8F%E5%B9%95%E5%BF%AB%E7%85%A7%202017-09-04%2016.35.11.png">
 <meta property="og:image" content="http://ovne6ee1z.bkt.clouddn.com/%E5%B1%8F%E5%B9%95%E5%BF%AB%E7%85%A7%202017-09-04%2016.35.48.png">
-<meta property="og:updated_time" content="2017-09-04T09:00:11.000Z">
+<meta property="og:updated_time" content="2017-10-04T13:52:35.000Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="DOM树问题">
-<meta name="twitter:description" content="前几天面试遇到一个比较有趣的问题，分享一下~ 1&amp;lt;div id=&quot;div&quot;&amp;gt;this is div&amp;lt;/div&amp;gt; 这个DOM树应该怎么画？ 看上去很简单，第一反应面试官告诉的答案是 回来简单测了一下（chrome）123456www.attributes// NamedNodeMap &amp;#123;0: id, length: 1&amp;#125;www.attributes[0]">
+<meta name="twitter:description" content="前几天面试遇到一个比较有趣的问题，分享一下~ 1&amp;lt;div id=&quot;div&quot;&amp;gt;this is div&amp;lt;/div&amp;gt; 这个DOM树应该怎么画？">
 <meta name="twitter:image" content="http://ovne6ee1z.bkt.clouddn.com/%E5%B1%8F%E5%B9%95%E5%BF%AB%E7%85%A7%202017-09-04%2016.35.11.png">
   
   
@@ -30,7 +30,7 @@
   <style type="text/css">
   
     #container.show {
-      background: linear-gradient(200deg,#a0cfe4,#e8c37e);
+      background: linear-gradient(to right, #4ca1af, #c4e0e5);
     }
   </style>
   
@@ -44,7 +44,7 @@
     <canvas id="anm-canvas" class="anm-canvas"></canvas>
     <div class="left-col" q-class="show:isShow">
       
-<div class="overlay" style="background: #4d4d4d"></div>
+<div class="overlay" style="background: linear-gradient(to right, #4ca1af, #c4e0e5)"></div>
 <div class="intrude-less">
 	<header id="header" class="inner">
 		<a href="/" class="profilepic">
@@ -92,7 +92,7 @@
 				
 					<a class="github" target="_blank" href="https://github.com/Etoile984816138" title="github"><i class="icon-github"></i></a>
 		        
-					<a class="weibo" target="_blank" href="#" title="weibo"><i class="icon-weibo"></i></a>
+					<a class="weibo" target="_blank" href="http://www.weibo.com/llyll984816138/home?wvr=5" title="weibo"><i class="icon-weibo"></i></a>
 		        
 					<a class="rss" target="_blank" href="#" title="rss"><i class="icon-rss"></i></a>
 		        
@@ -107,7 +107,7 @@
     <div class="mid-col" q-class="show:isShow,hide:isShow|isFalse">
       
 <nav id="mobile-nav">
-  	<div class="overlay js-overlay" style="background: #4d4d4d"></div>
+  	<div class="overlay js-overlay" style="background: linear-gradient(to right, #4ca1af, #c4e0e5)"></div>
 	<div class="btnctn js-mobile-btnctn">
   		<div class="slider-trigger list" q-on="click: openSlider(e)"><i class="icon icon-sort"></i></div>
 	</div>
@@ -141,7 +141,7 @@
 					
 						<a class="github" target="_blank" href="https://github.com/Etoile984816138" title="github"><i class="icon-github"></i></a>
 			        
-						<a class="weibo" target="_blank" href="#" title="weibo"><i class="icon-weibo"></i></a>
+						<a class="weibo" target="_blank" href="http://www.weibo.com/llyll984816138/home?wvr=5" title="weibo"><i class="icon-weibo"></i></a>
 			        
 						<a class="rss" target="_blank" href="#" title="rss"><i class="icon-rss"></i></a>
 			        
@@ -199,8 +199,7 @@
       
         <p>前几天面试遇到一个比较有趣的问题，分享一下~</p>
 <figure class="highlight html"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line"><span class="tag">&lt;<span class="name">div</span> <span class="attr">id</span>=<span class="string">"div"</span>&gt;</span>this is div<span class="tag">&lt;/<span class="name">div</span>&gt;</span></div></pre></td></tr></table></figure>
-<p>这个DOM树应该怎么画？</p>
-<p>看上去很简单，第一反应<br><img src="http://ovne6ee1z.bkt.clouddn.com/%E5%B1%8F%E5%B9%95%E5%BF%AB%E7%85%A7%202017-09-04%2016.35.11.png" alt=""><br>面试官告诉的答案是<br><img src="http://ovne6ee1z.bkt.clouddn.com/%E5%B1%8F%E5%B9%95%E5%BF%AB%E7%85%A7%202017-09-04%2016.35.48.png" alt=""></p>
+<p>这个DOM树应该怎么画？<br><a id="more"></a><br>看上去很简单，第一反应<br><img src="http://ovne6ee1z.bkt.clouddn.com/%E5%B1%8F%E5%B9%95%E5%BF%AB%E7%85%A7%202017-09-04%2016.35.11.png" alt=""><br>面试官告诉的答案是<br><img src="http://ovne6ee1z.bkt.clouddn.com/%E5%B1%8F%E5%B9%95%E5%BF%AB%E7%85%A7%202017-09-04%2016.35.48.png" alt=""></p>
 <h3 id="回来简单测了一下（chrome）"><a href="#回来简单测了一下（chrome）" class="headerlink" title="回来简单测了一下（chrome）"></a>回来简单测了一下（chrome）</h3><figure class="highlight javascript"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div></pre></td><td class="code"><pre><div class="line">www.attributes</div><div class="line"><span class="comment">// NamedNodeMap &#123;0: id, length: 1&#125;</span></div><div class="line">www.attributes[<span class="number">0</span>] <span class="keyword">instanceof</span> Node</div><div class="line"><span class="comment">// true</span></div><div class="line">www.attributes[<span class="number">0</span>].nodeType</div><div class="line"><span class="comment">// 2</span></div></pre></td></tr></table></figure>
 <h3 id="找到一个回答"><a href="#找到一个回答" class="headerlink" title="找到一个回答"></a>找到一个回答</h3><p><a href="https://www.zhihu.com/question/50724930" target="_blank" rel="external">https://www.zhihu.com/question/50724930</a></p>
 <h3 id="规范"><a href="#规范" class="headerlink" title="规范"></a>规范</h3><p><a href="https://www.w3.org/TR/dom/" target="_blank" rel="external">https://www.w3.org/TR/dom/</a></p>
@@ -451,11 +450,15 @@ return o(i(t),arguments.length<2?void 0:u(arguments[1]))}})},function(t,n,r){var
           <ul class="article-tag-list" q-show="showTags">
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color2">C</a>
+                <a href="javascript:void(0)" class="js-tag color3">前端</a>
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color3">前端</a>
+                <a href="javascript:void(0)" class="js-tag color5">html</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color2">C</a>
               </li>
              
               <li class="article-tag-list-item">
@@ -468,10 +471,6 @@ return o(i(t),arguments.length<2?void 0:u(arguments[1]))}})},function(t,n,r){var
              
               <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color2">jQuery</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color5">java</a>
               </li>
              
               <li class="article-tag-list-item">
@@ -491,15 +490,15 @@ return o(i(t),arguments.length<2?void 0:u(arguments[1]))}})},function(t,n,r){var
               </li>
              
               <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color5">java</a>
+              </li>
+             
+              <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color1">mysql</a>
               </li>
              
               <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color5">js模式</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color5">html</a>
               </li>
              
               <li class="article-tag-list-item">

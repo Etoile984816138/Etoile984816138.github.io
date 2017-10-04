@@ -15,7 +15,7 @@
 <meta property="og:url" content="http://yoursite.com/2017/04/25/沙箱模式：原生JS实现模块依赖/index.html">
 <meta property="og:site_name" content="林落雨落林">
 <meta property="og:description" content="12345678910111213141516171819202122232425262728293031323334353637383940414243function Sandbox()&amp;#123;	// 将arguments转化成array	var args = Array.prototype.slice.call(arguments)	// 取到最后一个参数：回调函数	var callba">
-<meta property="og:updated_time" content="2017-09-02T15:56:30.000Z">
+<meta property="og:updated_time" content="2017-10-04T13:51:57.000Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="沙箱模式：原生JS实现模块依赖">
 <meta name="twitter:description" content="12345678910111213141516171819202122232425262728293031323334353637383940414243function Sandbox()&amp;#123;	// 将arguments转化成array	var args = Array.prototype.slice.call(arguments)	// 取到最后一个参数：回调函数	var callba">
@@ -27,7 +27,7 @@
   <style type="text/css">
   
     #container.show {
-      background: linear-gradient(200deg,#a0cfe4,#e8c37e);
+      background: linear-gradient(to right, #4ca1af, #c4e0e5);
     }
   </style>
   
@@ -41,7 +41,7 @@
     <canvas id="anm-canvas" class="anm-canvas"></canvas>
     <div class="left-col" q-class="show:isShow">
       
-<div class="overlay" style="background: #4d4d4d"></div>
+<div class="overlay" style="background: linear-gradient(to right, #4ca1af, #c4e0e5)"></div>
 <div class="intrude-less">
 	<header id="header" class="inner">
 		<a href="/" class="profilepic">
@@ -89,7 +89,7 @@
 				
 					<a class="github" target="_blank" href="https://github.com/Etoile984816138" title="github"><i class="icon-github"></i></a>
 		        
-					<a class="weibo" target="_blank" href="#" title="weibo"><i class="icon-weibo"></i></a>
+					<a class="weibo" target="_blank" href="http://www.weibo.com/llyll984816138/home?wvr=5" title="weibo"><i class="icon-weibo"></i></a>
 		        
 					<a class="rss" target="_blank" href="#" title="rss"><i class="icon-rss"></i></a>
 		        
@@ -104,7 +104,7 @@
     <div class="mid-col" q-class="show:isShow,hide:isShow|isFalse">
       
 <nav id="mobile-nav">
-  	<div class="overlay js-overlay" style="background: #4d4d4d"></div>
+  	<div class="overlay js-overlay" style="background: linear-gradient(to right, #4ca1af, #c4e0e5)"></div>
 	<div class="btnctn js-mobile-btnctn">
   		<div class="slider-trigger list" q-on="click: openSlider(e)"><i class="icon icon-sort"></i></div>
 	</div>
@@ -138,7 +138,7 @@
 					
 						<a class="github" target="_blank" href="https://github.com/Etoile984816138" title="github"><i class="icon-github"></i></a>
 			        
-						<a class="weibo" target="_blank" href="#" title="weibo"><i class="icon-weibo"></i></a>
+						<a class="weibo" target="_blank" href="http://www.weibo.com/llyll984816138/home?wvr=5" title="weibo"><i class="icon-weibo"></i></a>
 			        
 						<a class="rss" target="_blank" href="#" title="rss"><i class="icon-rss"></i></a>
 			        
@@ -195,7 +195,7 @@
     <div class="article-entry" itemprop="articleBody">
       
         <figure class="highlight javascript"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div><div class="line">21</div><div class="line">22</div><div class="line">23</div><div class="line">24</div><div class="line">25</div><div class="line">26</div><div class="line">27</div><div class="line">28</div><div class="line">29</div><div class="line">30</div><div class="line">31</div><div class="line">32</div><div class="line">33</div><div class="line">34</div><div class="line">35</div><div class="line">36</div><div class="line">37</div><div class="line">38</div><div class="line">39</div><div class="line">40</div><div class="line">41</div><div class="line">42</div><div class="line">43</div></pre></td><td class="code"><pre><div class="line"><span class="function"><span class="keyword">function</span> <span class="title">Sandbox</span>(<span class="params"></span>)</span>&#123;</div><div class="line">	<span class="comment">// 将arguments转化成array</span></div><div class="line">	<span class="keyword">var</span> args = <span class="built_in">Array</span>.prototype.slice.call(<span class="built_in">arguments</span>)</div><div class="line">	<span class="comment">// 取到最后一个参数：回调函数</span></div><div class="line">	<span class="keyword">var</span> callback = args.pop();</div><div class="line">	<span class="comment">// 依赖模块，模块可以作为一个数组传入，或者作为单独的参数传入</span></div><div class="line">	<span class="keyword">var</span> modules = (args[<span class="number">0</span>] &amp;&amp; <span class="keyword">typeof</span> args[<span class="number">0</span>] === <span class="string">"string"</span>) ? args : args[<span class="number">0</span>];</div><div class="line"></div><div class="line">	<span class="comment">// 确保改函数作为构造函数被调用(是否使用new操作符，如果没有则再以构造函数的方式调用一次)</span></div><div class="line">	<span class="keyword">if</span>(!(<span class="keyword">this</span> <span class="keyword">instanceof</span> Sandbox))&#123;</div><div class="line">	    <span class="keyword">return</span> <span class="keyword">new</span> Sandbox(modules,callback);</div><div class="line">	&#125;</div><div class="line">	<span class="comment">// 需要向this添加的属性</span></div><div class="line">	<span class="keyword">this</span>.a = <span class="number">1</span>;</div><div class="line">	<span class="keyword">this</span>.b = <span class="number">2</span>;</div><div class="line"></div><div class="line">	<span class="comment">// 向该核心this对象添加模块，不指定模块名称或指定*表示使用所有模块</span></div><div class="line">	<span class="keyword">if</span>(!modules || modules === <span class="string">"*"</span>)&#123;</div><div class="line">	    modules = [];</div><div class="line">	    <span class="keyword">for</span>(i <span class="keyword">in</span> Sandbox.modules)&#123;</div><div class="line">	        <span class="keyword">if</span>(Sandbox.modules.hasOwnProperty(i))&#123;</div><div class="line">	            modules.push(i);</div><div class="line">	        &#125;</div><div class="line">	    &#125;</div><div class="line">	&#125;</div><div class="line"></div><div class="line">	<span class="comment">// 初始化模块</span></div><div class="line">	<span class="keyword">for</span>(<span class="keyword">var</span> i=<span class="number">0</span>;i&lt;modules.length;i++)&#123;</div><div class="line">	    Sandbox.modules[modules[i]](<span class="keyword">this</span>);</div><div class="line">	&#125;</div><div class="line"></div><div class="line">	<span class="comment">// call the callback</span></div><div class="line">	callback(<span class="keyword">this</span>);</div><div class="line"></div><div class="line">	<span class="comment">// 需要的任何原型属性</span></div><div class="line">	Sandbox.prototype = &#123;</div><div class="line">	    name : <span class="string">"My Application"</span>,</div><div class="line">	    version : <span class="string">"1.0"</span>,</div><div class="line">	    getName : <span class="function"><span class="keyword">function</span>(<span class="params"></span>)</span>&#123;</div><div class="line">	        <span class="keyword">return</span> <span class="keyword">this</span>.name;</div><div class="line">	    &#125;</div><div class="line">	&#125;</div><div class="line">&#125;</div></pre></td></tr></table></figure>
-<p>解释在注释里</p>
+<p>解释在注释里<br><a id="more"></a></p>
 <p>调用示例<br><figure class="highlight javascript"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div></pre></td><td class="code"><pre><div class="line">Sandbox([<span class="string">'ajax'</span>,<span class="string">'event'</span>],<span class="function"><span class="keyword">function</span>(<span class="params">box</span>)</span>&#123;</div><div class="line"></div><div class="line">&#125;)</div></pre></td></tr></table></figure></p>
 <p>模块定义示例<br><figure class="highlight javascript"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div></pre></td><td class="code"><pre><div class="line">Sandbox.modules = &#123;&#125;</div><div class="line"></div><div class="line">Sandbox.modules.dom = <span class="function"><span class="keyword">function</span>(<span class="params">box</span>)</span>&#123;</div><div class="line"></div><div class="line">&#125;</div></pre></td></tr></table></figure></p>
 
@@ -448,11 +448,15 @@ return o(i(t),arguments.length<2?void 0:u(arguments[1]))}})},function(t,n,r){var
           <ul class="article-tag-list" q-show="showTags">
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color2">C</a>
+                <a href="javascript:void(0)" class="js-tag color3">前端</a>
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color3">前端</a>
+                <a href="javascript:void(0)" class="js-tag color5">html</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color2">C</a>
               </li>
              
               <li class="article-tag-list-item">
@@ -465,10 +469,6 @@ return o(i(t),arguments.length<2?void 0:u(arguments[1]))}})},function(t,n,r){var
              
               <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color2">jQuery</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color5">java</a>
               </li>
              
               <li class="article-tag-list-item">
@@ -488,15 +488,15 @@ return o(i(t),arguments.length<2?void 0:u(arguments[1]))}})},function(t,n,r){var
               </li>
              
               <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color5">java</a>
+              </li>
+             
+              <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color1">mysql</a>
               </li>
              
               <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color5">js模式</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color5">html</a>
               </li>
              
               <li class="article-tag-list-item">

@@ -16,7 +16,7 @@
 <meta property="og:site_name" content="林落雨落林">
 <meta property="og:description" content="问题112345var obj1 = &amp;#123;x:5&amp;#125;;var obj2 = obj1;obj1.a = obj1 = &amp;#123;x:6&amp;#125;;console.log(obj1.a);//undefinedconsole.log(obj2.a);//&amp;#123;x:6&amp;#125; 需要明确两点：1.连等是先确定所有变量的指针，再让指针指向赋值。2.属性访问器优先级高于= 上面">
 <meta property="og:image" content="http://ovne6ee1z.bkt.clouddn.com/1253C481551090ECAA7C9DC317F2AA98.jpg">
-<meta property="og:updated_time" content="2017-09-23T16:15:56.000Z">
+<meta property="og:updated_time" content="2017-10-04T13:50:00.000Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="专开一篇文，记录助教过程中碰见的有趣的问题">
 <meta name="twitter:description" content="问题112345var obj1 = &amp;#123;x:5&amp;#125;;var obj2 = obj1;obj1.a = obj1 = &amp;#123;x:6&amp;#125;;console.log(obj1.a);//undefinedconsole.log(obj2.a);//&amp;#123;x:6&amp;#125; 需要明确两点：1.连等是先确定所有变量的指针，再让指针指向赋值。2.属性访问器优先级高于= 上面">
@@ -29,7 +29,7 @@
   <style type="text/css">
   
     #container.show {
-      background: linear-gradient(200deg,#a0cfe4,#e8c37e);
+      background: linear-gradient(to right, #4ca1af, #c4e0e5);
     }
   </style>
   
@@ -43,7 +43,7 @@
     <canvas id="anm-canvas" class="anm-canvas"></canvas>
     <div class="left-col" q-class="show:isShow">
       
-<div class="overlay" style="background: #4d4d4d"></div>
+<div class="overlay" style="background: linear-gradient(to right, #4ca1af, #c4e0e5)"></div>
 <div class="intrude-less">
 	<header id="header" class="inner">
 		<a href="/" class="profilepic">
@@ -91,7 +91,7 @@
 				
 					<a class="github" target="_blank" href="https://github.com/Etoile984816138" title="github"><i class="icon-github"></i></a>
 		        
-					<a class="weibo" target="_blank" href="#" title="weibo"><i class="icon-weibo"></i></a>
+					<a class="weibo" target="_blank" href="http://www.weibo.com/llyll984816138/home?wvr=5" title="weibo"><i class="icon-weibo"></i></a>
 		        
 					<a class="rss" target="_blank" href="#" title="rss"><i class="icon-rss"></i></a>
 		        
@@ -106,7 +106,7 @@
     <div class="mid-col" q-class="show:isShow,hide:isShow|isFalse">
       
 <nav id="mobile-nav">
-  	<div class="overlay js-overlay" style="background: #4d4d4d"></div>
+  	<div class="overlay js-overlay" style="background: linear-gradient(to right, #4ca1af, #c4e0e5)"></div>
 	<div class="btnctn js-mobile-btnctn">
   		<div class="slider-trigger list" q-on="click: openSlider(e)"><i class="icon icon-sort"></i></div>
 	</div>
@@ -140,7 +140,7 @@
 					
 						<a class="github" target="_blank" href="https://github.com/Etoile984816138" title="github"><i class="icon-github"></i></a>
 			        
-						<a class="weibo" target="_blank" href="#" title="weibo"><i class="icon-weibo"></i></a>
+						<a class="weibo" target="_blank" href="http://www.weibo.com/llyll984816138/home?wvr=5" title="weibo"><i class="icon-weibo"></i></a>
 			        
 						<a class="rss" target="_blank" href="#" title="rss"><i class="icon-rss"></i></a>
 			        
@@ -198,7 +198,7 @@
       
         <h3 id="问题1"><a href="#问题1" class="headerlink" title="问题1"></a>问题1</h3><figure class="highlight javascript"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div></pre></td><td class="code"><pre><div class="line"><span class="keyword">var</span> obj1 = &#123;<span class="attr">x</span>:<span class="number">5</span>&#125;;</div><div class="line"><span class="keyword">var</span> obj2 = obj1;</div><div class="line">obj1.a = obj1 = &#123;<span class="attr">x</span>:<span class="number">6</span>&#125;;</div><div class="line"><span class="built_in">console</span>.log(obj1.a);<span class="comment">//undefined</span></div><div class="line"><span class="built_in">console</span>.log(obj2.a);<span class="comment">//&#123;x:6&#125;</span></div></pre></td></tr></table></figure>
 <p>需要明确两点：<br>1.连等是先确定所有变量的指针，再让指针指向赋值。<br>2.属性访问器优先级高于=</p>
-<p>上面的过程是：<br>1.找到obj1.a及obj1的指针。如果有，不改变，如果没有，进行创建，初始化为undefined<br>2.把找到的指针指向最右的赋值</p>
+<p>上面的过程是：<br>1.找到obj1.a及obj1的指针。如果有，不改变，如果没有，进行创建，初始化为undefined<br>2.把找到的指针指向最右的赋值<br><a id="more"></a></p>
 <h3 id="问题2"><a href="#问题2" class="headerlink" title="问题2"></a>问题2</h3><p>图片不规则裁剪问题。<br>大作业里面有一个头像长这样<br><img src="http://ovne6ee1z.bkt.clouddn.com/1253C481551090ECAA7C9DC317F2AA98.jpg" alt=""><br>有同学问怎么制作，正好最近用laya引擎做游戏，UI里也涉及到图片的裁剪，laya给出的办法是新增一个sprite组件，改类型为mask，mask中再新建图形，这样就可以保留相交的部分。</p>
 <p>所以我给出的解决方法是：<br>1.canvas实现，如上所说，其实canvas应该是最好的解决方法了，可以最大限度地还原设计稿。<br>2.css clip-path实现。<br>3.最笨也最好理解的方法：把边框图切下来，连带一点周围的背景，然后边框图和头像绝对定位叠加，头像在下一层。</p>
 <h3 id="问题3"><a href="#问题3" class="headerlink" title="问题3"></a>问题3</h3><p>hover菜单实现。<br>会经常遇到hover到一个按钮上，显示下拉菜单。但是hover事件有个问题是鼠标移开按钮的时候，下拉菜单就消失了，因而无法点击按钮项，一直以来都是用JS做一些额外的处理，延时或者加一些判断。今天有个学员问了我一个问题，顺便看他demo的时候发现了一种解决思路是直接在父级（按钮+菜单项的父级）上加hover，这样css就可以实现了。其实很简单，思维固化了居然没想过这么做。</p>
@@ -444,11 +444,15 @@ return o(i(t),arguments.length<2?void 0:u(arguments[1]))}})},function(t,n,r){var
           <ul class="article-tag-list" q-show="showTags">
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color2">C</a>
+                <a href="javascript:void(0)" class="js-tag color3">前端</a>
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color3">前端</a>
+                <a href="javascript:void(0)" class="js-tag color5">html</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color2">C</a>
               </li>
              
               <li class="article-tag-list-item">
@@ -461,10 +465,6 @@ return o(i(t),arguments.length<2?void 0:u(arguments[1]))}})},function(t,n,r){var
              
               <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color2">jQuery</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color5">java</a>
               </li>
              
               <li class="article-tag-list-item">
@@ -484,15 +484,15 @@ return o(i(t),arguments.length<2?void 0:u(arguments[1]))}})},function(t,n,r){var
               </li>
              
               <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color5">java</a>
+              </li>
+             
+              <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color1">mysql</a>
               </li>
              
               <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color5">js模式</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color5">html</a>
               </li>
              
               <li class="article-tag-list-item">
