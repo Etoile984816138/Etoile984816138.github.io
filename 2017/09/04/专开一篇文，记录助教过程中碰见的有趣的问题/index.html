@@ -16,7 +16,7 @@
 <meta property="og:site_name" content="林落雨落林">
 <meta property="og:description" content="问题112345var obj1 = &amp;#123;x:5&amp;#125;;var obj2 = obj1;obj1.a = obj1 = &amp;#123;x:6&amp;#125;;console.log(obj1.a);//undefinedconsole.log(obj2.a);//&amp;#123;x:6&amp;#125; 需要明确两点：1.连等是先确定所有变量的指针，再让指针指向赋值。2.属性访问器优先级高于= 上面">
 <meta property="og:image" content="http://ovne6ee1z.bkt.clouddn.com/1253C481551090ECAA7C9DC317F2AA98.jpg">
-<meta property="og:updated_time" content="2017-10-04T16:20:13.000Z">
+<meta property="og:updated_time" content="2017-10-08T11:51:34.000Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="专开一篇文，记录助教过程中碰见的有趣的问题">
 <meta name="twitter:description" content="问题112345var obj1 = &amp;#123;x:5&amp;#125;;var obj2 = obj1;obj1.a = obj1 = &amp;#123;x:6&amp;#125;;console.log(obj1.a);//undefinedconsole.log(obj2.a);//&amp;#123;x:6&amp;#125; 需要明确两点：1.连等是先确定所有变量的指针，再让指针指向赋值。2.属性访问器优先级高于= 上面">
@@ -250,9 +250,7 @@
 </table>
 <h5 id="Demo"><a href="#Demo" class="headerlink" title="Demo"></a>Demo</h5><figure class="highlight javascript"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div></pre></td><td class="code"><pre><div class="line"><span class="keyword">var</span> canvas = <span class="built_in">document</span>.createElement(<span class="string">'canvas'</span>);</div><div class="line"><span class="built_in">document</span>.getElementsByTagName(<span class="string">'body'</span>)[<span class="number">0</span>].append(canvas)</div><div class="line">canvas.width = <span class="number">1000</span>;</div><div class="line">canvas.height = <span class="number">1000</span>;</div><div class="line"><span class="keyword">var</span> context = canvas.getContext(<span class="string">'2d'</span>);</div><div class="line"></div><div class="line"><span class="keyword">var</span> imgArr = [];</div><div class="line"><span class="keyword">var</span> avatar = <span class="keyword">new</span> Image();</div><div class="line">avatar.src = <span class="string">'avatar.jpg'</span>;</div><div class="line"><span class="keyword">var</span> shape = <span class="keyword">new</span> Image();</div><div class="line">shape.src = <span class="string">'shape.png'</span>;</div><div class="line"></div><div class="line"></div><div class="line">avatar.onload = <span class="function"><span class="keyword">function</span>(<span class="params"></span>)</span>&#123;</div><div class="line">    context.drawImage(avatar, <span class="number">0</span>, <span class="number">0</span>, <span class="number">100</span>, <span class="number">100</span>);</div><div class="line">    shape.onload = <span class="function"><span class="keyword">function</span>(<span class="params"></span>)</span>&#123;</div><div class="line">        context.globalCompositeOperation=<span class="string">"destination-in"</span>;</div><div class="line">        context.drawImage(shape, <span class="number">0</span>, <span class="number">0</span>, <span class="number">50</span>, <span class="number">50</span>);</div><div class="line">    &#125;</div><div class="line">&#125;</div></pre></td></tr></table></figure>
 <h3 id="问题3"><a href="#问题3" class="headerlink" title="问题3"></a>问题3</h3><p>hover菜单实现。<br>会经常遇到hover到一个按钮上，显示下拉菜单。但是hover事件有个问题是鼠标移开按钮的时候，下拉菜单就消失了，因而无法点击按钮项，一直以来都是用JS做一些额外的处理，延时或者加一些判断。今天有个学员问了我一个问题，顺便看他demo的时候发现了一种解决思路是直接在父级（按钮+菜单项的父级）上加hover，这样css就可以实现了。其实很简单，思维固化了居然没想过这么做。</p>
-<h3 id="问题4"><a href="#问题4" class="headerlink" title="问题4"></a>问题4</h3><p>CORS跨域404问题。<br>该同学的问题是CORS实现跨域访问接口，第一次OPTIONS访问返回204，但是第二次POST访问404了。</p>
-<h5 id="文档-1"><a href="#文档-1" class="headerlink" title="文档"></a>文档</h5><p><a href="https://developer.mozilla.org/zh-CN/docs/Web/HTTP/Access_control_CORS" target="_blank" rel="external">https://developer.mozilla.org/zh-CN/docs/Web/HTTP/Access_control_CORS</a></p>
-<p>发现它第二次访问Content-Type为text/plain，属于简单请求，不知道是不是这个原因使预检请求失效了。</p>
+<h3 id="问题4"><a href="#问题4" class="headerlink" title="问题4"></a>问题4</h3><p>如何实现一个表格，竖向滚动，表头固定，横向滚动，表格跟随。<br>这个直接用代码实现好了，正好最近也想写个表格插件，等写好了放github地址。</p>
 
       
 
@@ -385,7 +383,7 @@
                 </span>
                 <span class="tooltip-content">
                     <div class="toc-article">
-                    <ol class="toc"><li class="toc-item toc-level-3"><a class="toc-link" href="#问题1"><span class="toc-number">1.</span> <span class="toc-text">问题1</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#问题2"><span class="toc-number">2.</span> <span class="toc-text">问题2</span></a><ol class="toc-child"><li class="toc-item toc-level-5"><a class="toc-link" href="#文档"><span class="toc-number">2.0.1.</span> <span class="toc-text">文档</span></a></li><li class="toc-item toc-level-5"><a class="toc-link" href="#globalCompositeOperation部分属性值"><span class="toc-number">2.0.2.</span> <span class="toc-text">globalCompositeOperation部分属性值</span></a></li><li class="toc-item toc-level-5"><a class="toc-link" href="#Demo"><span class="toc-number">2.0.3.</span> <span class="toc-text">Demo</span></a></li></ol></li></ol></li><li class="toc-item toc-level-3"><a class="toc-link" href="#问题3"><span class="toc-number">3.</span> <span class="toc-text">问题3</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#问题4"><span class="toc-number">4.</span> <span class="toc-text">问题4</span></a><ol class="toc-child"><li class="toc-item toc-level-5"><a class="toc-link" href="#文档-1"><span class="toc-number">4.0.1.</span> <span class="toc-text">文档</span></a></li></ol></li></ol></li></ol>
+                    <ol class="toc"><li class="toc-item toc-level-3"><a class="toc-link" href="#问题1"><span class="toc-number">1.</span> <span class="toc-text">问题1</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#问题2"><span class="toc-number">2.</span> <span class="toc-text">问题2</span></a><ol class="toc-child"><li class="toc-item toc-level-5"><a class="toc-link" href="#文档"><span class="toc-number">2.0.1.</span> <span class="toc-text">文档</span></a></li><li class="toc-item toc-level-5"><a class="toc-link" href="#globalCompositeOperation部分属性值"><span class="toc-number">2.0.2.</span> <span class="toc-text">globalCompositeOperation部分属性值</span></a></li><li class="toc-item toc-level-5"><a class="toc-link" href="#Demo"><span class="toc-number">2.0.3.</span> <span class="toc-text">Demo</span></a></li></ol></li></ol></li><li class="toc-item toc-level-3"><a class="toc-link" href="#问题3"><span class="toc-number">3.</span> <span class="toc-text">问题3</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#问题4"><span class="toc-number">4.</span> <span class="toc-text">问题4</span></a></li></ol>
                     </div>
                 </span>
             </div>
@@ -519,6 +517,10 @@ return o(i(t),arguments.length<2?void 0:u(arguments[1]))}})},function(t,n,r){var
               </li>
              
               <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color5">java</a>
+              </li>
+             
+              <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color3">3D</a>
               </li>
              
@@ -528,10 +530,6 @@ return o(i(t),arguments.length<2?void 0:u(arguments[1]))}})},function(t,n,r){var
              
               <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color1">mysql</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color5">java</a>
               </li>
              
               <li class="article-tag-list-item">
