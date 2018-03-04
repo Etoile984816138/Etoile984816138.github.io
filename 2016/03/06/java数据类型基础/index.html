@@ -186,20 +186,20 @@
     
     <div class="article-entry" itemprop="articleBody">
       
-        <h3 id="Math-round（）"><a href="#Math-round（）" class="headerlink" title="Math.round（）"></a>Math.round（）</h3><ul>
+        <h3><span id="mathround">Math.round（）</span></h3><ul>
 <li>本身的意思是保留整数</li>
 <li>保留一位小数：Math.round(10*表达式/10.0)</li>
 <li>保留两位小数：Math.round(100*表达式/100.0)</li>
 </ul>
 <a id="more"></a>
-<h3 id="字符型变量用单引号，字符串用双引号"><a href="#字符型变量用单引号，字符串用双引号" class="headerlink" title="字符型变量用单引号，字符串用双引号"></a>字符型变量用单引号，字符串用双引号</h3><h3 id="强制转换"><a href="#强制转换" class="headerlink" title="强制转换"></a>强制转换</h3><p>Java默认浮点型由double表示，强制转换为float类型时，数据后应加f/F,表示为单精度</p>
-<h3 id="作用域"><a href="#作用域" class="headerlink" title="作用域"></a>作用域</h3><p>同一作用域下，变量不能重复定义。</p>
+<h3><span id="字符型变量用单引号字符串用双引号">字符型变量用单引号，字符串用双引号</span></h3><h3><span id="强制转换">强制转换</span></h3><p>Java默认浮点型由double表示，强制转换为float类型时，数据后应加f/F,表示为单精度</p>
+<h3><span id="作用域">作用域</span></h3><p>同一作用域下，变量不能重复定义。</p>
 <p>Java中语句的顺序对作用域有影响。</p>
 <p>如：</p>
-<figure class="highlight java"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div></pre></td><td class="code"><pre><div class="line"></div><div class="line"><span class="function"><span class="keyword">public</span> <span class="keyword">static</span> <span class="keyword">void</span> <span class="title">main</span><span class="params">(String[] args)</span></span>&#123;</div><div class="line">string name=<span class="string">"林落雨落林"</span></div><div class="line">    &#123;string name=“林落雨落林”</div><div class="line">    &#125;</div><div class="line">&#125;</div></pre></td></tr></table></figure>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">public</span> <span class="keyword">static</span> <span class="keyword">void</span> <span class="title">main</span><span class="params">(String[] args)</span></span>&#123;</span><br><span class="line">string name=<span class="string">"林落雨落林"</span></span><br><span class="line">    &#123;string name=“林落雨落林”</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
 <p>第一个string name的作用域为该行语句至最外层大括号结束，这个程序会报错，因为第一个string name的作用域与地下的有交叉。</p>
 <p>再如：</p>
-<figure class="highlight java"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div></pre></td><td class="code"><pre><div class="line"><span class="function"><span class="keyword">public</span> <span class="keyword">static</span> <span class="keyword">void</span> <span class="title">main</span><span class="params">(String[] args)</span></span>&#123;</div><div class="line">&#123;string name=“林落雨落林”</div><div class="line">    &#125;</div><div class="line">string name=<span class="string">"林落雨落林"</span></div><div class="line">    </div><div class="line">&#125;</div></pre></td></tr></table></figure>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">public</span> <span class="keyword">static</span> <span class="keyword">void</span> <span class="title">main</span><span class="params">(String[] args)</span></span>&#123;</span><br><span class="line">&#123;string name=“林落雨落林”</span><br><span class="line">    &#125;</span><br><span class="line">string name=<span class="string">"林落雨落林"</span></span><br><span class="line">    </span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
 <p>第二个string name的作用域为该行语句至最外层大括号结束，这个程序不会报错，因为第一个string name的作用域仅为内层大括号内。</p>
 <table>
 <thead>
@@ -243,10 +243,10 @@
 </tr>
 </tbody>
 </table>
-<h3 id="args数组获取数据"><a href="#args数组获取数据" class="headerlink" title="args数组获取数据"></a>args数组获取数据</h3><figure class="highlight java"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div></pre></td><td class="code"><pre><div class="line"><span class="function"><span class="keyword">public</span> <span class="keyword">static</span> <span class="keyword">void</span> <span class="title">main</span><span class="params">(String[] args)</span> </span>&#123;</div><div class="line"><span class="keyword">int</span> a=Integer.parseInt(args[<span class="number">0</span>]);</div><div class="line"><span class="keyword">int</span> b=Integer.parseInt(args[<span class="number">1</span>]);</div><div class="line">System.out.println(a+<span class="string">"+"</span>+b+<span class="string">"="</span>+(a+b));</div><div class="line"></div><div class="line">&#125;</div></pre></td></tr></table></figure>
+<h3><span id="args数组获取数据">args数组获取数据</span></h3><figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">public</span> <span class="keyword">static</span> <span class="keyword">void</span> <span class="title">main</span><span class="params">(String[] args)</span> </span>&#123;</span><br><span class="line"><span class="keyword">int</span> a=Integer.parseInt(args[<span class="number">0</span>]);</span><br><span class="line"><span class="keyword">int</span> b=Integer.parseInt(args[<span class="number">1</span>]);</span><br><span class="line">System.out.println(a+<span class="string">"+"</span>+b+<span class="string">"="</span>+(a+b));</span><br><span class="line"></span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
 <p>其实是一个输入然后得出结果的过程，重要的是操作。<br>Run旁边的小三角-Runconfiguration-New launch configuration-Arguments-Program argument中输入，空格隔开。</p>
 <p>Intcger.parscInt() 是把字符串型转换为整型数字</p>
-<h3 id="Scanner类"><a href="#Scanner类" class="headerlink" title="Scanner类"></a>Scanner类</h3><p>就三步</p>
+<h3><span id="scanner类">Scanner类</span></h3><p>就三步</p>
 <ol>
 <li>创建Scanner对象<br>Scanner scanner=new Scanner(System.in);</li>
 <li>向控制台输入提示文本<br>System.out.println(“XXXX”);</li>
@@ -385,7 +385,7 @@
                 </span>
                 <span class="tooltip-content">
                     <div class="toc-article">
-                    <ol class="toc"><li class="toc-item toc-level-3"><a class="toc-link" href="#Math-round（）"><span class="toc-number">1.</span> <span class="toc-text">Math.round（）</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#字符型变量用单引号，字符串用双引号"><span class="toc-number">2.</span> <span class="toc-text">字符型变量用单引号，字符串用双引号</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#强制转换"><span class="toc-number">3.</span> <span class="toc-text">强制转换</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#作用域"><span class="toc-number">4.</span> <span class="toc-text">作用域</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#args数组获取数据"><span class="toc-number">5.</span> <span class="toc-text">args数组获取数据</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#Scanner类"><span class="toc-number">6.</span> <span class="toc-text">Scanner类</span></a></li></ol>
+                    <ol class="toc"><li class="toc-item toc-level-3"><a class="toc-link" href="#undefined"><span class="toc-number">1.</span> <span class="toc-text">Math.round（）</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#undefined"><span class="toc-number">2.</span> <span class="toc-text">字符型变量用单引号，字符串用双引号</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#undefined"><span class="toc-number">3.</span> <span class="toc-text">强制转换</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#undefined"><span class="toc-number">4.</span> <span class="toc-text">作用域</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#undefined"><span class="toc-number">5.</span> <span class="toc-text">args数组获取数据</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#undefined"><span class="toc-number">6.</span> <span class="toc-text">Scanner类</span></a></li></ol>
                     </div>
                 </span>
             </div>
@@ -412,7 +412,7 @@
   <div class="outer">
     <div id="footer-info">
     	<div class="footer-left">
-    		&copy; 2017 林落雨落林
+    		&copy; 2018 林落雨落林
     	</div>
       	<div class="footer-right">
       		<a href="http://hexo.io/" target="_blank">Hexo</a>  Theme <a href="https://github.com/litten/hexo-theme-yilia" target="_blank">Yilia</a> by Litten
@@ -430,7 +430,7 @@
 		isTag: false,
 		isCategory: false,
 		open_in_new: false,
-		toc_hide_index: false,
+		toc_hide_index: ,
 		root: "/",
 		innerArchive: true,
 		showTags: false
@@ -487,11 +487,11 @@ return o(i(t),arguments.length<2?void 0:u(arguments[1]))}})},function(t,n,r){var
           <ul class="article-tag-list" q-show="showTags">
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color2">C</a>
+                <a href="javascript:void(0)" class="js-tag color3">前端</a>
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color3">前端</a>
+                <a href="javascript:void(0)" class="js-tag color5">游戏开发</a>
               </li>
              
               <li class="article-tag-list-item">
@@ -499,7 +499,7 @@ return o(i(t),arguments.length<2?void 0:u(arguments[1]))}})},function(t,n,r){var
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color1">HTML5</a>
+                <a href="javascript:void(0)" class="js-tag color2">C</a>
               </li>
              
               <li class="article-tag-list-item">
@@ -511,15 +511,7 @@ return o(i(t),arguments.length<2?void 0:u(arguments[1]))}})},function(t,n,r){var
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color3">3D</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color5">Laya</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color5">java</a>
+                <a href="javascript:void(0)" class="js-tag color1">HTML5</a>
               </li>
              
               <li class="article-tag-list-item">
@@ -531,7 +523,19 @@ return o(i(t),arguments.length<2?void 0:u(arguments[1]))}})},function(t,n,r){var
               </li>
              
               <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color5">java</a>
+              </li>
+             
+              <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color1">mysql</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color5">设计模式</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color3">游戏</a>
               </li>
              
               <li class="article-tag-list-item">
@@ -555,15 +559,15 @@ return o(i(t),arguments.length<2?void 0:u(arguments[1]))}})},function(t,n,r){var
               </li>
              
               <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color3">布局</a>
+              </li>
+             
+              <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color3">校招</a>
               </li>
              
               <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color3">面试</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color3">布局</a>
               </li>
              
               <li class="article-tag-list-item">

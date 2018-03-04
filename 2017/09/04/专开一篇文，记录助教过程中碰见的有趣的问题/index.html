@@ -188,13 +188,13 @@
     
     <div class="article-entry" itemprop="articleBody">
       
-        <h3 id="问题1"><a href="#问题1" class="headerlink" title="问题1"></a>问题1</h3><figure class="highlight javascript"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div></pre></td><td class="code"><pre><div class="line"><span class="keyword">var</span> obj1 = &#123;<span class="attr">x</span>:<span class="number">5</span>&#125;;</div><div class="line"><span class="keyword">var</span> obj2 = obj1;</div><div class="line">obj1.a = obj1 = &#123;<span class="attr">x</span>:<span class="number">6</span>&#125;;</div><div class="line"><span class="built_in">console</span>.log(obj1.a);<span class="comment">//undefined</span></div><div class="line"><span class="built_in">console</span>.log(obj2.a);<span class="comment">//&#123;x:6&#125;</span></div></pre></td></tr></table></figure>
+        <h3><span id="问题1">问题1</span></h3><figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">var</span> obj1 = &#123;<span class="attr">x</span>:<span class="number">5</span>&#125;;</span><br><span class="line"><span class="keyword">var</span> obj2 = obj1;</span><br><span class="line">obj1.a = obj1 = &#123;<span class="attr">x</span>:<span class="number">6</span>&#125;;</span><br><span class="line"><span class="built_in">console</span>.log(obj1.a);<span class="comment">//undefined</span></span><br><span class="line"><span class="built_in">console</span>.log(obj2.a);<span class="comment">//&#123;x:6&#125;</span></span><br></pre></td></tr></table></figure>
 <p>需要明确两点：<br>1.连等是先确定所有变量的指针，再让指针指向赋值。<br>2.属性访问器优先级高于=</p>
 <p>上面的过程是：<br>1.找到obj1.a及obj1的指针。如果有，不改变，如果没有，进行创建，初始化为undefined<br>2.把找到的指针指向最右的赋值<br><a id="more"></a></p>
-<h3 id="问题2"><a href="#问题2" class="headerlink" title="问题2"></a>问题2</h3><p>图片不规则裁剪问题。<br>大作业里面有一个头像长这样<br><img src="http://ovne6ee1z.bkt.clouddn.com/1253C481551090ECAA7C9DC317F2AA98.jpg" alt=""><br>有同学问怎么制作，正好最近用laya引擎做游戏，UI里也涉及到图片的裁剪，laya给出的办法是新增一个sprite组件，改类型为mask，mask中再新建图形，这样就可以保留相交的部分。</p>
+<h3><span id="问题2">问题2</span></h3><p>图片不规则裁剪问题。<br>大作业里面有一个头像长这样<br><img src="http://ovne6ee1z.bkt.clouddn.com/1253C481551090ECAA7C9DC317F2AA98.jpg" alt=""><br>有同学问怎么制作，正好最近用laya引擎做游戏，UI里也涉及到图片的裁剪，laya给出的办法是新增一个sprite组件，改类型为mask，mask中再新建图形，这样就可以保留相交的部分。</p>
 <p>由于引擎2D部分本身是由canvas实现的，顺便看了下源码，发现了globalCompositeOperation这个东西（不好意思之前没怎么接触过canvas…所以只能用发现了）。</p>
-<h5 id="文档"><a href="#文档" class="headerlink" title="文档"></a>文档</h5><p><a href="https://developer.mozilla.org/zh-CN/docs/Web/API/Canvas_API/Tutorial/Compositing" target="_blank" rel="external">https://developer.mozilla.org/zh-CN/docs/Web/API/Canvas_API/Tutorial/Compositing</a></p>
-<h5 id="globalCompositeOperation部分属性值"><a href="#globalCompositeOperation部分属性值" class="headerlink" title="globalCompositeOperation部分属性值"></a>globalCompositeOperation部分属性值</h5><table>
+<h5><span id="文档">文档</span></h5><p><a href="https://developer.mozilla.org/zh-CN/docs/Web/API/Canvas_API/Tutorial/Compositing" target="_blank" rel="noopener">https://developer.mozilla.org/zh-CN/docs/Web/API/Canvas_API/Tutorial/Compositing</a></p>
+<h5><span id="globalcompositeoperation部分属性值">globalCompositeOperation部分属性值</span></h5><table>
 <thead>
 <tr>
 <th>属性值</th>
@@ -248,9 +248,9 @@
 </tr>
 </tbody>
 </table>
-<h5 id="Demo"><a href="#Demo" class="headerlink" title="Demo"></a>Demo</h5><figure class="highlight javascript"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div></pre></td><td class="code"><pre><div class="line"><span class="keyword">var</span> canvas = <span class="built_in">document</span>.createElement(<span class="string">'canvas'</span>);</div><div class="line"><span class="built_in">document</span>.getElementsByTagName(<span class="string">'body'</span>)[<span class="number">0</span>].append(canvas)</div><div class="line">canvas.width = <span class="number">1000</span>;</div><div class="line">canvas.height = <span class="number">1000</span>;</div><div class="line"><span class="keyword">var</span> context = canvas.getContext(<span class="string">'2d'</span>);</div><div class="line"></div><div class="line"><span class="keyword">var</span> imgArr = [];</div><div class="line"><span class="keyword">var</span> avatar = <span class="keyword">new</span> Image();</div><div class="line">avatar.src = <span class="string">'avatar.jpg'</span>;</div><div class="line"><span class="keyword">var</span> shape = <span class="keyword">new</span> Image();</div><div class="line">shape.src = <span class="string">'shape.png'</span>;</div><div class="line"></div><div class="line"></div><div class="line">avatar.onload = <span class="function"><span class="keyword">function</span>(<span class="params"></span>)</span>&#123;</div><div class="line">    context.drawImage(avatar, <span class="number">0</span>, <span class="number">0</span>, <span class="number">100</span>, <span class="number">100</span>);</div><div class="line">    shape.onload = <span class="function"><span class="keyword">function</span>(<span class="params"></span>)</span>&#123;</div><div class="line">        context.globalCompositeOperation=<span class="string">"destination-in"</span>;</div><div class="line">        context.drawImage(shape, <span class="number">0</span>, <span class="number">0</span>, <span class="number">50</span>, <span class="number">50</span>);</div><div class="line">    &#125;</div><div class="line">&#125;</div></pre></td></tr></table></figure>
-<h3 id="问题3"><a href="#问题3" class="headerlink" title="问题3"></a>问题3</h3><p>hover菜单实现。<br>会经常遇到hover到一个按钮上，显示下拉菜单。但是hover事件有个问题是鼠标移开按钮的时候，下拉菜单就消失了，因而无法点击按钮项，一直以来都是用JS做一些额外的处理，延时或者加一些判断。今天有个学员问了我一个问题，顺便看他demo的时候发现了一种解决思路是直接在父级（按钮+菜单项的父级）上加hover，这样css就可以实现了。其实很简单，思维固化了居然没想过这么做。</p>
-<h3 id="问题4"><a href="#问题4" class="headerlink" title="问题4"></a>问题4</h3><p>如何实现一个表格，竖向滚动，表头固定，横向滚动，表格跟随。<br>这个直接用代码实现好了，正好最近也想写个表格插件，等写好了放github地址。</p>
+<h5><span id="demo">Demo</span></h5><figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">var</span> canvas = <span class="built_in">document</span>.createElement(<span class="string">'canvas'</span>);</span><br><span class="line"><span class="built_in">document</span>.getElementsByTagName(<span class="string">'body'</span>)[<span class="number">0</span>].append(canvas)</span><br><span class="line">canvas.width = <span class="number">1000</span>;</span><br><span class="line">canvas.height = <span class="number">1000</span>;</span><br><span class="line"><span class="keyword">var</span> context = canvas.getContext(<span class="string">'2d'</span>);</span><br><span class="line"></span><br><span class="line"><span class="keyword">var</span> imgArr = [];</span><br><span class="line"><span class="keyword">var</span> avatar = <span class="keyword">new</span> Image();</span><br><span class="line">avatar.src = <span class="string">'avatar.jpg'</span>;</span><br><span class="line"><span class="keyword">var</span> shape = <span class="keyword">new</span> Image();</span><br><span class="line">shape.src = <span class="string">'shape.png'</span>;</span><br><span class="line"></span><br><span class="line"></span><br><span class="line">avatar.onload = <span class="function"><span class="keyword">function</span>(<span class="params"></span>)</span>&#123;</span><br><span class="line">    context.drawImage(avatar, <span class="number">0</span>, <span class="number">0</span>, <span class="number">100</span>, <span class="number">100</span>);</span><br><span class="line">    shape.onload = <span class="function"><span class="keyword">function</span>(<span class="params"></span>)</span>&#123;</span><br><span class="line">        context.globalCompositeOperation=<span class="string">"destination-in"</span>;</span><br><span class="line">        context.drawImage(shape, <span class="number">0</span>, <span class="number">0</span>, <span class="number">50</span>, <span class="number">50</span>);</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<h3><span id="问题3">问题3</span></h3><p>hover菜单实现。<br>会经常遇到hover到一个按钮上，显示下拉菜单。但是hover事件有个问题是鼠标移开按钮的时候，下拉菜单就消失了，因而无法点击按钮项，一直以来都是用JS做一些额外的处理，延时或者加一些判断。今天有个学员问了我一个问题，顺便看他demo的时候发现了一种解决思路是直接在父级（按钮+菜单项的父级）上加hover，这样css就可以实现了。其实很简单，思维固化了居然没想过这么做。</p>
+<h3><span id="问题4">问题4</span></h3><p>如何实现一个表格，竖向滚动，表头固定，横向滚动，表格跟随。<br>这个直接用代码实现好了，正好最近也想写个表格插件，等写好了放github地址。</p>
 
       
 
@@ -345,11 +345,11 @@
   
 <nav id="article-nav">
   
-    <a href="/2017/09/17/PUSH项目记录/" id="article-nav-newer" class="article-nav-link-wrap">
+    <a href="/2018/01/24/《编写可测试的JavaScript代码》笔记/" id="article-nav-newer" class="article-nav-link-wrap">
       <i class="icon-circle-left"></i>
       <div class="article-nav-title">
         
-          PUSH项目记录
+          《编写可测试的JavaScript代码》读书笔记
         
       </div>
     </a>
@@ -383,7 +383,7 @@
                 </span>
                 <span class="tooltip-content">
                     <div class="toc-article">
-                    <ol class="toc"><li class="toc-item toc-level-3"><a class="toc-link" href="#问题1"><span class="toc-number">1.</span> <span class="toc-text">问题1</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#问题2"><span class="toc-number">2.</span> <span class="toc-text">问题2</span></a><ol class="toc-child"><li class="toc-item toc-level-5"><a class="toc-link" href="#文档"><span class="toc-number">2.0.1.</span> <span class="toc-text">文档</span></a></li><li class="toc-item toc-level-5"><a class="toc-link" href="#globalCompositeOperation部分属性值"><span class="toc-number">2.0.2.</span> <span class="toc-text">globalCompositeOperation部分属性值</span></a></li><li class="toc-item toc-level-5"><a class="toc-link" href="#Demo"><span class="toc-number">2.0.3.</span> <span class="toc-text">Demo</span></a></li></ol></li></ol></li><li class="toc-item toc-level-3"><a class="toc-link" href="#问题3"><span class="toc-number">3.</span> <span class="toc-text">问题3</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#问题4"><span class="toc-number">4.</span> <span class="toc-text">问题4</span></a></li></ol>
+                    <ol class="toc"><li class="toc-item toc-level-3"><a class="toc-link" href="#undefined"><span class="toc-number">1.</span> <span class="toc-text">问题1</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#undefined"><span class="toc-number">2.</span> <span class="toc-text">问题2</span></a><ol class="toc-child"><li class="toc-item toc-level-5"><a class="toc-link" href="#undefined"><span class="toc-number">2.0.1.</span> <span class="toc-text">文档</span></a></li><li class="toc-item toc-level-5"><a class="toc-link" href="#undefined"><span class="toc-number">2.0.2.</span> <span class="toc-text">globalCompositeOperation部分属性值</span></a></li><li class="toc-item toc-level-5"><a class="toc-link" href="#undefined"><span class="toc-number">2.0.3.</span> <span class="toc-text">Demo</span></a></li></ol></li></ol></li><li class="toc-item toc-level-3"><a class="toc-link" href="#undefined"><span class="toc-number">3.</span> <span class="toc-text">问题3</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#undefined"><span class="toc-number">4.</span> <span class="toc-text">问题4</span></a></li></ol>
                     </div>
                 </span>
             </div>
@@ -410,7 +410,7 @@
   <div class="outer">
     <div id="footer-info">
     	<div class="footer-left">
-    		&copy; 2017 林落雨落林
+    		&copy; 2018 林落雨落林
     	</div>
       	<div class="footer-right">
       		<a href="http://hexo.io/" target="_blank">Hexo</a>  Theme <a href="https://github.com/litten/hexo-theme-yilia" target="_blank">Yilia</a> by Litten
@@ -428,7 +428,7 @@
 		isTag: false,
 		isCategory: false,
 		open_in_new: false,
-		toc_hide_index: false,
+		toc_hide_index: ,
 		root: "/",
 		innerArchive: true,
 		showTags: false
@@ -485,11 +485,11 @@ return o(i(t),arguments.length<2?void 0:u(arguments[1]))}})},function(t,n,r){var
           <ul class="article-tag-list" q-show="showTags">
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color2">C</a>
+                <a href="javascript:void(0)" class="js-tag color3">前端</a>
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color3">前端</a>
+                <a href="javascript:void(0)" class="js-tag color5">游戏开发</a>
               </li>
              
               <li class="article-tag-list-item">
@@ -497,7 +497,7 @@ return o(i(t),arguments.length<2?void 0:u(arguments[1]))}})},function(t,n,r){var
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color1">HTML5</a>
+                <a href="javascript:void(0)" class="js-tag color2">C</a>
               </li>
              
               <li class="article-tag-list-item">
@@ -509,15 +509,7 @@ return o(i(t),arguments.length<2?void 0:u(arguments[1]))}})},function(t,n,r){var
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color3">3D</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color5">Laya</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color5">java</a>
+                <a href="javascript:void(0)" class="js-tag color1">HTML5</a>
               </li>
              
               <li class="article-tag-list-item">
@@ -529,7 +521,19 @@ return o(i(t),arguments.length<2?void 0:u(arguments[1]))}})},function(t,n,r){var
               </li>
              
               <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color5">java</a>
+              </li>
+             
+              <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color1">mysql</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color5">设计模式</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color3">游戏</a>
               </li>
              
               <li class="article-tag-list-item">
@@ -553,15 +557,15 @@ return o(i(t),arguments.length<2?void 0:u(arguments[1]))}})},function(t,n,r){var
               </li>
              
               <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color3">布局</a>
+              </li>
+             
+              <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color3">校招</a>
               </li>
              
               <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color3">面试</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color3">布局</a>
               </li>
              
               <li class="article-tag-list-item">

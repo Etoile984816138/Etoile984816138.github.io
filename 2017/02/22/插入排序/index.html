@@ -186,11 +186,11 @@
     
     <div class="article-entry" itemprop="articleBody">
       
-        <h3 id="伪代码"><a href="#伪代码" class="headerlink" title="伪代码"></a>伪代码</h3><figure class="highlight c"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div></pre></td><td class="code"><pre><div class="line"><span class="keyword">for</span> j = <span class="number">2</span> to A.length</div><div class="line">key = A[j]</div><div class="line">i = j - <span class="number">1</span></div><div class="line"><span class="keyword">while</span> i&gt;<span class="number">0</span> <span class="keyword">and</span> A[i] &gt; key</div><div class="line">A[i+<span class="number">1</span>] = A[i]</div><div class="line">i = i - <span class="number">1</span></div><div class="line">A[i+<span class="number">1</span>] = key</div></pre></td></tr></table></figure>
+        <h3><span id="伪代码">伪代码</span></h3><figure class="highlight c"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">for</span> j = <span class="number">2</span> to A.length</span><br><span class="line">key = A[j]</span><br><span class="line">i = j - <span class="number">1</span></span><br><span class="line"><span class="keyword">while</span> i&gt;<span class="number">0</span> <span class="keyword">and</span> A[i] &gt; key</span><br><span class="line">A[i+<span class="number">1</span>] = A[i]</span><br><span class="line">i = i - <span class="number">1</span></span><br><span class="line">A[i+<span class="number">1</span>] = key</span><br></pre></td></tr></table></figure>
 <a id="more"></a>
-<h3 id="JS基本实现"><a href="#JS基本实现" class="headerlink" title="JS基本实现"></a>JS基本实现</h3><figure class="highlight javascript"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div></pre></td><td class="code"><pre><div class="line"><span class="keyword">var</span> testArr = [<span class="number">0</span>,<span class="number">3</span>,<span class="number">3</span>,<span class="number">8</span>,<span class="number">2</span>,<span class="number">9</span>,<span class="number">1</span>,<span class="number">7</span>,<span class="number">1</span>,<span class="number">34</span>,<span class="number">12</span>]</div><div class="line"><span class="keyword">for</span>(<span class="keyword">var</span> i=<span class="number">1</span>;i&lt;testArr.length;i++)&#123;</div><div class="line">	<span class="keyword">var</span> key = testArr[i]</div><div class="line">	j = i <span class="number">-1</span></div><div class="line">	<span class="keyword">while</span>(j&gt;=<span class="number">0</span> &amp;&amp; testArr[j] &gt; key)&#123;</div><div class="line">		testArr[j+<span class="number">1</span>] = testArr[j]</div><div class="line">		j = j - <span class="number">1</span></div><div class="line">		testArr[j+<span class="number">1</span>] = key</div><div class="line">	&#125;</div><div class="line">&#125;</div><div class="line"><span class="built_in">console</span>.log(testArr)</div></pre></td></tr></table></figure>
-<h3 id="代码解释"><a href="#代码解释" class="headerlink" title="代码解释"></a>代码解释</h3><p>从第二个元素开始，依次与之前元素相比较，若前面元素较大，则交换位置</p>
-<h3 id="封装"><a href="#封装" class="headerlink" title="封装"></a>封装</h3><figure class="highlight javascript"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div><div class="line">21</div><div class="line">22</div></pre></td><td class="code"><pre><div class="line"><span class="comment">/**</span></div><div class="line"><span class="comment"> * [insertSort 插入排序]</span></div><div class="line"><span class="comment"> * @Author   etoile</span></div><div class="line"><span class="comment"> * @DateTime 2017-03-12T11:09:27+0800</span></div><div class="line"><span class="comment"> * @param    &#123;[type]&#125;                 arr [排序元素]</span></div><div class="line"><span class="comment"> * @param    &#123;[type]&#125;                 dir [排序方向 正数：从小到大 负数：从大到小]</span></div><div class="line"><span class="comment"> * @return   &#123;[type]&#125;                     [description]</span></div><div class="line"><span class="comment"> */</span></div><div class="line"><span class="function"><span class="keyword">function</span> <span class="title">insertSort</span>(<span class="params">arr, dir</span>) </span>&#123;</div><div class="line">    <span class="keyword">for</span> (<span class="keyword">var</span> i = <span class="number">1</span>; i &lt; arr.length; i++) &#123;</div><div class="line">        <span class="keyword">var</span> key = arr[i]</div><div class="line">        <span class="keyword">var</span> j = i - <span class="number">1</span></div><div class="line">        <span class="keyword">while</span> (j &gt;= <span class="number">0</span> &amp;&amp; (arr[j] - key)*dir &gt; <span class="number">0</span>) &#123;</div><div class="line">            arr[j + <span class="number">1</span>] = arr[j]</div><div class="line">            j = j - <span class="number">1</span></div><div class="line">            arr[j + <span class="number">1</span>] = key</div><div class="line">        &#125;</div><div class="line"></div><div class="line"></div><div class="line">    &#125;</div><div class="line">    <span class="keyword">return</span> arr;</div><div class="line">&#125;</div></pre></td></tr></table></figure>
+<h3><span id="js基本实现">JS基本实现</span></h3><figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">var</span> testArr = [<span class="number">0</span>,<span class="number">3</span>,<span class="number">3</span>,<span class="number">8</span>,<span class="number">2</span>,<span class="number">9</span>,<span class="number">1</span>,<span class="number">7</span>,<span class="number">1</span>,<span class="number">34</span>,<span class="number">12</span>]</span><br><span class="line"><span class="keyword">for</span>(<span class="keyword">var</span> i=<span class="number">1</span>;i&lt;testArr.length;i++)&#123;</span><br><span class="line">	<span class="keyword">var</span> key = testArr[i]</span><br><span class="line">	j = i <span class="number">-1</span></span><br><span class="line">	<span class="keyword">while</span>(j&gt;=<span class="number">0</span> &amp;&amp; testArr[j] &gt; key)&#123;</span><br><span class="line">		testArr[j+<span class="number">1</span>] = testArr[j]</span><br><span class="line">		j = j - <span class="number">1</span></span><br><span class="line">		testArr[j+<span class="number">1</span>] = key</span><br><span class="line">	&#125;</span><br><span class="line">&#125;</span><br><span class="line"><span class="built_in">console</span>.log(testArr)</span><br></pre></td></tr></table></figure>
+<h3><span id="代码解释">代码解释</span></h3><p>从第二个元素开始，依次与之前元素相比较，若前面元素较大，则交换位置</p>
+<h3><span id="封装">封装</span></h3><figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">/**</span></span><br><span class="line"><span class="comment"> * [insertSort 插入排序]</span></span><br><span class="line"><span class="comment"> * @Author   etoile</span></span><br><span class="line"><span class="comment"> * @DateTime 2017-03-12T11:09:27+0800</span></span><br><span class="line"><span class="comment"> * @param    &#123;[type]&#125;                 arr [排序元素]</span></span><br><span class="line"><span class="comment"> * @param    &#123;[type]&#125;                 dir [排序方向 正数：从小到大 负数：从大到小]</span></span><br><span class="line"><span class="comment"> * @return   &#123;[type]&#125;                     [description]</span></span><br><span class="line"><span class="comment"> */</span></span><br><span class="line"><span class="function"><span class="keyword">function</span> <span class="title">insertSort</span>(<span class="params">arr, dir</span>) </span>&#123;</span><br><span class="line">    <span class="keyword">for</span> (<span class="keyword">var</span> i = <span class="number">1</span>; i &lt; arr.length; i++) &#123;</span><br><span class="line">        <span class="keyword">var</span> key = arr[i]</span><br><span class="line">        <span class="keyword">var</span> j = i - <span class="number">1</span></span><br><span class="line">        <span class="keyword">while</span> (j &gt;= <span class="number">0</span> &amp;&amp; (arr[j] - key)*dir &gt; <span class="number">0</span>) &#123;</span><br><span class="line">            arr[j + <span class="number">1</span>] = arr[j]</span><br><span class="line">            j = j - <span class="number">1</span></span><br><span class="line">            arr[j + <span class="number">1</span>] = key</span><br><span class="line">        &#125;</span><br><span class="line"></span><br><span class="line"></span><br><span class="line">    &#125;</span><br><span class="line">    <span class="keyword">return</span> arr;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
       
 
       
@@ -330,7 +330,7 @@
                 </span>
                 <span class="tooltip-content">
                     <div class="toc-article">
-                    <ol class="toc"><li class="toc-item toc-level-3"><a class="toc-link" href="#伪代码"><span class="toc-number">1.</span> <span class="toc-text">伪代码</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#JS基本实现"><span class="toc-number">2.</span> <span class="toc-text">JS基本实现</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#代码解释"><span class="toc-number">3.</span> <span class="toc-text">代码解释</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#封装"><span class="toc-number">4.</span> <span class="toc-text">封装</span></a></li></ol>
+                    <ol class="toc"><li class="toc-item toc-level-3"><a class="toc-link" href="#undefined"><span class="toc-number">1.</span> <span class="toc-text">伪代码</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#undefined"><span class="toc-number">2.</span> <span class="toc-text">JS基本实现</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#undefined"><span class="toc-number">3.</span> <span class="toc-text">代码解释</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#undefined"><span class="toc-number">4.</span> <span class="toc-text">封装</span></a></li></ol>
                     </div>
                 </span>
             </div>
@@ -357,7 +357,7 @@
   <div class="outer">
     <div id="footer-info">
     	<div class="footer-left">
-    		&copy; 2017 林落雨落林
+    		&copy; 2018 林落雨落林
     	</div>
       	<div class="footer-right">
       		<a href="http://hexo.io/" target="_blank">Hexo</a>  Theme <a href="https://github.com/litten/hexo-theme-yilia" target="_blank">Yilia</a> by Litten
@@ -375,7 +375,7 @@
 		isTag: false,
 		isCategory: false,
 		open_in_new: false,
-		toc_hide_index: false,
+		toc_hide_index: ,
 		root: "/",
 		innerArchive: true,
 		showTags: false
@@ -432,11 +432,11 @@ return o(i(t),arguments.length<2?void 0:u(arguments[1]))}})},function(t,n,r){var
           <ul class="article-tag-list" q-show="showTags">
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color2">C</a>
+                <a href="javascript:void(0)" class="js-tag color3">前端</a>
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color3">前端</a>
+                <a href="javascript:void(0)" class="js-tag color5">游戏开发</a>
               </li>
              
               <li class="article-tag-list-item">
@@ -444,7 +444,7 @@ return o(i(t),arguments.length<2?void 0:u(arguments[1]))}})},function(t,n,r){var
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color1">HTML5</a>
+                <a href="javascript:void(0)" class="js-tag color2">C</a>
               </li>
              
               <li class="article-tag-list-item">
@@ -456,15 +456,7 @@ return o(i(t),arguments.length<2?void 0:u(arguments[1]))}})},function(t,n,r){var
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color3">3D</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color5">Laya</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color5">java</a>
+                <a href="javascript:void(0)" class="js-tag color1">HTML5</a>
               </li>
              
               <li class="article-tag-list-item">
@@ -476,7 +468,19 @@ return o(i(t),arguments.length<2?void 0:u(arguments[1]))}})},function(t,n,r){var
               </li>
              
               <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color5">java</a>
+              </li>
+             
+              <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color1">mysql</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color5">设计模式</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color3">游戏</a>
               </li>
              
               <li class="article-tag-list-item">
@@ -500,15 +504,15 @@ return o(i(t),arguments.length<2?void 0:u(arguments[1]))}})},function(t,n,r){var
               </li>
              
               <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color3">布局</a>
+              </li>
+             
+              <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color3">校招</a>
               </li>
              
               <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color3">面试</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color3">布局</a>
               </li>
              
               <li class="article-tag-list-item">

@@ -187,10 +187,10 @@
     <div class="article-entry" itemprop="articleBody">
       
         <p>反正每天都写日报，每周日把心得部分整理一下</p>
-<h3 id="Day-1-2017-09-06"><a href="#Day-1-2017-09-06" class="headerlink" title="Day 1 2017.09.06"></a>Day 1 2017.09.06</h3><p>1.对页面对象的理解。昨天做的时候不大理解怎么把一个页面对象加到另一个里面去，写成构造函数，在入口文件实例化的时候不报错但是页面元素始终没有加载进去。今天写demo的过程中，发现需要把一个页面对象放到一个页面对象容器里面，然后把这个容器加载到其它容器中。<br><a id="more"></a><br>2.对对象池的理解。主要在页面优化方面，游戏中不断有元素被创建和被销毁，如果每次创建时都实例化性能方面可能不是很好，可以把这些对象放到对象池中，开始不是很理解页面中销毁这个元素后为什么还能放进对象池中，其实销毁只是在页面中把这个节点移除了，实例化的对象还是在的，此举是为了节约实例化对象的成本，达到对对象的重用。但是需要保证每次从对象池中取实例的时候对象池不为空，下午也因为这个报错调试了好久。</p>
+<h3><span id="day-1-20170906">Day 1 2017.09.06</span></h3><p>1.对页面对象的理解。昨天做的时候不大理解怎么把一个页面对象加到另一个里面去，写成构造函数，在入口文件实例化的时候不报错但是页面元素始终没有加载进去。今天写demo的过程中，发现需要把一个页面对象放到一个页面对象容器里面，然后把这个容器加载到其它容器中。<br><a id="more"></a><br>2.对对象池的理解。主要在页面优化方面，游戏中不断有元素被创建和被销毁，如果每次创建时都实例化性能方面可能不是很好，可以把这些对象放到对象池中，开始不是很理解页面中销毁这个元素后为什么还能放进对象池中，其实销毁只是在页面中把这个节点移除了，实例化的对象还是在的，此举是为了节约实例化对象的成本，达到对对象的重用。但是需要保证每次从对象池中取实例的时候对象池不为空，下午也因为这个报错调试了好久。</p>
 <p>3.对调试工具的理解。Index中引入debugtool文件一直报错，后来发现需要把它放在所有引入的类库之下。但是可能是不熟悉吧，写demo的过程中有时候一个简单的错误要调试好久才能找出原因，导致今天浪费了不少时间。</p>
 <p>4.发现Laya的官方文档有些东西说得不是很清楚，很多API要看源码才知道是怎么一回事，不过还好，源码目前来看还是比较容易理解的。</p>
-<h3 id="Day-2"><a href="#Day-2" class="headerlink" title="Day 2"></a>Day 2</h3><p>1.完整地做完了一个Laya 2D 的DEMO，体验了一下整体的开发流程，总结一下：</p>
+<h3><span id="day-2">Day 2</span></h3><p>1.完整地做完了一个Laya 2D 的DEMO，体验了一下整体的开发流程，总结一下：</p>
 <pre><code>首先，编写游戏的场景或背景
 
 第二，基本UI元件的设置、导出、加载
@@ -213,11 +213,11 @@
 
 第四，移动端屏幕适配。解决：Laya有自己的屏幕适配方案，但是完全适配不同机型我简单试了下完全靠它的API应该做不到，这个明天有时间可以研究一下。
 </code></pre><p>3.看Laya 3D文档及练习demo的过程中重点理解了下场景、摄像机、光源、3D模型的概念，场景的坐标系主要是整个画布相对于人眼的坐标，z轴表示远近；摄像机的坐标系决定呈现画布的哪一部分，以及以什么角度呈现；光源主要是打光和阴影的角度；3D模型的坐标系是相对于画布的方位和角度，可以设置缩放大小、位置以及旋转角度等，3D模型的动画可以通过加载贴图动画文件，进行播放</p>
-<h3 id="Day-3-2017-09-08"><a href="#Day-3-2017-09-08" class="headerlink" title="Day 3 2017.09.08"></a>Day 3 2017.09.08</h3><p>1.对表单元素以及场景切换的理解。可以在UI编辑页面中放置表单元素、进行美化并导出，至于怎么进行九宫格编辑这个不是很理解还需要再研究一下。场景切换主要是把前一个页面的实例销毁掉，可以放进对象池，再new一个新的页面的实例。</p>
+<h3><span id="day-3-20170908">Day 3 2017.09.08</span></h3><p>1.对表单元素以及场景切换的理解。可以在UI编辑页面中放置表单元素、进行美化并导出，至于怎么进行九宫格编辑这个不是很理解还需要再研究一下。场景切换主要是把前一个页面的实例销毁掉，可以放进对象池，再new一个新的页面的实例。</p>
 <p>2.微信授权登录。</p>
 <p>3.屏幕适配问题。这个可能还是得具体问题具体解决，今天逛了下开发者社区，首先引擎本身的适配可能是会有bug的，但是也有一些解决方案可以找得到。目前我想到的方法是设置整个舞台的scaleMode，其中元素相对于舞台进行缩放，这个具体遇到了问题再看吧。</p>
 <p>4.资源预加载和异步加载问题。今天开会提到了所以也顺便写了个demo看了下，首先直接异步加载资源和预加载都是可以的，</p>
-<h4 id="预加载流程："><a href="#预加载流程：" class="headerlink" title="预加载流程："></a>预加载流程：</h4><p>1）预加载loading页所需图片资源</p>
+<h4><span id="预加载流程">预加载流程：</span></h4><p>1）预加载loading页所需图片资源</p>
 <p>2）加载完成后回调，显示进度条、并预加载游戏资源</p>
 <p>3）这时候可以根据加载文件的个数获取到加载进度，每次进度改变时可调用相应的回调函数更新进度条</p>
 <p>4）加载完成后销毁loading页，进入游戏资源页。</p>
@@ -226,22 +226,22 @@
 <p>6.问题：</p>
 <p>1）今天做loading页的时候遇到一个很奇怪的问题，资源导出后就是不出现在bin目录下（或者说bin目录下导出的资源不全，比如一个loading条的组件有三张图片，但是bin目录下的ProgressBar里只有其中一张图片），检查过了不是图片大小问题，后来直接在assets里找到对应的资源复制进去了，不知道是什么问题，也不是所有组件都出现这个情况，目前只碰到一例。</p>
 <p>2）UI编辑界面组件skin的编辑问题，这个没怎么看明白，目前是直接用的自身的skin，改天再看几遍文档。</p>
-<h3 id="Day-4-2017-09-11"><a href="#Day-4-2017-09-11" class="headerlink" title="Day 4 2017.09.11"></a>Day 4 2017.09.11</h3><p>1.碰撞器和射线检测的学习。需要在角色上添加碰撞器，然后添加射线,写个帧循环捕获命中的角色。可以捕获命中的第一个角色，也可以捕获所有，调用不同的API，还可以设置角色的层级。</p>
+<h3><span id="day-4-20170911">Day 4 2017.09.11</span></h3><p>1.碰撞器和射线检测的学习。需要在角色上添加碰撞器，然后添加射线,写个帧循环捕获命中的角色。可以捕获命中的第一个角色，也可以捕获所有，调用不同的API，还可以设置角色的层级。</p>
 <p>2.向量计算的学习。Laya提供了不少API可以进行向量的一些计算，比如向量和向量积等等，一开始遇到不知道什么，查了下API，觉得用得好的话，在一些场景下还是很巧妙的。</p>
 <p>3.设计模式。目前我的结构是loading一个类，背景一个类，3D场景一个类，角色一个类。具体角色自身的贴纸、模型和行为放在自身的属性和方法中。外部的操作，比如射线检测、碰撞器这种，放在3D场景中，因为射线要在场景中创建。然后在3D场景的类中根据需要传参实例化不同的角色类。我在想要不要单独抽出一个控制类，用于屏幕交互控制角色的行为，这样场景类中只管创建场景，会清晰一点。</p>
 <p>4.明天要解决的bug：</p>
 <p>1）鼠标选取位置不一定准确 –可能原因：帧循环时间过长或其它未知原因</p>
 <p>2）连续点击相同坐标的时候角色会变大，明明设置了固定尺寸-可能原因：出现了迭代计算</p>
 <p>3）3D角色移动时出现报错-可能原因：对API出现了理解上的错误</p>
-<h3 id="Day-5-2017-09-12"><a href="#Day-5-2017-09-12" class="headerlink" title="Day 5 2017.09.12"></a>Day 5 2017.09.12</h3><p>1.昨天有个bug-“连续点击相同坐标的时候角色会变大，明明设置了固定尺寸”，这个今天研究了一下，不是迭代计算了，是离摄像机近了，连续点击的时候相当于在之前的物体上再放置物体，离摄像机更近，近大远小，所以变大了。</p>
+<h3><span id="day-5-20170912">Day 5 2017.09.12</span></h3><p>1.昨天有个bug-“连续点击相同坐标的时候角色会变大，明明设置了固定尺寸”，这个今天研究了一下，不是迭代计算了，是离摄像机近了，连续点击的时候相当于在之前的物体上再放置物体，离摄像机更近，近大远小，所以变大了。</p>
 <p>还有个bug是3D角色移动时出现报错-这个查看了下API也修复了，另外需要在帧循环（或_update）的方法里加上position和rotation更新的代码，不然也无法实现移动。</p>
 <p>2.3D数学基础的学习。看示例demo的过程中会看到很多坐标变换，还有一些检测物体碰撞，以及向量变换的API操作，跟着做能做出来，但是不是特别懂，理解起来也需要花好大的力气，所以趁现在不是特别忙决定看一点3D数学的知识，今天主要看了世界坐标系和物体坐标系之间的变换、摄像机及其它坐标系的原理，还有向量的计算。</p>
-<h4 id="3D数学学习资料"><a href="#3D数学学习资料" class="headerlink" title="3D数学学习资料"></a>3D数学学习资料</h4><p><a href="http://blog.csdn.net/popy007/article/category/640562" target="_blank" rel="external">http://blog.csdn.net/popy007/article/category/640562</a><br>《计算机图形学（opengl版）》<br><a href="http://www.cnblogs.com/BlackWalnut/articles/4194956.html" target="_blank" rel="external">http://www.cnblogs.com/BlackWalnut/articles/4194956.html</a><br>《3D数学基础：图形与游戏开发》<br>《3D游戏编程大师技巧》</p>
-<h3 id="Day-6-2017-09-13"><a href="#Day-6-2017-09-13" class="headerlink" title="Day 6 2017.09.13"></a>Day 6 2017.09.13</h3><p>1.屏幕适配问题解决。将舞台大小设置成设计稿（1920*1080）的宽高，其中元素设置其在设计稿中的尺寸、位置即可，测试PC端和移动端均正常，不过有个问题，图片资源过大（有的其实不是很大，就是宽度比较大）会不打包。但是如果把图片等比缩小的话在PC端会模糊，如果只在微信端打开的话可以考虑把图片统一压缩一下，不然再另外想想办法。</p>
+<h4><span id="3d数学学习资料">3D数学学习资料</span></h4><p><a href="http://blog.csdn.net/popy007/article/category/640562" target="_blank" rel="noopener">http://blog.csdn.net/popy007/article/category/640562</a><br>《计算机图形学（opengl版）》<br><a href="http://www.cnblogs.com/BlackWalnut/articles/4194956.html" target="_blank" rel="noopener">http://www.cnblogs.com/BlackWalnut/articles/4194956.html</a><br>《3D数学基础：图形与游戏开发》<br>《3D游戏编程大师技巧》</p>
+<h3><span id="day-6-20170913">Day 6 2017.09.13</span></h3><p>1.屏幕适配问题解决。将舞台大小设置成设计稿（1920*1080）的宽高，其中元素设置其在设计稿中的尺寸、位置即可，测试PC端和移动端均正常，不过有个问题，图片资源过大（有的其实不是很大，就是宽度比较大）会不打包。但是如果把图片等比缩小的话在PC端会模糊，如果只在微信端打开的话可以考虑把图片统一压缩一下，不然再另外想想办法。</p>
 <p>2.位图字体的加载。今天花了不少时间在这个上，laya文档里介绍的那个制作位图字体的工具没有mac版，然后我找了另外的工具制作位图字体，发现加载不出来，逛了社区也说是格式不识别，一定要用它说的那个工具…觉得有点麻烦，因为它实际是把预定的字设置好字体、样式切成雪碧图的，这样引入之后图片的颜色、描边之类的所有属性都改不了，只能改文字内容，还必须是设置过的文字。但是直接引入ttf的话考虑到比较大，加载速度会慢。之前做移动端自定义字体的时候有用过FontSpider之类的工具进行压缩，按理来说这个也可以的，还没有尝试，之后再权衡一下要不要使用位图字体吧。</p>
 <p>还有一个问题是字体的加载，本来是想把字体的加载专门写在一个类里的，这样可以先预加载完字体文件，这样之后实例化字体的时候就不用再加载了。但是有个问题是实例化一个字体对象必须要在字体文件加载完成之后的回调里进行，这样好像挺难把这个类专门抽离出来的。但是后来尝试了下在两个类中分别加载字体文件，主类中分别实例化，发现请求也只请求了一次。</p>
 <p>3.预加载的实现。目前是先加载背景图，然后预加载Loading页所有静态资源，然后执行loading的帧循环方法，加载其它需要加载的资源。加载背景图的时候由于图片过大会出现短暂黑屏，这个后期优化可以考虑使用一张模糊的占位图，然后等背景图加载完了替换。</p>
-<h3 id="Day-7-2017-09-14"><a href="#Day-7-2017-09-14" class="headerlink" title="Day 7 2017.09.14"></a>Day 7 2017.09.14</h3><p>屏幕适配问题解决。昨天解决的方法有点问题，由于微信横屏的时候标题栏也会变，导致实际尺寸不固定，所以元素拉伸的会比较厉害。但是Laya的适配方法，要么背景和物体一起拉伸，要么都不拉伸，但是这样屏幕上会空出一块。今天解决了一天这个问题，一开始想算出一个拉伸的比率，然后把物体还原，但是这样比较麻烦，而且很难还原设计稿。后来想了一个办法，不管场景是3D还是2D的，背景图始终是2D的，所以：</p>
+<h3><span id="day-7-20170914">Day 7 2017.09.14</span></h3><p>屏幕适配问题解决。昨天解决的方法有点问题，由于微信横屏的时候标题栏也会变，导致实际尺寸不固定，所以元素拉伸的会比较厉害。但是Laya的适配方法，要么背景和物体一起拉伸，要么都不拉伸，但是这样屏幕上会空出一块。今天解决了一天这个问题，一开始想算出一个拉伸的比率，然后把物体还原，但是这样比较麻烦，而且很难还原设计稿。后来想了一个办法，不管场景是3D还是2D的，背景图始终是2D的，所以：</p>
 <pre><code>1.设置舞台按设计稿比例布局，多出来的地方留白，设置舞台水平垂直居中
 
 2.设置舞台背景透明
@@ -250,76 +250,76 @@
 
 4.js设置div的宽高为设备宽高，场景变化时也js更换一下背景图即可
 </code></pre><p>但愿这个问题真的解决了…</p>
-<h3 id="Day-8-2017-09-15"><a href="#Day-8-2017-09-15" class="headerlink" title="Day 8 2017.09.15"></a>Day 8 2017.09.15</h3><p>写大厅页面的时候有个输入房间号，但是Laya的input组件没有提供聚焦的API，就是一个输入完成自动聚焦到下一个输入框，如果用原生的输入框直接加进去又不好解决适配问题。后来看了下微信的面对面建群，想出的办法是：</p>
+<h3><span id="day-8-20170915">Day 8 2017.09.15</span></h3><p>写大厅页面的时候有个输入房间号，但是Laya的input组件没有提供聚焦的API，就是一个输入完成自动聚焦到下一个输入框，如果用原生的输入框直接加进去又不好解决适配问题。后来看了下微信的面对面建群，想出的办法是：</p>
 <p>1.创建一个input节点，css把它隐藏掉</p>
 <p>2.UI界面上创建label组件</p>
 <p>3.监听输入框的input事件，每次输入时（需要判断是输入还是删除），改变label的text及样式</p>
 <p>这样及可以唤起键盘，又可以实现UI了。</p>
 <p>其实微信面对面建群的解决方案是键盘都是模拟的，这样直接监听屏幕上虚拟键盘每个键的点击事件即可。</p>
-<h3 id="Day-9-2017-09-19"><a href="#Day-9-2017-09-19" class="headerlink" title="Day 9 2017.09.19"></a>Day 9 2017.09.19</h3><h5 id="输入房间号问题的解决。"><a href="#输入房间号问题的解决。" class="headerlink" title="输入房间号问题的解决。"></a>输入房间号问题的解决。</h5><p>前几天想了个思路但今天做的时候还是碰上不少困难的。</p>
+<h3><span id="day-9-20170919">Day 9 2017.09.19</span></h3><h5><span id="输入房间号问题的解决">输入房间号问题的解决。</span></h5><p>前几天想了个思路但今天做的时候还是碰上不少困难的。</p>
 <p>1.“创建一个input节点，CSS把它隐藏掉，打开模态框时触发它的focus事件唤起键盘”—前几步都可以，但是focus事件始终触发不了（确定是触发不了，不仅是唤不起键盘） 。看了下源码有可能是对这个事件屏蔽了，但是我怕修改了源码对其它地方有影响，所以决定换一种方法。</p>
 <p>2.“UI界面上创建label组件”—-发现label组件是不可以自定义背景的，只好还是用input，本来想给input都设置disable，但是这样背景会变灰。解决方法是在input上加一个大的input，type设置为number，透明度设置为0，fontsize设置为0，使其保证不可见，但占位，这样原先的input就点击不到又可以设置背景了</p>
 <p>3.“监听输入框的input事件”—-input事件也监听不到，改成keydown，由于和需求方确认过只输入数字，判断了一下48-57的keycode，然后变更界面显示的skin和相应的值，再捕获一下删除键的keycode，实现了号码的输入删除，同时高度还原设计稿和交互稿。</p>
-<h5 id="loading及滚动字幕动画编写。"><a href="#loading及滚动字幕动画编写。" class="headerlink" title="loading及滚动字幕动画编写。"></a>loading及滚动字幕动画编写。</h5><p>Loading用了时间轴动画，想到这个组件可能会被复用，单独出了个ani文件。时间轴动画的创建还是蛮简单的，图形化操作基本和flash动画差不多。滚动字幕本来也想用时间轴动画的，发现文字加到时间轴里不能设置关键帧，只好设计为帧循环然后变更x轴坐标，也是独立出组件。</p>
-<h3 id="Day-10-2017-09-20"><a href="#Day-10-2017-09-20" class="headerlink" title="Day 10 2017.09.20"></a>Day 10 2017.09.20</h3><p>对遮罩的理解。做玩家头像的时候遇到圆形和圆角矩形的裁剪，但是laya里面不能设置图片border-radius，哪怕新增DOM节点加进去，这个属性也不生效。后来发现可以绘制一个矢量图形，加到图片的mask属性下。圆角矩形图片我的实现是绘制一个圆，圆的直径略大于图片的宽度，这样遮罩裁剪出来就是圆角矩形了，但是微信获取的头像应该不一定正好是正方形，长方形相交就不是圆角矩形了，这个后面应该还要改，不过直接绘制一个圆角矩形也是可以的，这个后面根据确定的UI再改吧，知道方法后改起来也不是很困难。</p>
-<h3 id="Day-11-2017-09-21"><a href="#Day-11-2017-09-21" class="headerlink" title="Day 11 2017.09.21"></a>Day 11 2017.09.21</h3><p>1.纯色按钮边缘渐变问题的解决。打开九宫格编辑界面，设置其上下左右padding各为1。</p>
+<h5><span id="loading及滚动字幕动画编写">loading及滚动字幕动画编写。</span></h5><p>Loading用了时间轴动画，想到这个组件可能会被复用，单独出了个ani文件。时间轴动画的创建还是蛮简单的，图形化操作基本和flash动画差不多。滚动字幕本来也想用时间轴动画的，发现文字加到时间轴里不能设置关键帧，只好设计为帧循环然后变更x轴坐标，也是独立出组件。</p>
+<h3><span id="day-10-20170920">Day 10 2017.09.20</span></h3><p>对遮罩的理解。做玩家头像的时候遇到圆形和圆角矩形的裁剪，但是laya里面不能设置图片border-radius，哪怕新增DOM节点加进去，这个属性也不生效。后来发现可以绘制一个矢量图形，加到图片的mask属性下。圆角矩形图片我的实现是绘制一个圆，圆的直径略大于图片的宽度，这样遮罩裁剪出来就是圆角矩形了，但是微信获取的头像应该不一定正好是正方形，长方形相交就不是圆角矩形了，这个后面应该还要改，不过直接绘制一个圆角矩形也是可以的，这个后面根据确定的UI再改吧，知道方法后改起来也不是很困难。</p>
+<h3><span id="day-11-20170921">Day 11 2017.09.21</span></h3><p>1.纯色按钮边缘渐变问题的解决。打开九宫格编辑界面，设置其上下左右padding各为1。</p>
 <p>2.3D背景透明问题的解决。之前设置的背景透明的方法仅适用于2D canvas，3D失效，今天仔细研究了下API，改变了下参数，解决了此问题。不过很奇怪是PC端chrome打开时背景不显示</p>
 <p>3.多类型资源预加载问题。之前同时加载多类型资源时会报错，今天也解决了一下这个问题，设置了正确的资源类型。</p>
 <p>4.字体加载问题。已正确加载到ttf字体资源并且实现预加载，解决了特殊字体乱码问题，不过最好还是和UI协商一下减少特殊字体的使用。另外我前几天看到过一个压缩字体的方法，可以定期更新字体库，减小字体体积，但是python写的，没怎么看懂，后面有需要可以研究一下，因为其中很多特殊字体的文字都是要动态改变的，直接做成位图字体灵活性不够，而之前压缩字体的方式也对canvas中的文字失效，所以暂时先引了ttf资源。</p>
 <p>5.玩家进入退出房间逻辑优化，因为这个判断比较复杂，需要判断是否为房主，房间内是否还剩H5用户，新建了一个对象数组，存各玩家id及是否为H5用户信息，然后用findIndex通过id查找元素，（findIndex移动端支持度不高，所以参考MDN文档重写了下这个方法）。</p>
 <p>6.自动匹配倒计时逻辑优化。这个主要用帧循环做了个倒计时，难度倒没什么，但是涉及到数值的转换还有计时器的清空，挺容易出错的，也调试了一段时间。</p>
-<h3 id="Day-12-2017-09-22"><a href="#Day-12-2017-09-22" class="headerlink" title="Day 12 2017.09.22"></a>Day 12 2017.09.22</h3><p>1.图片遮罩问题。图片定位中心设置错误，导致图形化界面和实际界面显示不一致。</p>
+<h3><span id="day-12-20170922">Day 12 2017.09.22</span></h3><p>1.图片遮罩问题。图片定位中心设置错误，导致图形化界面和实际界面显示不一致。</p>
 <p>2.解决软键盘弹出再收起时页面不会自动回到原来位置问题。开始觉得奇怪，觉得因为不会是引擎自身问题，因为如果是的话论坛应该会找到相应讨论，那么从自身代码找原因，把设置背景图的方法注释掉以后一切都正常了，那么应该是背景图box的问题，竖向弹出键盘的时候可以恢复，排查css的媒体查询横竖向设置定位的区别，发现自己一个用了absolute，一个用了fixed，都改成fixed就正常了。</p>
 <p>3.移除场景失败问题。是字体引入的问题，预加载引入字体时，移除场景失败，看了下源码，发现，type为FONT时表示的字体是位图字体，不是ttf，所以可能解析文件失败引发错误。这个解决是把字体当成资源引入，而非直接使用load方法。和GUI及编辑商量了一下，可变性比较大的字体直接用系统默认字体了，减小加载，其它比较固定的使用切图+位图字体的方式。</p>
 <p>4.背景图错乱问题。设置背景图容器的宽高有误。</p>
-<h3 id="Day-13-2017-09-25"><a href="#Day-13-2017-09-25" class="headerlink" title="Day 13 2017.09.25"></a>Day 13 2017.09.25</h3><p>1.位图字体加载。不知道为什么，位图字体预加载始终报错（资源类型确定是正确的，也开始解析了，生成了DOM节点，打印能打印出来并且正常，但是源码中获取节点的时候始终获取不到，所以导致报错，可能是异步加载的问题），看了下论坛大多使用的也是使用的时候再加载资源，所以暂时也是这么做的，预加载了下位图字体的那张图片，字体序列文件在使用的时候加载（考虑到序列文件比较小），并且在相应使用的地方加了loading动画。</p>
+<h3><span id="day-13-20170925">Day 13 2017.09.25</span></h3><p>1.位图字体加载。不知道为什么，位图字体预加载始终报错（资源类型确定是正确的，也开始解析了，生成了DOM节点，打印能打印出来并且正常，但是源码中获取节点的时候始终获取不到，所以导致报错，可能是异步加载的问题），看了下论坛大多使用的也是使用的时候再加载资源，所以暂时也是这么做的，预加载了下位图字体的那张图片，字体序列文件在使用的时候加载（考虑到序列文件比较小），并且在相应使用的地方加了loading动画。</p>
 <p>2.缓动动画。设计那边需要点击按钮时缩小0.88倍，这里用到了缓动动画。开始的解决方法是写了个工具类方法，mousedown的时候调用缓动缩小，同时在缓动函数的回调写了个mouseup，移开时还原。但是这么做出现了一个问题，点击过快时无法还原，我看了下点击过快时mouseup事件没有监听到。后来把这两个方法分开写了。</p>
 <p>3.UI调整。周五的时候和设计以及编辑商量了下，决定将屏幕铺满，多出部分裁剪，但是设计稿中很多元素比较靠边，为了使元素不被裁剪，需要把这些靠边的元素往中间挪，但这样不管横竖屏和设计稿出入都是有点大的，所以写了个方法监听横竖屏切换，移动这些元素的位置，性能上还可以，无明显卡顿。但是发现引擎有个问题比较严重，如果在页面加载过程中进行横竖屏切换，页面缩放有时候会乱掉（这个应该不是我代码的问题，我看了下官网的示例也存在这些问题），我猜是不能正确监听舞台的方向的问题，这个后面可以看一下有没有方法解决。</p>
 <p>4.微信授权登录。之前代码中用了很多JQuery的方法，我没重新再写一份代码，也没引JQuery了，正好以前空闲时间封装过一些常用的工具类方法，直接拿来用了，nie的模块化也正好可以用laya的类模拟。不过有个问题是这个目前好像不是很好测试。</p>
 <p>5.3D物理引擎。今天简单看了一下，可能之后学习的话还是要有具体的场景以及具体的问题进行解决，这样有针对性的看，思考解决方案，可能效率会更高一点。</p>
-<h3 id="Day-14-2017-09-26"><a href="#Day-14-2017-09-26" class="headerlink" title="Day 14 2017.09.26"></a>Day 14 2017.09.26</h3><p>1.fillcolor更改后界面未实时更新问题。这个可能是引擎bug了，我换了种元件，使用skin控制loading圈的颜色的变化，是成功的。</p>
+<h3><span id="day-14-20170926">Day 14 2017.09.26</span></h3><p>1.fillcolor更改后界面未实时更新问题。这个可能是引擎bug了，我换了种元件，使用skin控制loading圈的颜色的变化，是成功的。</p>
 <p>2.微信分享。如果完全自己写，我会发起一个ajax请求接口返回timestamp等数据，然后进行配置注册。但是看了下分享组件的源码，是跨域请求一个固定的接口，并且没有返回数据，更奇怪的是多了一个wx_conf全局变量，打死找不到在什么地方，但是直接在代码中写这个变量发现其实也是可以直接用的。后来猜想可能这个变量是在请求接口之后生成的。</p>
 <p>3.3D物理引擎的熟悉。开始看了好几个引擎，跑是能跑起来，但是不知道怎么接到项目里，还顺便看了下three.js(因为大部分都是和three.js结合的)，看能不能替换。开始的理解是3D场景的scene应该和物理引擎的world有一定联系，这样方便使用场景中的摄像机等等，但是看代码看到两者间唯一的联系就是一些物体的坐标跟随，不知道是不是我漏看了某些地方所以问了一下。整理一下其实可以看成world中建立了一些（需要物理属性）的物体，这些物体的作用是为了给实际场景中的物体补充物理属性，从而进行相应的检测判断，用cannon试了一了简单的laya demo也是成功的，明天可以再熟悉一下。</p>
-<h3 id="Day-15-2017-09-27"><a href="#Day-15-2017-09-27" class="headerlink" title="Day 15 2017.09.27"></a>Day 15 2017.09.27</h3><p>今天主要学了下cannon，一开始想直接看实例代码，然后不懂的去API文档查找，发现有点懵，试着理解了一些但是效率挺低的。后来想起还有wiki可以看，对照一些名词和变量，总算初步搞懂了一些。</p>
-<h4 id="wiki翻译"><a href="#wiki翻译" class="headerlink" title="wiki翻译"></a>wiki翻译</h4><h5 id="主页"><a href="#主页" class="headerlink" title="主页"></a>主页</h5><p>cannon.js是刚体仿真库用于游戏（例如）。程序员可以使用它使他们的游戏对象以真实的方式移动和交互。cannon.js是用JavaScript写的，可以与任何浏览器一起使用使渲染或游戏引擎。<br>开始的时候，看你好cannon.js！教程或查看使用cannon.js一些很酷的项目。</p>
-<h5 id="名词解释-基础概念"><a href="#名词解释-基础概念" class="headerlink" title="名词解释/基础概念"></a>名词解释/基础概念</h5><p>shape：几何形状，如球体或盒子。</p>
+<h3><span id="day-15-20170927">Day 15 2017.09.27</span></h3><p>今天主要学了下cannon，一开始想直接看实例代码，然后不懂的去API文档查找，发现有点懵，试着理解了一些但是效率挺低的。后来想起还有wiki可以看，对照一些名词和变量，总算初步搞懂了一些。</p>
+<h4><span id="wiki翻译">wiki翻译</span></h4><h5><span id="主页">主页</span></h5><p>cannon.js是刚体仿真库用于游戏（例如）。程序员可以使用它使他们的游戏对象以真实的方式移动和交互。cannon.js是用JavaScript写的，可以与任何浏览器一起使用使渲染或游戏引擎。<br>开始的时候，看你好cannon.js！教程或查看使用cannon.js一些很酷的项目。</p>
+<h5><span id="名词解释基础概念">名词解释/基础概念</span></h5><p>shape：几何形状，如球体或盒子。</p>
 <p>Rigid body（刚体）：是假定无比坚硬的一件物体。假定刚体中的任何两个点总是处于彼此恒定的距离。我们可以通过说“身体”来提及刚体。刚体具有形状和多个物理性质如质量和惯性。</p>
 <p>Constraint（约束）：约束是一种物理连接，可以消除身体的自由度。在3D中，身体具有6个自由度（三个平移坐标和三个旋转坐标）。如果我们把门放在门铰链上，我们将门体限制在墙上。在这一点上，门体只能围绕门铰链旋转，所以约束已经消除了5个自由度。</p>
 <p>Contact constraint（接触约束）：设计用于防止刚体渗透并模拟摩擦和恢复的特殊约束。由Cannon.js自动创建。</p>
 <p>World（世界）：一个物理世界是一组互动的物质和约束。Cannon.js支持创建多个世界，但这通常是不必要的或不可取的。</p>
 <p>Solver（求解器）：物理世界有一个解决方案，用于解决约束。</p>
-<h5 id="开始项目"><a href="#开始项目" class="headerlink" title="开始项目"></a>开始项目</h5><p>cannon.js/README.markdown包含一个Hello World项目。脚本创建静态接地平面和动态球体。此代码不包含任何图形。你只能看到随着时间的推移文本在控制台输出。这是一个很好的例子，说明如何唤醒和运行Cannon.js。</p>
-<h6 id="创造一个世界"><a href="#创造一个世界" class="headerlink" title="创造一个世界"></a>创造一个世界</h6><p>每个Cannon.js应用程序开始于创建CANNON.World对象。CANNON.World是管理对象和模拟的物理中心。很容易创建一个Cannon.js世界。首先，我们创建CANNON.World对象。然后我们将负载z方向的重力设置为9.82 m /s²：<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div></pre></td><td class="code"><pre><div class="line">var world = new CANNON.World();</div><div class="line">world.gravity.set(0,0,-9.82);</div></pre></td></tr></table></figure></p>
+<h5><span id="开始项目">开始项目</span></h5><p>cannon.js/README.markdown包含一个Hello World项目。脚本创建静态接地平面和动态球体。此代码不包含任何图形。你只能看到随着时间的推移文本在控制台输出。这是一个很好的例子，说明如何唤醒和运行Cannon.js。</p>
+<h6><span id="创造一个世界">创造一个世界</span></h6><p>每个Cannon.js应用程序开始于创建CANNON.World对象。CANNON.World是管理对象和模拟的物理中心。很容易创建一个Cannon.js世界。首先，我们创建CANNON.World对象。然后我们将负载z方向的重力设置为9.82 m /s²：<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">var world = new CANNON.World();</span><br><span class="line">world.gravity.set(0,0,-9.82);</span><br></pre></td></tr></table></figure></p>
 <p>那么我们必须向世界提供一个broadphase算法，所以它可以找到碰撞的物体。我们使用默认的NaiveBroadphase：</p>
 <p>world.broadphase = new CANNON.NaiveBroadphase();<br>所以现在我们有了我们的物理世界，让我们开始添加一些东西。</p>
-<h6 id="创造一个身体"><a href="#创造一个身体" class="headerlink" title="创造一个身体"></a>创造一个身体</h6><p>身体使用以下步骤进行创建</p>
+<h6><span id="创造一个身体">创造一个身体</span></h6><p>身体使用以下步骤进行创建</p>
 <p>1.定义一个形状<br>2.使用所需的形状和其他物理属性定义刚体<br>3.将身体添加到世界。</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div></pre></td><td class="code"><pre><div class="line">var mass = 5, radius = 1;</div><div class="line">var sphereShape = new CANNON.Sphere(radius); // Step 1</div><div class="line">var sphereBody = new CANNON.Body(&#123;mass: mass, shape: sphereShape); // Step 2</div><div class="line">sphereBody.position.set(0,0,0);</div><div class="line">world.add(sphereBody); // Step 3</div></pre></td></tr></table></figure>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">var mass = 5, radius = 1;</span><br><span class="line">var sphereShape = new CANNON.Sphere(radius); // Step 1</span><br><span class="line">var sphereBody = new CANNON.Body(&#123;mass: mass, shape: sphereShape); // Step 2</span><br><span class="line">sphereBody.position.set(0,0,0);</span><br><span class="line">world.add(sphereBody); // Step 3</span><br></pre></td></tr></table></figure>
 <p>在第1步中，我们创建一个半径为1的球形。这只是一个球体的数学描述，它必须放在一个刚体之中才能移动和碰撞。在第2步中，我们创建了这个RigidBody。如果质量设置为零，则体变为静态，但在这种情况下，我们将质量设置为5 kg，这使球体动态。静态物体不与其他静态物体碰撞，动态物体与所有其他物体相撞。对于第3步，我们将身体添加到世界。通过添加到世界，它将根据它受到的力而移动，并与其他对象相冲突。</p>
-<h6 id="创建一个静态地平面"><a href="#创建一个静态地平面" class="headerlink" title="创建一个静态地平面"></a>创建一个静态地平面</h6><p>第一步是创造平面形状，然后是刚体。我们给刚体零质量，这将保证地面刚体变得静止。默认情况下，平面的方向在z方向。换一种说法; 其正常值为（0,0,1）。如果我们想要在另一个方向上面对，我们必须改变身体的方向（见Body.quaternion）。最后，我们把地面的身体添加到现场。<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div></pre></td><td class="code"><pre><div class="line">var groundShape = new CANNON.Plane();</div><div class="line">var groundBody = new CANNON.Body(&#123; mass: 0, shape: groundShape &#125;);</div><div class="line">world.add(groundBody);</div></pre></td></tr></table></figure></p>
+<h6><span id="创建一个静态地平面">创建一个静态地平面</span></h6><p>第一步是创造平面形状，然后是刚体。我们给刚体零质量，这将保证地面刚体变得静止。默认情况下，平面的方向在z方向。换一种说法; 其正常值为（0,0,1）。如果我们想要在另一个方向上面对，我们必须改变身体的方向（见Body.quaternion）。最后，我们把地面的身体添加到现场。<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">var groundShape = new CANNON.Plane();</span><br><span class="line">var groundBody = new CANNON.Body(&#123; mass: 0, shape: groundShape &#125;);</span><br><span class="line">world.add(groundBody);</span><br></pre></td></tr></table></figure></p>
 <p>这就是初始化。我们现在准备开始模拟了。</p>
-<h6 id="模拟世界"><a href="#模拟世界" class="headerlink" title="模拟世界"></a>模拟世界</h6><p>所以我们已经初始化了静态地平面和动态球体。我们只需要再考虑几个问题。</p>
-<p>Cannon.js使用称为积分器的计算算法。积分器在离散的时间点模拟物理方程。这与传统的游戏循环一起，我们基本上在屏幕上有一本翻转书。所以我们需要为Cannon.js选一个时间步。一般物理引擎的游戏就像一个时间步长至少要达到60Hz或1/60秒。你可以摆脱更大的时间步长，但是你必须更加小心地设置你的世界的定义。<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">var timeStep = 1.0 / 60.0; // seconds</div></pre></td></tr></table></figure></p>
+<h6><span id="模拟世界">模拟世界</span></h6><p>所以我们已经初始化了静态地平面和动态球体。我们只需要再考虑几个问题。</p>
+<p>Cannon.js使用称为积分器的计算算法。积分器在离散的时间点模拟物理方程。这与传统的游戏循环一起，我们基本上在屏幕上有一本翻转书。所以我们需要为Cannon.js选一个时间步。一般物理引擎的游戏就像一个时间步长至少要达到60Hz或1/60秒。你可以摆脱更大的时间步长，但是你必须更加小心地设置你的世界的定义。<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">var timeStep = 1.0 / 60.0; // seconds</span><br></pre></td></tr></table></figure></p>
 <p>除了积分器（integrator）之外，Cannon.js还使用约束求解器（constraint solver）。约束求解器解决了仿真中的所有约束。单一约束可以完美解决。但是，当我们解决一个约束时，我们稍微破坏其他约束。为了得到一个很好的解决方案，我们需要遍历所有约束多次。在这个阶段，求解器计算机体正确移动所需的脉冲。Cannon.js的建议迭代次数约为5.您可以根据您的喜好调整此数字，但请记住，这在速度和精度之间有一个折衷。使用较少的迭代可以提高性能，但精度受损。同样，使用更多的迭代会降低性能，但是提高了模拟的质量。对于这个简单的例子，我们不需要太多的迭代。这是我们选择的迭代计数。world.solver.iterations = 2; 请注意，时间步长和迭代次数完全不相关。迭代不是一个子步骤。一个求解器迭代是在一个时间步长内的所有约束的单次传递。您可以在单个时间步长内对约束进行多次通过。</p>
 <p>我们现在准备开始模拟循环了。在您的游戏中，模拟循环可以与您的游戏循环合并。在每次通过你的游戏循环中，你调用world.step(timeStep)。只需一个调用就足够了，这取决于你的帧速率和你的物理时间步长。</p>
 <p>Hello World程序的设计很简单，因此它没有图形输出。代码打印出动态体的位置。</p>
-<p>这是模拟循环，模拟60秒的时间，总共1秒的模拟时间。<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div></pre></td><td class="code"><pre><div class="line">for (var i = 0; i &lt; 60; ++i)&#123;</div><div class="line">  world.step(timeStep);</div><div class="line">  console.log(sphereBody.position.x, sphereBody.position.y, sphereBody.position.z);</div><div class="line">&#125;</div></pre></td></tr></table></figure></p>
-<p>您的输出应如下所示：<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div></pre></td><td class="code"><pre><div class="line">0 0 4</div><div class="line">0 0 3.99</div><div class="line">0 0 3.98</div><div class="line">...</div><div class="line">0 0 1.25</div><div class="line">0 0 1.13</div><div class="line">0 0 1.01</div></pre></td></tr></table></figure></p>
+<p>这是模拟循环，模拟60秒的时间，总共1秒的模拟时间。<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">for (var i = 0; i &lt; 60; ++i)&#123;</span><br><span class="line">  world.step(timeStep);</span><br><span class="line">  console.log(sphereBody.position.x, sphereBody.position.y, sphereBody.position.z);</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure></p>
+<p>您的输出应如下所示：<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line">0 0 4</span><br><span class="line">0 0 3.99</span><br><span class="line">0 0 3.98</span><br><span class="line">...</span><br><span class="line">0 0 1.25</span><br><span class="line">0 0 1.13</span><br><span class="line">0 0 1.01</span><br></pre></td></tr></table></figure></p>
 <p>CANNON.Demo框架</p>
 <p>一旦你征服了HelloWorld的例子，你应该开始看Cannon.js的演示框架。CANNON.Demo是一个演示环境。这里有一些功能：</p>
 <p>相机与平移和缩放<br>可扩展的场景数量<br>用于选择场景的GUI（数字键），参数调整和调试绘图选项<br>暂停[p]和单步仿真[s]</p>
 <p>演示框架有许多Cannon.js用法和框架本身的例子。当您学习Cannon.js时，我鼓励您探索CANNON.Demo。注意：测试台使用Three.js编写。CANNON.Demo不是Cannon.js库的一部分（build / cannon.js）。Cannon.js库对于渲染是不可知的。如Hello world示例所示，您不需要渲染器来使用Cannon.js。</p>
-<h5 id="参数调整"><a href="#参数调整" class="headerlink" title="参数调整"></a>参数调整</h5><p>要获得刚体的约束，您需要做一些参数调整。以下是构建完美模拟时可能需要注意的事项列表。</p>
-<h6 id="时间尺寸-Timestep-size"><a href="#时间尺寸-Timestep-size" class="headerlink" title="时间尺寸(Timestep size)"></a>时间尺寸(Timestep size)</h6><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">world.step(1/60); // Steps forward in time from t=0 to t=0.01666...</div></pre></td></tr></table></figure>
-<p>时间步长对于模拟质量非常重要。使用较小的时间步长将会增加Cannon.js中发生的大部分事情的准确性，并增加计算成本。一些实时模拟器建议1/60 = 0.01666 …秒的时间步长足以满足大多数用例。在许多情况下可能是正确的，但不是全部。对于大多数HTML5渲染引擎，我们以60Hz渲染。因此，大约60Hz的时间步长是好的。如果您想要更小的时间步长以获得更高的精度，则可以方便地进行两个半步而不是单步：<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div></pre></td><td class="code"><pre><div class="line">world.step(1/120); // Steps forward in time from t=0 to t=0.008333...</div><div class="line">world.step(1/120); // Steps forward in time from t=0.008333 to t=0.01666...</div></pre></td></tr></table></figure></p>
-<h6 id="求解器迭代-Solver-iterations"><a href="#求解器迭代-Solver-iterations" class="headerlink" title="求解器迭代(Solver iterations)"></a>求解器迭代(Solver iterations)</h6><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">world.solver.iterations = 10;</div></pre></td></tr></table></figure>
+<h5><span id="参数调整">参数调整</span></h5><p>要获得刚体的约束，您需要做一些参数调整。以下是构建完美模拟时可能需要注意的事项列表。</p>
+<h6><span id="时间尺寸timestep-size">时间尺寸(Timestep size)</span></h6><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">world.step(1/60); // Steps forward in time from t=0 to t=0.01666...</span><br></pre></td></tr></table></figure>
+<p>时间步长对于模拟质量非常重要。使用较小的时间步长将会增加Cannon.js中发生的大部分事情的准确性，并增加计算成本。一些实时模拟器建议1/60 = 0.01666 …秒的时间步长足以满足大多数用例。在许多情况下可能是正确的，但不是全部。对于大多数HTML5渲染引擎，我们以60Hz渲染。因此，大约60Hz的时间步长是好的。如果您想要更小的时间步长以获得更高的精度，则可以方便地进行两个半步而不是单步：<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">world.step(1/120); // Steps forward in time from t=0 to t=0.008333...</span><br><span class="line">world.step(1/120); // Steps forward in time from t=0.008333 to t=0.01666...</span><br></pre></td></tr></table></figure></p>
+<h6><span id="求解器迭代solver-iterations">求解器迭代(Solver iterations)</span></h6><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">world.solver.iterations = 10;</span><br></pre></td></tr></table></figure>
 <p>在联系的情况下，Solver过程方程式找出什么力量添加到身体接触。求解器是迭代的，这意味着它逐渐解决方程式。它将更接近于每次迭代的解决方案。使用太少的求解器迭代将导致求解器产生不准确的接触力，但更多的迭代将提高精度。</p>
-<h6 id="求解器参数-Solver-parameters"><a href="#求解器参数-Solver-parameters" class="headerlink" title="求解器参数(Solver parameters)"></a>求解器参数(Solver parameters)</h6><p>CANNON.Equation对象上设置求解器参数。您提供约束刚度和正则化，如下所示：<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div></pre></td><td class="code"><pre><div class="line">equation.stiffness = 1e8;</div><div class="line">equation.regularizationTime = 10;</div></pre></td></tr></table></figure></p>
-<p>最常用的方程式可能是ContactEquation。当您的场景中显示联系人时，Cannon.js会自动生成这些。因此，您可以通过CANNON.ContactMaterial属性控制其刚度和正则化：<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div></pre></td><td class="code"><pre><div class="line">world.defaultContactMaterial.contactEquationStiffness = 1e8;</div><div class="line">world.defaultContactMaterial.contactEquationRegularizationTime = 3;</div></pre></td></tr></table></figure></p>
+<h6><span id="求解器参数solver-parameters">求解器参数(Solver parameters)</span></h6><p>CANNON.Equation对象上设置求解器参数。您提供约束刚度和正则化，如下所示：<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">equation.stiffness = 1e8;</span><br><span class="line">equation.regularizationTime = 10;</span><br></pre></td></tr></table></figure></p>
+<p>最常用的方程式可能是ContactEquation。当您的场景中显示联系人时，Cannon.js会自动生成这些。因此，您可以通过CANNON.ContactMaterial属性控制其刚度和正则化：<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">world.defaultContactMaterial.contactEquationStiffness = 1e8;</span><br><span class="line">world.defaultContactMaterial.contactEquationRegularizationTime = 3;</span><br></pre></td></tr></table></figure></p>
 <p>刚度大致对应于弹簧的刚度，其给出力F=-k*x，其中x是弹簧的位移。正则化时间对应于您需要采取的稳定约束的时间步长（较大的值=&gt;较软的接触）。</p>
-<h6 id="重力-Gravity"><a href="#重力-Gravity" class="headerlink" title="重力(Gravity)"></a>重力(Gravity)</h6><p>这可能不是很明显，但重力确实会影响约束。如果你有一个球搁在飞机上，接触约束将从那架飞机上推开。重力将向另一个方向推动。较小的重力将使接触求解器更容易到达解决方案。</p>
-<p>得出结论，较小的重力可以使接触更好。<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">world.gravity.set(0,0,-10);</div></pre></td></tr></table></figure></p>
-<h6 id="空气阻力-Air-Resistance"><a href="#空气阻力-Air-Resistance" class="headerlink" title="空气阻力(Air Resistance)"></a>空气阻力(Air Resistance)</h6><p>如果您希望对象在不受阻碍的情况下放慢速度，可以使用linearDamping。<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div></pre></td><td class="code"><pre><div class="line">var sphereBody = new CANNON.Body(&#123;mass: 5&#125;);</div><div class="line">sphereBody.linearDamping = 0.3;</div></pre></td></tr></table></figure></p>
+<h6><span id="重力gravity">重力(Gravity)</span></h6><p>这可能不是很明显，但重力确实会影响约束。如果你有一个球搁在飞机上，接触约束将从那架飞机上推开。重力将向另一个方向推动。较小的重力将使接触求解器更容易到达解决方案。</p>
+<p>得出结论，较小的重力可以使接触更好。<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">world.gravity.set(0,0,-10);</span><br></pre></td></tr></table></figure></p>
+<h6><span id="空气阻力air-resistance">空气阻力(Air Resistance)</span></h6><p>如果您希望对象在不受阻碍的情况下放慢速度，可以使用linearDamping。<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">var sphereBody = new CANNON.Body(&#123;mass: 5&#125;);</span><br><span class="line">sphereBody.linearDamping = 0.3;</span><br></pre></td></tr></table></figure></p>
 <p>首先，物理引擎主要模拟的是力的作用，重力、摩擦力、外部的力等等，这些会使物体的平移坐标和旋转坐标发生改变，所以当物体碰撞时会产生一些碰撞效果。Cannon做的就是对这些力的效果进行迭代求解，得出最后的效果，可以设置迭代次数以及其它求解参数，权衡精度和效率。</p>
 <p>实际项目中，可以给发射的子弹一个初始速度和质量，这使子弹具有了动量，所以子弹碰撞到其它刚体上就会产生力的作用，物理世界中的position和quaternion会发生变化，这时候可以通过帧循环同步到实际3D场景的物体坐标上。</p>
 <p>Wiki其实讲得比较简单，还是需要对照代码看，不过弄懂了一些名词感觉好理解多了。我看英文比较慢，所以顺便对照英文，google+人工把wiki翻译成了中文保存了一下，之后看代码的过程中遇到不懂的可以对照着看，另外弄懂了一些概念看API也好理解多了。</p>
@@ -329,19 +329,19 @@
 <p>2.为子弹和被射击者添加物理模型</p>
 <p>3.设置物理模型的初始参数，子弹的质量、初始速度；人物的质量等</p>
 <p>4.帧循环更新物理世界和3D场景中人物和子弹位置</p>
-<h3 id="Day-16-2017-09-28"><a href="#Day-16-2017-09-28" class="headerlink" title="Day 16 2017.09.28"></a>Day 16 2017.09.28</h3><p>1.虚拟键盘实现：其实大部分逻辑之前都实现了，现在无非要做两件事：</p>
+<h3><span id="day-16-20170928">Day 16 2017.09.28</span></h3><p>1.虚拟键盘实现：其实大部分逻辑之前都实现了，现在无非要做两件事：</p>
 <p>第一，把键盘的按键判断改成虚拟键盘的点击判断</p>
 <p>第二，输入完成后自动隐藏虚拟键盘，改变模态框高度</p>
 <p>第三，好像又发现了laya的一个bug，输入框赋值零的时候数字不显示，这个问题之前就存在，我还以为是我逻辑的问题，而且重现几率比较低没注意，现在是赋值的时候全部转换成字符串赋给输入框的text了</p>
 <p>2.一开始设置完速度、质量，物体的物理参数就是不改变，后来发现没加world.step()更新物理世界，太粗心了= =！</p>
 <p>3.射击基本上能实现，物理物体的受力也能检测到，但是受力分析上还存在问题，导致物体速度、位置等参数与实际存在出入。目前分析出了实际的几个受力方向，但是还不知道要怎么调整。物体在不受子弹的力的情况下只可能受三个力、平面的合力、空气阻力、自身重力，由于不确定平面是否和物理物体是垂直的，所以这个情况就比较复杂了，写了个帧循环打印物体的速度，发现3个方向都在变。后来就控制变量法，将空气阻力首先置为零（因为它的方向和物体运动方向相反，已知），再把平面的代码注释掉，这时候物体只受重力，其实重力的方向是自己设定的，由于地板的坐标是（x,0,z）,而在laya的坐标系中y轴是朝上的，所以把重力方向设置在y轴，这个想想应该也是确定的，也方便计算，如果cannon的坐标系和laya不一致的话应该翻转的是平面坐标。然后把重力系数设置成0，平面代码取消注释，此时物体不受重力，只受平面的力，这时候只要调整一个角度使物体的加速度为0就好了。但是还是存在一些问题，怎么设置都不对。目前的状态是物体运动一段时间后才静止，只在一个方向上存在加速度并且过一段时间后加速度为0，我猜是物体降落碰撞到了平面，那就是平面位置的问题了，明天看看其它的示例代码再调一下。</p>
-<h3 id="Day-17-2017-09-29"><a href="#Day-17-2017-09-29" class="headerlink" title="Day 17 2017.09.29"></a>Day 17 2017.09.29</h3><ol>
+<h3><span id="day-17-20170929">Day 17 2017.09.29</span></h3><ol>
 <li><p>今天调参数的时候从three.js入手的，因为官网demo是结合three.js写的，比对了一下它和laya坐标系的区别，发现其实区别不大，所以还是蛮顺利的。其实碰撞有两种做法，一种是刚体间的碰撞，直接把人物撞倒，涉及到人物坐标系和旋转坐标系的变换，也有可能子弹撞不倒人物就直接反弹了。另一种是人物不被撞倒，子弹的动量转换成人物的动量（不考虑摩擦力的情况），我想了下其实都能做，具体看实际的需求了。目前是子弹射出人物直接被撞倒然后后退。另外还有一个东西我没做，目前子弹用的是球模型（radius=0.3），人物用的盒模型（1，1，1），随便设的参数，但是更精确一点应该使用AABB包围盒来模拟。</p>
 </li>
 <li><p>其实Oimo可能会比cannon更适合这个项目一点，不管是从性能上还是功能上（参数设置更灵活一点），但是官方文档不是特别齐全，比如我开始如果不是先看cannon是绝对看不懂Oimo的，不过有什么坑目前也不好说，明天跑一下项目试试。</p>
 </li>
 </ol>
-<h3 id="Day-18-2017-09-30"><a href="#Day-18-2017-09-30" class="headerlink" title="Day 18 2017.09.30"></a>Day 18 2017.09.30</h3>
+<h3><span id="day-18-20170930">Day 18 2017.09.30</span></h3>
       
 
       
@@ -443,6 +443,15 @@
   
 <nav id="article-nav">
   
+    <a href="/2018/01/23/我的H5游戏开发之路/" id="article-nav-newer" class="article-nav-link-wrap">
+      <i class="icon-circle-left"></i>
+      <div class="article-nav-title">
+        
+          我的H5游戏开发之路
+        
+      </div>
+    </a>
+  
   
     <a href="/2017/09/04/专开一篇文，记录助教过程中碰见的有趣的问题/" id="article-nav-older" class="article-nav-link-wrap">
       <div class="article-nav-title">专开一篇文，记录助教过程中碰见的有趣的问题</div>
@@ -472,7 +481,7 @@
                 </span>
                 <span class="tooltip-content">
                     <div class="toc-article">
-                    <ol class="toc"><li class="toc-item toc-level-3"><a class="toc-link" href="#Day-1-2017-09-06"><span class="toc-number">1.</span> <span class="toc-text">Day 1 2017.09.06</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#Day-2"><span class="toc-number">2.</span> <span class="toc-text">Day 2</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#Day-3-2017-09-08"><span class="toc-number">3.</span> <span class="toc-text">Day 3 2017.09.08</span></a><ol class="toc-child"><li class="toc-item toc-level-4"><a class="toc-link" href="#预加载流程："><span class="toc-number">3.1.</span> <span class="toc-text">预加载流程：</span></a></li></ol></li><li class="toc-item toc-level-3"><a class="toc-link" href="#Day-4-2017-09-11"><span class="toc-number">4.</span> <span class="toc-text">Day 4 2017.09.11</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#Day-5-2017-09-12"><span class="toc-number">5.</span> <span class="toc-text">Day 5 2017.09.12</span></a><ol class="toc-child"><li class="toc-item toc-level-4"><a class="toc-link" href="#3D数学学习资料"><span class="toc-number">5.1.</span> <span class="toc-text">3D数学学习资料</span></a></li></ol></li><li class="toc-item toc-level-3"><a class="toc-link" href="#Day-6-2017-09-13"><span class="toc-number">6.</span> <span class="toc-text">Day 6 2017.09.13</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#Day-7-2017-09-14"><span class="toc-number">7.</span> <span class="toc-text">Day 7 2017.09.14</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#Day-8-2017-09-15"><span class="toc-number">8.</span> <span class="toc-text">Day 8 2017.09.15</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#Day-9-2017-09-19"><span class="toc-number">9.</span> <span class="toc-text">Day 9 2017.09.19</span></a><ol class="toc-child"><li class="toc-item toc-level-5"><a class="toc-link" href="#输入房间号问题的解决。"><span class="toc-number">9.0.1.</span> <span class="toc-text">输入房间号问题的解决。</span></a></li><li class="toc-item toc-level-5"><a class="toc-link" href="#loading及滚动字幕动画编写。"><span class="toc-number">9.0.2.</span> <span class="toc-text">loading及滚动字幕动画编写。</span></a></li></ol></li></ol></li><li class="toc-item toc-level-3"><a class="toc-link" href="#Day-10-2017-09-20"><span class="toc-number">10.</span> <span class="toc-text">Day 10 2017.09.20</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#Day-11-2017-09-21"><span class="toc-number">11.</span> <span class="toc-text">Day 11 2017.09.21</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#Day-12-2017-09-22"><span class="toc-number">12.</span> <span class="toc-text">Day 12 2017.09.22</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#Day-13-2017-09-25"><span class="toc-number">13.</span> <span class="toc-text">Day 13 2017.09.25</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#Day-14-2017-09-26"><span class="toc-number">14.</span> <span class="toc-text">Day 14 2017.09.26</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#Day-15-2017-09-27"><span class="toc-number">15.</span> <span class="toc-text">Day 15 2017.09.27</span></a><ol class="toc-child"><li class="toc-item toc-level-4"><a class="toc-link" href="#wiki翻译"><span class="toc-number">15.1.</span> <span class="toc-text">wiki翻译</span></a><ol class="toc-child"><li class="toc-item toc-level-5"><a class="toc-link" href="#主页"><span class="toc-number">15.1.1.</span> <span class="toc-text">主页</span></a></li><li class="toc-item toc-level-5"><a class="toc-link" href="#名词解释-基础概念"><span class="toc-number">15.1.2.</span> <span class="toc-text">名词解释/基础概念</span></a></li><li class="toc-item toc-level-5"><a class="toc-link" href="#开始项目"><span class="toc-number">15.1.3.</span> <span class="toc-text">开始项目</span></a><ol class="toc-child"><li class="toc-item toc-level-6"><a class="toc-link" href="#创造一个世界"><span class="toc-number">15.1.3.1.</span> <span class="toc-text">创造一个世界</span></a></li><li class="toc-item toc-level-6"><a class="toc-link" href="#创造一个身体"><span class="toc-number">15.1.3.2.</span> <span class="toc-text">创造一个身体</span></a></li><li class="toc-item toc-level-6"><a class="toc-link" href="#创建一个静态地平面"><span class="toc-number">15.1.3.3.</span> <span class="toc-text">创建一个静态地平面</span></a></li><li class="toc-item toc-level-6"><a class="toc-link" href="#模拟世界"><span class="toc-number">15.1.3.4.</span> <span class="toc-text">模拟世界</span></a></li></ol></li><li class="toc-item toc-level-5"><a class="toc-link" href="#参数调整"><span class="toc-number">15.1.4.</span> <span class="toc-text">参数调整</span></a><ol class="toc-child"><li class="toc-item toc-level-6"><a class="toc-link" href="#时间尺寸-Timestep-size"><span class="toc-number">15.1.4.1.</span> <span class="toc-text">时间尺寸(Timestep size)</span></a></li><li class="toc-item toc-level-6"><a class="toc-link" href="#求解器迭代-Solver-iterations"><span class="toc-number">15.1.4.2.</span> <span class="toc-text">求解器迭代(Solver iterations)</span></a></li><li class="toc-item toc-level-6"><a class="toc-link" href="#求解器参数-Solver-parameters"><span class="toc-number">15.1.4.3.</span> <span class="toc-text">求解器参数(Solver parameters)</span></a></li><li class="toc-item toc-level-6"><a class="toc-link" href="#重力-Gravity"><span class="toc-number">15.1.4.4.</span> <span class="toc-text">重力(Gravity)</span></a></li><li class="toc-item toc-level-6"><a class="toc-link" href="#空气阻力-Air-Resistance"><span class="toc-number">15.1.4.5.</span> <span class="toc-text">空气阻力(Air Resistance)</span></a></li></ol></li></ol></li></ol></li><li class="toc-item toc-level-3"><a class="toc-link" href="#Day-16-2017-09-28"><span class="toc-number">16.</span> <span class="toc-text">Day 16 2017.09.28</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#Day-17-2017-09-29"><span class="toc-number">17.</span> <span class="toc-text">Day 17 2017.09.29</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#Day-18-2017-09-30"><span class="toc-number">18.</span> <span class="toc-text">Day 18 2017.09.30</span></a></li></ol>
+                    <ol class="toc"><li class="toc-item toc-level-3"><a class="toc-link" href="#undefined"><span class="toc-number">1.</span> <span class="toc-text">Day 1 2017.09.06</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#undefined"><span class="toc-number">2.</span> <span class="toc-text">Day 2</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#undefined"><span class="toc-number">3.</span> <span class="toc-text">Day 3 2017.09.08</span></a><ol class="toc-child"><li class="toc-item toc-level-4"><a class="toc-link" href="#undefined"><span class="toc-number">3.1.</span> <span class="toc-text">预加载流程：</span></a></li></ol></li><li class="toc-item toc-level-3"><a class="toc-link" href="#undefined"><span class="toc-number">4.</span> <span class="toc-text">Day 4 2017.09.11</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#undefined"><span class="toc-number">5.</span> <span class="toc-text">Day 5 2017.09.12</span></a><ol class="toc-child"><li class="toc-item toc-level-4"><a class="toc-link" href="#undefined"><span class="toc-number">5.1.</span> <span class="toc-text">3D数学学习资料</span></a></li></ol></li><li class="toc-item toc-level-3"><a class="toc-link" href="#undefined"><span class="toc-number">6.</span> <span class="toc-text">Day 6 2017.09.13</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#undefined"><span class="toc-number">7.</span> <span class="toc-text">Day 7 2017.09.14</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#undefined"><span class="toc-number">8.</span> <span class="toc-text">Day 8 2017.09.15</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#undefined"><span class="toc-number">9.</span> <span class="toc-text">Day 9 2017.09.19</span></a><ol class="toc-child"><li class="toc-item toc-level-5"><a class="toc-link" href="#undefined"><span class="toc-number">9.0.1.</span> <span class="toc-text">输入房间号问题的解决。</span></a></li><li class="toc-item toc-level-5"><a class="toc-link" href="#undefined"><span class="toc-number">9.0.2.</span> <span class="toc-text">loading及滚动字幕动画编写。</span></a></li></ol></li></ol></li><li class="toc-item toc-level-3"><a class="toc-link" href="#undefined"><span class="toc-number">10.</span> <span class="toc-text">Day 10 2017.09.20</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#undefined"><span class="toc-number">11.</span> <span class="toc-text">Day 11 2017.09.21</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#undefined"><span class="toc-number">12.</span> <span class="toc-text">Day 12 2017.09.22</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#undefined"><span class="toc-number">13.</span> <span class="toc-text">Day 13 2017.09.25</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#undefined"><span class="toc-number">14.</span> <span class="toc-text">Day 14 2017.09.26</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#undefined"><span class="toc-number">15.</span> <span class="toc-text">Day 15 2017.09.27</span></a><ol class="toc-child"><li class="toc-item toc-level-4"><a class="toc-link" href="#undefined"><span class="toc-number">15.1.</span> <span class="toc-text">wiki翻译</span></a><ol class="toc-child"><li class="toc-item toc-level-5"><a class="toc-link" href="#undefined"><span class="toc-number">15.1.1.</span> <span class="toc-text">主页</span></a></li><li class="toc-item toc-level-5"><a class="toc-link" href="#undefined"><span class="toc-number">15.1.2.</span> <span class="toc-text">名词解释/基础概念</span></a></li><li class="toc-item toc-level-5"><a class="toc-link" href="#undefined"><span class="toc-number">15.1.3.</span> <span class="toc-text">开始项目</span></a><ol class="toc-child"><li class="toc-item toc-level-6"><a class="toc-link" href="#undefined"><span class="toc-number">15.1.3.1.</span> <span class="toc-text">创造一个世界</span></a></li><li class="toc-item toc-level-6"><a class="toc-link" href="#undefined"><span class="toc-number">15.1.3.2.</span> <span class="toc-text">创造一个身体</span></a></li><li class="toc-item toc-level-6"><a class="toc-link" href="#undefined"><span class="toc-number">15.1.3.3.</span> <span class="toc-text">创建一个静态地平面</span></a></li><li class="toc-item toc-level-6"><a class="toc-link" href="#undefined"><span class="toc-number">15.1.3.4.</span> <span class="toc-text">模拟世界</span></a></li></ol></li><li class="toc-item toc-level-5"><a class="toc-link" href="#undefined"><span class="toc-number">15.1.4.</span> <span class="toc-text">参数调整</span></a><ol class="toc-child"><li class="toc-item toc-level-6"><a class="toc-link" href="#undefined"><span class="toc-number">15.1.4.1.</span> <span class="toc-text">时间尺寸(Timestep size)</span></a></li><li class="toc-item toc-level-6"><a class="toc-link" href="#undefined"><span class="toc-number">15.1.4.2.</span> <span class="toc-text">求解器迭代(Solver iterations)</span></a></li><li class="toc-item toc-level-6"><a class="toc-link" href="#undefined"><span class="toc-number">15.1.4.3.</span> <span class="toc-text">求解器参数(Solver parameters)</span></a></li><li class="toc-item toc-level-6"><a class="toc-link" href="#undefined"><span class="toc-number">15.1.4.4.</span> <span class="toc-text">重力(Gravity)</span></a></li><li class="toc-item toc-level-6"><a class="toc-link" href="#undefined"><span class="toc-number">15.1.4.5.</span> <span class="toc-text">空气阻力(Air Resistance)</span></a></li></ol></li></ol></li></ol></li><li class="toc-item toc-level-3"><a class="toc-link" href="#undefined"><span class="toc-number">16.</span> <span class="toc-text">Day 16 2017.09.28</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#undefined"><span class="toc-number">17.</span> <span class="toc-text">Day 17 2017.09.29</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#undefined"><span class="toc-number">18.</span> <span class="toc-text">Day 18 2017.09.30</span></a></li></ol>
                     </div>
                 </span>
             </div>
@@ -499,7 +508,7 @@
   <div class="outer">
     <div id="footer-info">
     	<div class="footer-left">
-    		&copy; 2017 林落雨落林
+    		&copy; 2018 林落雨落林
     	</div>
       	<div class="footer-right">
       		<a href="http://hexo.io/" target="_blank">Hexo</a>  Theme <a href="https://github.com/litten/hexo-theme-yilia" target="_blank">Yilia</a> by Litten
@@ -517,7 +526,7 @@
 		isTag: false,
 		isCategory: false,
 		open_in_new: false,
-		toc_hide_index: false,
+		toc_hide_index: ,
 		root: "/",
 		innerArchive: true,
 		showTags: false
@@ -606,10 +615,6 @@ return o(i(t),arguments.length<2?void 0:u(arguments[1]))}})},function(t,n,r){var
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color5">java</a>
-              </li>
-             
-              <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color1">linux</a>
               </li>
              
@@ -619,6 +624,18 @@ return o(i(t),arguments.length<2?void 0:u(arguments[1]))}})},function(t,n,r){var
              
               <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color1">mysql</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color5">java</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color5">设计模式</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color3">游戏</a>
               </li>
              
               <li class="article-tag-list-item">

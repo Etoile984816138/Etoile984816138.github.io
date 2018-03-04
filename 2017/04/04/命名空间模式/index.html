@@ -186,9 +186,9 @@
     
     <div class="article-entry" itemprop="articleBody">
       
-        <p>随着程序复杂度的提高，代码会分置在不同的文件中以特定顺序来加载，这样一来，就不能保证你的代码一定是第一个申明命名空间或者改变量下属性的，所以最好检查下是否存在。【单例模式】<br><figure class="highlight javascript"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line"><span class="keyword">var</span> MYAPP = MYAPP || &#123;&#125;;</div></pre></td></tr></table></figure></p>
-<p>但是每次都做同样的检查会有重复的代码，所以需要一个重用的namespace()函数来专门处理这些检查工作，然后创建命名空间。<br><a id="more"></a><br><figure class="highlight javascript"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div></pre></td><td class="code"><pre><div class="line">   <span class="keyword">var</span> MYAPP = MYAPP || &#123;&#125;;</div><div class="line">MYAPP.namespace = <span class="function"><span class="keyword">function</span> (<span class="params">ns_string</span>)</span>&#123;</div><div class="line">	<span class="keyword">var</span> parts = ns_string.split(<span class="string">'.'</span>),</div><div class="line">		parent = MYAPP,</div><div class="line">		i;</div><div class="line"></div><div class="line">	<span class="keyword">if</span>(parts[<span class="number">0</span>] === <span class="string">"MYAPP"</span>)&#123;</div><div class="line">		parts = parts.slice(<span class="number">1</span>);</div><div class="line">	&#125;</div><div class="line"></div><div class="line">	<span class="keyword">for</span>(i = <span class="number">0</span>;i&lt;parts.length;i++)&#123;</div><div class="line">		<span class="keyword">if</span>(<span class="keyword">typeof</span> parent[parts[i]] === <span class="string">"undefined"</span>)&#123;</div><div class="line">			parent[parts[i]] = &#123;&#125;;</div><div class="line">		&#125;</div><div class="line">		parent = parent[parts[i]]</div><div class="line">	&#125;</div><div class="line">	<span class="keyword">return</span> parent;</div><div class="line">&#125;</div></pre></td></tr></table></figure></p>
-<p>调用<br><figure class="highlight javascript"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">MYAPP.namespace(modules1.modules2);</div></pre></td></tr></table></figure></p>
+        <p>随着程序复杂度的提高，代码会分置在不同的文件中以特定顺序来加载，这样一来，就不能保证你的代码一定是第一个申明命名空间或者改变量下属性的，所以最好检查下是否存在。【单例模式】<br><figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">var</span> MYAPP = MYAPP || &#123;&#125;;</span><br></pre></td></tr></table></figure></p>
+<p>但是每次都做同样的检查会有重复的代码，所以需要一个重用的namespace()函数来专门处理这些检查工作，然后创建命名空间。<br><a id="more"></a><br><figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br></pre></td><td class="code"><pre><span class="line">   <span class="keyword">var</span> MYAPP = MYAPP || &#123;&#125;;</span><br><span class="line">MYAPP.namespace = <span class="function"><span class="keyword">function</span> (<span class="params">ns_string</span>)</span>&#123;</span><br><span class="line">	<span class="keyword">var</span> parts = ns_string.split(<span class="string">'.'</span>),</span><br><span class="line">		parent = MYAPP,</span><br><span class="line">		i;</span><br><span class="line"></span><br><span class="line">	<span class="keyword">if</span>(parts[<span class="number">0</span>] === <span class="string">"MYAPP"</span>)&#123;</span><br><span class="line">		parts = parts.slice(<span class="number">1</span>);</span><br><span class="line">	&#125;</span><br><span class="line"></span><br><span class="line">	<span class="keyword">for</span>(i = <span class="number">0</span>;i&lt;parts.length;i++)&#123;</span><br><span class="line">		<span class="keyword">if</span>(<span class="keyword">typeof</span> parent[parts[i]] === <span class="string">"undefined"</span>)&#123;</span><br><span class="line">			parent[parts[i]] = &#123;&#125;;</span><br><span class="line">		&#125;</span><br><span class="line">		parent = parent[parts[i]]</span><br><span class="line">	&#125;</span><br><span class="line">	<span class="keyword">return</span> parent;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure></p>
+<p>调用<br><figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">MYAPP.namespace(modules1.modules2);</span><br></pre></td></tr></table></figure></p>
 
       
 
@@ -329,7 +329,7 @@
                 </span>
                 <span class="tooltip-content">
                     <div class="toc-article">
-                    目录，不存在的…
+                    
                     </div>
                 </span>
             </div>
@@ -356,7 +356,7 @@
   <div class="outer">
     <div id="footer-info">
     	<div class="footer-left">
-    		&copy; 2017 林落雨落林
+    		&copy; 2018 林落雨落林
     	</div>
       	<div class="footer-right">
       		<a href="http://hexo.io/" target="_blank">Hexo</a>  Theme <a href="https://github.com/litten/hexo-theme-yilia" target="_blank">Yilia</a> by Litten
@@ -374,7 +374,7 @@
 		isTag: false,
 		isCategory: false,
 		open_in_new: false,
-		toc_hide_index: false,
+		toc_hide_index: ,
 		root: "/",
 		innerArchive: true,
 		showTags: false
@@ -431,11 +431,11 @@ return o(i(t),arguments.length<2?void 0:u(arguments[1]))}})},function(t,n,r){var
           <ul class="article-tag-list" q-show="showTags">
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color2">C</a>
+                <a href="javascript:void(0)" class="js-tag color3">前端</a>
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color3">前端</a>
+                <a href="javascript:void(0)" class="js-tag color5">游戏开发</a>
               </li>
              
               <li class="article-tag-list-item">
@@ -443,7 +443,7 @@ return o(i(t),arguments.length<2?void 0:u(arguments[1]))}})},function(t,n,r){var
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color1">HTML5</a>
+                <a href="javascript:void(0)" class="js-tag color2">C</a>
               </li>
              
               <li class="article-tag-list-item">
@@ -455,15 +455,7 @@ return o(i(t),arguments.length<2?void 0:u(arguments[1]))}})},function(t,n,r){var
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color3">3D</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color5">Laya</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color5">java</a>
+                <a href="javascript:void(0)" class="js-tag color1">HTML5</a>
               </li>
              
               <li class="article-tag-list-item">
@@ -475,7 +467,19 @@ return o(i(t),arguments.length<2?void 0:u(arguments[1]))}})},function(t,n,r){var
               </li>
              
               <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color5">java</a>
+              </li>
+             
+              <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color1">mysql</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color5">设计模式</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color3">游戏</a>
               </li>
              
               <li class="article-tag-list-item">
@@ -499,15 +503,15 @@ return o(i(t),arguments.length<2?void 0:u(arguments[1]))}})},function(t,n,r){var
               </li>
              
               <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color3">布局</a>
+              </li>
+             
+              <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color3">校招</a>
               </li>
              
               <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color3">面试</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color3">布局</a>
               </li>
              
               <li class="article-tag-list-item">
