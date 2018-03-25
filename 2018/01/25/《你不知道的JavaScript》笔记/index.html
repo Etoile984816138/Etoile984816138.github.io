@@ -9,12 +9,13 @@
   <title>《你不知道的JavaScript》笔记 | 林落雨落林</title>
   <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
   <meta name="description" content="LHS和RHS查询当变量出现在赋值操作的左侧时进行 LHS 查询，出现在右侧时进行 RHS 查询。RHS 查询与简单地查找某个变量的值别无二致，而 LHS 查询则是试图找到变量的容器本身，从而可以对其赋值。如果查找的目的是对变量进行赋值，那么就会使用 LHS 查询;如果目的是获取变量的值，就会使用 RHS 查询。">
+<meta name="keywords" content="javascript">
 <meta property="og:type" content="article">
 <meta property="og:title" content="《你不知道的JavaScript》笔记">
 <meta property="og:url" content="http://yoursite.com/2018/01/25/《你不知道的JavaScript》笔记/index.html">
 <meta property="og:site_name" content="林落雨落林">
 <meta property="og:description" content="LHS和RHS查询当变量出现在赋值操作的左侧时进行 LHS 查询，出现在右侧时进行 RHS 查询。RHS 查询与简单地查找某个变量的值别无二致，而 LHS 查询则是试图找到变量的容器本身，从而可以对其赋值。如果查找的目的是对变量进行赋值，那么就会使用 LHS 查询;如果目的是获取变量的值，就会使用 RHS 查询。">
-<meta property="og:updated_time" content="2018-03-04T18:22:43.393Z">
+<meta property="og:updated_time" content="2018-03-25T12:26:48.902Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="《你不知道的JavaScript》笔记">
 <meta name="twitter:description" content="LHS和RHS查询当变量出现在赋值操作的左侧时进行 LHS 查询，出现在右侧时进行 RHS 查询。RHS 查询与简单地查找某个变量的值别无二致，而 LHS 查询则是试图找到变量的容器本身，从而可以对其赋值。如果查找的目的是对变量进行赋值，那么就会使用 LHS 查询;如果目的是获取变量的值，就会使用 RHS 查询。">
@@ -198,6 +199,27 @@
 <h3><span id="协作">协作</span></h3><figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">var</span> res = [];</span><br><span class="line"><span class="comment">// response(..)从Ajax调用中取得结果数组 function response(data) &#123;</span></span><br><span class="line"><span class="comment">// 一次处理1000个</span></span><br><span class="line"><span class="keyword">var</span> chunk = data.splice( <span class="number">0</span>, <span class="number">1000</span> );</span><br><span class="line"><span class="comment">// 添加到已有的res组 res = res.concat(</span></span><br><span class="line"><span class="comment">// 创建一个新的数组把chunk中所有值加倍 </span></span><br><span class="line">chunk.map( <span class="function"><span class="keyword">function</span>(<span class="params">val</span>)</span>&#123;</span><br><span class="line">	<span class="keyword">return</span> val * <span class="number">2</span>; &#125;)</span><br><span class="line">);</span><br><span class="line"><span class="comment">// 还有剩下的需要处理吗? </span></span><br><span class="line"><span class="keyword">if</span> (data.length &gt; <span class="number">0</span>) &#123;</span><br><span class="line"><span class="comment">// 异步调度下一次批处理 </span></span><br><span class="line">	setTimeout( <span class="function"><span class="keyword">function</span>(<span class="params"></span>)</span>&#123;</span><br><span class="line">    	response( data );</span><br><span class="line">	&#125;, <span class="number">0</span> );</span><br><span class="line">&#125; &#125;</span><br><span class="line"><span class="comment">// ajax(..)是某个库中提供的某个Ajax函数 </span></span><br><span class="line">ajax( <span class="string">"http://some.url.1"</span>, response ); </span><br><span class="line">ajax( <span class="string">"http://some.url.2"</span>, response );</span><br></pre></td></tr></table></figure>
 <h3><span id="任务">任务</span></h3><p>我认为对于任务队列最好的理解方式就是，它是挂在事件循环队列的每个 tick 之后 的一个队列。在事件循环的每个 tick 中，可能出现的异步动作不会导致一个完整的新事件 添加到事件循环队列中，而会在当前 tick 的任务队列末尾添加一个项目(一个任务)。</p>
 <h3><span id="省点回调">省点回调</span></h3><p>还有一种常见的回调模式叫作“error-first 风格”(有时候也称为“Node 风格”，因为几乎 所有 Node.js API 都采用这种风格)，其中回调的第一个参数保留用作错误对象(如果有的 话)。如果成功的话，这个参数就会被清空 / 置假(后续的参数就是成功数据)。不过，如果产生了错误结果，那么第一个参数就会被置起 / 置真(通常就不会再传递其他结果):</p>
+<h2><span id="中">–中–</span></h2><h3><span id="第一部分">第一部分</span></h3><ul>
+<li><p>函数是可调用对象，它有一个内部属性[[Call]],该属性使其可以被调用</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">typeof function a()&#123;&#125; === &apos;function&apos; // true</span><br></pre></td></tr></table></figure>
+</li>
+<li><p>在对变量执行typeof操作时，得到的结果并不是该变量的类型，而是该变量持有的值的类型，因为JavaScript中的变量没有类型。</p>
+</li>
+<li><p>字符串不可变是指字符串的成员函数不会改变其原始值，而是创建并返回一个新的字符串。而数组的成员函数都是在其原始值上进行操作。</p>
+</li>
+<li><p>Unicode工具库-Mathias Bynen-Esrever（<a href="https://github.com/mathiasbynents/esreve" target="_blank" rel="noopener">https://github.com/mathiasbynents/esreve</a>)</p>
+</li>
+<li><p>与大部分线代编程语言（包括几乎所有的脚本语言）一样，JavaScript中的数字类型是基于IEE754标准来实现的，该标准通常也被称为“浮点数”。JavaScript使用的是“双精度”格式（即64位二进制）。</p>
+</li>
+<li><p>运算符. : h会被优先识别为数字常量的一部分，然后才是对象属性访问运算符</p>
+</li>
+<li><p>我们不能通过引用x来更改引用a的指向，只能更改a和x共同指向的值</p>
+</li>
+<li><p>所有typeof返回值为Object的对象都包含一个内部属性[[Class]](我们可以把它看作一个内部的分类，而非传统的面向对象意义上的类)。这个属性无法直接访问，一般通过Object.prototype.toString()来查看</p>
+</li>
+<li><p>类型转换发生在静态类型语言的编译阶段，而强制类型转换则发生在动态类型语言的运行时</p>
+</li>
+</ul>
 
       
 
@@ -206,6 +228,17 @@
     <div class="article-info article-info-index">
       
       
+	<div class="article-tag tagcloud">
+		<i class="icon-price-tags icon"></i>
+		<ul class="article-tag-list">
+			 
+        		<li class="article-tag-list-item">
+        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color1">javascript</a>
+        		</li>
+      		
+		</ul>
+	</div>
+
       
 	<div class="article-category tagcloud">
 		<i class="icon-book icon"></i>
@@ -319,7 +352,7 @@
                 </span>
                 <span class="tooltip-content">
                     <div class="toc-article">
-                    <ol class="toc"><li class="toc-item toc-level-3"><a class="toc-link" href="#undefined"><span class="toc-number">1.</span> <span class="toc-text">LHS和RHS查询</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#undefined"><span class="toc-number">2.</span> <span class="toc-text">词法作用域</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#undefined"><span class="toc-number">3.</span> <span class="toc-text">函数作用域和块级作用域</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#undefined"><span class="toc-number">4.</span> <span class="toc-text">UMD模式</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#undefined"><span class="toc-number">5.</span> <span class="toc-text">提升</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#undefined"><span class="toc-number">6.</span> <span class="toc-text">异步</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#undefined"><span class="toc-number">7.</span> <span class="toc-text">协作</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#undefined"><span class="toc-number">8.</span> <span class="toc-text">任务</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#undefined"><span class="toc-number">9.</span> <span class="toc-text">省点回调</span></a></li></ol>
+                    <ol class="toc"><li class="toc-item toc-level-3"><a class="toc-link" href="#undefined"><span class="toc-number">1.</span> <span class="toc-text">LHS和RHS查询</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#undefined"><span class="toc-number">2.</span> <span class="toc-text">词法作用域</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#undefined"><span class="toc-number">3.</span> <span class="toc-text">函数作用域和块级作用域</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#undefined"><span class="toc-number">4.</span> <span class="toc-text">UMD模式</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#undefined"><span class="toc-number">5.</span> <span class="toc-text">提升</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#undefined"><span class="toc-number">6.</span> <span class="toc-text">异步</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#undefined"><span class="toc-number">7.</span> <span class="toc-text">协作</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#undefined"><span class="toc-number">8.</span> <span class="toc-text">任务</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#undefined"><span class="toc-number">9.</span> <span class="toc-text">省点回调</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#undefined"><span class="toc-number"></span> <span class="toc-text">–中–</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#undefined"><span class="toc-number">1.</span> <span class="toc-text">第一部分</span></a></li></ol>
                     </div>
                 </span>
             </div>
@@ -433,10 +466,6 @@ return o(i(t),arguments.length<2?void 0:u(arguments[1]))}})},function(t,n,r){var
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color5">html</a>
-              </li>
-             
-              <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color1">HTML5</a>
               </li>
              
@@ -445,7 +474,7 @@ return o(i(t),arguments.length<2?void 0:u(arguments[1]))}})},function(t,n,r){var
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color2">jQuery</a>
+                <a href="javascript:void(0)" class="js-tag color5">html</a>
               </li>
              
               <li class="article-tag-list-item">
@@ -457,19 +486,19 @@ return o(i(t),arguments.length<2?void 0:u(arguments[1]))}})},function(t,n,r){var
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color1">mysql</a>
-              </li>
-             
-              <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color5">java</a>
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color5">设计模式</a>
+                <a href="javascript:void(0)" class="js-tag color1">mysql</a>
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color3">游戏</a>
+                <a href="javascript:void(0)" class="js-tag color2">jQuery</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color1">javascript</a>
               </li>
              
               <li class="article-tag-list-item">
@@ -485,15 +514,23 @@ return o(i(t),arguments.length<2?void 0:u(arguments[1]))}})},function(t,n,r){var
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color3">排序</a>
-              </li>
-             
-              <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color3">分治</a>
               </li>
              
               <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color3">布局</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color3">排序</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color5">设计模式</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color3">游戏</a>
               </li>
             
             <div class="clearfix"></div>
