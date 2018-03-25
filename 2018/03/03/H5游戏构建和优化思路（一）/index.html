@@ -8,18 +8,18 @@
   <link rel="dns-prefetch" href="http://yoursite.com">
   <title>H5游戏构建和优化思路（一） | 林落雨落林</title>
   <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
-  <meta name="description" content="为了总结方便，本文基于layaAir引擎进行叙述，但其概念适用于大多数H5游戏。 离职期间看了几本书，其中有一本《游戏编程模式》觉得还不错，如果从来没接触过游戏编程可以从它入手，主要讲游戏代码的一些设计思路。读书笔记见《游戏编程模式》笔记 由于文章有点长，所以分了几个部分，本文主要阐述基本构建思路、游戏布局及其过程中所做的相关优化。">
+  <meta name="description" content="为了总结方便，本文基于layaAir引擎进行叙述，但其概念适用于大多数H5游戏。 一月份离职期间看了本书《游戏编程模式》（作者：Robert Nystrom），觉得还不错哦，如果之前没有接触过游戏编程可以一看，读书笔记见《游戏编程模式笔记》 由于文章有点长，所以分了几个部分，本文主要阐述基本构建思路、游戏布局及其过程中所做的相关优化。">
 <meta name="keywords" content="前端,游戏开发">
 <meta property="og:type" content="article">
 <meta property="og:title" content="H5游戏构建和优化思路（一）">
 <meta property="og:url" content="http://yoursite.com/2018/03/03/H5游戏构建和优化思路（一）/index.html">
 <meta property="og:site_name" content="林落雨落林">
-<meta property="og:description" content="为了总结方便，本文基于layaAir引擎进行叙述，但其概念适用于大多数H5游戏。 离职期间看了几本书，其中有一本《游戏编程模式》觉得还不错，如果从来没接触过游戏编程可以从它入手，主要讲游戏代码的一些设计思路。读书笔记见《游戏编程模式》笔记 由于文章有点长，所以分了几个部分，本文主要阐述基本构建思路、游戏布局及其过程中所做的相关优化。">
+<meta property="og:description" content="为了总结方便，本文基于layaAir引擎进行叙述，但其概念适用于大多数H5游戏。 一月份离职期间看了本书《游戏编程模式》（作者：Robert Nystrom），觉得还不错哦，如果之前没有接触过游戏编程可以一看，读书笔记见《游戏编程模式笔记》 由于文章有点长，所以分了几个部分，本文主要阐述基本构建思路、游戏布局及其过程中所做的相关优化。">
 <meta property="og:image" content="http://ovne6ee1z.bkt.clouddn.com/%E5%B1%8F%E5%B9%95%E5%BF%AB%E7%85%A7%202018-01-27%2015.37.18%E5%89%AF%E6%9C%AC.png">
-<meta property="og:updated_time" content="2018-03-04T18:19:32.036Z">
+<meta property="og:updated_time" content="2018-03-25T12:31:48.937Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="H5游戏构建和优化思路（一）">
-<meta name="twitter:description" content="为了总结方便，本文基于layaAir引擎进行叙述，但其概念适用于大多数H5游戏。 离职期间看了几本书，其中有一本《游戏编程模式》觉得还不错，如果从来没接触过游戏编程可以从它入手，主要讲游戏代码的一些设计思路。读书笔记见《游戏编程模式》笔记 由于文章有点长，所以分了几个部分，本文主要阐述基本构建思路、游戏布局及其过程中所做的相关优化。">
+<meta name="twitter:description" content="为了总结方便，本文基于layaAir引擎进行叙述，但其概念适用于大多数H5游戏。 一月份离职期间看了本书《游戏编程模式》（作者：Robert Nystrom），觉得还不错哦，如果之前没有接触过游戏编程可以一看，读书笔记见《游戏编程模式笔记》 由于文章有点长，所以分了几个部分，本文主要阐述基本构建思路、游戏布局及其过程中所做的相关优化。">
 <meta name="twitter:image" content="http://ovne6ee1z.bkt.clouddn.com/%E5%B1%8F%E5%B9%95%E5%BF%AB%E7%85%A7%202018-01-27%2015.37.18%E5%89%AF%E6%9C%AC.png">
   
   
@@ -189,7 +189,7 @@
     <div class="article-entry" itemprop="articleBody">
       
         <p>为了总结方便，本文基于layaAir引擎进行叙述，但其概念适用于大多数H5游戏。</p>
-<p>离职期间看了几本书，其中有一本《游戏编程模式》觉得还不错，如果从来没接触过游戏编程可以从它入手，主要讲游戏代码的一些设计思路。读书笔记见<a href="https://etoile984816138.github.io/2018/01/25/%E3%80%8A%E6%B8%B8%E6%88%8F%E7%BC%96%E7%A8%8B%E6%A8%A1%E5%BC%8F%E3%80%8B%E7%AC%94%E8%AE%B0/" target="_blank" rel="noopener">《游戏编程模式》笔记</a></p>
+<p>一月份离职期间看了本书《游戏编程模式》（作者：Robert Nystrom），觉得还不错哦，如果之前没有接触过游戏编程可以一看，读书笔记见<a href="https://etoile984816138.github.io/2018/01/25/%E3%80%8A%E6%B8%B8%E6%88%8F%E7%BC%96%E7%A8%8B%E6%A8%A1%E5%BC%8F%E3%80%8B%E7%AC%94%E8%AE%B0/" target="_blank" rel="noopener">《游戏编程模式笔记》</a></p>
 <p>由于文章有点长，所以分了几个部分，本文主要阐述基本构建思路、游戏布局及其过程中所做的相关优化。</p>
 <a id="more"></a>
 <h2><span id="构建项目">构建项目</span></h2><p>翻邮件的时候找到某一天的日报，应该是实习第二天，第一天是熟悉了一下部门的组件库和编码规范以及了解了下laya。<br><img src="http://ovne6ee1z.bkt.clouddn.com/%E5%B1%8F%E5%B9%95%E5%BF%AB%E7%85%A7%202018-01-27%2015.37.18%E5%89%AF%E6%9C%AC.png" alt=""><br>这里提到了项目的构建编写思路，其实当时概括得挺好的，不过再加一点，性能优化。再整理一下，如下：</p>
@@ -498,7 +498,7 @@ return o(i(t),arguments.length<2?void 0:u(arguments[1]))}})},function(t,n,r){var
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color1">HTML5</a>
+                <a href="javascript:void(0)" class="js-tag color5">html</a>
               </li>
              
               <li class="article-tag-list-item">
@@ -506,7 +506,7 @@ return o(i(t),arguments.length<2?void 0:u(arguments[1]))}})},function(t,n,r){var
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color5">html</a>
+                <a href="javascript:void(0)" class="js-tag color2">jQuery</a>
               </li>
              
               <li class="article-tag-list-item">
@@ -526,11 +526,11 @@ return o(i(t),arguments.length<2?void 0:u(arguments[1]))}})},function(t,n,r){var
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color2">jQuery</a>
+                <a href="javascript:void(0)" class="js-tag color5">设计模式</a>
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color1">javascript</a>
+                <a href="javascript:void(0)" class="js-tag color3">游戏</a>
               </li>
              
               <li class="article-tag-list-item">
@@ -546,6 +546,10 @@ return o(i(t),arguments.length<2?void 0:u(arguments[1]))}})},function(t,n,r){var
               </li>
              
               <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color3">排序</a>
+              </li>
+             
+              <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color3">分治</a>
               </li>
              
@@ -554,15 +558,11 @@ return o(i(t),arguments.length<2?void 0:u(arguments[1]))}})},function(t,n,r){var
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color3">排序</a>
+                <a href="javascript:void(0)" class="js-tag color3">校招</a>
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color5">设计模式</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color3">游戏</a>
+                <a href="javascript:void(0)" class="js-tag color3">面试</a>
               </li>
             
             <div class="clearfix"></div>

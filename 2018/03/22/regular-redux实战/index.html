@@ -8,16 +8,16 @@
   <link rel="dns-prefetch" href="http://yoursite.com">
   <title>regular+redux实战思路 | 林落雨落林</title>
   <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
-  <meta name="description" content="新部门，新项目使用regular+redux进行开发，由于自己之前从未接触过，并且手头上没有开发任务，所以趁这个不算短的时间系统性学习了一下。本文主要是对如何使用regular+redux进行一个项目开发的一些思路，随着自己的学习成长会不断更新内容。 文档（中文）regularregular-stateredux 如何摆好使用regular的姿势regular组件的语法是这样：1234567891">
+  <meta name="description" content="新部门，新项目使用regular+redux进行开发，由于自己之前从未接触过，并且手头上没有开发任务，所以趁这个不算短的时间系统性学习了一下。本文主要是对如何使用regular+redux进行一个项目开发的一些思路，随着自己的学习成长会不断更新内容。 文档（中文）regularregular-stateredux">
 <meta property="og:type" content="article">
 <meta property="og:title" content="regular+redux实战思路">
 <meta property="og:url" content="http://yoursite.com/2018/03/22/regular-redux实战/index.html">
 <meta property="og:site_name" content="林落雨落林">
-<meta property="og:description" content="新部门，新项目使用regular+redux进行开发，由于自己之前从未接触过，并且手头上没有开发任务，所以趁这个不算短的时间系统性学习了一下。本文主要是对如何使用regular+redux进行一个项目开发的一些思路，随着自己的学习成长会不断更新内容。 文档（中文）regularregular-stateredux 如何摆好使用regular的姿势regular组件的语法是这样：1234567891">
-<meta property="og:updated_time" content="2018-03-25T12:25:30.515Z">
+<meta property="og:description" content="新部门，新项目使用regular+redux进行开发，由于自己之前从未接触过，并且手头上没有开发任务，所以趁这个不算短的时间系统性学习了一下。本文主要是对如何使用regular+redux进行一个项目开发的一些思路，随着自己的学习成长会不断更新内容。 文档（中文）regularregular-stateredux">
+<meta property="og:updated_time" content="2018-03-25T12:34:24.915Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="regular+redux实战思路">
-<meta name="twitter:description" content="新部门，新项目使用regular+redux进行开发，由于自己之前从未接触过，并且手头上没有开发任务，所以趁这个不算短的时间系统性学习了一下。本文主要是对如何使用regular+redux进行一个项目开发的一些思路，随着自己的学习成长会不断更新内容。 文档（中文）regularregular-stateredux 如何摆好使用regular的姿势regular组件的语法是这样：1234567891">
+<meta name="twitter:description" content="新部门，新项目使用regular+redux进行开发，由于自己之前从未接触过，并且手头上没有开发任务，所以趁这个不算短的时间系统性学习了一下。本文主要是对如何使用regular+redux进行一个项目开发的一些思路，随着自己的学习成长会不断更新内容。 文档（中文）regularregular-stateredux">
   
   
     <link rel="icon" href="http://ovne6ee1z.bkt.clouddn.com/avatar.jpg">
@@ -187,6 +187,7 @@
       
         <p>新部门，新项目使用regular+redux进行开发，由于自己之前从未接触过，并且手头上没有开发任务，所以趁这个不算短的时间系统性学习了一下。本文主要是对如何使用regular+redux进行一个项目开发的一些思路，随着自己的学习成长会不断更新内容。</p>
 <h3><span id="文档中文">文档（中文）</span></h3><p><a href="http://regularjs.github.io/guide/zh/index.html" target="_blank" rel="noopener">regular</a><br><a href="https://regularjs.github.io/regular-state/" target="_blank" rel="noopener">regular-state</a><br><a href="https://cn.redux.js.org/" target="_blank" rel="noopener">redux</a></p>
+<a id="more"></a>
 <h3><span id="如何摆好使用regular的姿势">如何摆好使用regular的姿势</span></h3><p>regular组件的语法是这样：<br><figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">const</span> Demo = Regular.extend(&#123;</span><br><span class="line">    template: <span class="string">`</span></span><br><span class="line"><span class="string">    &lt;div&gt;</span></span><br><span class="line"><span class="string">        &lt;h2&gt;And, this is a demo complex page&lt;/h2&gt;   </span></span><br><span class="line"><span class="string">        &lt;Button on-click=&#123;actions.getTime()&#125;&gt;get time now&lt;/Button&gt;</span></span><br><span class="line"><span class="string">        &lt;p&gt;It's &#123;time&#125; now&lt;/p&gt;</span></span><br><span class="line"><span class="string">    &lt;/div&gt;    </span></span><br><span class="line"><span class="string">    `</span>,</span><br><span class="line">    name: <span class="string">'Demo'</span></span><br><span class="line">&#125;);</span><br></pre></td></tr></table></figure></p>
 <p>可以看到模板是采用字符串的写法。这就有两个问题，第一，如果DOM结构过长（虽然一般情况下需要组件拆分这种情况很少出现），一个组件文件里冗杂着大段的DOM和逻辑代码，想想就很可怕；第二，最最最重要的，如何进行代码提示、代码整理，甚至语法高亮。编写HTML，如果有错编辑器会给你个红叉叉或者波浪线，写得太乱了也可以一键整理代码，但是模板字符串不能这样。当然我们可以编码的时候注意一点，尽量写的干净整洁，控制好缩进，但毕竟写起来比较不爽。</p>
 <p>想到了两个解决方案，一是参考编辑器插件对类似框架的支持也写一个插件，二是把DOM结构从组件逻辑代码中抽离出来。第一个方案成本比较大，而且不具通用性，着重考虑第二个。</p>
@@ -478,7 +479,7 @@ return o(i(t),arguments.length<2?void 0:u(arguments[1]))}})},function(t,n,r){var
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color1">HTML5</a>
+                <a href="javascript:void(0)" class="js-tag color5">html</a>
               </li>
              
               <li class="article-tag-list-item">
@@ -486,7 +487,7 @@ return o(i(t),arguments.length<2?void 0:u(arguments[1]))}})},function(t,n,r){var
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color5">html</a>
+                <a href="javascript:void(0)" class="js-tag color2">jQuery</a>
               </li>
              
               <li class="article-tag-list-item">
@@ -506,11 +507,11 @@ return o(i(t),arguments.length<2?void 0:u(arguments[1]))}})},function(t,n,r){var
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color2">jQuery</a>
+                <a href="javascript:void(0)" class="js-tag color5">设计模式</a>
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color1">javascript</a>
+                <a href="javascript:void(0)" class="js-tag color3">游戏</a>
               </li>
              
               <li class="article-tag-list-item">
@@ -526,6 +527,10 @@ return o(i(t),arguments.length<2?void 0:u(arguments[1]))}})},function(t,n,r){var
               </li>
              
               <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color3">排序</a>
+              </li>
+             
+              <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color3">分治</a>
               </li>
              
@@ -534,15 +539,11 @@ return o(i(t),arguments.length<2?void 0:u(arguments[1]))}})},function(t,n,r){var
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color3">排序</a>
+                <a href="javascript:void(0)" class="js-tag color3">校招</a>
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color5">设计模式</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color3">游戏</a>
+                <a href="javascript:void(0)" class="js-tag color3">面试</a>
               </li>
             
             <div class="clearfix"></div>
