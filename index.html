@@ -163,13 +163,37 @@
           <div id="js-content" class="content-ll">
             
   
-    <article id="post-我所知道的react" class="article article-type-post  article-index" itemscope itemprop="blogPost">
+    <article id="post-关于react，我所知道的" class="article article-type-post  article-index" itemscope itemprop="blogPost">
   <div class="article-inner">
+    
+      <header class="article-header">
+        
+  
+    <h1 itemprop="name">
+      <a class="article-title" href="/2018/04/04/关于react，我所知道的/">关于react，我所知道的</a>
+    </h1>
+  
+
+        
+        <a href="/2018/04/04/关于react，我所知道的/" class="archive-article-date">
+  	<time datetime="2018-04-04T08:09:09.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2018-04-04</time>
+</a>
+        
+      </header>
     
     <div class="article-entry" itemprop="articleBody">
       
-        <hr>
-<h2><span id="">{}</span></h2>
+        <h3 id="react学习资料推荐"><a href="#react学习资料推荐" class="headerlink" title="react学习资料推荐"></a>react学习资料推荐</h3><ul>
+<li><a href="https://reactjs.org" target="_blank" rel="noopener">官方文档</a></li>
+<li><a href="http://huziketang.mangojuice.top/books/react/lesson10" target="_blank" rel="noopener">React.js 小书</a></li>
+</ul>
+<h3 id="Demo练习实现"><a href="#Demo练习实现" class="headerlink" title="Demo练习实现"></a>Demo练习实现</h3><ul>
+<li><a href="https://github.com/Etoile984816138/react-demo" target="_blank" rel="noopener">组件Demo</a></li>
+<li><a href="https://github.com/Etoile984816138/todolist-react" target="_blank" rel="noopener">TODO-LIST Demo</a></li>
+<li><a href="https://github.com/Etoile984816138/make-redux" target="_blank" rel="noopener">实现一个很简单的redux</a></li>
+<li><a href="https://github.com/Etoile984816138/make-react-redux" target="_blank" rel="noopener">实现一个很简单的react-redux</a></li>
+</ul>
+        
       
 
       
@@ -177,11 +201,41 @@
     <div class="article-info article-info-index">
       
       
+	<div class="article-tag tagcloud">
+		<i class="icon-price-tags icon"></i>
+		<ul class="article-tag-list">
+			 
+        		<li class="article-tag-list-item">
+        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color3">前端</a>
+        		</li>
+      		 
+        		<li class="article-tag-list-item">
+        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color1">react</a>
+        		</li>
+      		 
+        		<li class="article-tag-list-item">
+        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color1">redux</a>
+        		</li>
+      		
+		</ul>
+	</div>
+
       
+	<div class="article-category tagcloud">
+		<i class="icon-book icon"></i>
+		<ul class="article-tag-list">
+			 
+        		<li class="article-tag-list-item">
+        			<a href="/categories/学习笔记/" class="article-tag-list-link color5">学习笔记</a>
+        		</li>
+      		
+		</ul>
+	</div>
+
 
       
         <p class="article-more-link">
-          <a class="article-more-a" href="/2018/04/04/我所知道的react/">展开全文 >></a>
+          <a class="article-more-a" href="/2018/04/04/关于react，我所知道的/">展开全文 >></a>
         </p>
       
 
@@ -214,66 +268,26 @@
     <article id="post-regular-redux实战" class="article article-type-post  article-index" itemscope itemprop="blogPost">
   <div class="article-inner">
     
+      <header class="article-header">
+        
+  
+    <h1 itemprop="name">
+      <a class="article-title" href="/2018/03/22/regular-redux实战/">regular+redux实战思路</a>
+    </h1>
+  
+
+        
+        <a href="/2018/03/22/regular-redux实战/" class="archive-article-date">
+  	<time datetime="2018-03-22T12:17:34.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2018-03-22</time>
+</a>
+        
+      </header>
+    
     <div class="article-entry" itemprop="articleBody">
       
-        <hr>
-<h2><span id="">{}</span></h2><p>— state1Actions.js<br>—— state2Actions.js<br>—— ….js<br>—— statenActions.js<br>– constants<br>—— state1Constants.js<br>—— state2Constants.js<br>—— ….js<br>—— statenConstants.js<br>– fetchs<br>—— state1Api.js<br>—— state2Api.js<br>—— ….js<br>—— statenApi.js<br>– reducers<br>—— state1Reducers.js<br>—— state2Reducers.js<br>—— ….js<br>—— statenReducers.js<br>—— reducers.js<br>– store.js  </p>
-<ul>
-<li>store.js 调用<a href="https://cn.redux.js.org/docs/api/createStore.html" target="_blank" rel="noopener">createStore()</a>,传入中间件和reducers以及初始状态</li>
-<li><p>fetchs 网络请求的集合，如果很多的话我们可以把它按数据分类分成几块。如一个基本的增删改查(假设fetch是我们封装的一个fetch请求方法)：</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br></pre></td><td class="code"><pre><span class="line">export const getList = data =&gt; fetch(</span><br><span class="line">  &apos;/api/list&apos;, &#123;</span><br><span class="line">      methods: &apos;GET&apos;,</span><br><span class="line">      data</span><br><span class="line">  &#125;);</span><br><span class="line">export const deleteList = data =&gt; fetch(</span><br><span class="line">  &apos;/api/list:id&apos;, &#123;</span><br><span class="line">      methods: &apos;DELETE&apos;,</span><br><span class="line">      data</span><br><span class="line">  &#125;);</span><br><span class="line">export const addList = data =&gt; fetch(</span><br><span class="line">  &apos;/api/list&apos;, &#123;</span><br><span class="line">      methods: &apos;POST&apos;,</span><br><span class="line">      data</span><br><span class="line">  &#125;);</span><br><span class="line">export const getList = data =&gt; fetch(</span><br><span class="line">  &apos;/api/list:id&apos;, &#123;</span><br><span class="line">      methods: &apos;PATCH&apos;,</span><br><span class="line">      data</span><br><span class="line">  &#125;);</span><br></pre></td></tr></table></figure>
-</li>
-<li><p>reducers 接收state和action，返回新的state。它自身是不涉及任何业务逻辑处理的，只管接收action,然后更新state，这里有个纯函数的概念，什么样的输入必然会导致什么样的输出，另外数据不可变，也保证了状态的可跟踪。不同的[state]reducers负责不同的state，reducers.js中调用combineReducers，合并各个子reducer，最终返回一个调用 reducers 对象里所有reducer的reducer，并且构造一个与reducers对象结构相同的state对象。</p>
-</li>
-<li>constants action传的对象的type字段，reducer根据它判断是在处理哪个action</li>
-<li>actions 编写action creator，返回一个新的action</li>
-</ul>
-<p>在组件代码中，我们需要将数据与redux连接起来，使用regular-redux2，这一块没有文档,不过源码也十分易读，况且我们可以直接看<a href="https://cn.redux.js.org/docs/react-redux/api.html" target="_blank" rel="noopener">react-redux</a>的文档。重点是调用的connect方法，这个方法不会改变原来的组件类，而是返回一个新的已与Redux store连接的组件类。看一下它传的参数：</p>
-<ul>
-<li><p>mapStateToData 指定把把哪个state绑定到regular组件的data上<br>写法：</p>
-<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">const</span> mapStateToData = <span class="function"><span class="params">state</span> =&gt;</span> (&#123;</span><br><span class="line">  ...state.state1</span><br><span class="line">&#125;)</span><br></pre></td></tr></table></figure>
-</li>
-<li><p>mapDispatchToData 将指定action绑定到regular组件的data上</p>
-<blockquote>
-<p>如果传递的是一个函数，该函数将接收一个 dispatch 函数，然后由你来决定如何返回一个对象，这个对象通过 dispatch 函数与 action creator 以某种方式绑定在一起</p>
-</blockquote>
-</li>
-</ul>
-<p>这里会给所有绑定的action发dispatch，所以我们在action creator里一般是不用发dispatch的</p>
-<p>写法：</p>
-<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">dispatch =&gt; (&#123; <span class="attr">actions</span>: bindActionCreators(&#123;</span><br><span class="line">        ...state1Actions</span><br><span class="line">    &#125;, dispatch) &#125;)</span><br></pre></td></tr></table></figure>
-<ul>
-<li>bindStore { store, name: ‘’ }</li>
-</ul>
-<p>假设Comp是Regular.extend()创建的一个组件，不用redux我们会写</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">export default Comp</span><br></pre></td></tr></table></figure>
-<p>抛出组件</p>
-<p>使用redux需要改成</p>
-<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">const</span> store = createAppStore();</span><br><span class="line"></span><br><span class="line"><span class="keyword">const</span> mapStateToData = <span class="function"><span class="params">state</span> =&gt;</span> (&#123;</span><br><span class="line">    ...state.state1</span><br><span class="line">&#125;)</span><br><span class="line"></span><br><span class="line"><span class="keyword">export</span> <span class="keyword">default</span> connect(</span><br><span class="line">    mapStateToData,</span><br><span class="line">    dispatch =&gt; (&#123; <span class="attr">actions</span>: bindActionCreators(&#123;</span><br><span class="line">        ...state1Actions</span><br><span class="line">    &#125;, dispatch) &#125;),</span><br><span class="line">    &#123; store, <span class="attr">name</span>: <span class="string">'Comp'</span> &#125;</span><br><span class="line">)(Comp);</span><br></pre></td></tr></table></figure>
-<p>以上就是一个简单地使用redux的过程。如果是异步的话，我们的action会复杂一点：</p>
-<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">export</span> <span class="keyword">const</span> getList = <span class="function">(<span class="params">param</span>) =&gt;</span> dispatch =&gt; &#123;</span><br><span class="line">    dispatch(&#123;</span><br><span class="line">        type: types.GET_LIST_START</span><br><span class="line">    &#125;);</span><br><span class="line">    getLiveList(param).then(<span class="function"><span class="params">resp</span> =&gt;</span> &#123;</span><br><span class="line">        dispatch(&#123;</span><br><span class="line">            type: types.GET_LIST_SUCCESS,</span><br><span class="line">            data: resp.data</span><br><span class="line">        &#125;)</span><br><span class="line">    &#125;).catch(<span class="function"><span class="params">err</span> =&gt;</span> &#123;</span><br><span class="line">        dispatch(&#123;</span><br><span class="line">            type: types.GET_LIST_ERROR,</span><br><span class="line">            error: err.msg</span><br><span class="line">        &#125;)</span><br><span class="line">    &#125;)</span><br><span class="line">&#125;;</span><br></pre></td></tr></table></figure>
-<p>reducer中根据不同的action type更新不同的数据就好了。但是在组件代码中很简单，只要调用data.action上的action creator就可以了，只需要传入参数，什么都不用管，所有的数据在redux中变更管理。如果不是数据的变更还是有回调呢？我们可以在state中维护一个状态码，regular的watch事件可以监听数据的改变，再执行相应方法就可以了。还有一种方式，在使用redux-thunk的情况下，我们可以直接返回一个promise，这样就可以处理成功或失败的事件了。代码如</p>
-<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">export</span> <span class="keyword">const</span> getList = <span class="function">(<span class="params">param</span>) =&gt;</span> dispatch =&gt; (</span><br><span class="line">    <span class="keyword">new</span> <span class="built_in">Promise</span>(<span class="function">(<span class="params">resolve,reject</span>)=&gt;</span>&#123;</span><br><span class="line">        dispatch(&#123;</span><br><span class="line">            type: types.GET_LIST_START</span><br><span class="line">        &#125;);</span><br><span class="line">        getLiveList(param).then(<span class="function"><span class="params">resp</span> =&gt;</span> &#123;</span><br><span class="line">            dispatch(&#123;</span><br><span class="line">                type: types.GET_LIST_SUCCESS,</span><br><span class="line">                data: resp.data</span><br><span class="line">            &#125;);</span><br><span class="line">          	resolve();</span><br><span class="line">        &#125;).catch(<span class="function"><span class="params">err</span> =&gt;</span> &#123;</span><br><span class="line">            dispatch(&#123;</span><br><span class="line">                type: types.GET_LIST_ERROR,</span><br><span class="line">                error: err.msg</span><br><span class="line">            &#125;);</span><br><span class="line">          	reject();</span><br><span class="line">        &#125;)</span><br><span class="line">    &#125;)  </span><br><span class="line">);</span><br></pre></td></tr></table></figure>
-<p>或者可以直接返回getLiveList(),它本身就是个promise。</p>
-<p>有个问题是什么样的数据应该放在store里，什么样的数据放在data中，我的原则是：</p>
-<ul>
-<li><p>组件的data中尽量少放数据，从父组件传入或放在redux中，避免组件自身状态的不可预测性。</p>
-</li>
-<li><p>data中放置的数据应与外界独立（即保证外界无法访问数据并且不会因为这个数据的更改造成自身状态的更改）。</p>
-</li>
-<li><p>可能引起多个组件状态更改的数据放在redux中。</p>
-</li>
-</ul>
-<p>另外总结几点上面没有提到或者没说清楚的（文档中有些也有写，然后我觉得值得注意的）：</p>
-<ul>
-<li>state应跟数据挂钩而不是跟组件，这样一个组件可以连接多个state，不同组件可以操作同一个state中的数据</li>
-<li>每个action提交的数据应尽可能少</li>
-<li>异步操作可以像上面一样定义不同的type，也可以同一个type不同的status，见文档</li>
-<li>对于某些操作（比如更改一个列表的某个数据，发了post请求后往往需要再get重新请求一下列表），可以先改变state，不重新请求，不过有风险，不是任何请求都适合</li>
-<li>redux是适合读源码的，或者源码和文档一起读，很小很简单很清晰</li>
-</ul>
-<p>暂时先更新到这里，后续有新想法再更新或修改</p>
-
+        <p>新部门，新项目使用regular+redux进行开发，由于自己之前从未接触过，并且手头上没有开发任务，所以趁这个不算短的时间系统性学习了一下。本文主要是对如何使用regular+redux进行一个项目开发的一些思路，随着自己的学习成长会不断更新内容。</p>
+<h3 id="文档（中文）"><a href="#文档（中文）" class="headerlink" title="文档（中文）"></a>文档（中文）</h3><p><a href="http://regularjs.github.io/guide/zh/index.html" target="_blank" rel="noopener">regular</a><br><a href="https://regularjs.github.io/regular-state/" target="_blank" rel="noopener">regular-state</a><br><a href="https://cn.redux.js.org/" target="_blank" rel="noopener">redux</a></p>
+        
       
 
       
@@ -281,11 +295,41 @@
     <div class="article-info article-info-index">
       
       
+	<div class="article-tag tagcloud">
+		<i class="icon-price-tags icon"></i>
+		<ul class="article-tag-list">
+			 
+        		<li class="article-tag-list-item">
+        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color3">前端</a>
+        		</li>
+      		 
+        		<li class="article-tag-list-item">
+        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color1">redux</a>
+        		</li>
+      		 
+        		<li class="article-tag-list-item">
+        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color3">regular</a>
+        		</li>
+      		
+		</ul>
+	</div>
+
       
+	<div class="article-category tagcloud">
+		<i class="icon-book icon"></i>
+		<ul class="article-tag-list">
+			 
+        		<li class="article-tag-list-item">
+        			<a href="/categories/学习笔记/" class="article-tag-list-link color5">学习笔记</a>
+        		</li>
+      		
+		</ul>
+	</div>
+
 
       
         <p class="article-more-link">
-          <a class="article-more-a" href="/2018/03/25/regular-redux实战/">展开全文 >></a>
+          <a class="article-more-a" href="/2018/03/22/regular-redux实战/">展开全文 >></a>
         </p>
       
 
@@ -1117,11 +1161,11 @@ return o(i(t),arguments.length<2?void 0:u(arguments[1]))}})},function(t,n,r){var
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color2">C</a>
+                <a href="javascript:void(0)" class="js-tag color5">游戏开发</a>
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color5">游戏开发</a>
+                <a href="javascript:void(0)" class="js-tag color2">C</a>
               </li>
              
               <li class="article-tag-list-item">
@@ -1137,15 +1181,15 @@ return o(i(t),arguments.length<2?void 0:u(arguments[1]))}})},function(t,n,r){var
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color5">java</a>
-              </li>
-             
-              <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color1">linux</a>
               </li>
              
               <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color5">node</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color5">java</a>
               </li>
              
               <li class="article-tag-list-item">
@@ -1173,11 +1217,11 @@ return o(i(t),arguments.length<2?void 0:u(arguments[1]))}})},function(t,n,r){var
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color3">分治</a>
+                <a href="javascript:void(0)" class="js-tag color3">排序</a>
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color3">排序</a>
+                <a href="javascript:void(0)" class="js-tag color3">分治</a>
               </li>
              
               <li class="article-tag-list-item">
@@ -1190,6 +1234,18 @@ return o(i(t),arguments.length<2?void 0:u(arguments[1]))}})},function(t,n,r){var
              
               <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color3">面试</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color1">react</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color1">redux</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color3">regular</a>
               </li>
             
             <div class="clearfix"></div>
