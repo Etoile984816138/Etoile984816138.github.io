@@ -163,6 +163,101 @@
           <div id="js-content" class="content-ll">
             
   
+    <article id="post-ramda-源码解析" class="article article-type-post  article-index" itemscope itemprop="blogPost">
+  <div class="article-inner">
+    
+      <header class="article-header">
+        
+  
+    <h1 itemprop="name">
+      <a class="article-title" href="/2018/04/17/ramda-源码解析/">ramda 源码解析</a>
+    </h1>
+  
+
+        
+        <a href="/2018/04/17/ramda-源码解析/" class="archive-article-date">
+  	<time datetime="2018-04-17T08:41:03.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2018-04-17</time>
+</a>
+        
+      </header>
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <p>使用redux的操作数据的时候会经常用到一些方法，需要对一个对象上的某个属性进行一些操作，这时候想到了ramda，但是由于场景没有那么复杂，没有直接引入ramda库，于是自己参考ramda实现了一些常用的方法。</p>
+<p>首先明确我们的需求，我们需要实现的方法必须：</p>
+<ul>
+<li>纯函数无副作用</li>
+<li>简单简单简单简单！</li>
+</ul>
+<h3><span id="一切从增删改查开始">一切从增删改查开始</span></h3><p>一个列表数据，我们想在reducer中对它进行增删改查操作，应该怎么做呢？</p>
+<h4><span id="第一步列表处理">第一步，列表处理</span></h4><p>我相信大多数人会首先把这个列表显示出来再进行操作，后端传过来的数据往往是这样一个数组。<br><figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><span class="line">[&#123;</span><br><span class="line">	id:<span class="number">1000</span>,</span><br><span class="line">	text:<span class="string">'test1'</span></span><br><span class="line">&#125;,&#123;</span><br><span class="line">	id:<span class="number">1001</span>,</span><br><span class="line">	text:<span class="string">'test2'</span></span><br><span class="line">&#125;,&#123;</span><br><span class="line">	id:<span class="number">1002</span>,</span><br><span class="line">	text:<span class="string">'test3'</span></span><br><span class="line">&#125;]</span><br></pre></td></tr></table></figure></p>
+<p>当然，我们是可以直接把这个数据存在store中渲染到界面上的，但是如果要对这个数据进行其它操作呢？增还好，push进数组，改和删，首先我们需要遍历查找到id为指定值的数据，然后再进行下一步操作，步骤比较繁琐。所以我们可不可以直接在存储阶段就对它进行处理，便于后面的操作呢？当然可以啦~<br>所以第一个方法，把数组处理成对象,即我们的结果是：<br><figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br></pre></td><td class="code"><pre><span class="line">&#123;</span><br><span class="line">	<span class="number">1000</span>: &#123;</span><br><span class="line">		id: <span class="number">1000</span>,</span><br><span class="line">		text: <span class="string">'test1'</span></span><br><span class="line">	&#125;,</span><br><span class="line">	<span class="number">1001</span>: &#123;</span><br><span class="line">		id: <span class="number">1001</span>,</span><br><span class="line">		text: <span class="string">'test2'</span></span><br><span class="line">	&#125;,</span><br><span class="line">	<span class="number">1002</span>: &#123;</span><br><span class="line">		id: <span class="number">1002</span>,</span><br><span class="line">		text: <span class="string">'test3'</span></span><br><span class="line">	&#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure></p>
+<p><strong>输入：</strong>数组，作为key值的属性名<br><strong>输出：</strong>一个新的对象<br><strong>实现：</strong><br><figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">export</span> <span class="keyword">const</span> mapArrayToObject = <span class="function">(<span class="params">array, value = <span class="string">'id'</span></span>) =&gt;</span> &#123;</span><br><span class="line">    <span class="keyword">let</span> obj = &#123;&#125;;</span><br><span class="line">    array.map(<span class="function"><span class="params">item</span> =&gt;</span> &#123;</span><br><span class="line">        obj[item[value]] = item;</span><br><span class="line">    &#125;);</span><br><span class="line">    <span class="keyword">return</span> obj;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure></p>
+<h4><span id="第二步增加和修改">第二步，增加和修改</span></h4><p>对象一个重要的特性是，如果这个key值之前存在会覆盖原有属性，没有则会增加键值对。从最简单的场景开始，如果一个对象：<br><figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">&#123;</span><br><span class="line">  a: <span class="number">1</span>,</span><br><span class="line">  b: <span class="number">2</span></span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure></p>
+<p>我们增加或删除一个属性，返回新的对象<br><strong>输入：</strong>需添加的key，需添加的value，对象<br><strong>输出：</strong>一个新的对象<br><strong>实现：</strong><br><figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">export</span> <span class="keyword">const</span> assoc = <span class="function">(<span class="params">prop, val, obj</span>) =&gt;</span> &#123;</span><br><span class="line">    <span class="keyword">let</span> result = <span class="built_in">Object</span>.assign(&#123;&#125;, obj);</span><br><span class="line">    result[prop] = val;</span><br><span class="line">    <span class="keyword">return</span> result;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure></p>
+<p>考虑到如果一次性要更新或增加多个属性，我们可以传入一个对象，把这个新对象的属性加在原对象上<br><strong>输入：</strong>props:Object[要加到对象上的属性]，obj:Object[原对象]<br><strong>输出：</strong>一个新的对象<br><strong>实现：</strong><br><figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">export</span> <span class="keyword">const</span> merge = <span class="function">(<span class="params">props, obj</span>) =&gt;</span> &#123;</span><br><span class="line">    <span class="keyword">const</span> result = <span class="built_in">Object</span>.assign(&#123;&#125;, obj);</span><br><span class="line">    <span class="keyword">return</span> <span class="built_in">Object</span>.assign(result,props);</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure></p>
+<p>当然实际情况大多不可能那么简单，我们很多情况下或许要修改<br><figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line">&#123;</span><br><span class="line">  a: &#123;</span><br><span class="line">    b: &#123;</span><br><span class="line">      c: &#123;</span><br><span class="line">        d: <span class="number">2</span></span><br><span class="line">      &#125;</span><br><span class="line">    &#125;</span><br><span class="line">  &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure></p>
+<p>中的d，如果不使用帮助函数，哪怕ES6+有对象解构，也八成要写成这个模样<br><figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">return</span> &#123;</span><br><span class="line">  a: &#123;</span><br><span class="line">    ...a</span><br><span class="line">    b: &#123;</span><br><span class="line">      ...b</span><br><span class="line">      c: &#123;</span><br><span class="line">        ...c,</span><br><span class="line">        d: <span class="number">3</span></span><br><span class="line">      &#125;</span><br><span class="line">    &#125;</span><br><span class="line">  &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure></p>
+<p>这时候想到了ramda中的<a href="http://ramdajs.com/docs/#assocPath" target="_blank" rel="noopener">assocPath</a>，先放上源码我们分析一下：<br><figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">var</span> assocPath = _curry3(<span class="function"><span class="keyword">function</span> <span class="title">assocPath</span>(<span class="params">path, val, obj</span>) </span>&#123;</span><br><span class="line">  <span class="keyword">if</span> (path.length === <span class="number">0</span>) &#123;</span><br><span class="line">    <span class="keyword">return</span> val;</span><br><span class="line">  &#125;</span><br><span class="line">  <span class="keyword">var</span> idx = path[<span class="number">0</span>];</span><br><span class="line">  <span class="keyword">if</span> (path.length &gt; <span class="number">1</span>) &#123;</span><br><span class="line">    <span class="keyword">var</span> nextObj = (!isNil(obj) &amp;&amp; _has(idx, obj)) ? obj[idx] : _isInteger(path[<span class="number">1</span>]) ? [] : &#123;&#125;;</span><br><span class="line">    val = assocPath(<span class="built_in">Array</span>.prototype.slice.call(path, <span class="number">1</span>), val, nextObj);</span><br><span class="line">  &#125;</span><br><span class="line">  <span class="keyword">if</span> (_isInteger(idx) &amp;&amp; _isArray(obj)) &#123;</span><br><span class="line">    <span class="keyword">var</span> arr = [].concat(obj);</span><br><span class="line">    arr[idx] = val;</span><br><span class="line">    <span class="keyword">return</span> arr;</span><br><span class="line">  &#125; <span class="keyword">else</span> &#123;</span><br><span class="line">    <span class="keyword">return</span> assoc(idx, val, obj);</span><br><span class="line">  &#125;</span><br><span class="line">&#125;);</span><br><span class="line"><span class="keyword">export</span> <span class="keyword">default</span> assocPath;</span><br></pre></td></tr></table></figure></p>
+<p>看一下里面用到的方法：</p>
+<ul>
+<li>_curry3 柯里化我们暂时不考虑</li>
+<li>isNil 检测输入值是否为 null 或 undefined</li>
+<li>_has 判断对象自身是否含有该属性</li>
+<li>_isInteger 判断是否为数字</li>
+<li>_isArray 判断是否为数组</li>
+</ul>
+<p>看一下整个递归调用的过程，假如我们传入的参数是（[‘a’,’b’,’c’,’d’],5,obj）,<br><figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">var</span> obj = &#123;</span><br><span class="line">    a:&#123;</span><br><span class="line">        b:&#123;</span><br><span class="line">            c:&#123;</span><br><span class="line">                d:<span class="number">2</span>,</span><br><span class="line">                d2:[<span class="number">32321</span>,<span class="number">1314322</span>,<span class="number">13212</span>]</span><br><span class="line"></span><br><span class="line">            &#125;,</span><br><span class="line">            c2:<span class="string">'c'</span></span><br><span class="line">        &#125;,</span><br><span class="line">        b2:<span class="string">'b'</span></span><br><span class="line">    &#125;,</span><br><span class="line">    a2:<span class="string">'a'</span></span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure></p>
+<p>首先，<br><figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br></pre></td><td class="code"><pre><span class="line">path = [<span class="string">'a'</span>,<span class="string">'b'</span>,<span class="string">'c'</span>,<span class="string">'d'</span>];</span><br><span class="line">val = <span class="number">5</span>;</span><br><span class="line">obj = &#123;</span><br><span class="line">        a:&#123;</span><br><span class="line">            b:&#123;</span><br><span class="line">                c:&#123;</span><br><span class="line">                    d:<span class="number">2</span>,</span><br><span class="line">                    d2:[<span class="number">32321</span>,<span class="number">1314322</span>,<span class="number">13212</span>]</span><br><span class="line"></span><br><span class="line">                &#125;,</span><br><span class="line">                c2:<span class="string">'c'</span></span><br><span class="line">            &#125;,</span><br><span class="line">            b2:<span class="string">'b'</span></span><br><span class="line">        &#125;,</span><br><span class="line">        a2:<span class="string">'a'</span></span><br><span class="line">    &#125;;</span><br><span class="line">idX = <span class="string">'a'</span>;</span><br></pre></td></tr></table></figure></p>
+<p>path.length &gt; 1<br><figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br></pre></td><td class="code"><pre><span class="line">nextObj = &#123;</span><br><span class="line">            b:&#123;</span><br><span class="line">                c:&#123;</span><br><span class="line">                    d:<span class="number">2</span>,</span><br><span class="line">                    d2:[<span class="number">32321</span>,<span class="number">1314322</span>,<span class="number">13212</span>]</span><br><span class="line"></span><br><span class="line">                &#125;,</span><br><span class="line">                c2:<span class="string">'c'</span></span><br><span class="line">            &#125;,</span><br><span class="line">            b2:<span class="string">'b'</span></span><br><span class="line">        &#125;;</span><br></pre></td></tr></table></figure></p>
+<p>并且进入下一层递归，经过层层递归，最后</p>
+<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">path = [<span class="string">'d'</span>];</span><br><span class="line">val = <span class="number">5</span>;</span><br><span class="line">obj =  &#123;<span class="attr">d</span>:<span class="number">2</span>,<span class="attr">d2</span>:[<span class="number">32321</span>,<span class="number">1314322</span>,<span class="number">13212</span>]&#125;;;</span><br><span class="line">idX = <span class="string">'d'</span>;</span><br></pre></td></tr></table></figure>
+<p>此时path.length 不大于1，故不进入递归直接进入下面的逻辑，由于是一个对象，调用assoc()，返回修改完毕的新对象，再然后一层层执行之前递归未执行完的逻辑，最后返回修改完毕的对象，由于每次assoc会创建一个新对象，故不会修改原对象，assoc的for..in遍历是浅复制，也保证了新对象保持对原先对象未修改部分的引用，仅修改要变化的量。</p>
+<p>再扩展一下，如果我们需要修改某一路径上多个属性<br><figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">/**</span></span><br><span class="line"><span class="comment"> * 修改对象某一路径上的多个属性</span></span><br><span class="line"><span class="comment"> * @param &#123;Array&#125; path 属性路径 ['a','b','c']</span></span><br><span class="line"><span class="comment"> * @param &#123;Object&#125; vals 属性列表</span></span><br><span class="line"><span class="comment"> * @param &#123;Object&#125; obj </span></span><br><span class="line"><span class="comment"> */</span></span><br><span class="line"><span class="keyword">export</span> <span class="keyword">const</span> assocPathMore = <span class="function">(<span class="params">path, vals = &#123;&#125;, obj</span>) =&gt;</span> &#123;</span><br><span class="line">    <span class="keyword">let</span> result = <span class="built_in">Object</span>.assign(&#123;&#125;, obj);</span><br><span class="line">    <span class="keyword">for</span>(<span class="keyword">let</span> i <span class="keyword">in</span> vals)&#123;</span><br><span class="line">        result = assocPath([...path, i], vals[i], result);</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="keyword">return</span> result;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure></p>
+<h4><span id="第三步删除">第三步，删除</span></h4><p>删除有，或者说过滤，有两种，第一是元素的某个属性等于某个值时不显示，第二是直接把key为多少的元素从列表中移除.<br>第一种，换一种说法是返回一个列表中满足一定值的元素的集合<br><figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">const</span> pickBy = <span class="function">(<span class="params">cb, obj</span>) =&gt;</span> &#123;</span><br><span class="line">    <span class="keyword">var</span> result = &#123;&#125;;</span><br><span class="line">    <span class="keyword">for</span> (<span class="keyword">var</span> prop <span class="keyword">in</span> obj) &#123;</span><br><span class="line">        <span class="keyword">if</span> (cb(obj[prop], prop, obj)) &#123;</span><br><span class="line">            result[prop] = obj[prop];</span><br><span class="line">        &#125;</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="keyword">return</span> result;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure></p>
+<p>对于第二种,可以用delete操作符：<br><figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">const</span> without = <span class="function">(<span class="params">obj, prop</span>) =&gt;</span> &#123;</span><br><span class="line">    <span class="keyword">const</span> result = <span class="built_in">Object</span>.assign(&#123;&#125;, obj);</span><br><span class="line">    <span class="keyword">delete</span> result[prop];</span><br><span class="line">    <span class="keyword">return</span> result;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure></p>
+
+      
+
+      
+    </div>
+    <div class="article-info article-info-index">
+      
+      
+      
+
+      
+        <p class="article-more-link">
+          <a class="article-more-a" href="/2018/04/17/ramda-源码解析/">展开全文 >></a>
+        </p>
+      
+
+      
+      <div class="clearfix"></div>
+    </div>
+  </div>
+</article>
+
+<aside class="wrap-side-operation">
+    <div class="mod-side-operation">
+        
+        <div class="jump-container" id="js-jump-container" style="display:none;">
+            <a href="javascript:void(0)" class="mod-side-operation__jump-to-top">
+                <i class="icon-font icon-back"></i>
+            </a>
+            <div id="js-jump-plan-container" class="jump-plan-container" style="top: -11px;">
+                <i class="icon-font icon-plane jump-plane"></i>
+            </div>
+        </div>
+        
+        
+    </div>
+</aside>
+
+
+
+
+  
     <article id="post-关于react，我所知道的" class="article article-type-post  article-index" itemscope itemprop="blogPost">
   <div class="article-inner">
     
@@ -210,11 +305,11 @@
         		</li>
       		 
         		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color1">react</a>
+        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color1">redux</a>
         		</li>
       		 
         		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color1">redux</a>
+        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color1">react</a>
         		</li>
       		
 		</ul>
@@ -304,11 +399,11 @@
         		</li>
       		 
         		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color1">redux</a>
+        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color3">regular</a>
         		</li>
       		 
         		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color3">regular</a>
+        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color1">redux</a>
         		</li>
       		
 		</ul>
@@ -978,96 +1073,6 @@
 
 
   
-    <article id="post-H5游戏开发之物理引擎" class="article article-type-post  article-index" itemscope itemprop="blogPost">
-  <div class="article-inner">
-    
-      <header class="article-header">
-        
-  
-    <h1 itemprop="name">
-      <a class="article-title" href="/2018/03/03/H5游戏开发之物理引擎/">H5游戏开发之物理引擎</a>
-    </h1>
-  
-
-        
-        <a href="/2018/03/03/H5游戏开发之物理引擎/" class="archive-article-date">
-  	<time datetime="2018-03-03T06:26:47.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2018-03-03</time>
-</a>
-        
-      </header>
-    
-    <div class="article-entry" itemprop="articleBody">
-      
-        <p>物理引擎这块应该是整个项目过程中我觉得最坑的一点，文档的欠缺，还有各种不明所以的奇怪现象，有时候不小心改一个配置参数都能发生一系列奇怪的问题。。。</p>
-<p>技术选型的时候考察了一系列物理引擎<br><a href="https://github.com/bebraw/jswiki/wiki/Physics-libraries" target="_blank" rel="noopener">https://github.com/bebraw/jswiki/wiki/Physics-libraries</a></p>
-        
-      
-
-      
-    </div>
-    <div class="article-info article-info-index">
-      
-      
-	<div class="article-tag tagcloud">
-		<i class="icon-price-tags icon"></i>
-		<ul class="article-tag-list">
-			 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color3">前端</a>
-        		</li>
-      		 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color5">游戏开发</a>
-        		</li>
-      		
-		</ul>
-	</div>
-
-      
-	<div class="article-category tagcloud">
-		<i class="icon-book icon"></i>
-		<ul class="article-tag-list">
-			 
-        		<li class="article-tag-list-item">
-        			<a href="/categories/项目整理/" class="article-tag-list-link color5">项目整理</a>
-        		</li>
-      		
-		</ul>
-	</div>
-
-
-      
-        <p class="article-more-link">
-          <a class="article-more-a" href="/2018/03/03/H5游戏开发之物理引擎/">展开全文 >></a>
-        </p>
-      
-
-      
-      <div class="clearfix"></div>
-    </div>
-  </div>
-</article>
-
-<aside class="wrap-side-operation">
-    <div class="mod-side-operation">
-        
-        <div class="jump-container" id="js-jump-container" style="display:none;">
-            <a href="javascript:void(0)" class="mod-side-operation__jump-to-top">
-                <i class="icon-font icon-back"></i>
-            </a>
-            <div id="js-jump-plan-container" class="jump-plan-container" style="top: -11px;">
-                <i class="icon-font icon-plane jump-plane"></i>
-            </div>
-        </div>
-        
-        
-    </div>
-</aside>
-
-
-
-
-  
   
     <nav id="page-nav">
       <span class="page-number current">1</span><a class="page-number" href="/page/2/">2</a><a class="page-number" href="/page/3/">3</a><span class="space">&hellip;</span><a class="page-number" href="/page/5/">5</a><a class="extend next" rel="next" href="/page/2/">Next &raquo;</a>
@@ -1181,6 +1186,10 @@ return o(i(t),arguments.length<2?void 0:u(arguments[1]))}})},function(t,n,r){var
               </li>
              
               <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color5">java</a>
+              </li>
+             
+              <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color1">linux</a>
               </li>
              
@@ -1189,11 +1198,15 @@ return o(i(t),arguments.length<2?void 0:u(arguments[1]))}})},function(t,n,r){var
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color5">java</a>
+                <a href="javascript:void(0)" class="js-tag color1">mysql</a>
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color1">mysql</a>
+                <a href="javascript:void(0)" class="js-tag color3">regular</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color1">redux</a>
               </li>
              
               <li class="article-tag-list-item">
@@ -1205,11 +1218,11 @@ return o(i(t),arguments.length<2?void 0:u(arguments[1]))}})},function(t,n,r){var
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color5">js模式</a>
+                <a href="javascript:void(0)" class="js-tag color1">react</a>
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color1">issue</a>
+                <a href="javascript:void(0)" class="js-tag color5">js模式</a>
               </li>
              
               <li class="article-tag-list-item">
@@ -1217,15 +1230,19 @@ return o(i(t),arguments.length<2?void 0:u(arguments[1]))}})},function(t,n,r){var
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color3">排序</a>
-              </li>
-             
-              <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color3">分治</a>
               </li>
              
               <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color1">issue</a>
+              </li>
+             
+              <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color3">布局</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color3">排序</a>
               </li>
              
               <li class="article-tag-list-item">
@@ -1234,18 +1251,6 @@ return o(i(t),arguments.length<2?void 0:u(arguments[1]))}})},function(t,n,r){var
              
               <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color3">面试</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color1">react</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color1">redux</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color3">regular</a>
               </li>
             
             <div class="clearfix"></div>
