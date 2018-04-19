@@ -6,14 +6,18 @@
   <meta name="renderer" content="webkit">
   <meta http-equiv="X-UA-Compatible" content="IE=edge" >
   <link rel="dns-prefetch" href="http://yoursite.com">
-  <title>林落雨落林</title>
+  <title>定制你自己的immutable数据操作方法集 | 林落雨落林</title>
   <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
-  <meta property="og:type" content="website">
-<meta property="og:title" content="林落雨落林">
-<meta property="og:url" content="http://yoursite.com/index.html">
+  <meta name="description" content="使用redux的操作数据的时候对某个数据进行增删改查操作，需要维持数据的immutable。当然类似的库也有很多，像lodash、ramda等等，这些库往往方法众多，如果是初次使用必定眼花缭乱，抛开一切，在使用这些已有的库之前，我们需要思考一下，我们真正需要怎么样的功能，能否自己实现一个简单的帮助函数库。">
+<meta property="og:type" content="article">
+<meta property="og:title" content="定制你自己的immutable数据操作方法集">
+<meta property="og:url" content="http://yoursite.com/2018/04/17/定制你自己的immutable数据操作方法集/index.html">
 <meta property="og:site_name" content="林落雨落林">
+<meta property="og:description" content="使用redux的操作数据的时候对某个数据进行增删改查操作，需要维持数据的immutable。当然类似的库也有很多，像lodash、ramda等等，这些库往往方法众多，如果是初次使用必定眼花缭乱，抛开一切，在使用这些已有的库之前，我们需要思考一下，我们真正需要怎么样的功能，能否自己实现一个简单的帮助函数库。">
+<meta property="og:updated_time" content="2018-04-19T12:07:58.147Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="林落雨落林">
+<meta name="twitter:title" content="定制你自己的immutable数据操作方法集">
+<meta name="twitter:description" content="使用redux的操作数据的时候对某个数据进行增删改查操作，需要维持数据的immutable。当然类似的库也有很多，像lodash、ramda等等，这些库往往方法众多，如果是初次使用必定眼花缭乱，抛开一切，在使用这些已有的库之前，我们需要思考一下，我们真正需要怎么样的功能，能否自己实现一个简单的帮助函数库。">
   
   
     <link rel="icon" href="http://ovne6ee1z.bkt.clouddn.com/avatar.jpg">
@@ -161,16 +165,14 @@
             <canvas data-colors="#eaeaea" data-sectionHeight="100" data-contentId="js-content" id="myCanvas1" class="anm-canvas"></canvas>
           </div>
           <div id="js-content" class="content-ll">
-            
-  
-    <article id="post-定制你自己的immutable数据操作方法集" class="article article-type-post  article-index" itemscope itemprop="blogPost">
+            <article id="post-定制你自己的immutable数据操作方法集" class="article article-type-post " itemscope itemprop="blogPost">
   <div class="article-inner">
     
       <header class="article-header">
         
   
-    <h1 itemprop="name">
-      <a class="article-title" href="/2018/04/17/定制你自己的immutable数据操作方法集/">定制你自己的immutable数据操作方法集</a>
+    <h1 class="article-title" itemprop="name">
+      定制你自己的immutable数据操作方法集
     </h1>
   
 
@@ -184,525 +186,46 @@
     <div class="article-entry" itemprop="articleBody">
       
         <p>使用redux的操作数据的时候对某个数据进行增删改查操作，需要维持数据的immutable。当然类似的库也有很多，像lodash、ramda等等，这些库往往方法众多，如果是初次使用必定眼花缭乱，抛开一切，在使用这些已有的库之前，我们需要思考一下，我们真正需要怎么样的功能，能否自己实现一个简单的帮助函数库。</p>
-        
-      
-
-      
-    </div>
-    <div class="article-info article-info-index">
-      
-      
-      
-
-      
-        <p class="article-more-link">
-          <a class="article-more-a" href="/2018/04/17/定制你自己的immutable数据操作方法集/">展开全文 >></a>
-        </p>
-      
-
-      
-      <div class="clearfix"></div>
-    </div>
-  </div>
-</article>
-
-<aside class="wrap-side-operation">
-    <div class="mod-side-operation">
-        
-        <div class="jump-container" id="js-jump-container" style="display:none;">
-            <a href="javascript:void(0)" class="mod-side-operation__jump-to-top">
-                <i class="icon-font icon-back"></i>
-            </a>
-            <div id="js-jump-plan-container" class="jump-plan-container" style="top: -11px;">
-                <i class="icon-font icon-plane jump-plane"></i>
-            </div>
-        </div>
-        
-        
-    </div>
-</aside>
-
-
-
-
-  
-    <article id="post-关于react，我所知道的" class="article article-type-post  article-index" itemscope itemprop="blogPost">
-  <div class="article-inner">
-    
-      <header class="article-header">
-        
-  
-    <h1 itemprop="name">
-      <a class="article-title" href="/2018/04/04/关于react，我所知道的/">关于react，我所知道的</a>
-    </h1>
-  
-
-        
-        <a href="/2018/04/04/关于react，我所知道的/" class="archive-article-date">
-  	<time datetime="2018-04-04T08:09:09.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2018-04-04</time>
-</a>
-        
-      </header>
-    
-    <div class="article-entry" itemprop="articleBody">
-      
-        <h3 id="react学习资料推荐"><a href="#react学习资料推荐" class="headerlink" title="react学习资料推荐"></a>react学习资料推荐</h3><ul>
-<li><a href="https://reactjs.org" target="_blank" rel="noopener">官方文档</a></li>
-<li><a href="http://huziketang.mangojuice.top/books/react/lesson10" target="_blank" rel="noopener">React.js 小书</a></li>
-</ul>
-<h3 id="Demo练习实现"><a href="#Demo练习实现" class="headerlink" title="Demo练习实现"></a>Demo练习实现</h3><ul>
-<li><a href="https://github.com/Etoile984816138/react-demo" target="_blank" rel="noopener">组件Demo</a></li>
-<li><a href="https://github.com/Etoile984816138/todolist-react" target="_blank" rel="noopener">TODO-LIST Demo</a></li>
-<li><a href="https://github.com/Etoile984816138/make-redux" target="_blank" rel="noopener">实现一个很简单的redux</a></li>
-<li><a href="https://github.com/Etoile984816138/make-react-redux" target="_blank" rel="noopener">实现一个很简单的react-redux</a></li>
-</ul>
-        
-      
-
-      
-    </div>
-    <div class="article-info article-info-index">
-      
-      
-	<div class="article-tag tagcloud">
-		<i class="icon-price-tags icon"></i>
-		<ul class="article-tag-list">
-			 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color3">前端</a>
-        		</li>
-      		 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color1">redux</a>
-        		</li>
-      		 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color1">react</a>
-        		</li>
-      		
-		</ul>
-	</div>
-
-      
-	<div class="article-category tagcloud">
-		<i class="icon-book icon"></i>
-		<ul class="article-tag-list">
-			 
-        		<li class="article-tag-list-item">
-        			<a href="/categories/学习笔记/" class="article-tag-list-link color5">学习笔记</a>
-        		</li>
-      		
-		</ul>
-	</div>
-
-
-      
-        <p class="article-more-link">
-          <a class="article-more-a" href="/2018/04/04/关于react，我所知道的/">展开全文 >></a>
-        </p>
-      
-
-      
-      <div class="clearfix"></div>
-    </div>
-  </div>
-</article>
-
-<aside class="wrap-side-operation">
-    <div class="mod-side-operation">
-        
-        <div class="jump-container" id="js-jump-container" style="display:none;">
-            <a href="javascript:void(0)" class="mod-side-operation__jump-to-top">
-                <i class="icon-font icon-back"></i>
-            </a>
-            <div id="js-jump-plan-container" class="jump-plan-container" style="top: -11px;">
-                <i class="icon-font icon-plane jump-plane"></i>
-            </div>
-        </div>
-        
-        
-    </div>
-</aside>
-
-
-
-
-  
-    <article id="post-regular-redux实战" class="article article-type-post  article-index" itemscope itemprop="blogPost">
-  <div class="article-inner">
-    
-      <header class="article-header">
-        
-  
-    <h1 itemprop="name">
-      <a class="article-title" href="/2018/03/22/regular-redux实战/">regular+redux实战思路</a>
-    </h1>
-  
-
-        
-        <a href="/2018/03/22/regular-redux实战/" class="archive-article-date">
-  	<time datetime="2018-03-22T12:17:34.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2018-03-22</time>
-</a>
-        
-      </header>
-    
-    <div class="article-entry" itemprop="articleBody">
-      
-        <p>新部门，新项目使用regular+redux进行开发，由于自己之前从未接触过，并且手头上没有开发任务，所以趁这个不算短的时间系统性学习了一下。本文主要是对如何使用regular+redux进行一个项目开发的一些思路，随着自己的学习成长会不断更新内容。</p>
-<h3 id="文档（中文）"><a href="#文档（中文）" class="headerlink" title="文档（中文）"></a>文档（中文）</h3><p><a href="http://regularjs.github.io/guide/zh/index.html" target="_blank" rel="noopener">regular</a><br><a href="https://regularjs.github.io/regular-state/" target="_blank" rel="noopener">regular-state</a><br><a href="https://cn.redux.js.org/" target="_blank" rel="noopener">redux</a></p>
-        
-      
-
-      
-    </div>
-    <div class="article-info article-info-index">
-      
-      
-	<div class="article-tag tagcloud">
-		<i class="icon-price-tags icon"></i>
-		<ul class="article-tag-list">
-			 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color3">前端</a>
-        		</li>
-      		 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color3">regular</a>
-        		</li>
-      		 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color1">redux</a>
-        		</li>
-      		
-		</ul>
-	</div>
-
-      
-	<div class="article-category tagcloud">
-		<i class="icon-book icon"></i>
-		<ul class="article-tag-list">
-			 
-        		<li class="article-tag-list-item">
-        			<a href="/categories/学习笔记/" class="article-tag-list-link color5">学习笔记</a>
-        		</li>
-      		
-		</ul>
-	</div>
-
-
-      
-        <p class="article-more-link">
-          <a class="article-more-a" href="/2018/03/22/regular-redux实战/">展开全文 >></a>
-        </p>
-      
-
-      
-      <div class="clearfix"></div>
-    </div>
-  </div>
-</article>
-
-<aside class="wrap-side-operation">
-    <div class="mod-side-operation">
-        
-        <div class="jump-container" id="js-jump-container" style="display:none;">
-            <a href="javascript:void(0)" class="mod-side-operation__jump-to-top">
-                <i class="icon-font icon-back"></i>
-            </a>
-            <div id="js-jump-plan-container" class="jump-plan-container" style="top: -11px;">
-                <i class="icon-font icon-plane jump-plane"></i>
-            </div>
-        </div>
-        
-        
-    </div>
-</aside>
-
-
-
-
-  
-    <article id="post-2017:一篇错过年终的年终总结" class="article article-type-post  article-index" itemscope itemprop="blogPost">
-  <div class="article-inner">
-    
-      <header class="article-header">
-        
-  
-    <h1 itemprop="name">
-      <a class="article-title" href="/2018/03/04/2017:一篇错过年终的年终总结/">2017:一篇错过年终的年终总结</a>
-    </h1>
-  
-
-        
-        <a href="/2018/03/04/2017:一篇错过年终的年终总结/" class="archive-article-date">
-  	<time datetime="2018-03-04T07:36:25.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2018-03-04</time>
-</a>
-        
-      </header>
-    
-    <div class="article-entry" itemprop="articleBody">
-      
-        <p>在所有开始之前，写写停停一个多月，还是觉得有好多东西没写完的H5游戏项目总结,总算写到了可以见人的地步，为了方便阅读（主要是字看着一多就写不下去…），也从一篇分成了好几篇。</p>
-<p>第一次这么系统地写项目总结，做叮咚帮的时候就一直想写，但是当时事情实在太多了，睡觉都没什么时间，后面写的一些小项目又确实没什么技术含量，暑假写完国赛项目之后也想写来着，专门写写技术，不是文档上交上去吹的那一堆，但是紧跟着就各种秋招笔试面试了，不过反正后面写毕设论文也还是要写的。</p>
-        
-      
-
-      
-    </div>
-    <div class="article-info article-info-index">
-      
-      
-	<div class="article-tag tagcloud">
-		<i class="icon-price-tags icon"></i>
-		<ul class="article-tag-list">
-			 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color3">前端</a>
-        		</li>
-      		
-		</ul>
-	</div>
-
-      
-	<div class="article-category tagcloud">
-		<i class="icon-book icon"></i>
-		<ul class="article-tag-list">
-			 
-        		<li class="article-tag-list-item">
-        			<a href="/categories/项目整理/" class="article-tag-list-link color5">项目整理</a>
-        		</li>
-      		
-		</ul>
-	</div>
-
-
-      
-        <p class="article-more-link">
-          <a class="article-more-a" href="/2018/03/04/2017:一篇错过年终的年终总结/">展开全文 >></a>
-        </p>
-      
-
-      
-      <div class="clearfix"></div>
-    </div>
-  </div>
-</article>
-
-<aside class="wrap-side-operation">
-    <div class="mod-side-operation">
-        
-        <div class="jump-container" id="js-jump-container" style="display:none;">
-            <a href="javascript:void(0)" class="mod-side-operation__jump-to-top">
-                <i class="icon-font icon-back"></i>
-            </a>
-            <div id="js-jump-plan-container" class="jump-plan-container" style="top: -11px;">
-                <i class="icon-font icon-plane jump-plane"></i>
-            </div>
-        </div>
-        
-        
-    </div>
-</aside>
-
-
-
-
-  
-    <article id="post-《计算机系统基础》课程笔记" class="article article-type-post  article-index" itemscope itemprop="blogPost">
-  <div class="article-inner">
-    
-      <header class="article-header">
-        
-  
-    <h1 itemprop="name">
-      <a class="article-title" href="/2018/03/03/《计算机系统基础》课程笔记/">《计算机系统基础》课程笔记</a>
-    </h1>
-  
-
-        
-        <a href="/2018/03/03/《计算机系统基础》课程笔记/" class="archive-article-date">
-  	<time datetime="2018-03-03T12:43:56.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2018-03-03</time>
-</a>
-        
-      </header>
-    
-    <div class="article-entry" itemprop="articleBody">
-      
-        <p>课程地址：<a href="https://www.icourse163.org/learn/NJU-1001625001?tid=1002655016#/learn/content?type=detail&amp;id=1003674250" target="_blank" rel="noopener">https://www.icourse163.org/learn/NJU-1001625001?tid=1002655016#/learn/content?type=detail&amp;id=1003674250</a></p>
-        
-      
-
-      
-    </div>
-    <div class="article-info article-info-index">
-      
-      
-      
-	<div class="article-category tagcloud">
-		<i class="icon-book icon"></i>
-		<ul class="article-tag-list">
-			 
-        		<li class="article-tag-list-item">
-        			<a href="/categories/学习笔记/" class="article-tag-list-link color5">学习笔记</a>
-        		</li>
-      		
-		</ul>
-	</div>
-
-
-      
-        <p class="article-more-link">
-          <a class="article-more-a" href="/2018/03/03/《计算机系统基础》课程笔记/">展开全文 >></a>
-        </p>
-      
-
-      
-      <div class="clearfix"></div>
-    </div>
-  </div>
-</article>
-
-<aside class="wrap-side-operation">
-    <div class="mod-side-operation">
-        
-        <div class="jump-container" id="js-jump-container" style="display:none;">
-            <a href="javascript:void(0)" class="mod-side-operation__jump-to-top">
-                <i class="icon-font icon-back"></i>
-            </a>
-            <div id="js-jump-plan-container" class="jump-plan-container" style="top: -11px;">
-                <i class="icon-font icon-plane jump-plane"></i>
-            </div>
-        </div>
-        
-        
-    </div>
-</aside>
-
-
-
-
-  
-    <article id="post-H5游戏开发踩坑不完全指南" class="article article-type-post  article-index" itemscope itemprop="blogPost">
-  <div class="article-inner">
-    
-      <header class="article-header">
-        
-  
-    <h1 itemprop="name">
-      <a class="article-title" href="/2018/03/03/H5游戏开发踩坑不完全指南/">H5游戏开发踩坑不完全指南</a>
-    </h1>
-  
-
-        
-        <a href="/2018/03/03/H5游戏开发踩坑不完全指南/" class="archive-article-date">
-  	<time datetime="2018-03-03T09:17:28.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2018-03-03</time>
-</a>
-        
-      </header>
-    
-    <div class="article-entry" itemprop="articleBody">
-      
-        <p>说是不完全指南，因为有些硬伤在之前已经说过了，本文偏重具体解决方案。</p>
-<h3 id="斜面上人物运动"><a href="#斜面上人物运动" class="headerlink" title="斜面上人物运动"></a>斜面上人物运动</h3><p>学过物理的同学都知道，物体的静止是相对的，我们也一直在随着地球在运动。但是游戏的世界中，两个物体的位置是人为设定的，也就是说，当我们设置地板运动时，如果人物不运动，那它就不是静止的，所以我们设置地板运动的时候同时也要设置人物运动。如果人物是相对静止的话还好，我们只要通过不断计算改变人物的xyz坐标即可，但是问题是，人物也许也在运动，我们可以通过操纵摇杆进行人物坐标的变化，这时候似乎看起来二者都要同时改变人物坐标，会造成冲突。<br>
-        
-      
-
-      
-    </div>
-    <div class="article-info article-info-index">
-      
-      
-	<div class="article-tag tagcloud">
-		<i class="icon-price-tags icon"></i>
-		<ul class="article-tag-list">
-			 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color3">前端</a>
-        		</li>
-      		 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color5">游戏开发</a>
-        		</li>
-      		
-		</ul>
-	</div>
-
-      
-	<div class="article-category tagcloud">
-		<i class="icon-book icon"></i>
-		<ul class="article-tag-list">
-			 
-        		<li class="article-tag-list-item">
-        			<a href="/categories/项目整理/" class="article-tag-list-link color5">项目整理</a>
-        		</li>
-      		
-		</ul>
-	</div>
-
-
-      
-        <p class="article-more-link">
-          <a class="article-more-a" href="/2018/03/03/H5游戏开发踩坑不完全指南/">展开全文 >></a>
-        </p>
-      
-
-      
-      <div class="clearfix"></div>
-    </div>
-  </div>
-</article>
-
-<aside class="wrap-side-operation">
-    <div class="mod-side-operation">
-        
-        <div class="jump-container" id="js-jump-container" style="display:none;">
-            <a href="javascript:void(0)" class="mod-side-operation__jump-to-top">
-                <i class="icon-font icon-back"></i>
-            </a>
-            <div id="js-jump-plan-container" class="jump-plan-container" style="top: -11px;">
-                <i class="icon-font icon-plane jump-plane"></i>
-            </div>
-        </div>
-        
-        
-    </div>
-</aside>
-
-
-
-
-  
-    <article id="post-H5游戏构建和优化思路（二）" class="article article-type-post  article-index" itemscope itemprop="blogPost">
-  <div class="article-inner">
-    
-      <header class="article-header">
-        
-  
-    <h1 itemprop="name">
-      <a class="article-title" href="/2018/03/03/H5游戏构建和优化思路（二）/">H5游戏构建和优化思路（二）</a>
-    </h1>
-  
-
-        
-        <a href="/2018/03/03/H5游戏构建和优化思路（二）/" class="archive-article-date">
-  	<time datetime="2018-03-03T07:12:01.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2018-03-03</time>
-</a>
-        
-      </header>
-    
-    <div class="article-entry" itemprop="articleBody">
-      
-        <p>接上文，前面说到一个游戏的构建思路</p>
+<a id="more"></a>
+<p>首先明确我们的需求，我们需要实现的方法必须：</p>
 <ul>
-<li>确定资源加载方案、编写游戏的场景或背景</li>
-<li>明确游戏场景，设置场景基本布局</li>
-<li>构造基本组件类</li>
-<li>调用逻辑编写</li>
-<li>屏幕适配</li>
-<li>性能优化</li>
+<li>不修改原有数据无副作用</li>
+<li>简单简单简单简单！</li>
 </ul>
-<p>本文主要阐述游戏组件的设计及代码优化。展开来说可以说很多很多，但是又确实不知道该从哪里写起来，总结了几点实际实现过程中有所思考的设计，还有最近看书过程中的一些思考。对于编写非游戏的前端项目来说也有些借鉴意义。</p>
-        
+<h3><span id="一切从增删改查开始">一切从增删改查开始</span></h3><p>一个列表数据，我们想在reducer中对它进行增删改查操作，应该怎么做呢？</p>
+<h4><span id="第一步列表处理">第一步，列表处理</span></h4><p>我相信大多数人会首先把这个列表显示出来再进行操作，后端传过来的数据往往是这样一个数组。<br><figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><span class="line">[&#123;</span><br><span class="line">	id:<span class="number">1000</span>,</span><br><span class="line">	text:<span class="string">'test1'</span></span><br><span class="line">&#125;,&#123;</span><br><span class="line">	id:<span class="number">1001</span>,</span><br><span class="line">	text:<span class="string">'test2'</span></span><br><span class="line">&#125;,&#123;</span><br><span class="line">	id:<span class="number">1002</span>,</span><br><span class="line">	text:<span class="string">'test3'</span></span><br><span class="line">&#125;]</span><br></pre></td></tr></table></figure></p>
+<p>当然，我们是可以直接把这个数据存在store中渲染到界面上的，但是如果要对这个数据进行其它操作呢？增还好，push进数组，改和删，首先我们需要遍历查找到id为指定值的数据，然后再进行下一步操作，步骤比较繁琐。所以我们可不可以直接在存储阶段就对它进行处理，便于后面的操作呢？当然可以啦~<br>所以第一个方法，把数组处理成对象,即我们的结果是：<br><figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br></pre></td><td class="code"><pre><span class="line">&#123;</span><br><span class="line">	<span class="number">1000</span>: &#123;</span><br><span class="line">		id: <span class="number">1000</span>,</span><br><span class="line">		text: <span class="string">'test1'</span></span><br><span class="line">	&#125;,</span><br><span class="line">	<span class="number">1001</span>: &#123;</span><br><span class="line">		id: <span class="number">1001</span>,</span><br><span class="line">		text: <span class="string">'test2'</span></span><br><span class="line">	&#125;,</span><br><span class="line">	<span class="number">1002</span>: &#123;</span><br><span class="line">		id: <span class="number">1002</span>,</span><br><span class="line">		text: <span class="string">'test3'</span></span><br><span class="line">	&#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure></p>
+<p><strong>输入：</strong>数组，作为key值的属性名<br><strong>输出：</strong>一个新的对象<br><strong>实现：</strong><br><figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">export</span> <span class="keyword">const</span> mapArrayToObject = <span class="function">(<span class="params">array, value = <span class="string">'id'</span></span>) =&gt;</span> &#123;</span><br><span class="line">    <span class="keyword">let</span> obj = &#123;&#125;;</span><br><span class="line">    array.map(<span class="function"><span class="params">item</span> =&gt;</span> &#123;</span><br><span class="line">        obj[item[value]] = item;</span><br><span class="line">    &#125;);</span><br><span class="line">    <span class="keyword">return</span> obj;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure></p>
+<h4><span id="第二步增加和修改">第二步，增加和修改</span></h4><p>对象一个重要的特性是，如果这个key值之前存在会覆盖原有属性，没有则会增加键值对。从最简单的场景开始，如果一个对象：<br><figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">&#123;</span><br><span class="line">  a: <span class="number">1</span>,</span><br><span class="line">  b: <span class="number">2</span></span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure></p>
+<p>我们增加或删除一个属性，返回新的对象<br><strong>输入：</strong>需添加的key，需添加的value，对象<br><strong>输出：</strong>一个新的对象<br><strong>实现：</strong><br><figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">export</span> <span class="keyword">const</span> assoc = <span class="function">(<span class="params">prop, val, obj</span>) =&gt;</span> &#123;</span><br><span class="line">    <span class="keyword">let</span> result = <span class="built_in">Object</span>.assign(&#123;&#125;, obj);</span><br><span class="line">    result[prop] = val;</span><br><span class="line">    <span class="keyword">return</span> result;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure></p>
+<p>考虑到如果一次性要更新或增加多个属性，我们可以传入一个对象，把这个新对象的属性加在原对象上<br><strong>输入：</strong>props:Object[要加到对象上的属性]，obj:Object[原对象]<br><strong>输出：</strong>一个新的对象<br><strong>实现：</strong><br><figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">export</span> <span class="keyword">const</span> merge = <span class="function">(<span class="params">props, obj</span>) =&gt;</span> &#123;</span><br><span class="line">    <span class="keyword">const</span> result = <span class="built_in">Object</span>.assign(&#123;&#125;, obj);</span><br><span class="line">    <span class="keyword">return</span> <span class="built_in">Object</span>.assign(result,props);</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure></p>
+<p>当然实际情况大多不可能那么简单，我们很多情况下或许要修改<br><figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line">&#123;</span><br><span class="line">  a: &#123;</span><br><span class="line">    b: &#123;</span><br><span class="line">      c: &#123;</span><br><span class="line">        d: <span class="number">2</span></span><br><span class="line">      &#125;</span><br><span class="line">    &#125;</span><br><span class="line">  &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure></p>
+<p>中的d，如果不使用帮助函数，哪怕ES6+有对象解构，也八成要写成这个模样<br><figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">return</span> &#123;</span><br><span class="line">  a: &#123;</span><br><span class="line">    ...a</span><br><span class="line">    b: &#123;</span><br><span class="line">      ...b</span><br><span class="line">      c: &#123;</span><br><span class="line">        ...c,</span><br><span class="line">        d: <span class="number">3</span></span><br><span class="line">      &#125;</span><br><span class="line">    &#125;</span><br><span class="line">  &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure></p>
+<p>这时候想到了ramda中的<a href="http://ramdajs.com/docs/#assocPath" target="_blank" rel="noopener">assocPath</a>，先放上源码我们分析一下：<br><figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">var</span> assocPath = _curry3(<span class="function"><span class="keyword">function</span> <span class="title">assocPath</span>(<span class="params">path, val, obj</span>) </span>&#123;</span><br><span class="line">  <span class="keyword">if</span> (path.length === <span class="number">0</span>) &#123;</span><br><span class="line">    <span class="keyword">return</span> val;</span><br><span class="line">  &#125;</span><br><span class="line">  <span class="keyword">var</span> idx = path[<span class="number">0</span>];</span><br><span class="line">  <span class="keyword">if</span> (path.length &gt; <span class="number">1</span>) &#123;</span><br><span class="line">    <span class="keyword">var</span> nextObj = (!isNil(obj) &amp;&amp; _has(idx, obj)) ? obj[idx] : _isInteger(path[<span class="number">1</span>]) ? [] : &#123;&#125;;</span><br><span class="line">    val = assocPath(<span class="built_in">Array</span>.prototype.slice.call(path, <span class="number">1</span>), val, nextObj);</span><br><span class="line">  &#125;</span><br><span class="line">  <span class="keyword">if</span> (_isInteger(idx) &amp;&amp; _isArray(obj)) &#123;</span><br><span class="line">    <span class="keyword">var</span> arr = [].concat(obj);</span><br><span class="line">    arr[idx] = val;</span><br><span class="line">    <span class="keyword">return</span> arr;</span><br><span class="line">  &#125; <span class="keyword">else</span> &#123;</span><br><span class="line">    <span class="keyword">return</span> assoc(idx, val, obj);</span><br><span class="line">  &#125;</span><br><span class="line">&#125;);</span><br><span class="line"><span class="keyword">export</span> <span class="keyword">default</span> assocPath;</span><br></pre></td></tr></table></figure></p>
+<p>看一下里面用到的方法：</p>
+<ul>
+<li>_curry3 柯里化我们暂时不考虑</li>
+<li>isNil 检测输入值是否为 null 或 undefined</li>
+<li>_has 判断对象自身是否含有该属性</li>
+<li>_isInteger 判断是否为数字</li>
+<li>_isArray 判断是否为数组</li>
+</ul>
+<p>看一下整个递归调用的过程，假如我们传入的参数是（[‘a’,’b’,’c’,’d’],5,obj）,<br><figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">var</span> obj = &#123;</span><br><span class="line">    a:&#123;</span><br><span class="line">        b:&#123;</span><br><span class="line">            c:&#123;</span><br><span class="line">                d:<span class="number">2</span>,</span><br><span class="line">                d2:[<span class="number">32321</span>,<span class="number">1314322</span>,<span class="number">13212</span>]</span><br><span class="line"></span><br><span class="line">            &#125;,</span><br><span class="line">            c2:<span class="string">'c'</span></span><br><span class="line">        &#125;,</span><br><span class="line">        b2:<span class="string">'b'</span></span><br><span class="line">    &#125;,</span><br><span class="line">    a2:<span class="string">'a'</span></span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure></p>
+<p>首先，<br><figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br></pre></td><td class="code"><pre><span class="line">path = [<span class="string">'a'</span>,<span class="string">'b'</span>,<span class="string">'c'</span>,<span class="string">'d'</span>];</span><br><span class="line">val = <span class="number">5</span>;</span><br><span class="line">obj = &#123;</span><br><span class="line">        a:&#123;</span><br><span class="line">            b:&#123;</span><br><span class="line">                c:&#123;</span><br><span class="line">                    d:<span class="number">2</span>,</span><br><span class="line">                    d2:[<span class="number">32321</span>,<span class="number">1314322</span>,<span class="number">13212</span>]</span><br><span class="line"></span><br><span class="line">                &#125;,</span><br><span class="line">                c2:<span class="string">'c'</span></span><br><span class="line">            &#125;,</span><br><span class="line">            b2:<span class="string">'b'</span></span><br><span class="line">        &#125;,</span><br><span class="line">        a2:<span class="string">'a'</span></span><br><span class="line">    &#125;;</span><br><span class="line">idX = <span class="string">'a'</span>;</span><br></pre></td></tr></table></figure></p>
+<p>path.length &gt; 1<br><figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br></pre></td><td class="code"><pre><span class="line">nextObj = &#123;</span><br><span class="line">            b:&#123;</span><br><span class="line">                c:&#123;</span><br><span class="line">                    d:<span class="number">2</span>,</span><br><span class="line">                    d2:[<span class="number">32321</span>,<span class="number">1314322</span>,<span class="number">13212</span>]</span><br><span class="line"></span><br><span class="line">                &#125;,</span><br><span class="line">                c2:<span class="string">'c'</span></span><br><span class="line">            &#125;,</span><br><span class="line">            b2:<span class="string">'b'</span></span><br><span class="line">        &#125;;</span><br></pre></td></tr></table></figure></p>
+<p>并且进入下一层递归，经过层层递归，最后</p>
+<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">path = [<span class="string">'d'</span>];</span><br><span class="line">val = <span class="number">5</span>;</span><br><span class="line">obj =  &#123;<span class="attr">d</span>:<span class="number">2</span>,<span class="attr">d2</span>:[<span class="number">32321</span>,<span class="number">1314322</span>,<span class="number">13212</span>]&#125;;;</span><br><span class="line">idX = <span class="string">'d'</span>;</span><br></pre></td></tr></table></figure>
+<p>此时path.length 不大于1，故不进入递归直接进入下面的逻辑，由于是一个对象，调用assoc()，返回修改完毕的新对象，再然后一层层执行之前递归未执行完的逻辑，最后返回修改完毕的对象，由于每次assoc会创建一个新对象，故不会修改原对象，assoc的for..in遍历是浅复制，也保证了新对象保持对原先对象未修改部分的引用，仅修改要变化的量。</p>
+<p>再扩展一下，如果我们需要修改某一路径上多个属性<br><figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">/**</span></span><br><span class="line"><span class="comment"> * 修改对象某一路径上的多个属性</span></span><br><span class="line"><span class="comment"> * @param &#123;Array&#125; path 属性路径 ['a','b','c']</span></span><br><span class="line"><span class="comment"> * @param &#123;Object&#125; vals 属性列表</span></span><br><span class="line"><span class="comment"> * @param &#123;Object&#125; obj </span></span><br><span class="line"><span class="comment"> */</span></span><br><span class="line"><span class="keyword">export</span> <span class="keyword">const</span> assocPathMore = <span class="function">(<span class="params">path, vals = &#123;&#125;, obj</span>) =&gt;</span> &#123;</span><br><span class="line">    <span class="keyword">let</span> result = <span class="built_in">Object</span>.assign(&#123;&#125;, obj);</span><br><span class="line">    <span class="keyword">for</span>(<span class="keyword">let</span> i <span class="keyword">in</span> vals)&#123;</span><br><span class="line">        result = assocPath([...path, i], vals[i], result);</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="keyword">return</span> result;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure></p>
+<h4><span id="第三步删除">第三步，删除</span></h4><p>删除有，或者说过滤，有两种，第一是元素的某个属性等于某个值时不显示，第二是直接把key为多少的元素从列表中移除.<br>第一种，换一种说法是返回一个列表中满足一定值的元素的集合<br><figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">const</span> pickBy = <span class="function">(<span class="params">cb, obj</span>) =&gt;</span> &#123;</span><br><span class="line">    <span class="keyword">var</span> result = &#123;&#125;;</span><br><span class="line">    <span class="keyword">for</span> (<span class="keyword">var</span> prop <span class="keyword">in</span> obj) &#123;</span><br><span class="line">        <span class="keyword">if</span> (cb(obj[prop], prop, obj)) &#123;</span><br><span class="line">            result[prop] = obj[prop];</span><br><span class="line">        &#125;</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="keyword">return</span> result;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure></p>
+<p>对于第二种,可以用delete操作符：<br><figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">const</span> without = <span class="function">(<span class="params">obj, prop</span>) =&gt;</span> &#123;</span><br><span class="line">    <span class="keyword">const</span> result = <span class="built_in">Object</span>.assign(&#123;&#125;, obj);</span><br><span class="line">    <span class="keyword">delete</span> result[prop];</span><br><span class="line">    <span class="keyword">return</span> result;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure></p>
+<p>当然我们有时也会删除某个查找路径上的属性，或者过滤某个查找路径上的属性，也可按（2）中的思路进行修改，或者更甚一步，可不可以将“查找”这一过程独立出来复用呢？这个暂时有待实现，不过可以参考一些现有的方法集：</p>
+<ul>
+<li><a href="https://lodash.com/docs/4.17.5" target="_blank" rel="noopener">lodash</a></li>
+<li><a href="http://ramda.cn/docs/" target="_blank" rel="noopener">ramda</a></li>
+<li><a href="https://facebook.github.io/immutable-js/docs/#/" target="_blank" rel="noopener">immutable.js</a></li>
+</ul>
+
       
 
       
@@ -710,45 +233,78 @@
     <div class="article-info article-info-index">
       
       
-	<div class="article-tag tagcloud">
-		<i class="icon-price-tags icon"></i>
-		<ul class="article-tag-list">
-			 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color3">前端</a>
-        		</li>
-      		 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color5">游戏开发</a>
-        		</li>
-      		
-		</ul>
-	</div>
-
-      
-	<div class="article-category tagcloud">
-		<i class="icon-book icon"></i>
-		<ul class="article-tag-list">
-			 
-        		<li class="article-tag-list-item">
-        			<a href="/categories/项目整理/" class="article-tag-list-link color5">项目整理</a>
-        		</li>
-      		
-		</ul>
-	</div>
-
-
-      
-        <p class="article-more-link">
-          <a class="article-more-a" href="/2018/03/03/H5游戏构建和优化思路（二）/">展开全文 >></a>
-        </p>
       
 
+      
+
+      
+        
+<div class="share-btn share-icons tooltip-left">
+  <div class="tooltip tooltip-east">
+    <span class="tooltip-item">
+      <a href="javascript:;" class="share-sns share-outer">
+        <i class="icon icon-share"></i>
+      </a>
+    </span>
+    <span class="tooltip-content">
+      <div class="share-wrap">
+        <div class="share-icons">
+          <a class="weibo share-sns" href="javascript:;" data-type="weibo">
+            <i class="icon icon-weibo"></i>
+          </a>
+          <a class="weixin share-sns wxFab" href="javascript:;" data-type="weixin">
+            <i class="icon icon-weixin"></i>
+          </a>
+          <a class="qq share-sns" href="javascript:;" data-type="qq">
+            <i class="icon icon-qq"></i>
+          </a>
+          <a class="douban share-sns" href="javascript:;" data-type="douban">
+            <i class="icon icon-douban"></i>
+          </a>
+          <a class="qzone share-sns" href="javascript:;" data-type="qzone">
+            <i class="icon icon-qzone"></i>
+          </a>
+          <a class="facebook share-sns" href="javascript:;" data-type="facebook">
+            <i class="icon icon-facebook"></i>
+          </a>
+          <a class="twitter share-sns" href="javascript:;" data-type="twitter">
+            <i class="icon icon-twitter"></i>
+          </a>
+          <a class="google share-sns" href="javascript:;" data-type="google">
+            <i class="icon icon-google"></i>
+          </a>
+        </div>
+      </div>
+    </span>
+  </div>
+</div>
+
+<div class="page-modal wx-share js-wx-box">
+    <a class="close js-modal-close" href="javascript:;"><i class="icon icon-close"></i></a>
+    <p>扫一扫，分享到微信</p>
+    <div class="wx-qrcode">
+      <img src="http://s.jiathis.com/qrcode.php?url=http://yoursite.com/2018/04/17/定制你自己的immutable数据操作方法集/" alt="微信分享二维码">
+    </div>
+</div>
+
+<div class="mask js-mask"></div>
       
       <div class="clearfix"></div>
     </div>
   </div>
 </article>
+
+  
+<nav id="article-nav">
+  
+  
+    <a href="/2018/04/04/关于react，我所知道的/" id="article-nav-older" class="article-nav-link-wrap">
+      <div class="article-nav-title">关于react，我所知道的</div>
+      <i class="icon-circle-right"></i>
+    </a>
+  
+</nav>
+
 
 <aside class="wrap-side-operation">
     <div class="mod-side-operation">
@@ -763,288 +319,30 @@
         </div>
         
         
-    </div>
-</aside>
-
-
-
-
-  
-    <article id="post-layaAir构建H5游戏详解" class="article article-type-post  article-index" itemscope itemprop="blogPost">
-  <div class="article-inner">
-    
-      <header class="article-header">
-        
-  
-    <h1 itemprop="name">
-      <a class="article-title" href="/2018/03/03/layaAir构建H5游戏详解/">layaAir构建H5游戏详解</a>
-    </h1>
-  
-
-        
-        <a href="/2018/03/03/layaAir构建H5游戏详解/" class="archive-article-date">
-  	<time datetime="2018-03-03T07:05:09.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2018-03-03</time>
-</a>
-        
-      </header>
-    
-    <div class="article-entry" itemprop="articleBody">
-      
-        <p>刚刚打开<a href="https://www.layabox.com/" target="_blank" rel="noopener">官网</a>的时候发现最新版本已经是1.7.15了，更新还是比较频繁的，第一次使用的时候还是1.7.9版本，从官网copy了份介绍:</p>
-<blockquote>
-<p>​ LayaAir是Layabox旗下的第二代HTML5开源引擎。是全球唯一支持ActionScript3、JavaScript、TypeScript三种开发语言，并且一次开发同时发布Native APP与HTML5的游戏引擎，也是全球首款基于HTML5协议的全能型开源引擎。除支持2D\3D\VR\AR的游戏开发外，引擎还可以用于应用软件、广告、营销、教育等众多领域。<br>​ LayaAir引擎是一套全新设计的精简API的游戏引擎，具有极致的性能、轻量易用、支持多语言开发、API功能齐全、工具链完善高效、开源免费、支持多版本发布等特点。</p>
-</blockquote>
-        
-      
-
-      
-    </div>
-    <div class="article-info article-info-index">
-      
-      
-	<div class="article-tag tagcloud">
-		<i class="icon-price-tags icon"></i>
-		<ul class="article-tag-list">
-			 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color3">前端</a>
-        		</li>
-      		 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color5">游戏开发</a>
-        		</li>
-      		
-		</ul>
-	</div>
-
-      
-	<div class="article-category tagcloud">
-		<i class="icon-book icon"></i>
-		<ul class="article-tag-list">
-			 
-        		<li class="article-tag-list-item">
-        			<a href="/categories/项目整理/" class="article-tag-list-link color5">项目整理</a>
-        		</li>
-      		
-		</ul>
-	</div>
-
-
-      
-        <p class="article-more-link">
-          <a class="article-more-a" href="/2018/03/03/layaAir构建H5游戏详解/">展开全文 >></a>
-        </p>
-      
-
-      
-      <div class="clearfix"></div>
-    </div>
-  </div>
-</article>
-
-<aside class="wrap-side-operation">
-    <div class="mod-side-operation">
-        
-        <div class="jump-container" id="js-jump-container" style="display:none;">
-            <a href="javascript:void(0)" class="mod-side-operation__jump-to-top">
-                <i class="icon-font icon-back"></i>
-            </a>
-            <div id="js-jump-plan-container" class="jump-plan-container" style="top: -11px;">
-                <i class="icon-font icon-plane jump-plane"></i>
+        <div class="toc-container tooltip-left">
+            <i class="icon-font icon-category"></i>
+            <div class="tooltip tooltip-east">
+                <span class="tooltip-item">
+                </span>
+                <span class="tooltip-content">
+                    <div class="toc-article">
+                    <ol class="toc"><li class="toc-item toc-level-3"><a class="toc-link" href="#undefined"><span class="toc-number">1.</span> <span class="toc-text">一切从增删改查开始</span></a><ol class="toc-child"><li class="toc-item toc-level-4"><a class="toc-link" href="#undefined"><span class="toc-number">1.1.</span> <span class="toc-text">第一步，列表处理</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#undefined"><span class="toc-number">1.2.</span> <span class="toc-text">第二步，增加和修改</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#undefined"><span class="toc-number">1.3.</span> <span class="toc-text">第三步，删除</span></a></li></ol></li></ol>
+                    </div>
+                </span>
             </div>
         </div>
         
-        
     </div>
 </aside>
 
 
 
-
-  
-    <article id="post-H5游戏性能优化实践" class="article article-type-post  article-index" itemscope itemprop="blogPost">
-  <div class="article-inner">
-    
-      <header class="article-header">
-        
-  
-    <h1 itemprop="name">
-      <a class="article-title" href="/2018/03/03/H5游戏性能优化实践/">H5游戏性能优化实践</a>
-    </h1>
-  
-
-        
-        <a href="/2018/03/03/H5游戏性能优化实践/" class="archive-article-date">
-  	<time datetime="2018-03-03T06:40:50.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2018-03-03</time>
-</a>
-        
-      </header>
-    
-    <div class="article-entry" itemprop="articleBody">
-      
-        <p>做H5游戏其实比较大的一个考验就是性能问题，其它web应用的话顶多是卡一点，游戏性能一低直接就炸，什么花屏啦、黑屏啦、闪退啦，还不容易定位问题。</p>
-<p>性能方面检测有两个工具，一个是chrome的performance面板，找出费时间的方法进行优化，找到内存泄露的地方进行修改，这方面资料也是一找一大片，但还是想推一下官方的文档：<br><a href="https://developers.google.com/web/tools/chrome-devtools/rendering-tools/?hl=zh-cn" target="_blank" rel="noopener">https://developers.google.com/web/tools/chrome-devtools/rendering-tools/?hl=zh-cn</a></p>
-        
-      
-
-      
-    </div>
-    <div class="article-info article-info-index">
-      
-      
-	<div class="article-tag tagcloud">
-		<i class="icon-price-tags icon"></i>
-		<ul class="article-tag-list">
-			 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color3">前端</a>
-        		</li>
-      		 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color5">游戏开发</a>
-        		</li>
-      		
-		</ul>
-	</div>
-
-      
-	<div class="article-category tagcloud">
-		<i class="icon-book icon"></i>
-		<ul class="article-tag-list">
-			 
-        		<li class="article-tag-list-item">
-        			<a href="/categories/项目整理/" class="article-tag-list-link color5">项目整理</a>
-        		</li>
-      		
-		</ul>
-	</div>
-
-
-      
-        <p class="article-more-link">
-          <a class="article-more-a" href="/2018/03/03/H5游戏性能优化实践/">展开全文 >></a>
-        </p>
-      
-
-      
-      <div class="clearfix"></div>
-    </div>
-  </div>
-</article>
-
-<aside class="wrap-side-operation">
-    <div class="mod-side-operation">
-        
-        <div class="jump-container" id="js-jump-container" style="display:none;">
-            <a href="javascript:void(0)" class="mod-side-operation__jump-to-top">
-                <i class="icon-font icon-back"></i>
-            </a>
-            <div id="js-jump-plan-container" class="jump-plan-container" style="top: -11px;">
-                <i class="icon-font icon-plane jump-plane"></i>
-            </div>
-        </div>
-        
-        
-    </div>
-</aside>
-
-
-
-
-  
-    <article id="post-3D游戏编程所需的数学基础" class="article article-type-post  article-index" itemscope itemprop="blogPost">
-  <div class="article-inner">
-    
-      <header class="article-header">
-        
-  
-    <h1 itemprop="name">
-      <a class="article-title" href="/2018/03/03/3D游戏编程所需的数学基础/">3D游戏编程所需的数学基础</a>
-    </h1>
-  
-
-        
-        <a href="/2018/03/03/3D游戏编程所需的数学基础/" class="archive-article-date">
-  	<time datetime="2018-03-03T06:33:41.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2018-03-03</time>
-</a>
-        
-      </header>
-    
-    <div class="article-entry" itemprop="articleBody">
-      
-        <p>其实我挺喜欢学数学的，但是真的写博客一时不知道从哪写起好，项目中遇到过挺多需要计算的东西的，这里好想秀一下一整本网易入职发的笔记本的3D坐标系，真的一整本，离职的时候只剩下四五页没写字了。还是学到不少的，不管是空间几何还是线性代数，或者说，还是回忆起不少的……这方面我应该还会再学下去，确实很有意思。不细说了，推荐几个学习资料：</p>
-        
-      
-
-      
-    </div>
-    <div class="article-info article-info-index">
-      
-      
-	<div class="article-tag tagcloud">
-		<i class="icon-price-tags icon"></i>
-		<ul class="article-tag-list">
-			 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color3">前端</a>
-        		</li>
-      		 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color5">游戏开发</a>
-        		</li>
-      		
-		</ul>
-	</div>
-
-      
-	<div class="article-category tagcloud">
-		<i class="icon-book icon"></i>
-		<ul class="article-tag-list">
-			 
-        		<li class="article-tag-list-item">
-        			<a href="/categories/项目整理/" class="article-tag-list-link color5">项目整理</a>
-        		</li>
-      		
-		</ul>
-	</div>
-
-
-      
-        <p class="article-more-link">
-          <a class="article-more-a" href="/2018/03/03/3D游戏编程所需的数学基础/">展开全文 >></a>
-        </p>
-      
-
-      
-      <div class="clearfix"></div>
-    </div>
-  </div>
-</article>
-
-<aside class="wrap-side-operation">
-    <div class="mod-side-operation">
-        
-        <div class="jump-container" id="js-jump-container" style="display:none;">
-            <a href="javascript:void(0)" class="mod-side-operation__jump-to-top">
-                <i class="icon-font icon-back"></i>
-            </a>
-            <div id="js-jump-plan-container" class="jump-plan-container" style="top: -11px;">
-                <i class="icon-font icon-plane jump-plane"></i>
-            </div>
-        </div>
-        
-        
-    </div>
-</aside>
-
-
-
-
   
   
-    <nav id="page-nav">
-      <span class="page-number current">1</span><a class="page-number" href="/page/2/">2</a><a class="page-number" href="/page/3/">3</a><span class="space">&hellip;</span><a class="page-number" href="/page/5/">5</a><a class="extend next" rel="next" href="/page/2/">Next &raquo;</a>
-    </nav>
+  
+
+  
+
   
 
 
@@ -1067,8 +365,8 @@
     <script>
 	var yiliaConfig = {
 		mathjax: false,
-		isHome: true,
-		isPost: false,
+		isHome: false,
+		isPost: true,
 		isArchive: false,
 		isTag: false,
 		isCategory: false,
