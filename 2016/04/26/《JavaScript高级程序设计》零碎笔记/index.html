@@ -24,6 +24,8 @@
     <link rel="icon" href="http://ovne6ee1z.bkt.clouddn.com/avatar.jpg">
   
   <link rel="stylesheet" type="text/css" href="/./main.266c1c.css">
+<link rel="stylesheet" href="https://imsun.github.io/gitment/style/default.css">
+
   <style type="text/css">
   
     #container.show {
@@ -90,8 +92,10 @@
 					<a class="mail" target="_blank" href="mailto:lyetoile@126.com" title="mail"><i class="icon-mail"></i></a>
 		        
 			</div>
-		</nav>
-	</header>		
+    </nav>
+  </header>
+  <span id="busuanzi_container_site_pv" style="font-size: 12px;position: relative;top:250px;color:#4ca1af">Hi，第
+  <span id="busuanzi_value_site_pv"></span>个小可爱..(๑•ᴗ•๑)</span>
 </div>
 
     </div>
@@ -311,6 +315,7 @@
 <div class="mask js-mask"></div>
       
       <div class="clearfix"></div>
+      <section id="article-comments" style="margin-top:20px;"></section>
     </div>
   </div>
 </article>
@@ -367,8 +372,22 @@
 
 
 
+
+  <script src="https://imsun.github.io/gitment/dist/gitment.browser.js"></script>
+  <script>
+    var gitment = new Gitment({
+      id: '页面 ID', // 可选。默认为 location.href
+      owner: 'Etoile984816138', // 可以是你的GitHub用户名，也可以是github id
+      repo: 'https://github.com/Etoile984816138/blog-comment.git',
+      oauth: {
+        client_id: '7a5d74cd00c7927f61be',
+        client_secret: '82dc32251253afaa3b6dbba389211adf97d4d3eb',
+      },
+    })
+    gitment.render('article-comments')
+  </script>
   
-  
+
   
 
   
@@ -458,15 +477,15 @@ return o(i(t),arguments.length<2?void 0:u(arguments[1]))}})},function(t,n,r){var
           <ul class="article-tag-list" q-show="showTags">
              
               <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color2">C</a>
+              </li>
+             
+              <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color3">前端</a>
               </li>
              
               <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color5">游戏开发</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color2">C</a>
               </li>
              
               <li class="article-tag-list-item">
@@ -482,15 +501,15 @@ return o(i(t),arguments.length<2?void 0:u(arguments[1]))}})},function(t,n,r){var
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color5">java</a>
-              </li>
-             
-              <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color1">linux</a>
               </li>
              
               <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color5">node</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color5">java</a>
               </li>
              
               <li class="article-tag-list-item">
@@ -514,11 +533,11 @@ return o(i(t),arguments.length<2?void 0:u(arguments[1]))}})},function(t,n,r){var
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color1">react</a>
+                <a href="javascript:void(0)" class="js-tag color5">js模式</a>
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color5">js模式</a>
+                <a href="javascript:void(0)" class="js-tag color1">issue</a>
               </li>
              
               <li class="article-tag-list-item">
@@ -530,15 +549,11 @@ return o(i(t),arguments.length<2?void 0:u(arguments[1]))}})},function(t,n,r){var
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color1">issue</a>
+                <a href="javascript:void(0)" class="js-tag color1">react</a>
               </li>
              
               <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color3">布局</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color3">排序</a>
               </li>
              
               <li class="article-tag-list-item">
@@ -547,6 +562,10 @@ return o(i(t),arguments.length<2?void 0:u(arguments[1]))}})},function(t,n,r){var
              
               <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color3">面试</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color3">排序</a>
               </li>
             
             <div class="clearfix"></div>
@@ -671,5 +690,7 @@ return o(i(t),arguments.length<2?void 0:u(arguments[1]))}})},function(t,n,r){var
 
 </div>
   </div>
+  <!-- <script async src="//dn-lbstatics.qbox.me/busuanzi/2.3/busuanzi.pure.mini.js"></script> -->
+  <script src="https://imsun.github.io/gitment/dist/gitment.browser.js"></script>
 </body>
 </html>
