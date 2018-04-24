@@ -6,14 +6,18 @@
   <meta name="renderer" content="webkit">
   <meta http-equiv="X-UA-Compatible" content="IE=edge" >
   <link rel="dns-prefetch" href="http://yoursite.com">
-  <title>Archives: 2017 | 林落雨落林</title>
+  <title>npm script+webpack:定制你的npm脚本命令 | 林落雨落林</title>
   <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
-  <meta property="og:type" content="website">
-<meta property="og:title" content="林落雨落林">
-<meta property="og:url" content="http://yoursite.com/archives/2017/page/2/index.html">
+  <meta name="description" content="由于觉得切换mock数据和后端真实数据太麻烦了（虽然每次都只是改个URL），但是很容易出现问题呀，万一哪次发布之前用mock数据调试，结果忘了改成后端数据就gg了，所以想能不能再配置一个npm命令用于启用mock数据。">
+<meta property="og:type" content="article">
+<meta property="og:title" content="npm script+webpack:定制你的npm脚本命令">
+<meta property="og:url" content="http://yoursite.com/2018/04/24/npm-script-webpack-定制你的npm脚本命令/index.html">
 <meta property="og:site_name" content="林落雨落林">
+<meta property="og:description" content="由于觉得切换mock数据和后端真实数据太麻烦了（虽然每次都只是改个URL），但是很容易出现问题呀，万一哪次发布之前用mock数据调试，结果忘了改成后端数据就gg了，所以想能不能再配置一个npm命令用于启用mock数据。">
+<meta property="og:updated_time" content="2018-04-24T03:36:45.730Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="林落雨落林">
+<meta name="twitter:title" content="npm script+webpack:定制你的npm脚本命令">
+<meta name="twitter:description" content="由于觉得切换mock数据和后端真实数据太麻烦了（虽然每次都只是改个URL），但是很容易出现问题呀，万一哪次发布之前用mock数据调试，结果忘了改成后端数据就gg了，所以想能不能再配置一个npm命令用于启用mock数据。">
   
   
     <link rel="icon" href="http://ovne6ee1z.bkt.clouddn.com/avatar.jpg">
@@ -165,180 +169,176 @@
             <canvas data-colors="#eaeaea" data-sectionHeight="100" data-contentId="js-content" id="myCanvas1" class="anm-canvas"></canvas>
           </div>
           <div id="js-content" class="content-ll">
-            
-  
-  
+            <article id="post-npm-script-webpack-定制你的npm脚本命令" class="article article-type-post " itemscope itemprop="blogPost">
+  <div class="article-inner">
     
+      <header class="article-header">
+        
+  
+    <h1 class="article-title" itemprop="name">
+      npm script+webpack:定制你的npm脚本命令
+    </h1>
+  
+
+        
+        <a href="/2018/04/24/npm-script-webpack-定制你的npm脚本命令/" class="archive-article-date">
+  	<time datetime="2018-04-24T02:28:28.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2018-04-24</time>
+</a>
+        
+      </header>
     
+    <div class="article-entry" itemprop="articleBody">
+      
+        <p>由于觉得切换mock数据和后端真实数据太麻烦了（虽然每次都只是改个URL），但是很容易出现问题呀，万一哪次发布之前用mock数据调试，结果忘了改成后端数据就gg了，所以想能不能再配置一个npm命令用于启用mock数据。</p>
+<a id="more"></a>
+<p>首先使用mock数据和后端数据的区别在于请求的url不同，比如/user接口，使用mock数据请求的是<br><figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">localhost:<span class="number">3000</span>/user</span><br></pre></td></tr></table></figure></p>
+<p>使用线上地址(<a href="http://163.com)请求的是" target="_blank" rel="noopener">http://163.com)请求的是</a><br><figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">http:<span class="comment">//163.com/user</span></span><br></pre></td></tr></table></figure></p>
+<p>所以我们需要一个参数，表明现在是mock环境。</p>
+<p>其次增加一个npm命令，package.json中的script属性：<br><figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line"><span class="string">"scripts"</span>: &#123;</span><br><span class="line">    <span class="string">"start"</span>: <span class="string">"env ENV=dev node ./server/index.js"</span>,</span><br><span class="line">    <span class="string">"build"</span>: <span class="string">"webpack --config ./scripts/webpack.prod.js --colors --progress"</span>,</span><br><span class="line">    <span class="string">"lint"</span>: <span class="string">"eslint \"*.js\""</span>,</span><br><span class="line">    <span class="string">"clean"</span>: <span class="string">"rm -rf s"</span>,</span><br><span class="line">    <span class="string">"buildtest"</span>: <span class="string">"npm run clean &amp;&amp; webpack --config ./scripts/webpack.prod.js --progress --env=test"</span>,</span><br><span class="line">    <span class="string">"buildpre"</span>: <span class="string">"npm run clean &amp;&amp; webpack --config ./scripts/webpack.prod.js --progress --env=pre"</span>,</span><br><span class="line">    <span class="string">"buildonline"</span>: <span class="string">"npm run clean &amp;&amp; webpack --config ./scripts/webpack.prod.js --progress --env=online"</span>&#125;</span><br></pre></td></tr></table></figure></p>
+<p>scripts指定了运行脚本命令的npm命令行缩写，比如start指定了运行npm run start时，所要执行的命令。见<a href="http://www.ruanyifeng.com/blog/2016/10/npm_scripts.html" target="_blank" rel="noopener">npm scripts 使用指南</a>,先增加一个命令,<br><figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="string">"dev-mock"</span>: <span class="string">"env ENV=dev node ./server/index.js"</span>,</span><br></pre></td></tr></table></figure></p>
+<p>env是一个命令可以配置环境变量，可以这样尝试一下：<br><figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">npm init</span><br></pre></td></tr></table></figure></p>
+<p>生成package.json<br>script中加入<br><figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="string">"dev"</span>: <span class="string">"env ENV_TEST=1 node ./index.js"</span></span><br></pre></td></tr></table></figure></p>
+<p>然后新建index.js文件，写入<br><figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="built_in">console</span>.log(process.env.ENV_TEST);</span><br></pre></td></tr></table></figure></p>
+<p>可以看到控制台可以打印出1，</p>
+<p>所以我们修改一下dev-mock,加入配置mock的参数，<br><figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="string">"dev-mock"</span>: <span class="string">"env ENV=dev USE_LOCAL_MOCK=1 node ./server/index.js"</span>,</span><br></pre></td></tr></table></figure></p>
+<p>但是我们需要在客户端判断，这个环境变量是存在于服务端的呀。这里要用到webpack.DefinePlugin<br><figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">new</span> webpack.DefinePlugin(&#123;</span><br><span class="line">    <span class="string">'process.env'</span>: &#123;</span><br><span class="line">        <span class="string">'USE_LOCAL_MOCK'</span>: process.env.USE_LOCAL_MOCK</span><br><span class="line">    &#125;</span><br><span class="line">&#125;)</span><br></pre></td></tr></table></figure></p>
+<p>这里创建了一个全局对象<code>process.env</code>,当然还可以把想配置的全局属性放里面。</p>
+<p>启动<code>npm run dev-mock</code>时，USE_LOCAL_MOCK为1，客户端可以判断process.env.USE_LOCAL_MOCK是否为1来判断是否使用mock数据，此时，<code>npm start</code>依然是使用后端数据，<code>npm run dev-mock</code> 使用本地mock数据，大功告成。</p>
+<p>当然也可以使用cross-env等，这仅仅作为其中一个方案。</p>
+<h3><span id="参考">参考</span></h3><p><a href="http://javascript.ruanyifeng.com/nodejs/packagejson.html" target="_blank" rel="noopener">package.json</a><br><a href="http://www.css88.com/doc/webpack/plugins/define-plugin/" target="_blank" rel="noopener">DefinePlugin</a></p>
+
+      
+
+      
+    </div>
+    <div class="article-info article-info-index">
       
       
-      <section class="archives-wrap">
-        <div class="archive-year-wrap">
-          <a href="/archives/2017" class="archive-year">2017</a>
+      
+
+      
+
+      
+        
+<div class="share-btn share-icons tooltip-left">
+  <div class="tooltip tooltip-east">
+    <span class="tooltip-item">
+      <a href="javascript:;" class="share-sns share-outer">
+        <i class="icon icon-share"></i>
+      </a>
+    </span>
+    <span class="tooltip-content">
+      <div class="share-wrap">
+        <div class="share-icons">
+          <a class="weibo share-sns" href="javascript:;" data-type="weibo">
+            <i class="icon icon-weibo"></i>
+          </a>
+          <a class="weixin share-sns wxFab" href="javascript:;" data-type="weixin">
+            <i class="icon icon-weixin"></i>
+          </a>
+          <a class="qq share-sns" href="javascript:;" data-type="qq">
+            <i class="icon icon-qq"></i>
+          </a>
+          <a class="douban share-sns" href="javascript:;" data-type="douban">
+            <i class="icon icon-douban"></i>
+          </a>
+          <a class="qzone share-sns" href="javascript:;" data-type="qzone">
+            <i class="icon icon-qzone"></i>
+          </a>
+          <a class="facebook share-sns" href="javascript:;" data-type="facebook">
+            <i class="icon icon-facebook"></i>
+          </a>
+          <a class="twitter share-sns" href="javascript:;" data-type="twitter">
+            <i class="icon icon-twitter"></i>
+          </a>
+          <a class="google share-sns" href="javascript:;" data-type="google">
+            <i class="icon icon-google"></i>
+          </a>
         </div>
-        <div class="archives">
-    
-    <article class="archive-article archive-type-post">
-  <div class="archive-article-inner">
-    <header class="archive-article-header">
-      	<div class="article-meta">
-	      	<a href="/2017/02/05/网易云课堂javaweb笔记/" class="archive-article-date">
-  	<time datetime="2017-02-05T06:18:32.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2017-02-05</time>
-</a>
-        </div>
-    	 
-  
-    <h1 itemprop="name">
-      <a class="archive-article-title" href="/2017/02/05/网易云课堂javaweb笔记/">网易云课堂javaweb笔记</a>
-    </h1>
-  
+      </div>
+    </span>
+  </div>
+</div>
 
-        <div class="article-info info-on-right">
-          
-	<div class="article-tag tagcloud">
-		<i class="icon-price-tags icon"></i>
-		<ul class="article-tag-list">
-			 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color5">java</a>
-        		</li>
-      		
-		</ul>
-	</div>
+<div class="page-modal wx-share js-wx-box">
+    <a class="close js-modal-close" href="javascript:;"><i class="icon icon-close"></i></a>
+    <p>扫一扫，分享到微信</p>
+    <div class="wx-qrcode">
+      <img src="http://s.jiathis.com/qrcode.php?url=http://yoursite.com/2018/04/24/npm-script-webpack-定制你的npm脚本命令/" alt="微信分享二维码">
+    </div>
+</div>
 
-          
-	<div class="article-category tagcloud">
-		<i class="icon-book icon"></i>
-		<ul class="article-tag-list">
-			 
-        		<li class="article-tag-list-item">
-        			<a href="/categories/知识清单/" class="article-tag-list-link color5">知识清单</a>
-        		</li>
-      		
-		</ul>
-	</div>
-
-
-        </div>
-        <div class="clearfix"></div>
-    </header>
+<div class="mask js-mask"></div>
+      
+      <div class="clearfix"></div>
+      <section id="article-comments" style="padding-top:20px;"></section>
+    </div>
   </div>
 </article>
+
   
-    
-    
-    <article class="archive-article archive-type-post">
-  <div class="archive-article-inner">
-    <header class="archive-article-header">
-      	<div class="article-meta">
-	      	<a href="/2017/02/03/网易云前端面试答疑直播截图/" class="archive-article-date">
-  	<time datetime="2017-02-03T08:06:09.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2017-02-03</time>
-</a>
+<nav id="article-nav">
+  
+  
+    <a href="/2018/04/20/《JavaScript函数式编程》读书笔记/" id="article-nav-older" class="article-nav-link-wrap">
+      <div class="article-nav-title">《JavaScript函数式编程》读书笔记</div>
+      <i class="icon-circle-right"></i>
+    </a>
+  
+</nav>
+
+
+<aside class="wrap-side-operation">
+    <div class="mod-side-operation">
+        
+        <div class="jump-container" id="js-jump-container" style="display:none;">
+            <a href="javascript:void(0)" class="mod-side-operation__jump-to-top">
+                <i class="icon-font icon-back"></i>
+            </a>
+            <div id="js-jump-plan-container" class="jump-plan-container" style="top: -11px;">
+                <i class="icon-font icon-plane jump-plane"></i>
+            </div>
         </div>
-    	 
-  
-    <h1 itemprop="name">
-      <a class="archive-article-title" href="/2017/02/03/网易云前端面试答疑直播截图/">【网易云课堂答疑】求职面试准备提纲</a>
-    </h1>
-  
-
-        <div class="article-info info-on-right">
-          
-	<div class="article-tag tagcloud">
-		<i class="icon-price-tags icon"></i>
-		<ul class="article-tag-list">
-			 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color3">前端</a>
-        		</li>
-      		 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color3">校招</a>
-        		</li>
-      		 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color3">面试</a>
-        		</li>
-      		
-		</ul>
-	</div>
-
-          
-	<div class="article-category tagcloud">
-		<i class="icon-book icon"></i>
-		<ul class="article-tag-list">
-			 
-        		<li class="article-tag-list-item">
-        			<a href="/categories/知识清单/" class="article-tag-list-link color5">知识清单</a>
-        		</li>
-      		
-		</ul>
-	</div>
-
-
+        
+        
+        <div class="toc-container tooltip-left">
+            <i class="icon-font icon-category"></i>
+            <div class="tooltip tooltip-east">
+                <span class="tooltip-item">
+                </span>
+                <span class="tooltip-content">
+                    <div class="toc-article">
+                    <ol class="toc"><li class="toc-item toc-level-3"><a class="toc-link" href="#undefined"><span class="toc-number">1.</span> <span class="toc-text">参考</span></a></li></ol>
+                    </div>
+                </span>
+            </div>
         </div>
-        <div class="clearfix"></div>
-    </header>
-  </div>
-</article>
-  
-    
-    
-    <article class="archive-article archive-type-post">
-  <div class="archive-article-inner">
-    <header class="archive-article-header">
-      	<div class="article-meta">
-	      	<a href="/2017/01/03/网易云课堂前端笔记/" class="archive-article-date">
-  	<time datetime="2017-01-03T15:53:23.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2017-01-03</time>
-</a>
-        </div>
-    	 
-  
-    <h1 itemprop="name">
-      <a class="archive-article-title" href="/2017/01/03/网易云课堂前端笔记/">网易云课堂前端笔记</a>
-    </h1>
-  
-
-        <div class="article-info info-on-right">
-          
-	<div class="article-tag tagcloud">
-		<i class="icon-price-tags icon"></i>
-		<ul class="article-tag-list">
-			 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color3">前端</a>
-        		</li>
-      		
-		</ul>
-	</div>
-
-          
-	<div class="article-category tagcloud">
-		<i class="icon-book icon"></i>
-		<ul class="article-tag-list">
-			 
-        		<li class="article-tag-list-item">
-        			<a href="/categories/知识清单/" class="article-tag-list-link color5">知识清单</a>
-        		</li>
-      		
-		</ul>
-	</div>
+        
+    </div>
+</aside>
 
 
-        </div>
-        <div class="clearfix"></div>
-    </header>
-  </div>
-</article>
-  
-  
-    </div></section>
+
+
+  <script src="https://imsun.github.io/gitment/dist/gitment.browser.js"></script>
+  <script>
+    var gitment = new Gitment({
+      id: '19284985', // 可选。默认为 location.href
+      owner: 'Etoile984816138', // 可以是你的GitHub用户名，也可以是github id
+      repo: 'Etoile984816138.github.io',
+      oauth: {
+        client_id: 'dbcd374bd7d25f400eac',
+        client_secret: 'e8a0e41143b8a8a64b70a42a027416240b5612d5',
+      },
+    })
+    gitment.render('article-comments')
+  </script>
   
 
-    
-    <nav id="page-nav">
-      <a class="extend prev" rel="prev" href="/archives/2017/">&laquo; Prev</a><a class="page-number" href="/archives/2017/">1</a><span class="page-number current">2</span>
-    </nav>
+  
+
+  
+
   
 
 
@@ -362,8 +362,8 @@
 	var yiliaConfig = {
 		mathjax: false,
 		isHome: false,
-		isPost: false,
-		isArchive: true,
+		isPost: true,
+		isArchive: false,
 		isTag: false,
 		isCategory: false,
 		open_in_new: false,

@@ -16,7 +16,7 @@
 <meta property="og:site_name" content="林落雨落林">
 <meta property="og:description" content="问题112345var obj1 = &amp;#123;x:5&amp;#125;;var obj2 = obj1;obj1.a = obj1 = &amp;#123;x:6&amp;#125;;console.log(obj1.a);//undefinedconsole.log(obj2.a);//&amp;#123;x:6&amp;#125; 需要明确两点：1.连等是先确定所有变量的指针，再让指针指向赋值。2.属性访问器优先级高于= 上面">
 <meta property="og:image" content="http://ovne6ee1z.bkt.clouddn.com/1253C481551090ECAA7C9DC317F2AA98.jpg">
-<meta property="og:updated_time" content="2018-03-04T18:17:11.850Z">
+<meta property="og:updated_time" content="2018-04-20T09:04:59.470Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="专开一篇文，记录助教过程中碰见的有趣的问题">
 <meta name="twitter:description" content="问题112345var obj1 = &amp;#123;x:5&amp;#125;;var obj2 = obj1;obj1.a = obj1 = &amp;#123;x:6&amp;#125;;console.log(obj1.a);//undefinedconsole.log(obj2.a);//&amp;#123;x:6&amp;#125; 需要明确两点：1.连等是先确定所有变量的指针，再让指针指向赋值。2.属性访问器优先级高于= 上面">
@@ -253,8 +253,7 @@
 </tbody>
 </table>
 <h5><span id="demo">Demo</span></h5><figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">var</span> canvas = <span class="built_in">document</span>.createElement(<span class="string">'canvas'</span>);</span><br><span class="line"><span class="built_in">document</span>.getElementsByTagName(<span class="string">'body'</span>)[<span class="number">0</span>].append(canvas)</span><br><span class="line">canvas.width = <span class="number">1000</span>;</span><br><span class="line">canvas.height = <span class="number">1000</span>;</span><br><span class="line"><span class="keyword">var</span> context = canvas.getContext(<span class="string">'2d'</span>);</span><br><span class="line"></span><br><span class="line"><span class="keyword">var</span> imgArr = [];</span><br><span class="line"><span class="keyword">var</span> avatar = <span class="keyword">new</span> Image();</span><br><span class="line">avatar.src = <span class="string">'avatar.jpg'</span>;</span><br><span class="line"><span class="keyword">var</span> shape = <span class="keyword">new</span> Image();</span><br><span class="line">shape.src = <span class="string">'shape.png'</span>;</span><br><span class="line"></span><br><span class="line"></span><br><span class="line">avatar.onload = <span class="function"><span class="keyword">function</span>(<span class="params"></span>)</span>&#123;</span><br><span class="line">    context.drawImage(avatar, <span class="number">0</span>, <span class="number">0</span>, <span class="number">100</span>, <span class="number">100</span>);</span><br><span class="line">    shape.onload = <span class="function"><span class="keyword">function</span>(<span class="params"></span>)</span>&#123;</span><br><span class="line">        context.globalCompositeOperation=<span class="string">"destination-in"</span>;</span><br><span class="line">        context.drawImage(shape, <span class="number">0</span>, <span class="number">0</span>, <span class="number">50</span>, <span class="number">50</span>);</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-<h3><span id="问题3">问题3</span></h3><p>hover菜单实现。<br>会经常遇到hover到一个按钮上，显示下拉菜单。但是hover事件有个问题是鼠标移开按钮的时候，下拉菜单就消失了，因而无法点击按钮项，一直以来都是用JS做一些额外的处理，延时或者加一些判断。今天有个学员问了我一个问题，顺便看他demo的时候发现了一种解决思路是直接在父级（按钮+菜单项的父级）上加hover，这样css就可以实现了。其实很简单，思维固化了居然没想过这么做。</p>
-<h3><span id="问题4">问题4</span></h3><p>如何实现一个表格，竖向滚动，表头固定，横向滚动，表格跟随。<br>这个直接用代码实现好了，正好最近也想写个表格插件，等写好了放github地址。</p>
+<h3><span id="问题3">问题3</span></h3><p>见<a href="https://www.zhihu.com/question/53394256" target="_blank" rel="noopener">实例共享原型的属性，为什么直接对属性赋值，不会改变其他实例上的该属性值？</a></p>
 
       
 
@@ -388,7 +387,7 @@
                 </span>
                 <span class="tooltip-content">
                     <div class="toc-article">
-                    <ol class="toc"><li class="toc-item toc-level-3"><a class="toc-link" href="#undefined"><span class="toc-number">1.</span> <span class="toc-text">问题1</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#undefined"><span class="toc-number">2.</span> <span class="toc-text">问题2</span></a><ol class="toc-child"><li class="toc-item toc-level-5"><a class="toc-link" href="#undefined"><span class="toc-number">2.0.1.</span> <span class="toc-text">文档</span></a></li><li class="toc-item toc-level-5"><a class="toc-link" href="#undefined"><span class="toc-number">2.0.2.</span> <span class="toc-text">globalCompositeOperation部分属性值</span></a></li><li class="toc-item toc-level-5"><a class="toc-link" href="#undefined"><span class="toc-number">2.0.3.</span> <span class="toc-text">Demo</span></a></li></ol></li></ol></li><li class="toc-item toc-level-3"><a class="toc-link" href="#undefined"><span class="toc-number">3.</span> <span class="toc-text">问题3</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#undefined"><span class="toc-number">4.</span> <span class="toc-text">问题4</span></a></li></ol>
+                    <ol class="toc"><li class="toc-item toc-level-3"><a class="toc-link" href="#undefined"><span class="toc-number">1.</span> <span class="toc-text">问题1</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#undefined"><span class="toc-number">2.</span> <span class="toc-text">问题2</span></a><ol class="toc-child"><li class="toc-item toc-level-5"><a class="toc-link" href="#undefined"><span class="toc-number">2.0.1.</span> <span class="toc-text">文档</span></a></li><li class="toc-item toc-level-5"><a class="toc-link" href="#undefined"><span class="toc-number">2.0.2.</span> <span class="toc-text">globalCompositeOperation部分属性值</span></a></li><li class="toc-item toc-level-5"><a class="toc-link" href="#undefined"><span class="toc-number">2.0.3.</span> <span class="toc-text">Demo</span></a></li></ol></li></ol></li><li class="toc-item toc-level-3"><a class="toc-link" href="#undefined"><span class="toc-number">3.</span> <span class="toc-text">问题3</span></a></li></ol>
                     </div>
                 </span>
             </div>
@@ -528,15 +527,15 @@ return o(i(t),arguments.length<2?void 0:u(arguments[1]))}})},function(t,n,r){var
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color5">java</a>
-              </li>
-             
-              <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color1">linux</a>
               </li>
              
               <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color5">node</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color5">java</a>
               </li>
              
               <li class="article-tag-list-item">
@@ -549,6 +548,14 @@ return o(i(t),arguments.length<2?void 0:u(arguments[1]))}})},function(t,n,r){var
              
               <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color1">redux</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color5">设计模式</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color3">游戏</a>
               </li>
              
               <li class="article-tag-list-item">
@@ -568,15 +575,11 @@ return o(i(t),arguments.length<2?void 0:u(arguments[1]))}})},function(t,n,r){var
               </li>
              
               <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color3">排序</a>
+              </li>
+             
+              <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color3">分治</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color5">设计模式</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color3">游戏</a>
               </li>
              
               <li class="article-tag-list-item">
@@ -589,10 +592,6 @@ return o(i(t),arguments.length<2?void 0:u(arguments[1]))}})},function(t,n,r){var
              
               <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color3">面试</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color3">排序</a>
               </li>
             
             <div class="clearfix"></div>
