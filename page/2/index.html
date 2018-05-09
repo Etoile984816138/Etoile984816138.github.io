@@ -167,6 +167,200 @@
           <div id="js-content" class="content-ll">
             
   
+    <article id="post-H5游戏构建和优化思路（二）" class="article article-type-post  article-index" itemscope itemprop="blogPost">
+  <div class="article-inner">
+    
+      <header class="article-header">
+        
+  
+    <h1 itemprop="name">
+      <a class="article-title" href="/2018/03/03/H5游戏构建和优化思路（二）/">H5游戏构建和优化思路（二）</a>
+    </h1>
+  
+
+        
+        <a href="/2018/03/03/H5游戏构建和优化思路（二）/" class="archive-article-date">
+  	<time datetime="2018-03-03T07:12:01.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2018-03-03</time>
+</a>
+        
+      </header>
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <p>接上文，前面说到一个游戏的构建思路</p>
+<ul>
+<li>确定资源加载方案、编写游戏的场景或背景</li>
+<li>明确游戏场景，设置场景基本布局</li>
+<li>构造基本组件类</li>
+<li>调用逻辑编写</li>
+<li>屏幕适配</li>
+<li>性能优化</li>
+</ul>
+<p>本文主要阐述游戏组件的设计及代码优化。展开来说可以说很多很多，但是又确实不知道该从哪里写起来，总结了几点实际实现过程中有所思考的设计，还有最近看书过程中的一些思考。对于编写非游戏的前端项目来说也有些借鉴意义。</p>
+        
+      
+
+      
+    </div>
+    <div class="article-info article-info-index">
+      
+      
+	<div class="article-tag tagcloud">
+		<i class="icon-price-tags icon"></i>
+		<ul class="article-tag-list">
+			 
+        		<li class="article-tag-list-item">
+        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color3">前端</a>
+        		</li>
+      		 
+        		<li class="article-tag-list-item">
+        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color5">游戏开发</a>
+        		</li>
+      		
+		</ul>
+	</div>
+
+      
+	<div class="article-category tagcloud">
+		<i class="icon-book icon"></i>
+		<ul class="article-tag-list">
+			 
+        		<li class="article-tag-list-item">
+        			<a href="/categories/项目整理/" class="article-tag-list-link color5">项目整理</a>
+        		</li>
+      		
+		</ul>
+	</div>
+
+
+      
+        <p class="article-more-link">
+          <a class="article-more-a" href="/2018/03/03/H5游戏构建和优化思路（二）/">展开全文 >></a>
+        </p>
+      
+
+      
+      <div class="clearfix"></div>
+      <section id="article-comments" style="padding-top:20px;"></section>
+    </div>
+  </div>
+</article>
+
+<aside class="wrap-side-operation">
+    <div class="mod-side-operation">
+        
+        <div class="jump-container" id="js-jump-container" style="display:none;">
+            <a href="javascript:void(0)" class="mod-side-operation__jump-to-top">
+                <i class="icon-font icon-back"></i>
+            </a>
+            <div id="js-jump-plan-container" class="jump-plan-container" style="top: -11px;">
+                <i class="icon-font icon-plane jump-plane"></i>
+            </div>
+        </div>
+        
+        
+    </div>
+</aside>
+
+
+
+
+
+  
+    <article id="post-layaAir构建H5游戏详解" class="article article-type-post  article-index" itemscope itemprop="blogPost">
+  <div class="article-inner">
+    
+      <header class="article-header">
+        
+  
+    <h1 itemprop="name">
+      <a class="article-title" href="/2018/03/03/layaAir构建H5游戏详解/">layaAir构建H5游戏详解</a>
+    </h1>
+  
+
+        
+        <a href="/2018/03/03/layaAir构建H5游戏详解/" class="archive-article-date">
+  	<time datetime="2018-03-03T07:05:09.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2018-03-03</time>
+</a>
+        
+      </header>
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <p>刚刚打开<a href="https://www.layabox.com/" target="_blank" rel="noopener">官网</a>的时候发现最新版本已经是1.7.15了，更新还是比较频繁的，第一次使用的时候还是1.7.9版本，从官网copy了份介绍:</p>
+<blockquote>
+<p>​ LayaAir是Layabox旗下的第二代HTML5开源引擎。是全球唯一支持ActionScript3、JavaScript、TypeScript三种开发语言，并且一次开发同时发布Native APP与HTML5的游戏引擎，也是全球首款基于HTML5协议的全能型开源引擎。除支持2D\3D\VR\AR的游戏开发外，引擎还可以用于应用软件、广告、营销、教育等众多领域。<br>​ LayaAir引擎是一套全新设计的精简API的游戏引擎，具有极致的性能、轻量易用、支持多语言开发、API功能齐全、工具链完善高效、开源免费、支持多版本发布等特点。</p>
+</blockquote>
+        
+      
+
+      
+    </div>
+    <div class="article-info article-info-index">
+      
+      
+	<div class="article-tag tagcloud">
+		<i class="icon-price-tags icon"></i>
+		<ul class="article-tag-list">
+			 
+        		<li class="article-tag-list-item">
+        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color3">前端</a>
+        		</li>
+      		 
+        		<li class="article-tag-list-item">
+        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color5">游戏开发</a>
+        		</li>
+      		
+		</ul>
+	</div>
+
+      
+	<div class="article-category tagcloud">
+		<i class="icon-book icon"></i>
+		<ul class="article-tag-list">
+			 
+        		<li class="article-tag-list-item">
+        			<a href="/categories/项目整理/" class="article-tag-list-link color5">项目整理</a>
+        		</li>
+      		
+		</ul>
+	</div>
+
+
+      
+        <p class="article-more-link">
+          <a class="article-more-a" href="/2018/03/03/layaAir构建H5游戏详解/">展开全文 >></a>
+        </p>
+      
+
+      
+      <div class="clearfix"></div>
+      <section id="article-comments" style="padding-top:20px;"></section>
+    </div>
+  </div>
+</article>
+
+<aside class="wrap-side-operation">
+    <div class="mod-side-operation">
+        
+        <div class="jump-container" id="js-jump-container" style="display:none;">
+            <a href="javascript:void(0)" class="mod-side-operation__jump-to-top">
+                <i class="icon-font icon-back"></i>
+            </a>
+            <div id="js-jump-plan-container" class="jump-plan-container" style="top: -11px;">
+                <i class="icon-font icon-plane jump-plane"></i>
+            </div>
+        </div>
+        
+        
+    </div>
+</aside>
+
+
+
+
+
+  
     <article id="post-H5游戏性能优化实践" class="article article-type-post  article-index" itemscope itemprop="blogPost">
   <div class="article-inner">
     
@@ -869,150 +1063,6 @@
 
 
   
-    <article id="post-书单" class="article article-type-post  article-index" itemscope itemprop="blogPost">
-  <div class="article-inner">
-    
-      <header class="article-header">
-        
-  
-    <h1 itemprop="name">
-      <a class="article-title" href="/2018/01/24/书单/">书单</a>
-    </h1>
-  
-
-        
-        <a href="/2018/01/24/书单/" class="archive-article-date">
-  	<time datetime="2018-01-24T10:45:41.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2018-01-24</time>
-</a>
-        
-      </header>
-    
-    <div class="article-entry" itemprop="articleBody">
-      
-        <p>记录读过的和想读的书<br>
-        
-      
-
-      
-    </div>
-    <div class="article-info article-info-index">
-      
-      
-      
-
-      
-        <p class="article-more-link">
-          <a class="article-more-a" href="/2018/01/24/书单/">展开全文 >></a>
-        </p>
-      
-
-      
-      <div class="clearfix"></div>
-      <section id="article-comments" style="padding-top:20px;"></section>
-    </div>
-  </div>
-</article>
-
-<aside class="wrap-side-operation">
-    <div class="mod-side-operation">
-        
-        <div class="jump-container" id="js-jump-container" style="display:none;">
-            <a href="javascript:void(0)" class="mod-side-operation__jump-to-top">
-                <i class="icon-font icon-back"></i>
-            </a>
-            <div id="js-jump-plan-container" class="jump-plan-container" style="top: -11px;">
-                <i class="icon-font icon-plane jump-plane"></i>
-            </div>
-        </div>
-        
-        
-    </div>
-</aside>
-
-
-
-
-
-  
-    <article id="post-《编写可测试的JavaScript代码》笔记" class="article article-type-post  article-index" itemscope itemprop="blogPost">
-  <div class="article-inner">
-    
-      <header class="article-header">
-        
-  
-    <h1 itemprop="name">
-      <a class="article-title" href="/2018/01/24/《编写可测试的JavaScript代码》笔记/">《编写可测试的JavaScript代码》读书笔记</a>
-    </h1>
-  
-
-        
-        <a href="/2018/01/24/《编写可测试的JavaScript代码》笔记/" class="archive-article-date">
-  	<time datetime="2018-01-24T09:08:27.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2018-01-24</time>
-</a>
-        
-      </header>
-    
-    <div class="article-entry" itemprop="articleBody">
-      
-        <h2 id="第二章-复杂度"><a href="#第二章-复杂度" class="headerlink" title="第二章 复杂度"></a>第二章 复杂度</h2><h3 id="2-1-代码大小"><a href="#2-1-代码大小" class="headerlink" title="2.1 代码大小"></a>2.1 代码大小</h3><ul>
-<li>可以让函数保持最小代码量的一个方法是让命令(setter)和查询(getter)保持分离</li>
-<li>命令函数用mock测试</li>
-<li>查询函数用stub测试
-        
-      
-
-      
-    </div>
-    <div class="article-info article-info-index">
-      
-      
-      
-	<div class="article-category tagcloud">
-		<i class="icon-book icon"></i>
-		<ul class="article-tag-list">
-			 
-        		<li class="article-tag-list-item">
-        			<a href="/categories/学习笔记/" class="article-tag-list-link color5">学习笔记</a>
-        		</li>
-      		
-		</ul>
-	</div>
-
-
-      
-        <p class="article-more-link">
-          <a class="article-more-a" href="/2018/01/24/《编写可测试的JavaScript代码》笔记/">展开全文 >></a>
-        </p>
-      
-
-      
-      <div class="clearfix"></div>
-      <section id="article-comments" style="padding-top:20px;"></section>
-    </div>
-  </div>
-</article>
-
-<aside class="wrap-side-operation">
-    <div class="mod-side-operation">
-        
-        <div class="jump-container" id="js-jump-container" style="display:none;">
-            <a href="javascript:void(0)" class="mod-side-operation__jump-to-top">
-                <i class="icon-font icon-back"></i>
-            </a>
-            <div id="js-jump-plan-container" class="jump-plan-container" style="top: -11px;">
-                <i class="icon-font icon-plane jump-plane"></i>
-            </div>
-        </div>
-        
-        
-    </div>
-</aside>
-
-
-
-
-
-  
   
     <nav id="page-nav">
       <a class="extend prev" rel="prev" href="/">&laquo; Prev</a><a class="page-number" href="/">1</a><span class="page-number current">2</span><a class="page-number" href="/page/3/">3</a><a class="page-number" href="/page/4/">4</a><a class="page-number" href="/page/5/">5</a><a class="extend next" rel="next" href="/page/3/">Next &raquo;</a>
@@ -1158,11 +1208,11 @@ return o(i(t),arguments.length<2?void 0:u(arguments[1]))}})},function(t,n,r){var
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color1">react</a>
+                <a href="javascript:void(0)" class="js-tag color5">js模式</a>
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color5">js模式</a>
+                <a href="javascript:void(0)" class="js-tag color1">react</a>
               </li>
              
               <li class="article-tag-list-item">
