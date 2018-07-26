@@ -167,6 +167,322 @@
           <div id="js-content" class="content-ll">
             
   
+    <article id="post-ECMA规范笔记" class="article article-type-post  article-index" itemscope itemprop="blogPost">
+  <div class="article-inner">
+    
+      <header class="article-header">
+        
+  
+    <h1 itemprop="name">
+      <a class="article-title" href="/2018/05/17/ECMA规范笔记/">ECMA规范笔记</a>
+    </h1>
+  
+
+        
+        <a href="/2018/05/17/ECMA规范笔记/" class="archive-article-date">
+  	<time datetime="2018-05-17T02:49:24.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2018-05-17</time>
+</a>
+        
+      </header>
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <p>版本：<a href="http://www.ecma-international.org/ecma-262/8.0/index.html" target="_blank" rel="noopener">http://www.ecma-international.org/ecma-262/8.0/index.html</a></p>
+<h3><span id="utf-16规则">UTF-16规则</span></h3><h4><span id="原文">原文</span></h4><blockquote>
+<ul>
+<li>A code unit in the range 0 to 0xD7FF or in the range 0xE000 to 0xFFFF is interpreted as a code point with the same value.</li>
+<li>A sequence of two code units, where the first code unit c1 is in the range 0xD800 to 0xDBFF and the second code unit c2 is in the range 0xDC00 to 0xDFFF, is a surrogate pair and is interpreted as a code point with the value (c1 - 0xD800) × 0x400 + (c2 - 0xDC00) + 0x10000. (See 10.1.2)</li>
+<li>A code unit that is in the range 0xD800 to 0xDFFF, but is not part of a surrogate pair, is interpreted as a code point with the same value.</li>
+</ul>
+</blockquote>
+
+      
+
+      
+    </div>
+    <div class="article-info article-info-index">
+      
+      
+      
+
+      
+        <p class="article-more-link">
+          <a class="article-more-a" href="/2018/05/17/ECMA规范笔记/">展开全文 >></a>
+        </p>
+      
+
+      
+      <div class="clearfix"></div>
+      <section id="article-comments" style="padding-top:20px;"></section>
+    </div>
+  </div>
+</article>
+
+<aside class="wrap-side-operation">
+    <div class="mod-side-operation">
+        
+        <div class="jump-container" id="js-jump-container" style="display:none;">
+            <a href="javascript:void(0)" class="mod-side-operation__jump-to-top">
+                <i class="icon-font icon-back"></i>
+            </a>
+            <div id="js-jump-plan-container" class="jump-plan-container" style="top: -11px;">
+                <i class="icon-font icon-plane jump-plane"></i>
+            </div>
+        </div>
+        
+        
+    </div>
+</aside>
+
+
+
+
+
+  
+    <article id="post-2018-年前端工具调查报告" class="article article-type-post  article-index" itemscope itemprop="blogPost">
+  <div class="article-inner">
+    
+      <header class="article-header">
+        
+  
+    <h1 itemprop="name">
+      <a class="article-title" href="/2018/05/11/2018-年前端工具调查报告/">2018 年前端工具调查报告</a>
+    </h1>
+  
+
+        
+        <a href="/2018/05/11/2018-年前端工具调查报告/" class="archive-article-date">
+  	<time datetime="2018-05-11T07:10:26.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2018-05-11</time>
+</a>
+        
+      </header>
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <p>原文：<a href="https://ashleynolan.co.uk/blog/frontend-tooling-survey-2018-results" target="_blank" rel="noopener">https://ashleynolan.co.uk/blog/frontend-tooling-survey-2018-results</a></p>
+<p>自从今年3月份发布今年的前端工具调查报告以来，有5,097名前端开发人员花时间来填充内容。感谢所有参与过的人！</p>
+<p>每年的调查都有一个非常直接的目的：阐明在前端领域前端开发者们正在使用的工具。</p>
+<p>大家经常会根据自己的知识储备和习惯使用一些开发工具，这份报告有助于我们深入了解前端工具的当前趋势，并通过查看<a href="https://ashleynolan.co.uk/blog/frontend-tooling-survey-2016-results" target="_blank" rel="noopener">以前调查的数据</a>显示使用情况随时间变化的趋势。</p>
+<p>今年这项调查由24个问题组成-从2016年的19个问题开始-涵盖范围广泛的前端工具和方法。</p>
+<p>对于那些还没有参加的人来说，调查仍然是开放的，所以如果你还没有参加，请花时间填写。 它会在几周内永久关闭，之后结果将在不久之后更新。</p>
+<h4><span id="感谢">感谢</span></h4><p>如果没有得到我们分支机构(Wes Bos和Just Eat（我的雇主）)的支持，这项调查将无法运行。</p>
+<p>Wes是以为Web开发人员创造出色的学习资料而闻名的机构。无论你刚刚开始web开发，还是一位有经验的开发人员，如果希望提升技能，我都强烈建议查看Wes的课程。 您可以在调查结果中找到有关这些课程的链接。</p>
+<h4><span id="结果">结果</span></h4><p>所以，话不多说，我们现在来看这份调查结果！请让自己保持一个舒适的姿势观看……</p>
+<h3><span id="序言-免责声明">序言-免责声明</span></h3><p>这些结果仅代表了一些前端开发人员的样板，所以，它们不应该被视为真理，只是指向一个粗略的趋势。</p>
+<h3><span id="问卷收回结果">问卷收回结果</span></h3><p>如上所述，今年的调查迄今已有5,097个回复。 在2016年发布第一批结果时，调查共收到4,715份回复，最终数字回升至5,254份。</p>
+<p>就今年的回应可能来自哪里而言，调查的链接已发布在Twitter，Reddit，HackerNews，DesignerNews，Echo.js，SitePoint，LinkedIn和Frontendfront上。 其中还包括许多时事通讯，如响应设计周刊，Versioning和FrontEnd Focus等。</p>
+<p>你会发现我已经尽可能将2016年调查中的百分比变化与今年的数据一起包括在内。</p>
+<h3><span id="问题序列">问题序列</span></h3><ol>
+<li>前端经验水平</li>
+<li>CSS知识水平</li>
+<li>CSS预处理器的使用</li>
+<li>CSS预处理器使用经验</li>
+<li>CSS框架的使用</li>
+<li>CSS命名方案</li>
+<li>CSS Linting</li>
+<li>CSS工具使用经验</li>
+<li>CSS方法和命名方案使用经验</li>
+<li>CSS工具的使用</li>
+<li>CSS功能的使用</li>
+<li>JavaScript知识水平</li>
+<li>任务执行</li>
+<li>JavaScript库和框架知识</li>
+<li>高频使用的JS工具</li>
+<li>最重要的JS工具</li>
+<li>JavaScript模块构建工具的使用</li>
+<li>JavaScript模块构建工具 &amp; 任务执行经验</li>
+<li>JavaScript Transpilers</li>
+<li>JavaScript扩展语言</li>
+<li>JavaScript Linting</li>
+<li>JavaScript测试</li>
+<li>JavaScript包管理器</li>
+<li>其它工具</li>
+</ol>
+<h3><span id="q1-前端经验水平">Q1 前端经验水平</span></h3><p>和往年一样，第一个问题是用来找出每个受访者拥有的前端经验年限。</p>
+<p>提问：你从事前端技术工作多久了？</p>
+<p>结果如下：</p>
+<table>
+<thead>
+<tr>
+<th>答案</th>
+<th style="text-align:right">选择人数</th>
+<th style="text-align:center">百分比</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>0-1年</td>
+<td style="text-align:right">234</td>
+<td style="text-align:center">4.59%</td>
+</tr>
+<tr>
+<td>1-2年</td>
+<td style="text-align:right">600</td>
+<td style="text-align:center">11.77%</td>
+</tr>
+<tr>
+<td>2-5年</td>
+<td style="text-align:right">1499</td>
+<td style="text-align:center">29.41%</td>
+</tr>
+<tr>
+<td>5-10年</td>
+<td style="text-align:right">1369</td>
+<td style="text-align:center">26.86%</td>
+</tr>
+<tr>
+<td>10-15年</td>
+<td style="text-align:right">824</td>
+<td style="text-align:center">16.17%</td>
+</tr>
+<tr>
+<td>超过15年</td>
+<td style="text-align:right">571</td>
+<td style="text-align:center">11.20%</td>
+</tr>
+</tbody>
+</table>
+<p>从结果来看，54.23％的受访者从事前端技术工作超过5年，只有16.36％的受访者表示他们的经验不到2年。这些数字也清楚地显示，今年调查中的大多数受访者在前端技术方面拥有相当高的经验。</p>
+<p>有趣的是，这些数字与2016年调查中同一问题的结果非常相似。</p>
+<h3><span id="q2-css知识水平">Q2 CSS知识水平</span></h3><p>第二个问题考察了受访者如何评价他们自己对CSS的知识。</p>
+<p>提问:你如何评价自己对CSS及其相关工具和方法的知识？</p>
+<p>结果如下：</p>
+<table>
+<thead>
+<tr>
+<th>等级</th>
+<th style="text-align:right">选择人数</th>
+<th style="text-align:center">百分比</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>初级</td>
+<td style="text-align:right">72</td>
+<td style="text-align:center">1.41%</td>
+</tr>
+<tr>
+<td>新手（初级和中级之间）</td>
+<td style="text-align:right">443</td>
+<td style="text-align:center">8.69%</td>
+</tr>
+<tr>
+<td>中级</td>
+<td style="text-align:right">1,475</td>
+<td style="text-align:center">28.94%</td>
+</tr>
+<tr>
+<td>高级（在中级和专家之间）</td>
+<td style="text-align:right">2,326</td>
+<td style="text-align:center">45.63%</td>
+</tr>
+<tr>
+<td>专家</td>
+<td style="text-align:right">781</td>
+<td style="text-align:center">15.32%</td>
+</tr>
+</tbody>
+</table>
+<p>89.9％的受访者表示他们在CSS方面的知识处于中级或以上水平，其中大多数（45.63％）认为他们处于高级水平。</p>
+<p>与其它关于知识水平问题一样，这个答案是非常主观的。一个人对CSS专家的定义可能与另一个人不同。不考虑这种主观性，开发人员所使用的工具反映了他们的知识水平。</p>
+<p>我会在适当的地方回顾这些结果，因为根据这些知识水平进行筛选以获得对某些结果更深入的了解是一件十分有趣的事情。</p>
+<h3><span id="q3-css预处理器的使用">Q3-CSS预处理器的使用</span></h3><p>第一个与工具相关的问题涉及到CSS处理工具。提问：你选择使用什么CSS处理工具？</p>
+<p>在过去的几年里，Sass一直是这个领域的主要工具，但今天看起来如何？ 结果如下：</p>
+<p>结果如下：</p>
+<p>结果显示，Sass仍然是这个领域的主导工具，65.33％的受访者选择使用它。 这一数字实际上比2016年的结果略有上涨（+ 1.84％），已超过CSS预处理工具使用人数的一半。</p>
+<p>Less的使用量继续呈现下降趋势，只有6.44％的受访者使用它，比2016年的结果下降了3.78％。</p>
+<h3><span id="q4css预处理器使用经验">Q4–CSS预处理器使用经验</span></h3><p>继上一个问题之后，我要求受访者指出他们在CSS处理工具中的经验水平。</p>
+<p>以下是他们的回复：</p>
+<p>正如您可能预料的那样，遵循上一个问题的结果，Sass是迄今为止知识水平最高的工具。</p>
+<p>73.34％的受访者表示对使用它感到满意，这一数字比2016年的调查稍高（+ 2.65％）。 只有9.11％的受访者回答说，他们从来没有使用过，只有0.16％的人从未听说过。 结合问题3的结果，显然Sass仍然是CSS处理的主要工具。</p>
+<p>纵观其他这些工具，只有PostCSS从2016年的业绩中看到了正面收益，17.07％的受访者表示他们觉得使用起来很舒服 - 增长了3.63％。 与2016年相比，Less和Stylus知识水平都呈下降趋势。</p>
+<h3><span id="q5-css框架">Q5-CSS框架</span></h3><p>接下来的问题是对去年调查的反馈结果，许多人都对CSS框架的使用感兴趣。</p>
+<p>这些结果我最感兴趣的是，与那些选择不使用框架或使用自己的定制方案的人相比，有多少开发人员正在使用现成的解决方案。</p>
+<p>所以问的问题是 - 请指出您的项目中最常使用的以下哪些CSS框架（如果有的话）。</p>
+<p>结果如下：</p>
+<p>到目前为止，最流行的CSS框架是Bootstrap，超过三分之一的受访者（34.69％）使用它。</p>
+<p>有趣之处在于与那些选择使用自定义或根本不使用框架（48.33％）的用户相比，选择使用现成的CSS框架的受访者数量（51.67％），比例十分相当。</p>
+<p>当根据CSS知识水平过滤结果时，发现Bootstrap在初学者和新手中的使用更为普遍，仅仅考虑这些受访者时，使用率会增加到51.07％。在较高的知识水平下，框架使用量在每个类别水平都有下降，这些受访者中有37.39％的专家级别的CSS开发者，没有首选的CSS框架，并且Bootstrap使用率远低于21.64％。</p>
+<p>This pattern is repeated for custom frameworks with 25.61% of those with expert knowledge in CSS saying that they use a custom framework,这种模式在定制框架中重复使用，25.61％的那些拥有CSS专业知识的人表示他们使用自定义框架，而初学者或新手级知识的人则只有6.21％说他们相同的事情。</p>
+<p>这些数字是有道理的 - 作为开发人员通过CSS获得更多知识，他们更有可能摆脱使用现成的解决方案，使用他们学习的CSS来编写更适合他们和他们的团队的方法。</p>
+<h3><span id="q6-css命名方案">Q6-CSS命名方案</span></h3><p>接下来是CSS命名方案。</p>
+<p>这个问题并不讨论具体命名方案的细节，而是简单地问 - 你是否在编写CSS时使用CSS命名方案，比如BEM或SUIT？</p>
+<p>结果显示，自2016年调查以来，CSS命名方案的使用及水平有所提高，49.54％的开发人员在编写CSS时使用它。</p>
+<p>只有11.5％的受访者从未听说过CSS命名方案 - 比2016年的17.76％有所下降。这个数字上升到21.41％，被调查者认为自己的CSS知识水平中等或更低。</p>
+<p>当看到自称具有高级CSS知识或更高水平的受访者时，CSS命名方案的使用率升至59.83％。</p>
+<p>总的来说，这方面的知识水平正在提高 - 作为CSS命名方案的倡导者，这令人鼓舞。</p>
+<h3><span id="q7-css-linting">Q7-CSS Linting</span></h3><p>在2016年的调查结果中，大多数受访者表示没有使用CSS Linting工具。 那么在这18个月中是否改变了呢？</p>
+<p>问题 - 你使用工具来检查你的CSS吗？</p>
+<p>结果如下：</p>
+<p>选择使用这些工具来检查CSS和选择不使用的人的比例非常接近，49.93％（2,545）的受访者表示他们正在使用CSS lint，这比2016年的结果增长了3.36%。</p>
+<p>和CSS命名方案的调查结果相似，CSS知识水平越高的人越喜欢使用CSS lint。57.16％的受访者认为自己拥有高级或更高级别的CSS知识，也表示他们使用CSS lint，而初学者和中级知识者的比例只有38.64％。</p>
+<p>这是CSS工具的另一个领域，趋势看起来一片大好。 如果使用情况不会保持上升状态我们也会非常惊讶，因为CSS lint在行业中的实践已像JavaSript linting一样普遍。</p>
+<h3><span id="q8-css工具使用经验">Q8-CSS工具使用经验</span></h3><p>接下来的几个问题涵盖了许多不同的CSS方法和辅助工具的知识和使用水平。</p>
+<p>首先，问题8要求受访者说明他们使用Autoprefixer，Modernizr和Stylelint的经验。</p>
+<p>让我们来看看结果：</p>
+<p>从2016年的数据来看，Stylelint和Autoprefixer知识水平都有所提高，Modernizer的知识水平有所下降。</p>
+<p>Stylelint的知识水平有了很大提高，有18.40％的受访者表示他们觉得使用它很舒服。 这一数字比2016年上涨8.03％，但从未听说过这些工具的比例最高（43.30％），尽管这一数字比2016年下降了11.80％。</p>
+<p>令人惊讶的是，超过三分之一的开发人员表示他们处于CSS高级以上的水平，但从未听说过Stylelint。 如果这个数字在未来几年不会继续下降，我会非常惊讶。</p>
+<p>Autoprefixer的知识水平仍然很高，49.46％的受访者乐于使用它。 同样，虽然Modernizr的知识水平略有下降，但只有10.4％的受访者从未听说过这一点，这表明它现在的知名度仍然很高。</p>
+<h3><span id="q9-css架构方法和命名方案使用经验">Q9-CSS架构方法和命名方案使用经验</span></h3><p>继上一个问题之后，受访者被问 - 请表明您对以下CSS架构方法的使用经验。</p>
+<p>结果如下：</p>
+<p>今年CSS架构方法领域的领先者是CSS-in-JS，其中20.27％的受访者表示他们很喜欢使用CSS-in-JS - 比2016年增长8.74％。当包括那些说他们使用过一些的人时，这个比例上升到了46.54％。</p>
+<p>BEM仍然是最着名的CSS架构方法，并且也取得了良好的增长，38.85％的受访者表示他们很喜欢使用 - 自上次调查以来增长了6.09％。</p>
+<p>几乎所有其它CSS架构方法的知识水平都有所下降 - 除了Atomic Design，29.04％的受访者表示他们至少使用过它。</p>
+<p>纵观所有方法论 - SMACSS，OOCSS，Atomic Design，ITCSS和CSS-in-JS，超过三分之一（35.26％）的受访者表示他们很喜欢使用其中的至少一种方法。如果我们把那些至少使用过其中任意一种方法的人包含在内，那么这个数字就会上升到66.94％。</p>
+<p>和2016年相比，更多的人正在使用某一种CSS方法，这也是受到更多使用CSS-in-JS和Atomic Design的开发人员的推动。</p>
+<h3><span id="q10-css工具的使用">Q10-CSS工具的使用</span></h3><p>回答关于CSS方法和工具的问题，问题10提问受访者 - 您目前在您的项目中使用了哪些CSS架构方法或工具？</p>
+<p>这些结果是否与前两个问题中显示的经验水平相当？ 让我们来看看。</p>
+<p>结果确实达到了前两个问题的经验水平。</p>
+<p>实际使用量排名第一的是Autoprefixer（57.45％），其次是BEM（43.93％）和Modernizr（29.45％）。实际上，这与2016年的前三名相同，但查看与这些结果相比的百分比差异，您可以看到它们分别变化了+7.09％，+3.98％和-9.09％。这些变化与问题8和9中的变化相匹配，Modernizr的使用情况似乎趋于下降，Autoprefixer和BEM的使用也在增长。</p>
+<p>CSS-in-JS的使用率上升了+10.82％，其中26.35％的受访者表示他们现在正在项目中使用它。同样，Stylelint的使用量增长了8.87％，有23.09％的开发者正在使用它。</p>
+<p>另一方面，其他CSS方法的使用率下降-除了Atomic Design的使用率略有上升。 OOCSS和SMACSS分别使用5.59％和6.26％。随着当下CSS技术的不断发展和推广，旧方法的使用率会随着时间的推移而下降，这并不意外。</p>
+<p>正如您所预料的那样，在具有CSS高级水平的受访者中，所有这些方法和工具的使用率都有所提高。</p>
+<p>这些结果清楚地显示了在行业水平和使用方面，哪些工具和方法的发展呈向上趋势，同时，关注这些数据的发展演变也是一件很有趣的事情。</p>
+
+      
+
+      
+    </div>
+    <div class="article-info article-info-index">
+      
+      
+      
+
+      
+        <p class="article-more-link">
+          <a class="article-more-a" href="/2018/05/11/2018-年前端工具调查报告/">展开全文 >></a>
+        </p>
+      
+
+      
+      <div class="clearfix"></div>
+      <section id="article-comments" style="padding-top:20px;"></section>
+    </div>
+  </div>
+</article>
+
+<aside class="wrap-side-operation">
+    <div class="mod-side-operation">
+        
+        <div class="jump-container" id="js-jump-container" style="display:none;">
+            <a href="javascript:void(0)" class="mod-side-operation__jump-to-top">
+                <i class="icon-font icon-back"></i>
+            </a>
+            <div id="js-jump-plan-container" class="jump-plan-container" style="top: -11px;">
+                <i class="icon-font icon-plane jump-plane"></i>
+            </div>
+        </div>
+        
+        
+    </div>
+</aside>
+
+
+
+
+
+  
     <article id="post-译-JavaScript中的Reduce方法是如何工作的？什么时候使用？我们可以用它做些什么有趣的事？" class="article article-type-post  article-index" itemscope itemprop="blogPost">
   <div class="article-inner">
     
@@ -820,174 +1136,6 @@
 
 
   
-    <article id="post-《计算机系统基础》课程笔记" class="article article-type-post  article-index" itemscope itemprop="blogPost">
-  <div class="article-inner">
-    
-      <header class="article-header">
-        
-  
-    <h1 itemprop="name">
-      <a class="article-title" href="/2018/03/03/《计算机系统基础》课程笔记/">《计算机系统基础》课程笔记</a>
-    </h1>
-  
-
-        
-        <a href="/2018/03/03/《计算机系统基础》课程笔记/" class="archive-article-date">
-  	<time datetime="2018-03-03T12:43:56.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2018-03-03</time>
-</a>
-        
-      </header>
-    
-    <div class="article-entry" itemprop="articleBody">
-      
-        <p>课程地址：<a href="https://www.icourse163.org/learn/NJU-1001625001?tid=1002655016#/learn/content?type=detail&amp;id=1003674250" target="_blank" rel="noopener">https://www.icourse163.org/learn/NJU-1001625001?tid=1002655016#/learn/content?type=detail&amp;id=1003674250</a></p>
-        
-      
-
-      
-    </div>
-    <div class="article-info article-info-index">
-      
-      
-      
-	<div class="article-category tagcloud">
-		<i class="icon-book icon"></i>
-		<ul class="article-tag-list">
-			 
-        		<li class="article-tag-list-item">
-        			<a href="/categories/学习笔记/" class="article-tag-list-link color5">学习笔记</a>
-        		</li>
-      		
-		</ul>
-	</div>
-
-
-      
-        <p class="article-more-link">
-          <a class="article-more-a" href="/2018/03/03/《计算机系统基础》课程笔记/">展开全文 >></a>
-        </p>
-      
-
-      
-      <div class="clearfix"></div>
-      <section id="article-comments" style="padding-top:20px;"></section>
-    </div>
-  </div>
-</article>
-
-<aside class="wrap-side-operation">
-    <div class="mod-side-operation">
-        
-        <div class="jump-container" id="js-jump-container" style="display:none;">
-            <a href="javascript:void(0)" class="mod-side-operation__jump-to-top">
-                <i class="icon-font icon-back"></i>
-            </a>
-            <div id="js-jump-plan-container" class="jump-plan-container" style="top: -11px;">
-                <i class="icon-font icon-plane jump-plane"></i>
-            </div>
-        </div>
-        
-        
-    </div>
-</aside>
-
-
-
-
-
-  
-    <article id="post-H5游戏开发踩坑不完全指南" class="article article-type-post  article-index" itemscope itemprop="blogPost">
-  <div class="article-inner">
-    
-      <header class="article-header">
-        
-  
-    <h1 itemprop="name">
-      <a class="article-title" href="/2018/03/03/H5游戏开发踩坑不完全指南/">H5游戏开发踩坑不完全指南</a>
-    </h1>
-  
-
-        
-        <a href="/2018/03/03/H5游戏开发踩坑不完全指南/" class="archive-article-date">
-  	<time datetime="2018-03-03T09:17:28.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2018-03-03</time>
-</a>
-        
-      </header>
-    
-    <div class="article-entry" itemprop="articleBody">
-      
-        <p>说是不完全指南，因为有些硬伤在之前已经说过了，本文偏重具体解决方案。</p>
-<h3 id="斜面上人物运动"><a href="#斜面上人物运动" class="headerlink" title="斜面上人物运动"></a>斜面上人物运动</h3><p>学过物理的同学都知道，物体的静止是相对的，我们也一直在随着地球在运动。但是游戏的世界中，两个物体的位置是人为设定的，也就是说，当我们设置地板运动时，如果人物不运动，那它就不是静止的，所以我们设置地板运动的时候同时也要设置人物运动。如果人物是相对静止的话还好，我们只要通过不断计算改变人物的xyz坐标即可，但是问题是，人物也许也在运动，我们可以通过操纵摇杆进行人物坐标的变化，这时候似乎看起来二者都要同时改变人物坐标，会造成冲突。<br>
-        
-      
-
-      
-    </div>
-    <div class="article-info article-info-index">
-      
-      
-	<div class="article-tag tagcloud">
-		<i class="icon-price-tags icon"></i>
-		<ul class="article-tag-list">
-			 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color3">前端</a>
-        		</li>
-      		 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color5">游戏开发</a>
-        		</li>
-      		
-		</ul>
-	</div>
-
-      
-	<div class="article-category tagcloud">
-		<i class="icon-book icon"></i>
-		<ul class="article-tag-list">
-			 
-        		<li class="article-tag-list-item">
-        			<a href="/categories/项目整理/" class="article-tag-list-link color5">项目整理</a>
-        		</li>
-      		
-		</ul>
-	</div>
-
-
-      
-        <p class="article-more-link">
-          <a class="article-more-a" href="/2018/03/03/H5游戏开发踩坑不完全指南/">展开全文 >></a>
-        </p>
-      
-
-      
-      <div class="clearfix"></div>
-      <section id="article-comments" style="padding-top:20px;"></section>
-    </div>
-  </div>
-</article>
-
-<aside class="wrap-side-operation">
-    <div class="mod-side-operation">
-        
-        <div class="jump-container" id="js-jump-container" style="display:none;">
-            <a href="javascript:void(0)" class="mod-side-operation__jump-to-top">
-                <i class="icon-font icon-back"></i>
-            </a>
-            <div id="js-jump-plan-container" class="jump-plan-container" style="top: -11px;">
-                <i class="icon-font icon-plane jump-plane"></i>
-            </div>
-        </div>
-        
-        
-    </div>
-</aside>
-
-
-
-
-
-  
   
     <nav id="page-nav">
       <span class="page-number current">1</span><a class="page-number" href="/page/2/">2</a><a class="page-number" href="/page/3/">3</a><span class="space">&hellip;</span><a class="page-number" href="/page/5/">5</a><a class="extend next" rel="next" href="/page/2/">Next &raquo;</a>
@@ -1113,15 +1261,15 @@ return o(i(t),arguments.length<2?void 0:u(arguments[1]))}})},function(t,n,r){var
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color1">mysql</a>
-              </li>
-             
-              <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color3">regular</a>
               </li>
              
               <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color1">redux</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color1">mysql</a>
               </li>
              
               <li class="article-tag-list-item">
@@ -1134,10 +1282,6 @@ return o(i(t),arguments.length<2?void 0:u(arguments[1]))}})},function(t,n,r){var
              
               <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color5">js模式</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color1">react</a>
               </li>
              
               <li class="article-tag-list-item">
@@ -1166,6 +1310,10 @@ return o(i(t),arguments.length<2?void 0:u(arguments[1]))}})},function(t,n,r){var
              
               <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color3">面试</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color1">react</a>
               </li>
             
             <div class="clearfix"></div>
