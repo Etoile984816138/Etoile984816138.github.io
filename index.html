@@ -167,6 +167,348 @@
           <div id="js-content" class="content-ll">
             
   
+    <article id="post-多行等间距自适应宽高正方形网格布局实现" class="article article-type-post  article-index" itemscope itemprop="blogPost">
+  <div class="article-inner">
+    
+      <header class="article-header">
+        
+  
+    <h1 itemprop="name">
+      <a class="article-title" href="/2018/07/26/多行等间距自适应宽高正方形网格布局实现/">多行等间距自适应宽高正方形网格布局实现</a>
+    </h1>
+  
+
+        
+        <a href="/2018/07/26/多行等间距自适应宽高正方形网格布局实现/" class="archive-article-date">
+  	<time datetime="2018-07-26T03:15:23.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2018-07-26</time>
+</a>
+        
+      </header>
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <p>最近有个需求是这样的<br><img src="http://wx3.sinaimg.cn/mw690/6cc0d315gy1ftn3lluwsij20zq0muwed.jpg" alt="image"></p>
+<ol>
+<li>整个容器宽度自适应</li>
+<li>网格要求正方形</li>
+<li>一行只允许3个,不管宽度如何放大缩小</li>
+<li>上下左右间距需要相等</li>
+<li>两端对齐</li>
+</ol>
+        
+      
+
+      
+    </div>
+    <div class="article-info article-info-index">
+      
+      
+      
+
+      
+        <p class="article-more-link">
+          <a class="article-more-a" href="/2018/07/26/多行等间距自适应宽高正方形网格布局实现/">展开全文 >></a>
+        </p>
+      
+
+      
+      <div class="clearfix"></div>
+      <section id="article-comments" style="padding-top:20px;"></section>
+    </div>
+  </div>
+</article>
+
+<aside class="wrap-side-operation">
+    <div class="mod-side-operation">
+        
+        <div class="jump-container" id="js-jump-container" style="display:none;">
+            <a href="javascript:void(0)" class="mod-side-operation__jump-to-top">
+                <i class="icon-font icon-back"></i>
+            </a>
+            <div id="js-jump-plan-container" class="jump-plan-container" style="top: -11px;">
+                <i class="icon-font icon-plane jump-plane"></i>
+            </div>
+        </div>
+        
+        
+    </div>
+</aside>
+
+
+
+
+
+  
+    <article id="post-跨域下载实现" class="article article-type-post  article-index" itemscope itemprop="blogPost">
+  <div class="article-inner">
+    
+      <header class="article-header">
+        
+  
+    <h1 itemprop="name">
+      <a class="article-title" href="/2018/07/26/跨域下载实现/">跨域下载实现</a>
+    </h1>
+  
+
+        
+        <a href="/2018/07/26/跨域下载实现/" class="archive-article-date">
+  	<time datetime="2018-07-26T03:06:50.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2018-07-26</time>
+</a>
+        
+      </header>
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <p>由于<code>&lt;a&gt;</code>标签的download属性只可以同源下载，如果要跨域下载我们需要想些方法。</p>
+<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">/**</span></span><br><span class="line"><span class="comment"> * @description 下载文件</span></span><br><span class="line"><span class="comment"> */</span></span><br><span class="line"><span class="keyword">const</span> download = <span class="function">(<span class="params">blob, filename = <span class="string">''</span></span>) =&gt;</span> &#123;</span><br><span class="line">    <span class="keyword">var</span> a = <span class="built_in">document</span>.createElement(<span class="string">'a'</span>);</span><br><span class="line">    a.download = filename;</span><br><span class="line">    a.href = blob;</span><br><span class="line">    a.click();</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="comment">/**</span></span><br><span class="line"><span class="comment"> * @description 跨域下载文件</span></span><br><span class="line"><span class="comment"> */</span></span><br><span class="line"><span class="keyword">const</span> downloadResource = <span class="function">(<span class="params">url, filename = <span class="string">''</span></span>) =&gt;</span> &#123;</span><br><span class="line">    <span class="comment">// if (!filename) filename = url.split('\\').pop().split('/').pop();</span></span><br><span class="line">    fetch(url, &#123;</span><br><span class="line">        headers: <span class="keyword">new</span> Headers(&#123;</span><br><span class="line">            <span class="string">'Origin'</span>: location.origin</span><br><span class="line">        &#125;),</span><br><span class="line">        mode: <span class="string">'cors'</span></span><br><span class="line">    &#125;)</span><br><span class="line">        .then(<span class="function"><span class="params">response</span> =&gt;</span> response.blob())</span><br><span class="line">        .then(<span class="function"><span class="params">blob</span> =&gt;</span> &#123;</span><br><span class="line">            <span class="keyword">const</span> blobUrl = <span class="built_in">window</span>.URL.createObjectURL(blob);</span><br><span class="line">            download(blobUrl, filename);</span><br><span class="line">        &#125;)</span><br><span class="line">        .catch(<span class="function"><span class="params">e</span> =&gt;</span> <span class="built_in">console</span>.error(e));</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+      
+
+      
+    </div>
+    <div class="article-info article-info-index">
+      
+      
+      
+
+      
+        <p class="article-more-link">
+          <a class="article-more-a" href="/2018/07/26/跨域下载实现/">展开全文 >></a>
+        </p>
+      
+
+      
+      <div class="clearfix"></div>
+      <section id="article-comments" style="padding-top:20px;"></section>
+    </div>
+  </div>
+</article>
+
+<aside class="wrap-side-operation">
+    <div class="mod-side-operation">
+        
+        <div class="jump-container" id="js-jump-container" style="display:none;">
+            <a href="javascript:void(0)" class="mod-side-operation__jump-to-top">
+                <i class="icon-font icon-back"></i>
+            </a>
+            <div id="js-jump-plan-container" class="jump-plan-container" style="top: -11px;">
+                <i class="icon-font icon-plane jump-plane"></i>
+            </div>
+        </div>
+        
+        
+    </div>
+</aside>
+
+
+
+
+
+  
+    <article id="post-JavaScript实现文件读写操作简记" class="article article-type-post  article-index" itemscope itemprop="blogPost">
+  <div class="article-inner">
+    
+      <header class="article-header">
+        
+  
+    <h1 itemprop="name">
+      <a class="article-title" href="/2018/07/26/JavaScript实现文件读写操作简记/">JavaScript实现文件读写操作简记</a>
+    </h1>
+  
+
+        
+        <a href="/2018/07/26/JavaScript实现文件读写操作简记/" class="archive-article-date">
+  	<time datetime="2018-07-26T01:57:16.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2018-07-26</time>
+</a>
+        
+      </header>
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <h3 id="File对象类型"><a href="#File对象类型" class="headerlink" title="File对象类型"></a>File对象类型</h3><ul>
+<li><code>&lt;input&gt;</code>元素上选择文件后返回的FileList对象</li>
+<li>拖放操作生成的<code>DataTransfer</code>对象<ul>
+<li>包含一个在数据传输上所有可用的本地文件列表。如果拖动操作不涉及拖动文件，此属性是一个空列表</li>
+<li>可做拖动上传文件</li>
+</ul>
+</li>
+<li><code>HTMLCanvasElement</code>上执行<code>mozGetAsFile()</code>方法后返回结果<ul>
+<li>返回一个File对象,表示了包含在该canvas中的图片文件,这个文件是存在于内存中的.还可以指定名称和图片类型,如果没有指定type参数,则默认使用image/png.</li>
+</ul>
+</li>
+</ul>
+        
+      
+
+      
+    </div>
+    <div class="article-info article-info-index">
+      
+      
+      
+
+      
+        <p class="article-more-link">
+          <a class="article-more-a" href="/2018/07/26/JavaScript实现文件读写操作简记/">展开全文 >></a>
+        </p>
+      
+
+      
+      <div class="clearfix"></div>
+      <section id="article-comments" style="padding-top:20px;"></section>
+    </div>
+  </div>
+</article>
+
+<aside class="wrap-side-operation">
+    <div class="mod-side-operation">
+        
+        <div class="jump-container" id="js-jump-container" style="display:none;">
+            <a href="javascript:void(0)" class="mod-side-operation__jump-to-top">
+                <i class="icon-font icon-back"></i>
+            </a>
+            <div id="js-jump-plan-container" class="jump-plan-container" style="top: -11px;">
+                <i class="icon-font icon-plane jump-plane"></i>
+            </div>
+        </div>
+        
+        
+    </div>
+</aside>
+
+
+
+
+
+  
+    <article id="post-《改变世界的方程》笔记" class="article article-type-post  article-index" itemscope itemprop="blogPost">
+  <div class="article-inner">
+    
+      <header class="article-header">
+        
+  
+    <h1 itemprop="name">
+      <a class="article-title" href="/2018/07/24/《改变世界的方程》笔记/">《改变世界的方程》笔记</a>
+    </h1>
+  
+
+        
+        <a href="/2018/07/24/《改变世界的方程》笔记/" class="archive-article-date">
+  	<time datetime="2018-07-24T04:41:07.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2018-07-24</time>
+</a>
+        
+      </header>
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        
+      
+
+      
+    </div>
+    <div class="article-info article-info-index">
+      
+      
+      
+
+      
+        <p class="article-more-link">
+          <a class="article-more-a" href="/2018/07/24/《改变世界的方程》笔记/">展开全文 >></a>
+        </p>
+      
+
+      
+      <div class="clearfix"></div>
+      <section id="article-comments" style="padding-top:20px;"></section>
+    </div>
+  </div>
+</article>
+
+<aside class="wrap-side-operation">
+    <div class="mod-side-operation">
+        
+        <div class="jump-container" id="js-jump-container" style="display:none;">
+            <a href="javascript:void(0)" class="mod-side-operation__jump-to-top">
+                <i class="icon-font icon-back"></i>
+            </a>
+            <div id="js-jump-plan-container" class="jump-plan-container" style="top: -11px;">
+                <i class="icon-font icon-plane jump-plane"></i>
+            </div>
+        </div>
+        
+        
+    </div>
+</aside>
+
+
+
+
+
+  
+    <article id="post-一些会让心情立马变好的事情" class="article article-type-post  article-index" itemscope itemprop="blogPost">
+  <div class="article-inner">
+    
+      <header class="article-header">
+        
+  
+    <h1 itemprop="name">
+      <a class="article-title" href="/2018/07/15/一些会让心情立马变好的事情/">一些会让心情立马变好的事情</a>
+    </h1>
+  
+
+        
+        <a href="/2018/07/15/一些会让心情立马变好的事情/" class="archive-article-date">
+  	<time datetime="2018-07-15T02:55:26.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2018-07-15</time>
+</a>
+        
+      </header>
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <p>我真是一个奇怪的人</p>
+        
+      
+
+      
+    </div>
+    <div class="article-info article-info-index">
+      
+      
+      
+
+      
+        <p class="article-more-link">
+          <a class="article-more-a" href="/2018/07/15/一些会让心情立马变好的事情/">展开全文 >></a>
+        </p>
+      
+
+      
+      <div class="clearfix"></div>
+      <section id="article-comments" style="padding-top:20px;"></section>
+    </div>
+  </div>
+</article>
+
+<aside class="wrap-side-operation">
+    <div class="mod-side-operation">
+        
+        <div class="jump-container" id="js-jump-container" style="display:none;">
+            <a href="javascript:void(0)" class="mod-side-operation__jump-to-top">
+                <i class="icon-font icon-back"></i>
+            </a>
+            <div id="js-jump-plan-container" class="jump-plan-container" style="top: -11px;">
+                <i class="icon-font icon-plane jump-plane"></i>
+            </div>
+        </div>
+        
+        
+    </div>
+</aside>
+
+
+
+
+
+  
     <article id="post-ECMA规范笔记" class="article article-type-post  article-index" itemscope itemprop="blogPost">
   <div class="article-inner">
     
@@ -188,13 +530,29 @@
     <div class="article-entry" itemprop="articleBody">
       
         <p>版本：<a href="http://www.ecma-international.org/ecma-262/8.0/index.html" target="_blank" rel="noopener">http://www.ecma-international.org/ecma-262/8.0/index.html</a></p>
-<h3><span id="utf-16规则">UTF-16规则</span></h3><h4><span id="原文">原文</span></h4><blockquote>
+<h3><span id="utf-16编码的unicode规则">UTF-16编码的unicode规则</span></h3><h4><span id="原文">原文</span></h4><blockquote>
 <ul>
 <li>A code unit in the range 0 to 0xD7FF or in the range 0xE000 to 0xFFFF is interpreted as a code point with the same value.</li>
 <li>A sequence of two code units, where the first code unit c1 is in the range 0xD800 to 0xDBFF and the second code unit c2 is in the range 0xDC00 to 0xDFFF, is a surrogate pair and is interpreted as a code point with the value (c1 - 0xD800) × 0x400 + (c2 - 0xDC00) + 0x10000. (See 10.1.2)</li>
 <li>A code unit that is in the range 0xD800 to 0xDFFF, but is not part of a surrogate pair, is interpreted as a code point with the same value.</li>
 </ul>
 </blockquote>
+<h4><span id="unicode编码资料">unicode编码资料</span></h4><ul>
+<li><a href="https://blog.csdn.net/thl789/article/details/7506133" target="_blank" rel="noopener">Unicode编码及其实现：UTF-16、UTF-8，and more</a></li>
+<li><a href="https://zh.wikipedia.org/wiki/UTF-16" target="_blank" rel="noopener">UTF-16</a></li>
+</ul>
+<h4><span id="简单解释一下">简单解释一下</span></h4><ul>
+<li>unicode是编码，一个字符的unicode编码是确定的，但是在实际存储和传输过程中，由于不同系统平台的设计不一定一致，以及出于节省空间的目的，对Unicode编码的实现方式有所不同，这就是UTF。</li>
+<li>BMP：一个Unicode平面（码位从U+0000至U+FFFF）包含了最常用的字符。该平面被称为基本多语言平面，缩写为BMP。</li>
+<li>从U+D800到U+DFFF之间的码位区块是永久保留不映射到Unicode字符。UTF-16就利用保留下来的0xD800-0xDFFF区段的码位来对辅助平面的字符的码位进行编码。</li>
+<li>如果是一个代理对表示一个字符，c1需要在0xD800至0xDBFF之间，c2需要在0xDC00到0xDFFF，计算规则是 (c1 - 0xD800) × 0x400 + (c2 - 0xDC00) + 0x10000</li>
+<li>如果不构成代理对，单个code unit在0xD800-0xDFFF之间是没有意义的。</li>
+</ul>
+<h3><span id="对象">对象</span></h3><ul>
+<li>对象的key值只能是字符串或symbol，所有的字符串或symbol作为key都是合法的，包括空字符串。</li>
+<li>普通对象中数字索引会转成字符串,但是数组中是int类型。</li>
+<li>get、set方法。 // TODO</li>
+</ul>
 
       
 
@@ -702,443 +1060,9 @@
 
 
   
-    <article id="post-《JavaScript函数式编程》读书笔记" class="article article-type-post  article-index" itemscope itemprop="blogPost">
-  <div class="article-inner">
-    
-      <header class="article-header">
-        
-  
-    <h1 itemprop="name">
-      <a class="article-title" href="/2018/04/20/《JavaScript函数式编程》读书笔记/">《JavaScript函数式编程》读书笔记</a>
-    </h1>
-  
-
-        
-        <a href="/2018/04/20/《JavaScript函数式编程》读书笔记/" class="archive-article-date">
-  	<time datetime="2018-04-20T06:33:04.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2018-04-20</time>
-</a>
-        
-      </header>
-    
-    <div class="article-entry" itemprop="articleBody">
-      
-        <h3><span id="第1章-javascript函数式编程简介">第1章 JavaScript函数式编程简介</span></h3><ul>
-<li>确定抽象，并为其构建函数</li>
-<li>利用已有的函数来构建更为复杂的抽象</li>
-<li>通过将已有的函数传给其它函数来构造更复杂的抽象</li>
-</ul>
-<h3><span id="第2章-一等函数与applicative编程">第2章 一等函数与Applicative编程</span></h3><ul>
-<li>高阶函数：以一个函数作为参数，返回一个函数作为结果</li>
-<li>多种JavaScript编程方式<ul>
-<li>命令式编程</li>
-<li>基于原型的面向对象编程</li>
-<li>元编程</li>
-</ul>
-</li>
-</ul>
-<h3><span id="第3章-变量的作用域和闭包">第3章 变量的作用域和闭包</span></h3><ul>
-<li>动态作用域的核心是维护一个命名绑定栈的全局映射</li>
-</ul>
-
-      
-
-      
-    </div>
-    <div class="article-info article-info-index">
-      
-      
-      
-
-      
-        <p class="article-more-link">
-          <a class="article-more-a" href="/2018/04/20/《JavaScript函数式编程》读书笔记/">展开全文 >></a>
-        </p>
-      
-
-      
-      <div class="clearfix"></div>
-      <section id="article-comments" style="padding-top:20px;"></section>
-    </div>
-  </div>
-</article>
-
-<aside class="wrap-side-operation">
-    <div class="mod-side-operation">
-        
-        <div class="jump-container" id="js-jump-container" style="display:none;">
-            <a href="javascript:void(0)" class="mod-side-operation__jump-to-top">
-                <i class="icon-font icon-back"></i>
-            </a>
-            <div id="js-jump-plan-container" class="jump-plan-container" style="top: -11px;">
-                <i class="icon-font icon-plane jump-plane"></i>
-            </div>
-        </div>
-        
-        
-    </div>
-</aside>
-
-
-
-
-
-  
-    <article id="post-定制你自己的immutable数据操作方法集" class="article article-type-post  article-index" itemscope itemprop="blogPost">
-  <div class="article-inner">
-    
-      <header class="article-header">
-        
-  
-    <h1 itemprop="name">
-      <a class="article-title" href="/2018/04/17/定制你自己的immutable数据操作方法集/">定制你自己的immutable数据操作方法集</a>
-    </h1>
-  
-
-        
-        <a href="/2018/04/17/定制你自己的immutable数据操作方法集/" class="archive-article-date">
-  	<time datetime="2018-04-17T08:41:03.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2018-04-17</time>
-</a>
-        
-      </header>
-    
-    <div class="article-entry" itemprop="articleBody">
-      
-        <p>使用redux的操作数据的时候对某个数据进行增删改查操作，需要维持数据的immutable。当然类似的库也有很多，像lodash、ramda等等，这些库往往方法众多，如果是初次使用必定眼花缭乱，抛开一切，在使用这些已有的库之前，我们需要思考一下，我们真正需要怎么样的功能，能否自己实现一个简单的帮助函数库。</p>
-        
-      
-
-      
-    </div>
-    <div class="article-info article-info-index">
-      
-      
-      
-
-      
-        <p class="article-more-link">
-          <a class="article-more-a" href="/2018/04/17/定制你自己的immutable数据操作方法集/">展开全文 >></a>
-        </p>
-      
-
-      
-      <div class="clearfix"></div>
-      <section id="article-comments" style="padding-top:20px;"></section>
-    </div>
-  </div>
-</article>
-
-<aside class="wrap-side-operation">
-    <div class="mod-side-operation">
-        
-        <div class="jump-container" id="js-jump-container" style="display:none;">
-            <a href="javascript:void(0)" class="mod-side-operation__jump-to-top">
-                <i class="icon-font icon-back"></i>
-            </a>
-            <div id="js-jump-plan-container" class="jump-plan-container" style="top: -11px;">
-                <i class="icon-font icon-plane jump-plane"></i>
-            </div>
-        </div>
-        
-        
-    </div>
-</aside>
-
-
-
-
-
-  
-    <article id="post-关于react，我所知道的" class="article article-type-post  article-index" itemscope itemprop="blogPost">
-  <div class="article-inner">
-    
-      <header class="article-header">
-        
-  
-    <h1 itemprop="name">
-      <a class="article-title" href="/2018/04/04/关于react，我所知道的/">关于react，我所知道的</a>
-    </h1>
-  
-
-        
-        <a href="/2018/04/04/关于react，我所知道的/" class="archive-article-date">
-  	<time datetime="2018-04-04T08:09:09.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2018-04-04</time>
-</a>
-        
-      </header>
-    
-    <div class="article-entry" itemprop="articleBody">
-      
-        <h3 id="react学习资料推荐"><a href="#react学习资料推荐" class="headerlink" title="react学习资料推荐"></a>react学习资料推荐</h3><ul>
-<li><a href="https://reactjs.org" target="_blank" rel="noopener">官方文档</a></li>
-<li><a href="http://huziketang.mangojuice.top/books/react/lesson10" target="_blank" rel="noopener">React.js 小书</a></li>
-</ul>
-<h3 id="Demo练习实现"><a href="#Demo练习实现" class="headerlink" title="Demo练习实现"></a>Demo练习实现</h3><ul>
-<li><a href="https://github.com/Etoile984816138/react-demo" target="_blank" rel="noopener">组件Demo</a></li>
-<li><a href="https://github.com/Etoile984816138/todolist-react" target="_blank" rel="noopener">TODO-LIST Demo</a></li>
-<li><a href="https://github.com/Etoile984816138/make-redux" target="_blank" rel="noopener">实现一个很简单的redux</a></li>
-<li><a href="https://github.com/Etoile984816138/make-react-redux" target="_blank" rel="noopener">实现一个很简单的react-redux</a></li>
-</ul>
-        
-      
-
-      
-    </div>
-    <div class="article-info article-info-index">
-      
-      
-	<div class="article-tag tagcloud">
-		<i class="icon-price-tags icon"></i>
-		<ul class="article-tag-list">
-			 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color3">前端</a>
-        		</li>
-      		 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color1">redux</a>
-        		</li>
-      		 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color1">react</a>
-        		</li>
-      		
-		</ul>
-	</div>
-
-      
-	<div class="article-category tagcloud">
-		<i class="icon-book icon"></i>
-		<ul class="article-tag-list">
-			 
-        		<li class="article-tag-list-item">
-        			<a href="/categories/学习笔记/" class="article-tag-list-link color5">学习笔记</a>
-        		</li>
-      		
-		</ul>
-	</div>
-
-
-      
-        <p class="article-more-link">
-          <a class="article-more-a" href="/2018/04/04/关于react，我所知道的/">展开全文 >></a>
-        </p>
-      
-
-      
-      <div class="clearfix"></div>
-      <section id="article-comments" style="padding-top:20px;"></section>
-    </div>
-  </div>
-</article>
-
-<aside class="wrap-side-operation">
-    <div class="mod-side-operation">
-        
-        <div class="jump-container" id="js-jump-container" style="display:none;">
-            <a href="javascript:void(0)" class="mod-side-operation__jump-to-top">
-                <i class="icon-font icon-back"></i>
-            </a>
-            <div id="js-jump-plan-container" class="jump-plan-container" style="top: -11px;">
-                <i class="icon-font icon-plane jump-plane"></i>
-            </div>
-        </div>
-        
-        
-    </div>
-</aside>
-
-
-
-
-
-  
-    <article id="post-regular-redux实战" class="article article-type-post  article-index" itemscope itemprop="blogPost">
-  <div class="article-inner">
-    
-      <header class="article-header">
-        
-  
-    <h1 itemprop="name">
-      <a class="article-title" href="/2018/03/22/regular-redux实战/">regular+redux实战思路</a>
-    </h1>
-  
-
-        
-        <a href="/2018/03/22/regular-redux实战/" class="archive-article-date">
-  	<time datetime="2018-03-22T12:17:34.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2018-03-22</time>
-</a>
-        
-      </header>
-    
-    <div class="article-entry" itemprop="articleBody">
-      
-        <p>新部门，新项目使用regular+redux进行开发，由于自己之前从未接触过，并且手头上没有开发任务，所以趁这个不算短的时间系统性学习了一下。本文主要是对如何使用regular+redux进行一个项目开发的一些思路，随着自己的学习成长会不断更新内容。</p>
-<h3 id="文档（中文）"><a href="#文档（中文）" class="headerlink" title="文档（中文）"></a>文档（中文）</h3><p><a href="http://regularjs.github.io/guide/zh/index.html" target="_blank" rel="noopener">regular</a><br><a href="https://regularjs.github.io/regular-state/" target="_blank" rel="noopener">regular-state</a><br><a href="https://cn.redux.js.org/" target="_blank" rel="noopener">redux</a></p>
-        
-      
-
-      
-    </div>
-    <div class="article-info article-info-index">
-      
-      
-	<div class="article-tag tagcloud">
-		<i class="icon-price-tags icon"></i>
-		<ul class="article-tag-list">
-			 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color3">前端</a>
-        		</li>
-      		 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color3">regular</a>
-        		</li>
-      		 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color1">redux</a>
-        		</li>
-      		
-		</ul>
-	</div>
-
-      
-	<div class="article-category tagcloud">
-		<i class="icon-book icon"></i>
-		<ul class="article-tag-list">
-			 
-        		<li class="article-tag-list-item">
-        			<a href="/categories/学习笔记/" class="article-tag-list-link color5">学习笔记</a>
-        		</li>
-      		
-		</ul>
-	</div>
-
-
-      
-        <p class="article-more-link">
-          <a class="article-more-a" href="/2018/03/22/regular-redux实战/">展开全文 >></a>
-        </p>
-      
-
-      
-      <div class="clearfix"></div>
-      <section id="article-comments" style="padding-top:20px;"></section>
-    </div>
-  </div>
-</article>
-
-<aside class="wrap-side-operation">
-    <div class="mod-side-operation">
-        
-        <div class="jump-container" id="js-jump-container" style="display:none;">
-            <a href="javascript:void(0)" class="mod-side-operation__jump-to-top">
-                <i class="icon-font icon-back"></i>
-            </a>
-            <div id="js-jump-plan-container" class="jump-plan-container" style="top: -11px;">
-                <i class="icon-font icon-plane jump-plane"></i>
-            </div>
-        </div>
-        
-        
-    </div>
-</aside>
-
-
-
-
-
-  
-    <article id="post-2017:一篇错过年终的年终总结" class="article article-type-post  article-index" itemscope itemprop="blogPost">
-  <div class="article-inner">
-    
-      <header class="article-header">
-        
-  
-    <h1 itemprop="name">
-      <a class="article-title" href="/2018/03/04/2017:一篇错过年终的年终总结/">2017:一篇错过年终的年终总结</a>
-    </h1>
-  
-
-        
-        <a href="/2018/03/04/2017:一篇错过年终的年终总结/" class="archive-article-date">
-  	<time datetime="2018-03-04T07:36:25.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2018-03-04</time>
-</a>
-        
-      </header>
-    
-    <div class="article-entry" itemprop="articleBody">
-      
-        <p>在所有开始之前，写写停停一个多月，还是觉得有好多东西没写完的H5游戏项目总结,总算写到了可以见人的地步，为了方便阅读（主要是字看着一多就写不下去…），也从一篇分成了好几篇。</p>
-<p>第一次这么系统地写项目总结，做叮咚帮的时候就一直想写，但是当时事情实在太多了，睡觉都没什么时间，后面写的一些小项目又确实没什么技术含量，暑假写完国赛项目之后也想写来着，专门写写技术，不是文档上交上去吹的那一堆，但是紧跟着就各种秋招笔试面试了，不过反正后面写毕设论文也还是要写的。</p>
-        
-      
-
-      
-    </div>
-    <div class="article-info article-info-index">
-      
-      
-	<div class="article-tag tagcloud">
-		<i class="icon-price-tags icon"></i>
-		<ul class="article-tag-list">
-			 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color3">前端</a>
-        		</li>
-      		
-		</ul>
-	</div>
-
-      
-	<div class="article-category tagcloud">
-		<i class="icon-book icon"></i>
-		<ul class="article-tag-list">
-			 
-        		<li class="article-tag-list-item">
-        			<a href="/categories/项目整理/" class="article-tag-list-link color5">项目整理</a>
-        		</li>
-      		
-		</ul>
-	</div>
-
-
-      
-        <p class="article-more-link">
-          <a class="article-more-a" href="/2018/03/04/2017:一篇错过年终的年终总结/">展开全文 >></a>
-        </p>
-      
-
-      
-      <div class="clearfix"></div>
-      <section id="article-comments" style="padding-top:20px;"></section>
-    </div>
-  </div>
-</article>
-
-<aside class="wrap-side-operation">
-    <div class="mod-side-operation">
-        
-        <div class="jump-container" id="js-jump-container" style="display:none;">
-            <a href="javascript:void(0)" class="mod-side-operation__jump-to-top">
-                <i class="icon-font icon-back"></i>
-            </a>
-            <div id="js-jump-plan-container" class="jump-plan-container" style="top: -11px;">
-                <i class="icon-font icon-plane jump-plane"></i>
-            </div>
-        </div>
-        
-        
-    </div>
-</aside>
-
-
-
-
-
-  
   
     <nav id="page-nav">
-      <span class="page-number current">1</span><a class="page-number" href="/page/2/">2</a><a class="page-number" href="/page/3/">3</a><span class="space">&hellip;</span><a class="page-number" href="/page/5/">5</a><a class="extend next" rel="next" href="/page/2/">Next &raquo;</a>
+      <span class="page-number current">1</span><a class="page-number" href="/page/2/">2</a><a class="page-number" href="/page/3/">3</a><span class="space">&hellip;</span><a class="page-number" href="/page/6/">6</a><a class="extend next" rel="next" href="/page/2/">Next &raquo;</a>
     </nav>
   
 
@@ -1225,15 +1149,15 @@ return o(i(t),arguments.length<2?void 0:u(arguments[1]))}})},function(t,n,r){var
           <ul class="article-tag-list" q-show="showTags">
              
               <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color2">C</a>
+              </li>
+             
+              <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color3">前端</a>
               </li>
              
               <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color5">游戏开发</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color2">C</a>
               </li>
              
               <li class="article-tag-list-item">
@@ -1261,15 +1185,15 @@ return o(i(t),arguments.length<2?void 0:u(arguments[1]))}})},function(t,n,r){var
               </li>
              
               <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color1">mysql</a>
+              </li>
+             
+              <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color3">regular</a>
               </li>
              
               <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color1">redux</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color1">mysql</a>
               </li>
              
               <li class="article-tag-list-item">
@@ -1285,6 +1209,10 @@ return o(i(t),arguments.length<2?void 0:u(arguments[1]))}})},function(t,n,r){var
               </li>
              
               <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color1">react</a>
+              </li>
+             
+              <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color1">issue</a>
               </li>
              
@@ -1293,11 +1221,11 @@ return o(i(t),arguments.length<2?void 0:u(arguments[1]))}})},function(t,n,r){var
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color3">排序</a>
+                <a href="javascript:void(0)" class="js-tag color3">分治</a>
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color3">分治</a>
+                <a href="javascript:void(0)" class="js-tag color3">排序</a>
               </li>
              
               <li class="article-tag-list-item">
@@ -1310,10 +1238,6 @@ return o(i(t),arguments.length<2?void 0:u(arguments[1]))}})},function(t,n,r){var
              
               <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color3">面试</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color1">react</a>
               </li>
             
             <div class="clearfix"></div>

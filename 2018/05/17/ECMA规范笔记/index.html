@@ -8,16 +8,16 @@
   <link rel="dns-prefetch" href="http://yoursite.com">
   <title>ECMA规范笔记 | 林落雨落林</title>
   <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
-  <meta name="description" content="版本：http://www.ecma-international.org/ecma-262/8.0/index.html UTF-16规则原文  A code unit in the range 0 to 0xD7FF or in the range 0xE000 to 0xFFFF is interpreted as a code point with the same value. A seq">
+  <meta name="description" content="版本：http://www.ecma-international.org/ecma-262/8.0/index.html UTF-16编码的unicode规则原文  A code unit in the range 0 to 0xD7FF or in the range 0xE000 to 0xFFFF is interpreted as a code point with the same va">
 <meta property="og:type" content="article">
 <meta property="og:title" content="ECMA规范笔记">
 <meta property="og:url" content="http://yoursite.com/2018/05/17/ECMA规范笔记/index.html">
 <meta property="og:site_name" content="林落雨落林">
-<meta property="og:description" content="版本：http://www.ecma-international.org/ecma-262/8.0/index.html UTF-16规则原文  A code unit in the range 0 to 0xD7FF or in the range 0xE000 to 0xFFFF is interpreted as a code point with the same value. A seq">
-<meta property="og:updated_time" content="2018-05-17T06:17:07.342Z">
+<meta property="og:description" content="版本：http://www.ecma-international.org/ecma-262/8.0/index.html UTF-16编码的unicode规则原文  A code unit in the range 0 to 0xD7FF or in the range 0xE000 to 0xFFFF is interpreted as a code point with the same va">
+<meta property="og:updated_time" content="2018-05-17T08:25:31.472Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="ECMA规范笔记">
-<meta name="twitter:description" content="版本：http://www.ecma-international.org/ecma-262/8.0/index.html UTF-16规则原文  A code unit in the range 0 to 0xD7FF or in the range 0xE000 to 0xFFFF is interpreted as a code point with the same value. A seq">
+<meta name="twitter:description" content="版本：http://www.ecma-international.org/ecma-262/8.0/index.html UTF-16编码的unicode规则原文  A code unit in the range 0 to 0xD7FF or in the range 0xE000 to 0xFFFF is interpreted as a code point with the same va">
   
   
     <link rel="icon" href="http://ovne6ee1z.bkt.clouddn.com/avatar.jpg">
@@ -190,13 +190,29 @@
     <div class="article-entry" itemprop="articleBody">
       
         <p>版本：<a href="http://www.ecma-international.org/ecma-262/8.0/index.html" target="_blank" rel="noopener">http://www.ecma-international.org/ecma-262/8.0/index.html</a></p>
-<h3><span id="utf-16规则">UTF-16规则</span></h3><h4><span id="原文">原文</span></h4><blockquote>
+<h3><span id="utf-16编码的unicode规则">UTF-16编码的unicode规则</span></h3><h4><span id="原文">原文</span></h4><blockquote>
 <ul>
 <li>A code unit in the range 0 to 0xD7FF or in the range 0xE000 to 0xFFFF is interpreted as a code point with the same value.</li>
 <li>A sequence of two code units, where the first code unit c1 is in the range 0xD800 to 0xDBFF and the second code unit c2 is in the range 0xDC00 to 0xDFFF, is a surrogate pair and is interpreted as a code point with the value (c1 - 0xD800) × 0x400 + (c2 - 0xDC00) + 0x10000. (See 10.1.2)</li>
 <li>A code unit that is in the range 0xD800 to 0xDFFF, but is not part of a surrogate pair, is interpreted as a code point with the same value.</li>
 </ul>
 </blockquote>
+<h4><span id="unicode编码资料">unicode编码资料</span></h4><ul>
+<li><a href="https://blog.csdn.net/thl789/article/details/7506133" target="_blank" rel="noopener">Unicode编码及其实现：UTF-16、UTF-8，and more</a></li>
+<li><a href="https://zh.wikipedia.org/wiki/UTF-16" target="_blank" rel="noopener">UTF-16</a></li>
+</ul>
+<h4><span id="简单解释一下">简单解释一下</span></h4><ul>
+<li>unicode是编码，一个字符的unicode编码是确定的，但是在实际存储和传输过程中，由于不同系统平台的设计不一定一致，以及出于节省空间的目的，对Unicode编码的实现方式有所不同，这就是UTF。</li>
+<li>BMP：一个Unicode平面（码位从U+0000至U+FFFF）包含了最常用的字符。该平面被称为基本多语言平面，缩写为BMP。</li>
+<li>从U+D800到U+DFFF之间的码位区块是永久保留不映射到Unicode字符。UTF-16就利用保留下来的0xD800-0xDFFF区段的码位来对辅助平面的字符的码位进行编码。</li>
+<li>如果是一个代理对表示一个字符，c1需要在0xD800至0xDBFF之间，c2需要在0xDC00到0xDFFF，计算规则是 (c1 - 0xD800) × 0x400 + (c2 - 0xDC00) + 0x10000</li>
+<li>如果不构成代理对，单个code unit在0xD800-0xDFFF之间是没有意义的。</li>
+</ul>
+<h3><span id="对象">对象</span></h3><ul>
+<li>对象的key值只能是字符串或symbol，所有的字符串或symbol作为key都是合法的，包括空字符串。</li>
+<li>普通对象中数字索引会转成字符串,但是数组中是int类型。</li>
+<li>get、set方法。 // TODO</li>
+</ul>
 
       
 
@@ -270,6 +286,15 @@
   
 <nav id="article-nav">
   
+    <a href="/2018/07/15/一些会让心情立马变好的事情/" id="article-nav-newer" class="article-nav-link-wrap">
+      <i class="icon-circle-left"></i>
+      <div class="article-nav-title">
+        
+          一些会让心情立马变好的事情
+        
+      </div>
+    </a>
+  
   
     <a href="/2018/05/11/2018-年前端工具调查报告/" id="article-nav-older" class="article-nav-link-wrap">
       <div class="article-nav-title">2018 年前端工具调查报告</div>
@@ -299,7 +324,7 @@
                 </span>
                 <span class="tooltip-content">
                     <div class="toc-article">
-                    <ol class="toc"><li class="toc-item toc-level-3"><a class="toc-link" href="#undefined"><span class="toc-number">1.</span> <span class="toc-text">UTF-16规则</span></a><ol class="toc-child"><li class="toc-item toc-level-4"><a class="toc-link" href="#undefined"><span class="toc-number">1.1.</span> <span class="toc-text">原文</span></a></li></ol></li></ol>
+                    <ol class="toc"><li class="toc-item toc-level-3"><a class="toc-link" href="#undefined"><span class="toc-number">1.</span> <span class="toc-text">UTF-16编码的unicode规则</span></a><ol class="toc-child"><li class="toc-item toc-level-4"><a class="toc-link" href="#undefined"><span class="toc-number">1.1.</span> <span class="toc-text">原文</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#undefined"><span class="toc-number">1.2.</span> <span class="toc-text">unicode编码资料</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#undefined"><span class="toc-number">1.3.</span> <span class="toc-text">简单解释一下</span></a></li></ol></li><li class="toc-item toc-level-3"><a class="toc-link" href="#undefined"><span class="toc-number">2.</span> <span class="toc-text">对象</span></a></li></ol>
                     </div>
                 </span>
             </div>
@@ -415,15 +440,15 @@ return o(i(t),arguments.length<2?void 0:u(arguments[1]))}})},function(t,n,r){var
           <ul class="article-tag-list" q-show="showTags">
              
               <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color2">C</a>
+              </li>
+             
+              <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color3">前端</a>
               </li>
              
               <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color5">游戏开发</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color2">C</a>
               </li>
              
               <li class="article-tag-list-item">
@@ -451,15 +476,15 @@ return o(i(t),arguments.length<2?void 0:u(arguments[1]))}})},function(t,n,r){var
               </li>
              
               <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color1">mysql</a>
+              </li>
+             
+              <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color3">regular</a>
               </li>
              
               <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color1">redux</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color1">mysql</a>
               </li>
              
               <li class="article-tag-list-item">
@@ -475,6 +500,10 @@ return o(i(t),arguments.length<2?void 0:u(arguments[1]))}})},function(t,n,r){var
               </li>
              
               <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color1">react</a>
+              </li>
+             
+              <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color1">issue</a>
               </li>
              
@@ -483,11 +512,11 @@ return o(i(t),arguments.length<2?void 0:u(arguments[1]))}})},function(t,n,r){var
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color3">排序</a>
+                <a href="javascript:void(0)" class="js-tag color3">分治</a>
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color3">分治</a>
+                <a href="javascript:void(0)" class="js-tag color3">排序</a>
               </li>
              
               <li class="article-tag-list-item">
@@ -500,10 +529,6 @@ return o(i(t),arguments.length<2?void 0:u(arguments[1]))}})},function(t,n,r){var
              
               <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color3">面试</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color1">react</a>
               </li>
             
             <div class="clearfix"></div>
