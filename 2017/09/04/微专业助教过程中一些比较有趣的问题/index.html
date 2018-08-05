@@ -6,19 +6,21 @@
   <meta name="renderer" content="webkit">
   <meta http-equiv="X-UA-Compatible" content="IE=edge" >
   <link rel="dns-prefetch" href="http://yoursite.com">
-  <title>《游戏编程模式》笔记 | 林落雨落林</title>
+  <title>微专业助教过程中一些比较有趣的问题 | 林落雨落林</title>
   <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
-  <meta name="description" content="作者：Robert Nystrom">
-<meta name="keywords" content="设计模式,游戏">
+  <meta name="description" content="问题112345var obj1 = &amp;#123;x:5&amp;#125;;var obj2 = obj1;obj1.a = obj1 = &amp;#123;x:6&amp;#125;;console.log(obj1.a);//undefinedconsole.log(obj2.a);//&amp;#123;x:6&amp;#125; 需要明确两点：1.连等是先确定所有变量的指针，再让指针指向赋值。2.属性访问器优先级高于= 上面">
+<meta name="keywords" content="前端">
 <meta property="og:type" content="article">
-<meta property="og:title" content="《游戏编程模式》笔记">
-<meta property="og:url" content="http://yoursite.com/2018/01/25/《游戏编程模式》笔记/index.html">
+<meta property="og:title" content="微专业助教过程中一些比较有趣的问题">
+<meta property="og:url" content="http://yoursite.com/2017/09/04/微专业助教过程中一些比较有趣的问题/index.html">
 <meta property="og:site_name" content="林落雨落林">
-<meta property="og:description" content="作者：Robert Nystrom">
-<meta property="og:updated_time" content="2018-03-04T18:22:40.106Z">
+<meta property="og:description" content="问题112345var obj1 = &amp;#123;x:5&amp;#125;;var obj2 = obj1;obj1.a = obj1 = &amp;#123;x:6&amp;#125;;console.log(obj1.a);//undefinedconsole.log(obj2.a);//&amp;#123;x:6&amp;#125; 需要明确两点：1.连等是先确定所有变量的指针，再让指针指向赋值。2.属性访问器优先级高于= 上面">
+<meta property="og:image" content="http://ovne6ee1z.bkt.clouddn.com/1253C481551090ECAA7C9DC317F2AA98.jpg">
+<meta property="og:updated_time" content="2018-08-05T11:36:37.633Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="《游戏编程模式》笔记">
-<meta name="twitter:description" content="作者：Robert Nystrom">
+<meta name="twitter:title" content="微专业助教过程中一些比较有趣的问题">
+<meta name="twitter:description" content="问题112345var obj1 = &amp;#123;x:5&amp;#125;;var obj2 = obj1;obj1.a = obj1 = &amp;#123;x:6&amp;#125;;console.log(obj1.a);//undefinedconsole.log(obj2.a);//&amp;#123;x:6&amp;#125; 需要明确两点：1.连等是先确定所有变量的指针，再让指针指向赋值。2.属性访问器优先级高于= 上面">
+<meta name="twitter:image" content="http://ovne6ee1z.bkt.clouddn.com/1253C481551090ECAA7C9DC317F2AA98.jpg">
   
   
     <link rel="icon" href="http://ovne6ee1z.bkt.clouddn.com/avatar.jpg">
@@ -170,287 +172,88 @@
             <canvas data-colors="#eaeaea" data-sectionHeight="100" data-contentId="js-content" id="myCanvas1" class="anm-canvas"></canvas>
           </div>
           <div id="js-content" class="content-ll">
-            <article id="post-《游戏编程模式》笔记" class="article article-type-post " itemscope itemprop="blogPost">
+            <article id="post-微专业助教过程中一些比较有趣的问题" class="article article-type-post " itemscope itemprop="blogPost">
   <div class="article-inner">
     
       <header class="article-header">
         
   
     <h1 class="article-title" itemprop="name">
-      《游戏编程模式》笔记
+      微专业助教过程中一些比较有趣的问题
     </h1>
   
 
         
-        <a href="/2018/01/25/《游戏编程模式》笔记/" class="archive-article-date">
-  	<time datetime="2018-01-25T05:39:55.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2018-01-25</time>
+        <a href="/2017/09/04/微专业助教过程中一些比较有趣的问题/" class="archive-article-date">
+  	<time datetime="2017-09-04T09:18:26.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2017-09-04</time>
 </a>
         
       </header>
     
     <div class="article-entry" itemprop="articleBody">
       
-        <p><em>作者：Robert Nystrom</em></p>
-<a id="more"></a>
-<h2><span id="第1章-概述">第1章 概述</span></h2><ul>
-<li>抽象和解耦能够使你的程序开发变得更快更简单，但不要浪费时间来做这件事，除非你确信存在问题的代码需要这种灵活性。</li>
-<li>开发周期中要对性能进行设计和思考，弹药推迟降低灵活性的、底层的、详尽的优化，能晚则晚。</li>
-</ul>
-<h2><span id="第2章-命令模式">第2章 命令模式</span></h2><h2><span id="第3章-享元模式">第3章 享元模式</span></h2><h2><span id="第4章-观察者模式">第4章 观察者模式</span></h2><ul>
-<li>及时删除观察者 如销毁场景</li>
-</ul>
-<h2><span id="第5章-原型模式">第5章 原型模式</span></h2><ul>
-<li>使用特定原型实例来创建特定种类的对象，并且通过拷贝原型来创建新的对象</li>
-</ul>
-<figure class="highlight c++"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">// 基类Monster 抽象方法clone </span></span><br><span class="line"><span class="class"><span class="keyword">class</span> <span class="title">Monster</span>&#123;</span></span><br><span class="line"><span class="keyword">public</span>:</span><br><span class="line">	<span class="keyword">virtual</span> ~Monster()&#123;&#125;</span><br><span class="line">	<span class="function"><span class="keyword">virtual</span> Monster* <span class="title">clone</span><span class="params">()</span> </span>= <span class="number">0</span>;</span><br><span class="line"></span><br><span class="line">	<span class="comment">// Other stuff</span></span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="comment">// 每一个子类monster都提供了一份特定的实现，该实现会返回一个与自身类型和状态相同的对象</span></span><br><span class="line"><span class="class"><span class="keyword">class</span> <span class="title">Ghost</span>:</span><span class="keyword">public</span> Monster&#123;</span><br><span class="line"><span class="keyword">public</span>:</span><br><span class="line">	Ghost(<span class="keyword">int</span> health,<span class="keyword">int</span> speed)</span><br><span class="line">	:health_(health),</span><br><span class="line">	speed_(speed)</span><br><span class="line">	&#123;&#125;</span><br><span class="line"></span><br><span class="line">	<span class="function"><span class="keyword">virtual</span> Monster* <span class="title">clone</span><span class="params">()</span></span></span><br><span class="line"><span class="function">	</span>&#123;</span><br><span class="line">		<span class="keyword">return</span> <span class="keyword">new</span> Ghost(health_,speed_);</span><br><span class="line">	&#125;</span><br><span class="line"></span><br><span class="line"><span class="keyword">private</span>:</span><br><span class="line">	<span class="keyword">int</span> health_;</span><br><span class="line">	<span class="keyword">int</span> speed_;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="comment">// spawner类持有一个隐藏的monster对象引用，这个隐藏对象的唯一作用是作为Spawner类的模板来生产更多的怪物</span></span><br><span class="line"><span class="class"><span class="keyword">class</span> <span class="title">Spawner</span>&#123;</span></span><br><span class="line"><span class="keyword">public</span>:</span><br><span class="line">	Spawner(Monster* prototype)</span><br><span class="line">	: prototype_(prototype)</span><br><span class="line">	&#123;&#125;</span><br><span class="line"></span><br><span class="line">	<span class="function">Monster* <span class="title">spawnMonster</span><span class="params">()</span></span></span><br><span class="line"><span class="function">	</span>&#123;</span><br><span class="line">		<span class="keyword">return</span> prototype_-&gt;clone();</span><br><span class="line">	&#125;</span><br><span class="line"><span class="keyword">private</span>:</span><br><span class="line">	Monster* prototype_;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-<ul>
-<li>Self语言<ul>
-<li>基于类的语言的语法：为了获取对象的某些状态，需要获取该对象在内存里的实例，状态被包含在实例当中。为了调用该实例的一个方法，需要在类的声明中查找这个方法，实例的行为被包含在类中。</li>
-<li>Self语言：一个实例可以包含状态和行为</li>
-<li>为了查找一个对象的属性和方法，现在该对象自身查找，如果找到了直接返回，反之，从它的父类中继续查找，直至查找到没有父节点为止。</li>
-<li>在Self中，每一个对象都自动支持原型模式，任意对象都可以被克隆。</li>
-</ul>
-</li>
-<li>JavaScript<ul>
-<li>去掉clone</li>
-<li>new关键字所做的<ul>
-<li>调用构造函数方法</li>
-<li>把this指针绑定到新创建的对象上</li>
-<li>该方法内部给this对象添加了一些属性</li>
-<li>把初始化属性的对象返回</li>
-</ul>
-</li>
-<li>过程<ul>
-<li>通过new操作符来创建对象，并且通过构建函数来初始化对象</li>
-<li>状态被存储在对象本身之中</li>
-<li>对象的行为被定义在原型对象之中，这样可以让这些方法被所有的特定类型所共享   </li>
-</ul>
-</li>
-</ul>
-</li>
-<li>数据建模<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">&#123;</span><br><span class="line">	<span class="string">"name"</span> : <span class="string">"goblin wizard"</span>,</span><br><span class="line">	<span class="string">"prototype"</span> : <span class="string">"goblin grunt"</span>,</span><br><span class="line">	<span class="string">"spells"</span> : [<span class="string">"fire ball"</span>,<span class="string">"lightning bolt"</span>]</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-</li>
-</ul>
-<h2><span id="第6章-单例模式">第6章 单例模式</span></h2><ul>
-<li>如果我们不使用它，就不会创建实例</li>
-<li>它在运行时初始化</li>
-<li>你可以继承单例<br>基本结构<figure class="highlight c++"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br><span class="line">51</span><br><span class="line">52</span><br><span class="line">53</span><br><span class="line">54</span><br><span class="line">55</span><br><span class="line">56</span><br><span class="line">57</span><br><span class="line">58</span><br><span class="line">59</span><br></pre></td><td class="code"><pre><span class="line"><span class="class"><span class="keyword">class</span> <span class="title">FileSystem</span></span></span><br><span class="line"><span class="class">&#123;</span></span><br><span class="line"><span class="keyword">public</span>:</span><br><span class="line">	<span class="keyword">virtual</span> -FileSystem() &#123;&#125;</span><br><span class="line">	<span class="function"><span class="keyword">virtual</span> <span class="keyword">char</span>* <span class="title">read</span><span class="params">(<span class="keyword">char</span>* path)</span> </span>= <span class="number">0</span>;</span><br><span class="line">	<span class="function"><span class="keyword">virtual</span> <span class="keyword">void</span> <span class="title">write</span><span class="params">(<span class="keyword">char</span>* pash,<span class="keyword">char</span>* text)</span> </span>= <span class="number">0</span>;</span><br><span class="line">&#125;;</span><br><span class="line"></span><br><span class="line"><span class="comment">// 之后，我们为不同平台定义派生类</span></span><br><span class="line"><span class="class"><span class="keyword">class</span> <span class="title">PS3FileSystem</span>:</span><span class="keyword">public</span> FileSystem</span><br><span class="line">&#123;</span><br><span class="line"><span class="keyword">public</span>:</span><br><span class="line">	<span class="function"><span class="keyword">virtual</span> <span class="keyword">char</span>* <span class="title">read</span><span class="params">(<span class="keyword">char</span>* path)</span></span></span><br><span class="line"><span class="function">	</span>&#123;</span><br><span class="line">		<span class="comment">// Use Sony file 10 API</span></span><br><span class="line">	&#125;</span><br><span class="line"></span><br><span class="line">	<span class="function"><span class="keyword">virtual</span> <span class="keyword">void</span> <span class="title">write</span><span class="params">(<span class="keyword">char</span>* path,<span class="keyword">char</span>* text)</span></span>&#123;</span><br><span class="line">		<span class="comment">// Use Sony file 10 API</span></span><br><span class="line">	&#125;</span><br><span class="line">&#125;;</span><br><span class="line"></span><br><span class="line"><span class="class"><span class="keyword">class</span> <span class="title">WiiFileSystem</span>:</span><span class="keyword">public</span> FileSystem</span><br><span class="line">&#123;</span><br><span class="line"><span class="keyword">public</span>:</span><br><span class="line">	<span class="function"><span class="keyword">virtual</span> <span class="keyword">char</span>* <span class="title">read</span><span class="params">(<span class="keyword">char</span>* path)</span></span></span><br><span class="line"><span class="function">	</span>&#123;</span><br><span class="line">		<span class="comment">// Use Nintendo file I0 API</span></span><br><span class="line">	&#125;</span><br><span class="line"></span><br><span class="line">	<span class="function"><span class="keyword">virtual</span> <span class="keyword">void</span> <span class="title">write</span><span class="params">(<span class="keyword">char</span>* path,<span class="keyword">char</span>* text)</span></span>&#123;</span><br><span class="line">		<span class="comment">// Use Nintendo file I0 API</span></span><br><span class="line">	&#125;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="comment">// 接下来，我们将FileSystem变为一个单例：</span></span><br><span class="line"><span class="class"><span class="keyword">class</span> <span class="title">FileSystem</span></span></span><br><span class="line"><span class="class">&#123;</span></span><br><span class="line"><span class="keyword">public</span>:</span><br><span class="line">	<span class="function"><span class="keyword">static</span> FileSystem&amp; <span class="title">instance</span><span class="params">()</span></span>;</span><br><span class="line"></span><br><span class="line">	<span class="keyword">virtual</span> -FileSystem() &#123;&#125;</span><br><span class="line">	<span class="function"><span class="keyword">virtual</span> <span class="keyword">char</span>* <span class="title">read</span><span class="params">(<span class="keyword">char</span>* path)</span> </span>= <span class="number">0</span>;</span><br><span class="line">	<span class="function"><span class="keyword">virtual</span> <span class="keyword">void</span> <span class="title">write</span><span class="params">(<span class="keyword">char</span>* path,<span class="keyword">char</span>* text)</span> </span>= <span class="number">0</span>;</span><br><span class="line"></span><br><span class="line"><span class="keyword">protected</span>:</span><br><span class="line">	FileSystem() &#123;&#125;</span><br><span class="line">&#125;</span><br><span class="line"><span class="comment">// 创建实例</span></span><br><span class="line">FileSystem&amp; FileSystem::instance()</span><br><span class="line">&#123;</span><br><span class="line">	<span class="meta">#<span class="meta-keyword">if</span> PLATFORM == PLAYSTATION3</span></span><br><span class="line">		<span class="keyword">static</span> FileSystem *instance = <span class="keyword">new</span> PS3FileSystem();</span><br><span class="line">	<span class="meta">#<span class="meta-keyword">elif</span> PLATFORM == WII </span></span><br><span class="line">		<span class="keyword">static</span> FileSystem *instance = <span class="keyword">new</span> WiiFileSystem();</span><br><span class="line">	<span class="meta">#<span class="meta-keyword">endif</span></span></span><br><span class="line"></span><br><span class="line">	<span class="keyword">return</span> *instance;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-</li>
-</ul>
-<p>整个代码库都可以通过FileSystem:instance()访问文件系统</p>
-<ul>
-<li>全局变量的缺点<ul>
-<li>代码晦涩难懂</li>
-<li>促进了耦合</li>
-<li>对并发不友好</li>
-</ul>
-</li>
-</ul>
-<h2><span id="第7章-状态模式">第7章 状态模式</span></h2><ul>
-<li>允许一个对象在其内部状态改变时改变自身的行为，对象看起来好像是在修改自身类</li>
-<li>有限状态机<ul>
-<li>你拥有一组状态，并且可以在这组状态之间进行切换</li>
-<li>状态机同一时刻只能处于一种状态</li>
-<li>状态机会接收一组输入或者事件</li>
-<li>每一个状态有一组转换，每一个转换都关联着一个输入并指向另一个状态</li>
-</ul>
-</li>
-<li>并发状态机<ul>
-<li>并发的两种状态组合</li>
-</ul>
-</li>
-<li>层次状态机-继承<ul>
-<li>当我们把主角的行为更加具象化后，她可能包含大量相似的状态。比如，她可能站立、走路、跑步…，这些状态中的任意状态按下B键都要跳跃。</li>
-</ul>
-</li>
-<li>下推状态机<ul>
-<li>我们知道当前状态，但是，我们并不知道之前的状态是什么。而且，我们也没有简便的方法可以获取之前的状态。</li>
-<li>解决方案：在一个有限状态机里面，当一个状态切进来时，则替换掉之前的状态。<ul>
-<li>你可以把这个新的状态放入栈里。当前的状态永远存在栈顶，所以你总能转换到当前状态。但是当前状态会将前一个状态压在栈中自身的下面而不是抛弃丢掉它。</li>
-<li>你可以弹出栈顶的状态，该状态将被抛弃，与此同时，上一个状态就变成了新的栈顶状态。</li>
-</ul>
-</li>
-</ul>
-</li>
-</ul>
-<h2><span id="第8章-双缓冲">第8章 双缓冲</span></h2><ul>
-<li>使用两个帧缓存</li>
-<li>当要从缓冲区读取信息时，总是从当前缓冲区读取。当要往缓冲区写入数据时，总在后台缓冲区上进行。</li>
-<li>使用场景<ul>
-<li>我们需要维护一些被逐步改变着的状态量</li>
-<li>同个状态可能会在其被修改的同时被访问到</li>
-<li>我们希望避免访问状态的代码能看到具体的工作过程</li>
-<li>我们希望能够读取状态但不希望等待写入操作的完成</li>
-</ul>
-</li>
-</ul>
-<h2><span id="第9章-游戏循环">第9章 游戏循环</span></h2><ul>
-<li>处理用户的输入，但并不等待用户输入</li>
-<li>两个因素决定了FPS：<ul>
-<li>循环每一帧要处理的信息量</li>
-<li>底层平台速度</li>
-</ul>
-</li>
-<li>当需要16ms以上的时间来更新帧速为16ms每帧的游戏时，可以不用那么频繁地更新游戏并且能够追赶上游戏的行进速度。<ul>
-<li>计算这一帧距离上一帧的实际时间间隔以作为更新步长</li>
-</ul>
-</li>
-<li>物理引擎不稳定原因：<ul>
-<li>高帧率更新位置50次，低帧率只执行了5次，每次计算结果不完全一致，浮点数会带来舍入误差  </li>
-<li>为了以实时来运行，游戏的物理引擎会做实际物理规则的近似。为了防止近似计算“炸飞上天”，系统进行了减幅计算。这些减幅运算被小心地安排成以某个固定时长进行</li>
-</ul>
-</li>
-<li>把时间追回来<ul>
-<li>允许在渲染的时候进行一些灵活的调整以释放出一些处理器时间</li>
-<li>在每帧开始，基于实际流逝的时间更新变量lag，这一变量表示了游戏时钟相对现实时间落后的差量。接着我们使用一个内部循环来更新游戏，每次以固定时长进行，直到它追赶上现实时间。一旦赶上现实时间，我们开始渲染并进行下一次游戏循环</li>
-<li>固定步长不是视觉上的帧率，只是更新游戏的间隔。越短，追赶上实际时间所花费的处理次数越多，越长，跳帧越明显。</li>
-<li>安全措施：当内部更新循环次数超过一定迭代上线，让循环终止。这样游戏会变慢，但不会卡死。</li>
-<li>以固定步长更新游戏，但在随机时间点进行渲染，渲染频率&lt;更新频率</li>
-</ul>
-</li>
-<li>设置帧率上限-假如游戏循环在本时间片内已经完成了处理，那么剩余时间它将休眠</li>
-</ul>
-<h2><span id="第10章-更新方法">第10章 更新方法</span></h2><ul>
-<li>为游戏中的每个实体封装其自身的行为，这将使游戏循环保持整洁并便于往循环中增加或移除实体。</li>
-<li>在每一帧都给予每个对象一次更新自己行为的机会。</li>
-<li>所有对象都在每帧进行模拟，但并非真正同步-顺序更新，每次增量式的更新会改变游戏世界，从一个有效的状态到下一个</li>
-<li>优化：单独维护一个需要被更新的“存活”对象表，当一个对象被禁用时，将它从其中移除。</li>
-<li>update方法存在于：<ul>
-<li>实体类中</li>
-<li>组件类中</li>
-<li>代理类中</li>
-</ul>
-</li>
-</ul>
-<h2><span id="第11章-字节码">第11章 字节码</span></h2><ul>
-<li>解释器模式</li>
-<li>字节码模式<ul>
-<li>基于栈的虚拟机<ul>
-<li>指令小</li>
-<li>代码生成简单</li>
-<li>指令数多</li>
-</ul>
-</li>
-<li>基于寄存器的虚拟机<ul>
-<li>指令大</li>
-<li>指令数少</li>
-</ul>
-</li>
-</ul>
-</li>
-<li>应该有哪些指令<ul>
-<li>外部基本操作</li>
-<li>内部基本操作</li>
-<li>控制流</li>
-</ul>
-</li>
-</ul>
-<h2><span id="第12章-子类沙盒">第12章 子类沙盒</span></h2><ul>
-<li>一个基类定义了一个抽象的沙盒方法和一些预定义的操作集合。通过将它们设置为受保护的状态以确保它们仅供子类使用。每个派生出的沙盒子类根据父类提供的操作来实现沙盒函数</li>
-<li>使用场景<ul>
-<li>你有一个带有大量子类的基类</li>
-<li>基类能够提供所有子类可能需要执行的操作集合</li>
-<li>在子类之间有重叠代码，你希望在它们之间更简便地共享代码</li>
-<li>你希望使这些继承类与程序其它代码之间的耦合最小化</li>
-</ul>
-</li>
-<li>操作分流<ul>
-<li>减少基类的函数数量</li>
-<li>在辅助类中的代码更容易维护</li>
-<li>降低了基类和其它系统之间的耦合</li>
-</ul>
-</li>
-<li>分段初始化<ul>
-<li>构造函数不带参数，仅负责创建对象</li>
-<li>调用一个直接定义在基类中的函数来传递它所需的数据</li>
-</ul>
-</li>
-</ul>
-<h2><span id="第13章-类型对象">第13章 类型对象</span></h2><ul>
-<li>定义一个类型对象类和一个持有类型对象类。每个类型对象的实例表示一个不同的逻辑类型。每个持有类型对象类的实例引用一个描述其类型的类型对象。</li>
-</ul>
-<h2><span id="第14章-组件模式">第14章 组件模式</span></h2><ul>
-<li>使用场景：<ul>
-<li>有一个涉及多个域的类</li>
-<li>一个类越来越庞大</li>
-<li>希望定义许多共享不同能力的对象  </li>
-</ul>
-</li>
-<li>组件通信<ul>
-<li>通过修改容器对象的状态</li>
-<li>直接相互引用</li>
-<li>传递信息<ul>
-<li>在容器类中建立一个小的消息传递系统，让需要传递信息的组件通过广播的方式去建立组件间的联系。</li>
-<li>先定义一个所有组件都能实现的基本组件接口，包含receive方法，组件通过实现它来监听传入消息；在容器类中添加一个方法来发送消息。</li>
-<li>如果一个组件访问它的容器，先把信息发送给容器，并通过容器将信息广播给容器所包含的所有组件。</li>
-<li>组件之间唯一的耦合在于组件本身。</li>
-<li>容器类仅仅将消息发出，不必知道消息内容。</li>
-</ul>
-</li>
-</ul>
-</li>
-</ul>
-<h2><span id="第15章-事件队列发布订阅">第15章 事件队列【发布/订阅】</span></h2><ul>
-<li>事件循环-每当用户与程序交互时，操作系统会为之生成一个事件。系统将这个事件抛给应用程序，为了收到这些事件，必然有个事件循环。</li>
-<li>中心事件总线-游戏的任何一个系统都可以向它发送事件，也可以从队列中收取事件</li>
-<li>事件队列模式<ul>
-<li>发出通知时系统会将该请求置入队列并随即返回</li>
-<li>请求处理器随后从事件队列中获取并处理这些请求</li>
-<li>请求可由处理器直接处理或转交给对其感兴趣的模块</li>
-</ul>
-</li>
-<li>队列提供给拉取请求的代码块一些控制权<ul>
-<li>接受者可由延迟处理、聚合请求或完全废弃</li>
-</ul>
-</li>
-<li>汇总请求<ul>
-<li>请求入列使合并，而非处理时   </li>
-</ul>
-</li>
-</ul>
-<h2><span id="第16章-服务定位器">第16章 服务定位器</span></h2><ul>
-<li>一个服务类为一系列操作定义了一个抽象的接口，一个具体的服务提供器实现这个接口。一个单独的服务定位器通过查找一个合适的提供器来提供这个服务的访问，同时屏蔽了提供器的具体类型和定位这个服务的过程。</li>
-<li>定位方式：在使用这个服务之前依赖一些外部代码来注册一个服务提供器</li>
-<li>”可配置的单例模式“</li>
-<li>空服务：在注册之前使用报错-提供一个结构一直的空服务</li>
-<li>限制服务的访问域</li>
-</ul>
-<h2><span id="第17章-数据局部性">第17章 数据局部性</span></h2><ul>
-<li>数据的组织方式是游戏性能的一个关键部分</li>
-<li>CPU的速度飞快增长，RAM的访问速度增长迟缓</li>
-<li>合理使用缓存，检测缓存命中</li>
-<li>热/冷分解-将每帧需要检测的状态量和不会频繁使用的数据划分开</li>
-<li>合理设计数据结构</li>
-</ul>
-<h2><span id="第18章-脏标记模式">第18章 脏标记模式</span></h2><ul>
-<li>延时重算<ul>
-<li>将父链上物体的多个局部变换的改动分解为每个物体的一次重计算</li>
-</ul>
-</li>
-<li>把耗时的工作推迟到真正需要才进行</li>
-<li>当任何原始数据改动时都需要设置脏标记</li>
-</ul>
-<h2><span id="第19章-对象池">第19章 对象池</span></h2><ul>
-<li>当你需要频繁地创建或销毁对象</li>
-<li>对象大小一致</li>
-<li>在堆上进行内存分配较慢或会产生内存碎片</li>
-<li>每个对象封装获取代缴昂贵且可重用的资源</li>
-</ul>
-<h2><span id="第20章-空间分区">第20章 空间分区</span></h2><ul>
-<li>检测对象附近有什么物体-对象分区</li>
-<li>常见结构<ul>
-<li>网格[Gird(spatial_index)] </li>
-<li>四叉树</li>
-<li>二叉空间分割（BSP）</li>
-<li>k-dimensional树</li>
-<li>层次包围盒</li>
-</ul>
-</li>
-<li>网格是一个连续的桶排序</li>
-<li>二叉空间分割、k-d树、层次包围盒都是二叉查找树</li>
-<li>四叉树和八叉树都是Trie树</li>
-<li>每个分区都有大致相同的对象个数</li>
-</ul>
+        <h3><span id="问题1">问题1</span></h3><figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">var</span> obj1 = &#123;<span class="attr">x</span>:<span class="number">5</span>&#125;;</span><br><span class="line"><span class="keyword">var</span> obj2 = obj1;</span><br><span class="line">obj1.a = obj1 = &#123;<span class="attr">x</span>:<span class="number">6</span>&#125;;</span><br><span class="line"><span class="built_in">console</span>.log(obj1.a);<span class="comment">//undefined</span></span><br><span class="line"><span class="built_in">console</span>.log(obj2.a);<span class="comment">//&#123;x:6&#125;</span></span><br></pre></td></tr></table></figure>
+<p>需要明确两点：<br>1.连等是先确定所有变量的指针，再让指针指向赋值。<br>2.属性访问器优先级高于=</p>
+<p>上面的过程是：<br>1.找到obj1.a及obj1的指针。如果有，不改变，如果没有，进行创建，初始化为undefined<br>2.把找到的指针指向最右的赋值<br><a id="more"></a></p>
+<h3><span id="问题2">问题2</span></h3><p>图片不规则裁剪问题。<br>大作业里面有一个头像长这样<br><img src="http://ovne6ee1z.bkt.clouddn.com/1253C481551090ECAA7C9DC317F2AA98.jpg" alt=""><br>有同学问怎么制作，正好最近用laya引擎做游戏，UI里也涉及到图片的裁剪，laya给出的办法是新增一个sprite组件，改类型为mask，mask中再新建图形，这样就可以保留相交的部分。</p>
+<p>由于引擎2D部分本身是由canvas实现的，顺便看了下源码，发现了globalCompositeOperation这个东西（不好意思之前没怎么接触过canvas…所以只能用发现了）。</p>
+<h5><span id="文档">文档</span></h5><p><a href="https://developer.mozilla.org/zh-CN/docs/Web/API/Canvas_API/Tutorial/Compositing" target="_blank" rel="noopener">https://developer.mozilla.org/zh-CN/docs/Web/API/Canvas_API/Tutorial/Compositing</a></p>
+<h5><span id="globalcompositeoperation部分属性值">globalCompositeOperation部分属性值</span></h5><table>
+<thead>
+<tr>
+<th>属性值</th>
+<th>意义 </th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>source-over</td>
+<td>默认。在目标图像上显示源图像。  </td>
+</tr>
+<tr>
+<td>source-atop</td>
+<td>在目标图像顶部显示源图像。源图像位于目标图像之外的部分是不可见的。</td>
+</tr>
+<tr>
+<td>source-in</td>
+<td>在目标图像中显示源图像。只有目标图像内的源图像部分会显示，目标图像是透明的。</td>
+</tr>
+<tr>
+<td>source-out</td>
+<td>在目标图像之外显示源图像。只会显示目标图像之外源图像部分，目标图像是透明的。</td>
+</tr>
+<tr>
+<td>destination-over</td>
+<td>在源图像上方显示目标图像。</td>
+</tr>
+<tr>
+<td>destination-atop</td>
+<td>在源图像顶部显示目标图像。源图像之外的目标图像部分不会被显示。</td>
+</tr>
+<tr>
+<td>destination-in</td>
+<td>在源图像中显示目标图像。只有源图像内的目标图像部分会被显示，源图像是透明的。</td>
+</tr>
+<tr>
+<td>destination-out</td>
+<td>在源图像外显示目标图像。只有源图像外的目标图像部分会被显示，源图像是透明的。</td>
+</tr>
+<tr>
+<td>lighter</td>
+<td>显示源图像 + 目标图像。</td>
+</tr>
+<tr>
+<td>copy</td>
+<td>显示源图像。忽略目标图像。</td>
+</tr>
+<tr>
+<td>source-over</td>
+<td>使用异或操作对源图像与目标图像进行组合。</td>
+</tr>
+</tbody>
+</table>
+<h5><span id="demo">Demo</span></h5><figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">var</span> canvas = <span class="built_in">document</span>.createElement(<span class="string">'canvas'</span>);</span><br><span class="line"><span class="built_in">document</span>.getElementsByTagName(<span class="string">'body'</span>)[<span class="number">0</span>].append(canvas)</span><br><span class="line">canvas.width = <span class="number">1000</span>;</span><br><span class="line">canvas.height = <span class="number">1000</span>;</span><br><span class="line"><span class="keyword">var</span> context = canvas.getContext(<span class="string">'2d'</span>);</span><br><span class="line"></span><br><span class="line"><span class="keyword">var</span> imgArr = [];</span><br><span class="line"><span class="keyword">var</span> avatar = <span class="keyword">new</span> Image();</span><br><span class="line">avatar.src = <span class="string">'avatar.jpg'</span>;</span><br><span class="line"><span class="keyword">var</span> shape = <span class="keyword">new</span> Image();</span><br><span class="line">shape.src = <span class="string">'shape.png'</span>;</span><br><span class="line"></span><br><span class="line"></span><br><span class="line">avatar.onload = <span class="function"><span class="keyword">function</span>(<span class="params"></span>)</span>&#123;</span><br><span class="line">    context.drawImage(avatar, <span class="number">0</span>, <span class="number">0</span>, <span class="number">100</span>, <span class="number">100</span>);</span><br><span class="line">    shape.onload = <span class="function"><span class="keyword">function</span>(<span class="params"></span>)</span>&#123;</span><br><span class="line">        context.globalCompositeOperation=<span class="string">"destination-in"</span>;</span><br><span class="line">        context.drawImage(shape, <span class="number">0</span>, <span class="number">0</span>, <span class="number">50</span>, <span class="number">50</span>);</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<h3><span id="问题3">问题3</span></h3><p>见<a href="https://www.zhihu.com/question/53394256" target="_blank" rel="noopener">实例共享原型的属性，为什么直接对属性赋值，不会改变其他实例上的该属性值？</a></p>
 
       
 
@@ -464,11 +267,7 @@
 		<ul class="article-tag-list">
 			 
         		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color5">设计模式</a>
-        		</li>
-      		 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color3">游戏</a>
+        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color3">前端</a>
         		</li>
       		
 		</ul>
@@ -535,7 +334,7 @@
     <a class="close js-modal-close" href="javascript:;"><i class="icon icon-close"></i></a>
     <p>扫一扫，分享到微信</p>
     <div class="wx-qrcode">
-      <img src="http://s.jiathis.com/qrcode.php?url=http://yoursite.com/2018/01/25/《游戏编程模式》笔记/" alt="微信分享二维码">
+      <img src="http://s.jiathis.com/qrcode.php?url=http://yoursite.com/2017/09/04/微专业助教过程中一些比较有趣的问题/" alt="微信分享二维码">
     </div>
 </div>
 
@@ -550,18 +349,18 @@
   
 <nav id="article-nav">
   
-    <a href="/2018/01/25/python语言程序设计笔记/" id="article-nav-newer" class="article-nav-link-wrap">
+    <a href="/2018/01/24/《编写可测试的JavaScript代码》笔记/" id="article-nav-newer" class="article-nav-link-wrap">
       <i class="icon-circle-left"></i>
       <div class="article-nav-title">
         
-          python语言程序设计笔记
+          《编写可测试的JavaScript代码》读书笔记
         
       </div>
     </a>
   
   
-    <a href="/2018/01/25/《你不知道的JavaScript》笔记/" id="article-nav-older" class="article-nav-link-wrap">
-      <div class="article-nav-title">《你不知道的JavaScript》笔记</div>
+    <a href="/2017/09/04/DOM树问题/" id="article-nav-older" class="article-nav-link-wrap">
+      <div class="article-nav-title">DOM树问题</div>
       <i class="icon-circle-right"></i>
     </a>
   
@@ -588,7 +387,7 @@
                 </span>
                 <span class="tooltip-content">
                     <div class="toc-article">
-                    <ol class="toc"><li class="toc-item toc-level-2"><a class="toc-link" href="#undefined"><span class="toc-number">1.</span> <span class="toc-text">第1章 概述</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#undefined"><span class="toc-number">2.</span> <span class="toc-text">第2章 命令模式</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#undefined"><span class="toc-number">3.</span> <span class="toc-text">第3章 享元模式</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#undefined"><span class="toc-number">4.</span> <span class="toc-text">第4章 观察者模式</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#undefined"><span class="toc-number">5.</span> <span class="toc-text">第5章 原型模式</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#undefined"><span class="toc-number">6.</span> <span class="toc-text">第6章 单例模式</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#undefined"><span class="toc-number">7.</span> <span class="toc-text">第7章 状态模式</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#undefined"><span class="toc-number">8.</span> <span class="toc-text">第8章 双缓冲</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#undefined"><span class="toc-number">9.</span> <span class="toc-text">第9章 游戏循环</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#undefined"><span class="toc-number">10.</span> <span class="toc-text">第10章 更新方法</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#undefined"><span class="toc-number">11.</span> <span class="toc-text">第11章 字节码</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#undefined"><span class="toc-number">12.</span> <span class="toc-text">第12章 子类沙盒</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#undefined"><span class="toc-number">13.</span> <span class="toc-text">第13章 类型对象</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#undefined"><span class="toc-number">14.</span> <span class="toc-text">第14章 组件模式</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#undefined"><span class="toc-number">15.</span> <span class="toc-text">第15章 事件队列【发布/订阅】</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#undefined"><span class="toc-number">16.</span> <span class="toc-text">第16章 服务定位器</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#undefined"><span class="toc-number">17.</span> <span class="toc-text">第17章 数据局部性</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#undefined"><span class="toc-number">18.</span> <span class="toc-text">第18章 脏标记模式</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#undefined"><span class="toc-number">19.</span> <span class="toc-text">第19章 对象池</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#undefined"><span class="toc-number">20.</span> <span class="toc-text">第20章 空间分区</span></a></li></ol>
+                    <ol class="toc"><li class="toc-item toc-level-3"><a class="toc-link" href="#undefined"><span class="toc-number">1.</span> <span class="toc-text">问题1</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#undefined"><span class="toc-number">2.</span> <span class="toc-text">问题2</span></a><ol class="toc-child"><li class="toc-item toc-level-5"><a class="toc-link" href="#undefined"><span class="toc-number">2.0.1.</span> <span class="toc-text">文档</span></a></li><li class="toc-item toc-level-5"><a class="toc-link" href="#undefined"><span class="toc-number">2.0.2.</span> <span class="toc-text">globalCompositeOperation部分属性值</span></a></li><li class="toc-item toc-level-5"><a class="toc-link" href="#undefined"><span class="toc-number">2.0.3.</span> <span class="toc-text">Demo</span></a></li></ol></li></ol></li><li class="toc-item toc-level-3"><a class="toc-link" href="#undefined"><span class="toc-number">3.</span> <span class="toc-text">问题3</span></a></li></ol>
                     </div>
                 </span>
             </div>
